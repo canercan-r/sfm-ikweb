@@ -486,7 +486,7 @@
             "browser": "apps/ik-web/src/main.ts",
             "index": "apps/ik-web/src/index.html",
             "inlineStyleLanguage": "scss",
-            "outputPath": "dist/ik-web",
+            "outputPath": "dist/ik-web/browser",
             "polyfills": [
               "apps/ik-web/src/polyfills.ts",
               "@angular/localize/init"
