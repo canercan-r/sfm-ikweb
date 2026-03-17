@@ -1,0 +1,147 @@
+//
+// Checkbox Theme
+//
+
+$custom-checkbox-theme: checkbox-theme(
+  $fill-color: $primary-light,
+  $fill-color-hover: $primary-light,
+  $tick-color: $primary,
+  $tick-color-hover: $primary-inverse,
+  $label-color: $gray-700,
+  $border-radius: $border-radius-sm,
+);
+
+@include css-vars($custom-checkbox-theme);
+
+.igx-checkbox__label {
+  margin-inline-start: 1rem;
+}
+
+.igx-checkbox__composite-mark {
+  stroke-linecap: round !important;
+  stroke-width: 2px !important;
+}
+
+.igx-checkbox__ripple {
+  opacity: 0 !important;
+}
+
+igx-checkbox {
+  --igx-checkbox-fill-color: var(--#{$prefix}primary) !important;
+  --igx-checkbox-fill-color-hover:  var(--#{$prefix}primary) !important;
+  --igx-checkbox-fill-color-checked: var(--#{$prefix}primary-active) !important;
+  --igx-checkbox-tick-color: var(--#{$prefix}primary-active) !important;
+  --igx-checkbox-border-color: var(--#{$prefix}primary) !important;
+  //padding: $input-btn-padding-y 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-self: center !important;
+
+  &.form-control-button {
+    padding: 0.461rem !important;
+    background: var(--#{$prefix}gray-100) !important;
+
+    .igx-input-group {
+      --size: 36px;
+      // padding: var(--#{$prefix}btn-padding-y) var(--#{$prefix}btn-padding-x);
+
+      .igx-input-group__bundle {
+        height: 36px;
+        background-color: transparent;
+
+        ::placeholder {
+          color: var(--#{$prefix}body-color);
+        }
+
+        box-shadow: none;
+
+        // .igx-input-group__bundle-main {
+        //   padding-top: 0;
+        //   text-decoration: none;
+        //   margin-top: 0em;
+        //   text-align: center;
+        //   display: inline-block; /* important */
+        //   white-space: nowrap;
+        //   overflow: hidden;
+        //   text-overflow: ellipsis;
+
+        //   &:hover {
+        //     .igx-input-group__input {
+        //       margin-left: -300px;
+        //     }
+        //   }
+
+        //   .igx-input-group__input {
+        //     margin-left: 0em;
+        //     -webkit-transition: 3.3s;
+        //     -moz-transition: 3.3s;
+        //     transition: 3.3s;
+
+        //     -webkit-transition-timing-function: linear;
+        //     -moz-transition-timing-function: linear;
+        //     transition-timing-function: linear;
+        //   }
+        // }
+
+        &::after {
+          border-block-end: none;
+        }
+      }
+
+      .igx-input-group__border {
+        height: 0;
+      }
+      .igx-input-group__line {
+        background: transparent;
+      }
+    }
+
+    .igx-input-group:not(.igx-input-group--box):not(.igx-input-group--border) {
+      .igx-input-group__bundle {
+        .igx-input-group__notch {
+          .igx-input-group__label {
+            --floating-label-position: -70% !important;
+          }
+        }
+      }
+    }
+  }
+  &.btn {
+    padding: 0 !important;
+
+    .igx-input-group {
+      // padding: var(--#{$prefix}btn-padding-y) var(--#{$prefix}btn-padding-x);
+
+      .igx-input-group__bundle {
+        background-color: transparent;
+
+        ::placeholder {
+          color: var(--#{$prefix}body-color);
+        }
+
+        box-shadow: none;
+
+        .igx-input-group__bundle-main {
+          padding-top: 0;
+
+          .igx-input-group__input {
+            transform: translateY(0px);
+          }
+        }
+        &::after {
+          border-block-end: none;
+        }
+      }
+
+      .igx-input-group__border {
+        height: 0;
+      }
+      .igx-input-group__line {
+        background: transparent;
+      }
+    }
+  }
+  &__content {
+    max-height: var(--st-combo-items-max-height) !important;
+  }
+}

@@ -1,0 +1,11 @@
+//
+// Footer
+//
+
+.footer {
+  display: flex;
+  align-items: center;
+  padding: get($footer-config, padding-y) get($footer-config, padding-x);
+  border-radius: $border-radius;
+  background-color: var(--st-footer-bg-color);
+}

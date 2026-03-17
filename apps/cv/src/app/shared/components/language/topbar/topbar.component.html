@@ -1,0 +1,42 @@
+<!-- begin::User -->
+<div
+  class="d-flex flex-column align-items-center"
+  [ngClass]="toolbarButtonMarginClass"
+>
+  <!-- begin::Trigger -->
+  <div
+    class="d-flex flex-column align-items-center"
+    id="st_topbar_user_trigger"
+    data-st-menu-trigger="click"
+    data-st-menu-attach="parent"
+    data-st-menu-placement="bottom-end"
+    data-st-menu-flip="bottom"
+    data-st-menu="true"
+  >
+    <button
+      class="btn btn-icon btn-light-primary btn-color-primary btn-active-color-primary btn-active-bg-light rounded-pill my-3"
+      [ngClass]="toolbarButtonHeightClass"
+    >
+      <cv-symbol
+        class="d-flex w-40px h-40px"
+        [type]="'icon'"
+        [icon]="'fa-regular fa-language'"
+        [symbolclass]="''"
+        [color]="'primary'"
+        [radius]="'circle'"
+        [bgcolor]="'white'"
+        [fs]="'5'"
+        [size]="'40px'"
+      ></cv-symbol>
+    </button>
+  </div>
+  <!-- end::Trigger  -->
+  <div
+    data-st-menu="true"
+    id="st_topbar_user_inner"
+    class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-dark menu-state-bg menu-state-primary fw-bold py-4 w-md-275px fs-6 inset-0 inset-md-bottom-end-auto"
+  >
+    <cv-user-inner [innerId]="'st_topbar_user_inner'"></cv-user-inner>
+  </div>
+</div>
+<!-- end::User -->

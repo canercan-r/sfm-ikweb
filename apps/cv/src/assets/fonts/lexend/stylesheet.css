@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Lexend';
+    src: url('Lexend-Regular.eot');
+    src: local('Lexend Regular'), local('Lexend-Regular'),
+        url('Lexend-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Lexend-Regular.woff2') format('woff2'),
+        url('Lexend-Regular.woff') format('woff'),
+        url('Lexend-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

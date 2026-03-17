@@ -1,0 +1,102 @@
+//
+// Stepper
+//
+
+// Base
+.stepper {
+  // Content
+  [data-st--stepper-element="info"],
+  [data-st--stepper-element="content"] {
+    display: none;
+
+    &.current {
+      display: flex;
+    }
+  }
+
+  // Enable cursor pointer on clickable steppers
+  .stepper-item[data-st--stepper-action="step"] {
+    cursor: pointer;
+  }
+
+  // States
+  & {
+    [data-st--stepper-action="final"] {
+      display: none;
+    }
+
+    [data-st--stepper-action="previous"] {
+      display: none;
+    }
+
+    [data-st--stepper-action="next"] {
+      display: inline-block;
+    }
+
+    [data-st--stepper-action="submit"] {
+      display: none;
+    }
+  }
+
+  &.first {
+    [data-st--stepper-action="previous"] {
+      display: none;
+    }
+
+    [data-st--stepper-action="next"] {
+      display: inline-block;
+    }
+
+    [data-st--stepper-action="submit"] {
+      display: none;
+    }
+  }
+
+  &.between {
+    [data-st--stepper-action="previous"] {
+      display: inline-block;
+    }
+
+    [data-st--stepper-action="next"] {
+      display: inline-block;
+    }
+
+    [data-st--stepper-action="submit"] {
+      display: none;
+    }
+  }
+
+  &.last {
+    [data-st--stepper-action="final"] {
+      display: inline-block;
+    }
+
+    [data-st--stepper-action="final"].btn-flex {
+      display: flex;
+    }
+
+    [data-st--stepper-action="previous"] {
+      display: inline-block;
+    }
+
+    [data-st--stepper-action="previous"].btn-flex {
+      display: flex;
+    }
+
+    [data-st--stepper-action="next"] {
+      display: none;
+    }
+
+    [data-st--stepper-action="next"].btn-flex {
+      display: flex;
+    }
+
+    [data-st--stepper-action="submit"] {
+      display: inline-block;
+    }
+
+    [data-st--stepper-action="submit"].btn-flex {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,282 @@
+<ikweb-toolbar [backClick]="true" [bc$]="bc$" [title]="puantaj?.projeAdi">
+  <div action class="d-flex align-items-center gap-2">
+    <ng-container *ngIf="navActiveId == 'Puantaj' || navActiveId == 'Dosyalar'">
+      <button class="btn btn-sm btn-warning" (click)="eksikKayitlar()">
+        {{ "Global.SaveandSend" | translate }}
+      </button>
+
+      <button class="btn btn-sm btn-success">
+        {{ "Global.Save" | translate }}
+      </button>
+
+      <button
+        *ngIf="navActiveId == 'Dosyalar'"
+        class="btn btn-sm btn-yellow"
+        (click)="dosyaEkle()"
+      >
+        {{ "Global.Ekle" | translate }}
+      </button>
+
+      <button
+        [overlaySettings]="_sharedHelper.overlaySettingsAuto"
+        [igxToggleAction]="dropdownMenu"
+        [igxDropDownItemNavigation]="dropdownMenu"
+        class="btn btn-sm btn-icon btn-circle btn-primary"
+      >
+        <i class="fa-regular fa-ellipsis-vertical"></i>
+      </button>
+
+      <igx-drop-down #dropdownMenu [width]="'200px'">
+        <igx-drop-down-item>
+          {{ "Global.ExcelExport" | translate }}
+        </igx-drop-down-item>
+        <igx-drop-down-item>
+          {{ "Global.OnIzleme" | translate }}
+        </igx-drop-down-item>
+        <igx-drop-down-item>
+          {{ "Global.FarkliKaydet" | translate }}
+        </igx-drop-down-item>
+        <igx-drop-down-item class="border-bottom">
+          {{ "Global.Yazdir" | translate }}
+        </igx-drop-down-item>
+
+        <igx-drop-down-item>
+          {{
+            "Puantaj.ProjePuantajlari.AylikPuantaj.GunlukPuantajdanAl"
+              | translate
+          }}
+        </igx-drop-down-item>
+        <igx-drop-down-item (click)="personelEkle()">
+          {{
+            "Puantaj.ProjePuantajlari.AylikPuantaj.PersonelEkle.PersonelEkle"
+              | translate
+          }}
+        </igx-drop-down-item>
+        <igx-drop-down-item>
+          {{
+            "Puantaj.ProjePuantajlari.AylikPuantaj.TutariYenidenHesapla"
+              | translate
+          }}
+        </igx-drop-down-item>
+        <igx-drop-down-item (click)="parmakIziRaporu()">
+          {{
+            "Puantaj.ProjePuantajlari.AylikPuantaj.ParmakIziRaporu.ParmakIziRaporu"
+              | translate
+          }}
+        </igx-drop-down-item>
+        <igx-drop-down-item (click)="yillikIzinRaporu()">
+          {{
+            "Puantaj.ProjePuantajlari.AylikPuantaj.YillikIzinDurumu.YillikIzinDurumu"
+              | translate
+          }}
+        </igx-drop-down-item>
+      </igx-drop-down>
+    </ng-container>
+  </div>
+</ikweb-toolbar>
+
+<div class="card card-spacing-reset">
+  <div class="nav-control px-5">
+    <div class="nav-control-prev ms-n7" *ngIf="_sharedHelper.width < 1280">
+      <button
+        class="btn btn-sm btn-icon btn-active-color-primary"
+        (click)="controlPrev(scrollContentPuantajNav)"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+    </div>
+
+    <div class="hover-scroll-x" #scrollContentPuantajNav>
+      <ul
+        id="st_puantaj_nav"
+        ngbNav
+        (navChange)="navChanged($event)"
+        #PuantajNav="ngbNav"
+        [activeId]="navActiveId"
+        class="nav nav-line-tabs nav-line-tabs-0 flex-nowrap text-nowrap border-transparent fs-7 fw-bold"
+      >
+        <li
+          class="nav-item"
+          [ngbNavItem]="item"
+          *ngFor="let item of navItems; let i = index"
+        >
+          <a class="nav-link text-active-dark me-6" ngbNavLink>
+            {{ "Puantaj.ProjePuantajlari.AylikPuantaj." + item | translate }}
+          </a>
+          <ng-template ngbNavContent>
+            <ng-container [ngSwitch]="item">
+              <ng-container *ngSwitchCase="'Puantaj'">
+                <div
+                  data-st-scroll="true"
+                  data-st-scroll-save-state="false"
+                  data-st-scroll-height="auto"
+                  data-st-scroll-wrappers="#st_aylikPuantaj_body"
+                  data-st-scroll-dependencies="#st_header, #st_toolbar"
+                  [attr.data-st-scroll-offset]="
+                    _sharedHelper.contentSpacingFull
+                  "
+                  class="hover-scroll-overlay-y"
+                >
+                  <lib-mock-grid
+                    id="st_aylikPuantaj_body"
+                    #aylikPuantajGrid
+                  ></lib-mock-grid>
+                </div>
+              </ng-container>
+              <ng-container *ngSwitchCase="'EvrakKontrolu'">
+                <div
+                  data-st-scroll="true"
+                  data-st-scroll-save-state="false"
+                  data-st-scroll-height="auto"
+                  data-st-scroll-wrappers="#st_aylikPuantaj_evrakKontrol_body"
+                  data-st-scroll-dependencies="#st_header, #st_toolbar"
+                  [attr.data-st-scroll-offset]="
+                    _sharedHelper.contentSpacingFull
+                  "
+                  class="hover-scroll-overlay-y"
+                >
+                  <lib-mock-grid
+                    id="st_aylikPuantaj_evrakKontrol_body"
+                    #aylikPuantajEvrakKontroluGrid
+                  ></lib-mock-grid>
+                </div>
+              </ng-container>
+              <ng-container *ngSwitchCase="'Dosyalar'">
+                <div
+                  data-st-scroll="true"
+                  data-st-scroll-save-state="false"
+                  data-st-scroll-height="auto"
+                  data-st-scroll-wrappers="#st_aylikPuantaj_dosyalar_body"
+                  data-st-scroll-dependencies="#st_header, #st_toolbar"
+                  [attr.data-st-scroll-offset]="
+                    _sharedHelper.contentSpacingFull
+                  "
+                  class="hover-scroll-overlay-y"
+                >
+                  <lib-mock-grid
+                    id="st_aylikPuantaj_dosyalar_body"
+                    #aylikPuantajDosyalarGrid
+                  ></lib-mock-grid>
+                </div>
+              </ng-container>
+              <ng-container *ngSwitchCase="'PuantajDurumDegisiklikleri'">
+                <div
+                  data-st-scroll="true"
+                  data-st-scroll-save-state="false"
+                  data-st-scroll-height="auto"
+                  data-st-scroll-wrappers="#st_aylikPuantaj_puantajDurum_body"
+                  data-st-scroll-dependencies="#st_header, #st_toolbar"
+                  [attr.data-st-scroll-offset]="
+                    _sharedHelper.contentSpacingFull
+                  "
+                  class="hover-scroll-overlay-y"
+                >
+                  <lib-mock-grid
+                    id="st_aylikPuantaj_puantajDurum_body"
+                    #aylikPuantajPuantajDurumDegisiklikleriGrid
+                  ></lib-mock-grid>
+                </div>
+              </ng-container>
+              <ng-container *ngSwitchCase="'EkOdemeler'">
+                <div
+                  data-st-scroll="true"
+                  data-st-scroll-save-state="false"
+                  data-st-scroll-height="auto"
+                  data-st-scroll-wrappers="#st_aylikPuantaj_ekOdemeler_body"
+                  data-st-scroll-dependencies="#st_header, #st_toolbar"
+                  [attr.data-st-scroll-offset]="
+                    _sharedHelper.contentSpacingFull
+                  "
+                  class="hover-scroll-overlay-y"
+                >
+                  <lib-mock-grid
+                    id="st_aylikPuantaj_ekOdemeler_body"
+                    (didDoubleClick)="gridEkOdemelerClick($event)"
+                    #aylikPuantajEkOdemelerGrid
+                  ></lib-mock-grid>
+                </div>
+              </ng-container>
+              <ng-container *ngSwitchCase="'FazlaMesaiBilgileri'">
+                <div
+                  data-st-scroll="true"
+                  data-st-scroll-save-state="false"
+                  data-st-scroll-height="auto"
+                  data-st-scroll-wrappers="#st_aylikPuantaj_fazlaMesai_body"
+                  data-st-scroll-dependencies="#st_header, #st_toolbar"
+                  [attr.data-st-scroll-offset]="
+                    _sharedHelper.contentSpacingFull
+                  "
+                  class="hover-scroll-overlay-y"
+                >
+                  <lib-mock-grid
+                    id="st_aylikPuantaj_fazlaMesai_body"
+                    #aylikPuantajFazlaMesaiBilgileriGrid
+                  ></lib-mock-grid>
+                </div>
+              </ng-container>
+            </ng-container>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-control-next me-n7" *ngIf="_sharedHelper.width < 1280">
+      <button
+        class="btn btn-sm btn-icon btn-active-color-primary"
+        (click)="controlNext(scrollContentPuantajNav)"
+      >
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav-content mt-1" [ngbNavOutlet]="PuantajNav"></div>
+</div>
+
+<ng-template #gridCellActionTemp let-cell="cell" class="colWidth">
+  <button class="btn">
+    <igx-icon class="more_vert_icon" family="material">more_vert</igx-icon>
+  </button>
+</ng-template>
+
+<ng-template #gridCellActionFileTemp let-cell="cell" class="colWidth">
+  <button
+    class="btn"
+    [igxToggleAction]="dropdownCell"
+    [igxDropDownItemNavigation]="dropdownCell"
+  >
+    <igx-icon class="more_vert_icon" family="material">more_vert</igx-icon>
+  </button>
+  <igx-drop-down #dropdownCell [width]="'150px'">
+    <igx-drop-down-item>
+      {{ "Global.Goruntule" | translate }}
+    </igx-drop-down-item>
+    <igx-drop-down-item class="border-bottom">
+      {{ "Global.Sil" | translate }}
+    </igx-drop-down-item>
+  </igx-drop-down>
+</ng-template>
+
+<!-- <ng-template #cellDateTemp let-cell="cell">
+  {{ _sharedHelper.formatDate(cell.value) }}
+</ng-template> -->
+
+<ng-template #gridCellBrutTemp let-cell="cell">
+  <span class="text-danger">{{ cell.value }}</span>
+</ng-template>
+
+<ng-template #cellAciklamaTemp let-cell="cell">
+  <span [ngClass]="{ 'text-truncate': cell.value.length > 12 }">{{
+    cell.value
+  }}</span>
+  <i
+    class="fa-light fa-circle-info text-dark"
+    #target="tooltipTarget"
+    [igxTooltipTarget]="tooltipRef"
+    [overlaySettings]="_sharedHelper.overlaySettingsLeftLeftBottom"
+  >
+  </i>
+
+  <div #tooltipRef="tooltip" igxTooltip class="w-300px">
+    {{ cell.value }}
+  </div>
+</ng-template>

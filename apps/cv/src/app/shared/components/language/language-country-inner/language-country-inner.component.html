@@ -1,0 +1,45 @@
+<div
+  class="menu-item px-3"
+  data-st-menu-offset="{default: '0,10', lg: ''}"
+  data-st-menu-trigger="{default: 'click'}"
+  data-st-menu-placement="{default: 'bottom-end', lg: 'left-start'}"
+  data-st-menu-flip="bottom"
+>
+  <a class="menu-link cursor-pointer px-5">
+    <span class="menu-title position-relative">
+      {{ "Global.Dil" | translate }}
+      <span
+        class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0"
+      >
+        {{ "Global." + currentLanguage | translate }}
+        <img
+          class="w-15px h-15px rounded-1 ms-2"
+          [src]="'assets/flags/' + currentLanguage + '.svg'"
+          alt="flags"
+        />
+      </span>
+    </span>
+  </a>
+
+  <div class="menu-sub menu-sub-dropdown w-175px py-4">
+    <div
+      *ngFor="let language of languages"
+      (click)="setLanguage(language)"
+      class="menu-item px-3 cursor-pointer"
+    >
+      <a
+        class="menu-link d-flex px-5"
+        [ngClass]="currentLanguage === language ? 'active' : ''"
+      >
+        <span class="symbol symbol-20px me-4">
+          <img
+            class="rounded-1"
+            [src]="'assets/flags/' + language + '.svg'"
+            alt="flags"
+          />
+        </span>
+        {{ "Global." + language | translate }}
+      </a>
+    </div>
+  </div>
+</div>

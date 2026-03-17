@@ -1,0 +1,74 @@
+<div class="card card-spacing-reset">
+  <div class="card-body" id="st_puantajKontrol_cardBody">
+    <form [formGroup]="form" class="row row-gap-3">
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+        <ikweb-select
+          name="yil"
+          label="Puantaj.ProjePuantajlari.PuantajKontrol.Yil"
+          formControlName="yil"
+          [data]=""
+          valueKey=""
+          displayKey=""
+        >
+        </ikweb-select>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+        <ikweb-select
+          name="ay"
+          label="Puantaj.ProjePuantajlari.PuantajKontrol.Ay"
+          formControlName="ay"
+          [data]=""
+          valueKey=""
+          displayKey=""
+        >
+        </ikweb-select>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-select
+          name="masrafMerkeziKodu"
+          label="Puantaj.ProjePuantajlari.PuantajKontrol.MasrafMerkeziKodu"
+          formControlName="masrafMerkeziKodu"
+          [data]=""
+          valueKey=""
+          displayKey=""
+        >
+        </ikweb-select>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <ikweb-select
+          name="masrafMerkeziAdi"
+          label="Puantaj.ProjePuantajlari.PuantajKontrol.MasrafMerkeziAdi"
+          formControlName="masrafMerkeziAdi"
+          [data]=""
+          valueKey=""
+          displayKey=""
+        >
+        </ikweb-select>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-1 mt-auto">
+        <button (click)="kaydet()" class="btn btn-sm btn-success">
+          {{ "Global.Save" | translate }}
+        </button>
+      </section>
+    </form>
+  </div>
+
+  <div
+    id="st_puantajKontrol_scroll"
+    data-st-scroll="true"
+    data-st-scroll-save-state="false"
+    data-st-scroll-height="auto"
+    data-st-scroll-wrappers="#st_puantajKontrol_body"
+    data-st-scroll-dependencies="#st_header, #st_toolbar, #st_puantajKontrol_cardBody"
+    [attr.data-st-scroll-offset]="_sharedHelper.contentSpacing"
+  >
+    <lib-mock-grid
+      id="st_puantajKontrol_body"
+      #puantajKontrolGrid
+    ></lib-mock-grid>
+  </div>
+</div>

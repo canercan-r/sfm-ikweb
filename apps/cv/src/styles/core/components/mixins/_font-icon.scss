@@ -1,0 +1,7 @@
+//
+// Font Icon
+//
+
+@mixin font-icon-size($size, $important: false) {
+  font-size: $size valueif($important, !important, null);
+}

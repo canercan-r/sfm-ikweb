@@ -1,0 +1,43 @@
+//
+// Button
+//
+
+@use "@angular/material" as mat;
+
+// $custom-raised-button: mat.define-light-theme(
+//   (
+//     //aasdsa
+//     color:
+//       (
+//         //color
+//         primary: $mat-primary,
+//         accent: $mat-accent
+//       )
+//   )
+// );
+
+// .custom-button {
+//   @include mat.button-theme($custom-raised-button);
+// }
+
+.btn {
+  &:not(.btn-outline):not(.btn-dashed):not(.border-hover):not(
+      .border-active
+    ):not(.btn-flush):not(.btn-icon) {
+    &.mat-flat-button,
+    &.mat-button {
+      padding: 0;
+    }
+  }
+}
+
+.mat-mdc-icon-button:hover .mat-mdc-button-persistent-ripple::before {
+  opacity: 0;
+  --mat-icon-button-hover-state-layer-opacity: 0;
+}
+
+.mat-mdc-icon-button {
+  .mat-button-wrapper {
+    display: flex;
+  }
+}

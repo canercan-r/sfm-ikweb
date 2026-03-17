@@ -1,0 +1,68 @@
+<!-- <button
+  class="btn btn-sm btn-flex btn-center btn-yellow w-100"
+  igxButton="raised"
+  igxRipple
+  [overlaySettings]="_shared.overlaySettingsAuto"
+  [igxToggleAction]="dropDown"
+  [igxDropDownItemNavigation]="dropDown"
+>
+  <span *ngIf="!!tarihTipi">{{
+    "Global.Tarihler." + tarihTipi | translate | titlecase
+  }}</span>
+  <i
+    class="fa-solid fa-chevron-{{ dropDown.collapsed ? 'down' : 'up' }} ms-3"
+  ></i>
+  <i
+    *ngIf="!!tarihTipi && clearButton"
+    (click)="clear($event)"
+    class="fa-solid fa-xmark"
+  ></i>
+</button>
+<igx-drop-down #dropDown>
+  <ng-container *ngIf="groupKey(1)">
+    <ng-container *ngFor="let item of dropdownItems">
+      <igx-drop-down-item
+        *ngIf="item.groupKey === 1"
+        (click)="select(item.valueKey)"
+      >
+        {{ "Global.Tarihler." + item.displayKey | translate }}
+      </igx-drop-down-item>
+    </ng-container>
+    <igx-divider class="my-3"></igx-divider>
+  </ng-container>
+
+  <ng-container *ngIf="groupKey(2)">
+    <ng-container *ngFor="let item of dropdownItems">
+      <igx-drop-down-item
+        *ngIf="item.groupKey === 2"
+        (click)="select(item.valueKey)"
+      >
+        {{ "Global.Tarihler." + item.displayKey | translate }}
+      </igx-drop-down-item>
+    </ng-container>
+    <igx-divider class="my-3"></igx-divider>
+  </ng-container>
+
+  <ng-container *ngIf="groupKey(3)">
+    <ng-container *ngFor="let item of dropdownItems">
+      <igx-drop-down-item
+        *ngIf="item.groupKey === 3"
+        (click)="select(item.valueKey)"
+      >
+        {{ "Global.Tarihler." + item.displayKey | translate }}
+      </igx-drop-down-item>
+    </ng-container>
+    <igx-divider class="my-3"></igx-divider>
+  </ng-container>
+
+  <ng-container *ngIf="groupKey(4)">
+    <ng-container *ngFor="let item of dropdownItems">
+      <igx-drop-down-item
+        *ngIf="item.groupKey === 4"
+        (click)="select(item.valueKey)"
+      >
+        {{ "Global.Tarihler." + item.displayKey | translate }}
+      </igx-drop-down-item>
+    </ng-container>
+  </ng-container>
+</igx-drop-down> -->

@@ -1,0 +1,17 @@
+<igx-button
+  class="d-flex h-100 flex-center"
+  [igxToggleAction]="dropDownRangePicker"
+  [overlaySettings]="positionLeft ? leftOverlaySettings : overlaySettings"
+>
+  {{ "Global.Tarihler.OzelAralik" | translate }}
+</igx-button>
+
+<igx-drop-down #dropDownRangePicker>
+  <igx-calendar #calendar [locale]="_lang.locale.code" class="calendar" selection="range" [monthsViewNumber]="2" (selected)="verifyRange($event)">
+  </igx-calendar>
+  <div class="d-flex flex-end">
+    <button class="btn btn-primary btn-outline btn-outline-primary btn-active-primary" (click)="onDoneSelected(dropDownRangePicker)">
+      {{ "Global.Tamam" | translate }}
+    </button>
+  </div>
+</igx-drop-down>

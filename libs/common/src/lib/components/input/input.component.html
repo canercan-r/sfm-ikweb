@@ -1,0 +1,24 @@
+<igx-input-group *ngIf="type !== 'tel'">
+  <label igxLabel [for]="name">{{ label | translate }}</label>
+  <input
+    igxInput
+    [formControl]="control"
+    [type]="type"
+    [maxlength]="maxlength"
+    [name]="name"
+    [autocomplete]="autocomplete"
+  />
+</igx-input-group>
+
+<igx-input-group *ngIf="type === 'tel'">
+  <label igxLabel [for]="name">{{ label | translate }}</label>
+  <input
+    igxInput
+    [formControl]="control"
+    [type]="type"
+    [maxlength]="maxlength"
+    [name]="name"
+    [autocomplete]="autocomplete"
+    libPhoneMask
+  />
+</igx-input-group>

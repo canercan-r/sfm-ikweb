@@ -1,0 +1,107 @@
+<div
+  [ngClass]="headerContainerCssClasses"
+  class="d-flex align-items-stretch justify-content-between"
+>
+  <!-- begin::Aside mobile toggle -->
+  <ng-container *ngIf="asideDisplay">
+    <div
+      class="d-flex align-items-center d-lg-none ms-n3 me-1"
+      title="Show aside menu"
+    >
+      <div
+        class="btn btn-icon btn-color-gray-700 btn-active-light-primary w-30px h-30px w-md-40px h-md-40px"
+        id="st_aside_toggle"
+        data-st-toggle="true"
+        data-st-toggle-target="body"
+        data-st-toggle-name="aside-enabled"
+      >
+        <i class="fa-solid fa-bars fs-3"></i>
+      </div>
+    </div>
+  </ng-container>
+  <!-- end::Aside mobile toggle -->
+
+  <!-- begin::Logo *mobile -->
+  <ng-container
+    *ngIf="device === 'mobile' || ('tablet' && orientation === 'portrait')"
+    [ngTemplateOutlet]="logo"
+  ></ng-container>
+  <!-- end::Logo *mobile -->
+
+  <!-- begin::Wrapper -->
+  <div
+    class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
+  >
+    <!-- begin::Navbar -->
+    <div class="d-flex align-items-center">
+      <!-- <div
+        *ngIf="!isHome"
+        class="btn btn-icon btn-color-gray-700 btn-active-icon-primary btn-active-light-primary w-30px h-30px w-md-40px h-md-40px"
+        routerLink="/"
+      >
+        <i class="fa-regular fa-house fs-3"></i>
+      </div> -->
+      <ng-container *ngIf="headerLeft === 'menu'">
+        <div class="d-flex align-items-stretch" id="st_header_nav">
+          <div
+            class="header-menu align-items-stretch"
+            data-st-drawer="true"
+            data-st-drawer-name="header-menu"
+            data-st-drawer-activate="{default: true, lg: false}"
+            data-st-drawer-overlay="true"
+            data-st-drawer-width="{default:'200px', '300px': '250px'}"
+            data-st-drawer-direction="end"
+            data-st-drawer-toggle="#st_header_menu_mobile_toggle"
+          >
+            <cv-header-menu
+              class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch"
+              [favorite]="headerFavorite"
+              [icon]="headerIcon"
+              [menu]="headerMenu"
+            ></cv-header-menu>
+          </div>
+        </div>
+      </ng-container>
+
+      <lib-fullscreen
+        class="d-none d-md-flex"
+        [color]="'primary'"
+        [colorInverse]="'gray-700'"
+        [w]="'30px'"
+        [h]="'30px'"
+        [wmd]="'40px'"
+        [hmd]="'40px'"
+        [size]="'2x'"
+      >
+      </lib-fullscreen>
+    </div>
+    <!-- end::Navbar -->
+
+    <!-- begin::Logo *desktop -->
+    <ng-container
+      *ngIf="device === 'desktop' || ('tablet' && orientation === 'landscape')"
+      [ngTemplateOutlet]="logo"
+    ></ng-container>
+    <!-- end::Logo *desktop -->
+
+    <div class="d-flex align-items-stretch flex-shrink-0">
+      <cv-topbar class="d-flex align-items-stretch flex-shrink-0"></cv-topbar>
+    </div>
+  </div>
+  <!-- end::Wrapper -->
+</div>
+
+<ng-template #logo>
+  <!-- begin::Logo -->
+  <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+    <a routerLink="/">
+      <ng-container *ngIf="device === 'mobile'; else elseTemplate">
+        <img [src]="getLogo(logoTypeEnum.Logo)" class="h-25px ms-3" />
+      </ng-container>
+      <ng-template #elseTemplate>
+        <img [src]="getLogo(logoTypeEnum.LogoText)" class="h-20px" />
+      </ng-template>
+    </a>
+  </div>
+  <!-- end::Logo -->
+</ng-template>

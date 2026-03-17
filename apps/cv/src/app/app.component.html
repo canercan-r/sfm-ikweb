@@ -1,0 +1,31 @@
+<router-outlet></router-outlet>
+
+<!-- begin:: Loading -->
+<lib-loading class="page-loader" [isLoading]="isLoading"></lib-loading>
+<!-- end:: Loading -->
+
+<!-- begin:: Splash -->
+<lib-splash class="splash" [isSplash]="false">
+  <div class="d-flex flex-column flex-fill h-100 text-center p-10" splash>
+    <div class="d-flex flex-column flex-center h-100">
+      <div
+        class="card-header d-flex justify-content-center"
+        *ngIf="sharedService.logo$ | async as _logo"
+      >
+        <img
+          [src]="_logo"
+          class="object-fit-contain h-200px"
+          [alt]="'illustrations-1'"
+        />
+      </div>
+      <!-- <img alt="Logo" [src]="sharedService.logo$ | async" class="h-60px" /> -->
+      <span class="text-inverse-primary fw-semibold fs-1 pt-20"
+        >{{ sharedService.title$ | async | translate }}
+      </span>
+    </div>
+    <div class="p-10 text-gray-200">
+      Copyright © {{ "APP_NAME" | translate }} {{ currentDateStr }}
+    </div>
+  </div>
+</lib-splash>
+<!-- end:: Splash -->

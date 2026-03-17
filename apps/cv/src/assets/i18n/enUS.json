@@ -1,0 +1,199 @@
+{
+  "APP_NAME": "Senkron Tech",
+  "AskerlikDurumlari": {
+    "Muaf": "Exempt",
+    "Tecilli": "Deferred",
+    "Yapildi": "Done",
+    "Yapilmadi": "Not Done"
+  },
+  "Auth": {
+    "Description": "Please enter e-mail and password.",
+    "Form": {
+      "Title": "Application Form"
+    },
+    "Login": {
+      "BilgilerHatali": "Username or password incorrect.",
+      "DevamEtmekIcinBlaBlaBla": "Use account <strong>{{alertParam1}}</strong> and password <strong>{{alertParam2}}</strong> to continue.",
+      "EMail": "E-mail",
+      "GirisYapButton": "Login",
+      "KullaniciAdi": "Username",
+      "KullaniciVeSifreniziKontrolEdiniz": "Please check your username and password",
+      "OturumAc": "Sign In",
+      "OturumuAcikTut": "Keep Logged In",
+      "Sifre": "Password",
+      "Title": "Sign In"
+    },
+    "Title": "Let's Start"
+  },
+  "CINSIYET": {
+    "ERKEK": "Man",
+    "KADIN": "Woman"
+  },
+  "DilSeviyeleri": {
+    "Baslangic": "Beginning",
+    "Iyi": "Good",
+    "Orta": "Mid"
+  },
+  "EhliyetDurum": {
+    "VAR": "I have a drivers license",
+    "YOK": "I don't have a drivers license"
+  },
+  "EngelDurum": {
+    "VAR": "Has Disability",
+    "YOK": "No Disability"
+  },
+  "Global": {
+    "Aciklama": "Explanation",
+    "Almanca": "German",
+    "Ara": "Search",
+    "AskerlikDurumu": "Have you served in the military?",
+    "Basarili": "Successful",
+    "BasariliTxt": "The operation completed successfully.",
+    "Bilgi": "İnfo",
+    "Bloklar": "Blocks",
+    "Bolumler": "Departments",
+    "CVYukle": "Upload CV",
+    "DataNotGet": "Form datas could not get. Please refresh the page.",
+    "DevamEt": "Continue",
+    "Dil": "Language",
+    "DilDegistir": "Change Languages",
+    "Duzenle": "Edit",
+    "EngelDurumu": "Do You Have a Disability?",
+    "ErrorOccured": "Error Occured",
+    "Export": "Export",
+    "Filtre": "Filter",
+    "Filtrele": "Filter",
+    "Fransizca": "French",
+    "Geri": "Back",
+    "Hata": "Error",
+    "Ingilizce": "English",
+    "KamerayaBaglan": "Connect to Camera",
+    "Kaydet": "Save",
+    "KaydiSil": "Delete Record",
+    "KaydiSilMsg": "Are your sure to delete this record.",
+    "LutfenBekleyin": "Please wait...",
+    "NotFound": "There is not found data for this page",
+    "OturumuKapat": "Logout",
+    "Raporlar": "Reports",
+    "RaporlariGoruntule": "View Reports",
+    "Sil": "Delete",
+    "SonucBulunamadi": "There Were No Results",
+    "SonucBulunamadiAciklama": "Please try again with a different query.",
+    "Sonuclar": "Results",
+    "SourceNotValid": "QR source is not valid!",
+    "Tamam": "Ok",
+    "Tamamla": "Finish",
+    "Tarih": "Date",
+    "Tarihler": {
+      "BuAy": "This Month",
+      "BuHafta": "This Week",
+      "BuYil": "This Year",
+      "Bugun": "Today",
+      "Dun": "Yesterday",
+      "DuneGore": "Comparing to Yesterday",
+      "GecenAy": "Last Month",
+      "GecenAyaGore": "Comparing to Last Month",
+      "GecenHafta": "Last Week",
+      "GecenHaftayaGore": "Comparing to Last Week",
+      "GecenYil": "Last Year",
+      "GelecekAy": "Next Month",
+      "GelecekHafta": "Next Week",
+      "GelecekYil": "Next Year",
+      "Tarih": "Date",
+      "Yarin": "Tomorrow"
+    },
+    "TryAgainLater": "Try again later",
+    "TumLokasyonlar": "All Locations",
+    "Tumu": "All",
+    "Turkce": "Turkish",
+    "Uyari": "Notice",
+    "Validation": {
+      "EPostaAlaniBosGecilemez": "E-Mail is required",
+      "EPostaAlaniGecersiz": "E-Mail is invalid",
+      "EPostaEnAz3SembolIcermelidir": "E-Mail should have at least 3 symbols",
+      "EPostaGirisiYapiniz": "Please enter e-mail",
+      "EPostaMaksimum360SembolIcermelidir": "E-Mail should have maximum 100 symbols",
+      "EskiSifreAlaniBosGecilemez": "Please enter your old password!",
+      "EskiSifreYeniSifreAyniOlamaz": "New password have to be different from the old password.",
+      "HataliGirisHakkiAsildi": "Your account has been locked because you made too many incorrect entries. Please contact your administrator.",
+      "IslemBasarili": "Successful",
+      "IslemBasarisiz": "Unsuccessful",
+      "KullaniciAdiEnAz3SembolIcermelidir": "Username should have at least 3 symbols",
+      "KullaniciAdiGirisiBosGecilemez": "Username is required",
+      "KullaniciAdiGirisiYapiniz": "Please enter username",
+      "KullaniciAdiMaksimum100SembolIcermelidir": "Username should have maximum 100 symbols",
+      "KullaniciVeSifreniziKontrolEdiniz": "Incorrect Username or Password",
+      "SifreAlaniBosGecilemez": "Password is required",
+      "SifreEnAz3SembolIcermelidir": "Password should have at least 3 symbols",
+      "SifreGirisiYapiniz": "Please enter password",
+      "SifreMaksimum100SembolIcermelidir": "Password should have maximum 100 symbols",
+      "SifreTekrarAlaniBosGecilemez": "Please Confirm Password",
+      "SifreVeSifreTekrarAlanlariAyniOlmalidir": "Passwords doesn't match."
+    },
+    "Vazgec": "Cancel",
+    "WrongFromat": "Wrong File Format",
+    "enUS": "English",
+    "trTR": "Turkish"
+  },
+  "Home": {
+    "GelenBildirimBlaBlaBla": "You have {{adet}} notifications today.",
+    "Merhaba": "Hello",
+    "Title": "Home"
+  },
+  "Job": {
+    "FormSaved": {
+      "Title": "Form Saved"
+    },
+    "Register": {
+      "Ad": "Name",
+      "BolgeOtel": "Region or Hotel",
+      "Departman": "Department",
+      "GorevTanimi": "Position",
+      "Hello": "Hello",
+      "HelloDes": "Please fill in your information.",
+      "ID": "ID/Passport Number",
+      "STAJ": "Intern",
+      "Soyad": "Surname",
+      "TAM_ZAMANLI": "Full Time",
+      "Telefon": "Phone",
+      "Title": "Job Application Register"
+    },
+    "Steps": {
+      "BASLANGIC": "Beginning",
+      "Egitim": {
+        "Dil": "Spoken Languages",
+        "EgitimDurumu": "Educational Status",
+        "Title": "Education"
+      },
+      "Genel": {
+        "BirthDate": "Birthdate",
+        "Cinsiyet": "Genger",
+        "EPosta": "E-Mail",
+        "Lokasyonlar": "Locations",
+        "Title": "General",
+        "Uyruk": "Nationality"
+      },
+      "IYI": "Good",
+      "ORTA": "Middle",
+      "Title": "Application Form",
+      "Yetkinlik": {
+        "ENGELDURUM": "State Your Disability Status",
+        "Ehliyetler": "Driving licenses",
+        "Title": "Competence",
+        "ozgecmis": "Write your resume"
+      }
+    }
+  },
+  "Msg": {
+    "ApplicationRTitle": "Your application has been received.",
+    "ApplicationRecieved": "Thank you for your interest and trust in our group.",
+    "BigFileError": "Your file size is: {{DosyaBoyutu}} MB. System maximum file size limit: {{DosyaSiniri}} MB! This value cannot be exceeded.",
+    "CannotReadPdf": "Could not read the pdf file.",
+    "ShiftCouldnotGet": "Shifts records could not get.",
+    "WrongFileFormat": "Please upload a pdf file."
+  },
+  "Splash": {
+    "Description": "See job opportunities and continue your career journey.",
+    "Title": "Your place is ready here!"
+  }
+}

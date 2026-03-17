@@ -1,0 +1,46 @@
+<div
+  class="menu-item px-5"
+  data-st-menu-trigger="{default: 'click'}"
+  data-st-menu-placement="{default: 'bottom-end', lg: 'left-start'}"
+  data-st-menu-flip="bottom"
+>
+  <a class="menu-link cursor-pointer">
+    <span class="menu-title position-relative">
+      {{ "Global.Dil" | translate }}
+      <span
+        class="d-flex flex-center fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0"
+      >
+        {{ "Global." + currentLanguage | translate }}
+        <span class="symbol symbol-2by3 symbol-flag ms-2 lh-1">
+          <img
+            class="object-fit-cover"
+            [src]="
+              _sharedHelper.getCountryFlags((currentLanguage ?? '').slice(-2))
+            "
+          />
+        </span>
+      </span>
+    </span>
+  </a>
+
+  <div class="menu-sub menu-sub-dropdown w-175px py-4">
+    <div
+      *ngFor="let language of languages"
+      (click)="setLanguage(language)"
+      class="menu-item px-3 cursor-pointer"
+    >
+      <a
+        class="menu-link d-flex px-5"
+        [ngClass]="currentLanguage === language ? 'active' : ''"
+      >
+        <span class="symbol symbol-2by3 symbol-flag me-4 lh-1">
+          <img
+            class="object-fit-cover"
+            [src]="_sharedHelper.getCountryFlags((language ?? '').slice(-2))"
+          />
+        </span>
+        {{ "Global." + language | translate }}
+      </a>
+    </div>
+  </div>
+</div>

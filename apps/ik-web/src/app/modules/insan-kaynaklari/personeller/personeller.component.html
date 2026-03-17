@@ -1,0 +1,29 @@
+<ikweb-toolbar [bc$]="bc$"> </ikweb-toolbar>
+
+<div
+  class="card card-spacing-reset"
+  id="st_personeller_scroll"
+  data-st-scroll="true"
+  data-st-scroll-save-state="false"
+  data-st-scroll-height="auto"
+  data-st-scroll-wrappers="#st_personeller_body"
+  data-st-scroll-dependencies="#st_header, #st_toolbar"
+  [attr.data-st-scroll-offset]="_sharedHelper.contentSpacingFull"
+>
+  <lib-mock-grid id="st_personeller_body" #personellerGrid></lib-mock-grid>
+</div>
+
+<ng-template #gridCellActionTemp let-cell="cell" class="colWidth">
+  <button
+    class="btn"
+    [igxToggleAction]="dropdownCell"
+    [igxDropDownItemNavigation]="dropdownCell"
+  >
+    <igx-icon class="more_vert_icon" family="material">more_vert</igx-icon>
+  </button>
+  <igx-drop-down #dropdownCell [width]="'200px'">
+    <igx-drop-down-item (click)="detayPersonel(cell.row.data)">
+      {{ "Global.Edit" | translate }}
+    </igx-drop-down-item>
+  </igx-drop-down>
+</ng-template>

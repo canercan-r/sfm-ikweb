@@ -1,0 +1,26 @@
+/*
+ * CSS Variables
+ */
+
+/*
+##Device = Desktops
+##Screen = 992px to higher resolution desktops
+*/
+
+@media (min-width: 992px) {
+  .logo-inside {
+    width: 50% !important;
+  }
+}
+
+/*
+##Device = Tablet & mobile
+##Screen = 992px to lower resolution tablet & mobile
+*/
+
+/* Tablet & mobile modes */
+@media (max-width: 992px) {
+  .logo-inside {
+    width: 60% !important;
+  }
+}

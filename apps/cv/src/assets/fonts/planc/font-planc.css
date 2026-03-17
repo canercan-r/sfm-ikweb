@@ -1,0 +1,280 @@
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-MediumItalic.eot');
+  src: local('Planc Medium Italic'), local('Planc-MediumItalic'),
+    url('Planc-MediumItalic.eot?#iefix') format('embedded-opentype'),
+    url('Planc-MediumItalic.woff2') format('woff2'),
+    url('Planc-MediumItalic.woff') format('woff'),
+    url('Planc-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: fallback;
+  descent-override: 0%;
+
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-Thin.eot');
+  src: local('Planc Thin'), local('Planc-Thin'),
+    url('Planc-Thin.eot?#iefix') format('embedded-opentype'),
+    url('Planc-Thin.woff2') format('woff2'),
+    url('Planc-Thin.woff') format('woff'),
+    url('Planc-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-BookItalic.eot');
+  src: local('Planc Book Italic'), local('Planc-BookItalic'),
+    url('Planc-BookItalic.eot?#iefix') format('embedded-opentype'),
+    url('Planc-BookItalic.woff2') format('woff2'),
+    url('Planc-BookItalic.woff') format('woff'),
+    url('Planc-BookItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-Light.eot');
+  src: local('Planc Light'), local('Planc-Light'),
+    url('Planc-Light.eot?#iefix') format('embedded-opentype'),
+    url('Planc-Light.woff2') format('woff2'),
+    url('Planc-Light.woff') format('woff'),
+    url('Planc-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-BoldItalic.eot');
+  src: local('Planc Bold Italic'), local('Planc-BoldItalic'),
+    url('Planc-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('Planc-BoldItalic.woff2') format('woff2'),
+    url('Planc-BoldItalic.woff') format('woff'),
+    url('Planc-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-ExtraBold.eot');
+  src: local('Planc ExtraBold'), local('Planc-ExtraBold'),
+    url('Planc-ExtraBold.eot?#iefix') format('embedded-opentype'),
+    url('Planc-ExtraBold.woff2') format('woff2'),
+    url('Planc-ExtraBold.woff') format('woff'),
+    url('Planc-ExtraBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-Medium.eot');
+  src: local('Planc Medium'), local('Planc-Medium'),
+    url('Planc-Medium.eot?#iefix') format('embedded-opentype'),
+    url('Planc-Medium.woff2') format('woff2'),
+    url('Planc-Medium.woff') format('woff'),
+    url('Planc-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-LightItalic.eot');
+  src: local('Planc Light Italic'), local('Planc-LightItalic'),
+    url('Planc-LightItalic.eot?#iefix') format('embedded-opentype'),
+    url('Planc-LightItalic.woff2') format('woff2'),
+    url('Planc-LightItalic.woff') format('woff'),
+    url('Planc-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-Regular.eot');
+  src: local('Planc Regular'), local('Planc-Regular'),
+    url('Planc-Regular.eot?#iefix') format('embedded-opentype'),
+    url('Planc-Regular.woff2') format('woff2'),
+    url('Planc-Regular.woff') format('woff'),
+    url('Planc-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-Book.eot');
+  src: local('Planc Book'), local('Planc-Book'),
+    url('Planc-Book.eot?#iefix') format('embedded-opentype'),
+    url('Planc-Book.woff2') format('woff2'),
+    url('Planc-Book.woff') format('woff'),
+    url('Planc-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-RegularItalic.eot');
+  src: local('Planc Regular Italic'), local('Planc-RegularItalic'),
+    url('Planc-RegularItalic.eot?#iefix') format('embedded-opentype'),
+    url('Planc-RegularItalic.woff2') format('woff2'),
+    url('Planc-RegularItalic.woff') format('woff'),
+    url('Planc-RegularItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-SemiBold.eot');
+  src: local('Planc SemiBold'), local('Planc-SemiBold'),
+    url('Planc-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('Planc-SemiBold.woff2') format('woff2'),
+    url('Planc-SemiBold.woff') format('woff'),
+    url('Planc-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-SemiBoldItalic.eot');
+  src: local('Planc SemiBold Italic'), local('Planc-SemiBoldItalic'),
+    url('Planc-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('Planc-SemiBoldItalic.woff2') format('woff2'),
+    url('Planc-SemiBoldItalic.woff') format('woff'),
+    url('Planc-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-ExtraLight.eot');
+  src: local('Planc ExtraLight'), local('Planc-ExtraLight'),
+    url('Planc-ExtraLight.eot?#iefix') format('embedded-opentype'),
+    url('Planc-ExtraLight.woff2') format('woff2'),
+    url('Planc-ExtraLight.woff') format('woff'),
+    url('Planc-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-Bold.eot');
+  src: local('Planc Bold'), local('Planc-Bold'),
+    url('Planc-Bold.eot?#iefix') format('embedded-opentype'),
+    url('Planc-Bold.woff2') format('woff2'),
+    url('Planc-Bold.woff') format('woff'),
+    url('Planc-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-ThinItalic.eot');
+  src: local('Planc Thin Italic'), local('Planc-ThinItalic'),
+    url('Planc-ThinItalic.eot?#iefix') format('embedded-opentype'),
+    url('Planc-ThinItalic.woff2') format('woff2'),
+    url('Planc-ThinItalic.woff') format('woff'),
+    url('Planc-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-ExtraBoldItalic.eot');
+  src: local('Planc ExtraBold Italic'), local('Planc-ExtraBoldItalic'),
+    url('Planc-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('Planc-ExtraBoldItalic.woff2') format('woff2'),
+    url('Planc-ExtraBoldItalic.woff') format('woff'),
+    url('Planc-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-SemiLight.eot');
+  src: local('Planc SemiLight'), local('Planc-SemiLight'),
+    url('Planc-SemiLight.eot?#iefix') format('embedded-opentype'),
+    url('Planc-SemiLight.woff2') format('woff2'),
+    url('Planc-SemiLight.woff') format('woff'),
+    url('Planc-SemiLight.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-ExtraLightItalic.eot');
+  src: local('Planc ExtraLight Italic'), local('Planc-ExtraLightItalic'),
+    url('Planc-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+    url('Planc-ExtraLightItalic.woff2') format('woff2'),
+    url('Planc-ExtraLightItalic.woff') format('woff'),
+    url('Planc-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: fallback;
+  descent-override: 0%;
+}
+
+@font-face {
+  font-family: 'Planc';
+  src: url('Planc-SemiLightItalic.eot');
+  src: local('Planc SemiLight Italic'), local('Planc-SemiLightItalic'),
+    url('Planc-SemiLightItalic.eot?#iefix') format('embedded-opentype'),
+    url('Planc-SemiLightItalic.woff2') format('woff2'),
+    url('Planc-SemiLightItalic.woff') format('woff'),
+    url('Planc-SemiLightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: fallback;
+  descent-override: 0%;
+}

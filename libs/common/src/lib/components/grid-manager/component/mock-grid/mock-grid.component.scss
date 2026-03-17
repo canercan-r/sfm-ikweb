@@ -1,0 +1,9 @@
+:host ::ng-deep {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+igx-grid {
+  --ig-size: var(--st-component-size);
+}

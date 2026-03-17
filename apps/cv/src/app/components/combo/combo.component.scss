@@ -1,0 +1,8 @@
+:host ::ng-deep {
+  width: 100%;
+
+  .igx-combo__content {
+    max-height: 120% !important;
+    min-height: 120% !important;
+  }
+}

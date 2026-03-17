@@ -1,0 +1,196 @@
+<div class="toolbar" id="st_toolbar" [ngClass]="{ 'toolbar-bg': toolbarBg }">
+  <div id="st_toolbar_container" class="d-flex flex-stack container-fluid">
+    <ng-container *ngTemplateOutlet="tempTitle"></ng-container>
+    <ng-container *ngTemplateOutlet="tempAction"></ng-container>
+  </div>
+  <!-- <cv-topbar></cv-topbar> -->
+</div>
+
+<ng-template #tempTitle>
+  <div
+    #stPageTitle
+    class="page-title d-flex flex-column justify-content-center flex-wrap me-3"
+    data-st-swapper="false"
+    data-st-swapper-mode="prepend"
+    data-st-swapper-parent="{default: '#st_content_container', 'lg': '#st_toolbar_container'}"
+  >
+    <ng-container>
+      <ng-container *ngIf="pageheading">
+        <h1
+          class="fw-bolder my-0 fs-5 lh-1"
+          [ngClass]="
+            device === 'mobile' || ('tablet' && orientation === 'portrait')
+              ? 'text-dark'
+              : toolbarBg
+              ? 'text-white'
+              : 'text-dark'
+          "
+        >
+          <ng-content select="[heading]"></ng-content>
+        </h1>
+      </ng-container>
+
+      <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-0">
+        <li
+          *ngIf="isBack"
+          (click)="back()"
+          class="breadcrumb-item me-2 text-hover-primary cursor-pointer"
+          [ngClass]="
+            device === 'mobile' || ('tablet' && orientation === 'portrait')
+              ? 'text-dark'
+              : toolbarBg
+              ? 'text-white'
+              : 'text-dark'
+          "
+        >
+          <i class="fa-regular fa-chevron-left text-dark fs-1"></i>
+        </li>
+        <ng-container *ngIf="breadcrumb$ | async as _bc">
+          <li *ngFor="let bc of _bc" class="breadcrumb-item">
+            <a
+              class="breadcrumb-item fw-bold fs-3 my-0"
+              [ngClass]="
+                device === 'mobile' || ('tablet' && orientation === 'portrait')
+                  ? 'text-dark'
+                  : toolbarBg
+                  ? 'text-white'
+                  : 'text-dark'
+              "
+              (click)="bc.path ? routerLink(bc.path) : null"
+            >
+              {{ bc.title | translate }}
+            </a>
+          </li>
+        </ng-container>
+
+        <!-- <li
+          class="breadcrumb-item fw-bold fs-3 my-0"
+          [ngClass]="
+            device === 'mobile' || ('tablet' && orientation === 'portrait')
+              ? 'text-dark'
+              : toolbarBg
+              ? 'text-white'
+              : 'text-dark'
+          "
+        >
+          {{ customtitle ? (customtitle | translate) : title }}
+        </li> -->
+      </ul>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #tempAction>
+  <ng-content select="[action]"></ng-content>
+</ng-template>
+
+<!-- <div
+  class="toolbar"
+  [ngClass]="{ 'toolbar-bg': toolbarBg }"
+  id="st_shared_toolbar"
+>
+  <div
+    id="st_shared_toolbar_container"
+    [ngClass]="toolbarContainerCssClasses"
+    class="d-flex flex-stack"
+  >
+    <ng-container *ngTemplateOutlet="tempTitle"></ng-container>
+
+    <ng-container *ngTemplateOutlet="tempAction"></ng-container>
+  </div>
+</div>
+
+<ng-template #tempTitle>
+  <div
+    #stPageTitle
+    *ngIf="device !== 'mobile'"
+    class="page-title d-flex"
+    [ngClass]="pageTitleCssClass"
+    data-st-swapper="true"
+    data-st-swapper-mode="prepend"
+    data-st-swapper-parent="{default: '#st_content_container', 'lg': '#st_shared_toolbar_container'}"
+  >
+    <ng-container *ngIf="title$ | async as title; else elseTemplate">
+      <ng-container *ngIf="showTitle">
+        <h1
+          *ngIf="bc$ | async as _bc"
+          class="fw-bolder my-0 fs-5 lh-1"
+          [ngClass]="
+            device === 'mobile' || ('tablet' && orientation === 'portrait')
+              ? 'text-dark'
+              : toolbarBg
+              ? 'text-white'
+              : 'text-dark'
+          "
+        >
+          <ng-container *ngIf="_bc.length === 0; else else_bcTemplate">
+            {{ title }}
+          </ng-container>
+          <ng-template #else_bcTemplate>
+            <ng-content select="[title]"></ng-content>
+          </ng-template>
+        </h1>
+      </ng-container>
+
+      <ng-container *ngIf="showBC">
+        <ng-container *ngIf="bc$ | async as _bc">
+          <ng-container *ngIf="_bc.length > 0">
+            <ng-container *ngIf="pageTitleDirection === 'row' && customTitle">
+              <span class="h-20px border-gray-200 border-start mx-4"></span>
+            </ng-container>
+            <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-0">
+              <li
+                *ngFor="let bc of _bc"
+                class="breadcrumb-item"
+                [ngClass]="!bc.isSeparator && bc.isActive ? 'text-dark' : ''"
+                [ngClass]="!bc.isSeparator && !bc.isActive ? 'text-muted' : ''"
+              >
+                <ng-container *ngIf="!bc.isSeparator">
+                  <a
+                    class="text-muted text-hover-primary"
+                    [routerLink]="bc.path"
+                  >
+                    {{ bc.title }}
+                  </a>
+                </ng-container>
+                <ng-container *ngIf="bc.isSeparator">
+                  <span
+                    class="bullet w-5px h-2px"
+                    [ngClass]="
+                      device === 'mobile' ||
+                      ('tablet' && orientation === 'portrait')
+                        ? 'bg-gray-400'
+                        : toolbarBg
+                        ? 'bg-gray-700'
+                        : 'bg-gray-200'
+                    "
+                  ></span>
+                </ng-container>
+              </li>
+              <li
+                class="breadcrumb-item"
+                [ngClass]="
+                  device === 'mobile' ||
+                  ('tablet' && orientation === 'portrait')
+                    ? 'text-dark'
+                    : toolbarBg
+                    ? 'text-white'
+                    : 'text-dark'
+                "
+              >
+                {{ title }}
+              </li>
+            </ul>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <ng-content select="[title]"></ng-content>
+    </ng-template>
+  </div>
+</ng-template>
+
+<ng-template #tempAction>
+  <ng-content select="[action]"></ng-content>
+</ng-template> -->

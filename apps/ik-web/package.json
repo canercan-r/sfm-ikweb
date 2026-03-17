@@ -1,0 +1,11 @@
+{
+  "author": "",
+  "description": "",
+  "license": "ISC",
+  "main": "index.js",
+  "name": "ik-web",
+  "scripts": {
+    "brand": "node ./src/scripts/configure.js -b=sfm"
+  },
+  "version": "1.0.0"
+}

@@ -1,0 +1,56 @@
+<div
+  class="card d-flex flex-column flex-fill h-100 shadow-none rounded-0 w-100 overflow-hidden"
+>
+  <div class="card-header border-0 align-items-center">
+    <span class="fs-4 fw-bold">
+      {{ "Global.Filtre" | translate }}
+    </span>
+    <button class="btn btn-sm btn-icon ms-auto" (click)="dismiss()">
+      <i class="fa-solid fa-xmark fs-3"></i>
+    </button>
+  </div>
+  <div class="card-body h-100 overflow-auto">
+    <form
+      [formGroup]="form"
+      class="row row-gap-3"
+      id="st_gunlukPuantajParmakIzi_cardForm"
+    >
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-date-picker
+          name="baslangicTarihi"
+          label="Puantaj.ProjePuantajlari.Filtre.BaslangicTarihi"
+          formControlName="baslangicTarihi"
+        >
+        </ikweb-date-picker>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-date-picker
+          name="bitisTarihi"
+          label="Puantaj.ProjePuantajlari.Filtre.BitisTarihi"
+          formControlName="bitisTarihi"
+        >
+        </ikweb-date-picker>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-checkbox
+          label="Puantaj.ProjePuantajlari.Filtre.Onaylayacaklarim"
+          formControlName="onaylayacaklarim"
+        >
+        </ikweb-checkbox>
+      </section>
+    </form>
+  </div>
+  <div class="card-footer border-0">
+    <div class="d-flex flex-stack">
+      <button class="btn btn-sm btn-yellow">
+        {{ "Global.Filtre" | translate }}
+      </button>
+
+      <button class="btn btn-sm btn-transparent">
+        {{ "Global.Temizle" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

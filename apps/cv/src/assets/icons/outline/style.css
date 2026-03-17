@@ -1,0 +1,1748 @@
+@font-face {
+  font-family: "senkronicons-outline";
+  src: url("fonts/senkronicons-outline.eot?fzo4bm");
+  src: url("fonts/senkronicons-outline.eot?fzo4bm#iefix")
+      format("embedded-opentype"),
+    url("fonts/senkronicons-outline.ttf?fzo4bm") format("truetype"),
+    url("fonts/senkronicons-outline.woff?fzo4bm") format("woff"),
+    url("fonts/senkronicons-outline.svg?fzo4bm#senkronicons-outline")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.si-outline {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "senkronicons-outline" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.si-abstract-1.si-outline:before {
+  content: "\e900";
+}
+.si-abstract-2.si-outline:before {
+  content: "\e901";
+}
+.si-abstract-3.si-outline:before {
+  content: "\e902";
+}
+.si-abstract-4.si-outline:before {
+  content: "\e903";
+}
+.si-abstract-5.si-outline:before {
+  content: "\e904";
+}
+.si-abstract-6.si-outline:before {
+  content: "\e905";
+}
+.si-abstract-7.si-outline:before {
+  content: "\e906";
+}
+.si-abstract-8.si-outline:before {
+  content: "\e907";
+}
+.si-abstract-9.si-outline:before {
+  content: "\e908";
+}
+.si-abstract-10.si-outline:before {
+  content: "\e909";
+}
+.si-abstract-11.si-outline:before {
+  content: "\e90a";
+}
+.si-abstract-12.si-outline:before {
+  content: "\e90b";
+}
+.si-abstract-13.si-outline:before {
+  content: "\e90c";
+}
+.si-abstract-14.si-outline:before {
+  content: "\e90d";
+}
+.si-abstract-15.si-outline:before {
+  content: "\e90e";
+}
+.si-abstract-16.si-outline:before {
+  content: "\e90f";
+}
+.si-abstract-17.si-outline:before {
+  content: "\e910";
+}
+.si-abstract-18.si-outline:before {
+  content: "\e911";
+}
+.si-abstract-19.si-outline:before {
+  content: "\e912";
+}
+.si-abstract-20.si-outline:before {
+  content: "\e913";
+}
+.si-abstract-21.si-outline:before {
+  content: "\e914";
+}
+.si-abstract-22.si-outline:before {
+  content: "\e915";
+}
+.si-abstract-23.si-outline:before {
+  content: "\e916";
+}
+.si-abstract-24.si-outline:before {
+  content: "\e917";
+}
+.si-abstract-25.si-outline:before {
+  content: "\e918";
+}
+.si-abstract-26.si-outline:before {
+  content: "\e919";
+}
+.si-abstract-27.si-outline:before {
+  content: "\e91a";
+}
+.si-abstract-28.si-outline:before {
+  content: "\e91b";
+}
+.si-abstract-29.si-outline:before {
+  content: "\e91c";
+}
+.si-abstract-30.si-outline:before {
+  content: "\e91d";
+}
+.si-abstract-31.si-outline:before {
+  content: "\e91e";
+}
+.si-abstract-32.si-outline:before {
+  content: "\e91f";
+}
+.si-abstract-33.si-outline:before {
+  content: "\e920";
+}
+.si-abstract-34.si-outline:before {
+  content: "\e921";
+}
+.si-abstract-35.si-outline:before {
+  content: "\e922";
+}
+.si-abstract-36.si-outline:before {
+  content: "\e923";
+}
+.si-abstract-37.si-outline:before {
+  content: "\e924";
+}
+.si-abstract-38.si-outline:before {
+  content: "\e925";
+}
+.si-abstract-39.si-outline:before {
+  content: "\e926";
+}
+.si-abstract-40.si-outline:before {
+  content: "\e927";
+}
+.si-abstract-41.si-outline:before {
+  content: "\e928";
+}
+.si-abstract-42.si-outline:before {
+  content: "\e929";
+}
+.si-abstract-43.si-outline:before {
+  content: "\e92a";
+}
+.si-abstract-44.si-outline:before {
+  content: "\e92b";
+}
+.si-abstract-45.si-outline:before {
+  content: "\e92c";
+}
+.si-abstract-46.si-outline:before {
+  content: "\e92d";
+}
+.si-abstract-47.si-outline:before {
+  content: "\e92e";
+}
+.si-abstract-48.si-outline:before {
+  content: "\e92f";
+}
+.si-abstract-49.si-outline:before {
+  content: "\e930";
+}
+.si-abstract.si-outline:before {
+  content: "\e931";
+}
+.si-add-files.si-outline:before {
+  content: "\e932";
+}
+.si-add-folder.si-outline:before {
+  content: "\e933";
+}
+.si-add-item.si-outline:before {
+  content: "\e934";
+}
+.si-add-notepad.si-outline:before {
+  content: "\e935";
+}
+.si-address-book.si-outline:before {
+  content: "\e936";
+}
+.si-airplane-square.si-outline:before {
+  content: "\e937";
+}
+.si-airplane.si-outline:before {
+  content: "\e938";
+}
+.si-airpod.si-outline:before {
+  content: "\e939";
+}
+.si-android.si-outline:before {
+  content: "\e93a";
+}
+.si-angular.si-outline:before {
+  content: "\e93b";
+}
+.si-apple.si-outline:before {
+  content: "\e93c";
+}
+.si-archive-tick.si-outline:before {
+  content: "\e93d";
+}
+.si-archive.si-outline:before {
+  content: "\e93e";
+}
+.si-arrow-circle-left.si-outline:before {
+  content: "\e93f";
+}
+.si-arrow-circle-right.si-outline:before {
+  content: "\e940";
+}
+.si-arrow-diagonal.si-outline:before {
+  content: "\e941";
+}
+.si-arrow-down-left.si-outline:before {
+  content: "\e942";
+}
+.si-arrow-down-refraction.si-outline:before {
+  content: "\e943";
+}
+.si-arrow-down-right.si-outline:before {
+  content: "\e944";
+}
+.si-arrow-down.si-outline:before {
+  content: "\e945";
+}
+.si-arrow-left.si-outline:before {
+  content: "\e946";
+}
+.si-arrow-mix.si-outline:before {
+  content: "\e947";
+}
+.si-arrow-right-left.si-outline:before {
+  content: "\e948";
+}
+.si-arrow-right.si-outline:before {
+  content: "\e949";
+}
+.si-arrow-two-diagonals.si-outline:before {
+  content: "\e94a";
+}
+.si-arrow-up-down.si-outline:before {
+  content: "\e94b";
+}
+.si-arrow-up-left.si-outline:before {
+  content: "\e94c";
+}
+.si-arrow-up-refraction.si-outline:before {
+  content: "\e94d";
+}
+.si-arrow-up-right.si-outline:before {
+  content: "\e94e";
+}
+.si-arrow-up.si-outline:before {
+  content: "\e94f";
+}
+.si-arrow-zigzag.si-outline:before {
+  content: "\e950";
+}
+.si-arrows-circle.si-outline:before {
+  content: "\e951";
+}
+.si-arrows-loop.si-outline:before {
+  content: "\e952";
+}
+.si-artificial-intelligence.si-outline:before {
+  content: "\e953";
+}
+.si-auto-brightness.si-outline:before {
+  content: "\e954";
+}
+.si-avalanche.si-outline:before {
+  content: "\e955";
+}
+.si-award.si-outline:before {
+  content: "\e956";
+}
+.si-badge.si-outline:before {
+  content: "\e957";
+}
+.si-bandage.si-outline:before {
+  content: "\e958";
+}
+.si-bank.si-outline:before {
+  content: "\e959";
+}
+.si-barcode.si-outline:before {
+  content: "\e95a";
+}
+.si-basket-ok.si-outline:before {
+  content: "\e95b";
+}
+.si-basket.si-outline:before {
+  content: "\e95c";
+}
+.si-behance.si-outline:before {
+  content: "\e95d";
+}
+.si-bill.si-outline:before {
+  content: "\e95e";
+}
+.si-binance-usd.si-outline:before {
+  content: "\e95f";
+}
+.si-binance.si-outline:before {
+  content: "\e960";
+}
+.si-bitcoin.si-outline:before {
+  content: "\e961";
+}
+.si-black-down.si-outline:before {
+  content: "\e962";
+}
+.si-black-left-line.si-outline:before {
+  content: "\e963";
+}
+.si-black-left.si-outline:before {
+  content: "\e964";
+}
+.si-black-right-line.si-outline:before {
+  content: "\e965";
+}
+.si-black-right.si-outline:before {
+  content: "\e966";
+}
+.si-black-up.si-outline:before {
+  content: "\e967";
+}
+.si-bluetooth.si-outline:before {
+  content: "\e968";
+}
+.si-book-open.si-outline:before {
+  content: "\e969";
+}
+.si-book-square.si-outline:before {
+  content: "\e96a";
+}
+.si-book.si-outline:before {
+  content: "\e96b";
+}
+.si-bookmark-2.si-outline:before {
+  content: "\e96c";
+}
+.si-bookmark.si-outline:before {
+  content: "\e96d";
+}
+.si-bootstrap.si-outline:before {
+  content: "\e96e";
+}
+.si-briefcase.si-outline:before {
+  content: "\e96f";
+}
+.si-brifecase-cros.si-outline:before {
+  content: "\e970";
+}
+.si-brifecase-tick.si-outline:before {
+  content: "\e971";
+}
+.si-brifecase-timer.si-outline:before {
+  content: "\e972";
+}
+.si-brush.si-outline:before {
+  content: "\e973";
+}
+.si-bucket-square.si-outline:before {
+  content: "\e974";
+}
+.si-bucket.si-outline:before {
+  content: "\e975";
+}
+.si-burger-menu-1.si-outline:before {
+  content: "\e976";
+}
+.si-burger-menu-2.si-outline:before {
+  content: "\e977";
+}
+.si-burger-menu-3.si-outline:before {
+  content: "\e978";
+}
+.si-burger-menu-4.si-outline:before {
+  content: "\e979";
+}
+.si-burger-menu-5.si-outline:before {
+  content: "\e97a";
+}
+.si-burger-menu-6.si-outline:before {
+  content: "\e97b";
+}
+.si-burger-menu.si-outline:before {
+  content: "\e97c";
+}
+.si-bus.si-outline:before {
+  content: "\e97d";
+}
+.si-calculator.si-outline:before {
+  content: "\e97e";
+}
+.si-calendar-2.si-outline:before {
+  content: "\e97f";
+}
+.si-calendar-8.si-outline:before {
+  content: "\e980";
+}
+.si-calendar-add.si-outline:before {
+  content: "\e981";
+}
+.si-calendar-edit.si-outline:before {
+  content: "\e982";
+}
+.si-calendar-remove.si-outline:before {
+  content: "\e983";
+}
+.si-calendar-search.si-outline:before {
+  content: "\e984";
+}
+.si-calendar-tick.si-outline:before {
+  content: "\e985";
+}
+.si-calendar.si-outline:before {
+  content: "\e986";
+}
+.si-call.si-outline:before {
+  content: "\e987";
+}
+.si-capsule.si-outline:before {
+  content: "\e988";
+}
+.si-car-2.si-outline:before {
+  content: "\e989";
+}
+.si-car-3.si-outline:before {
+  content: "\e98a";
+}
+.si-car.si-outline:before {
+  content: "\e98b";
+}
+.si-category.si-outline:before {
+  content: "\e98c";
+}
+.si-cd.si-outline:before {
+  content: "\e98d";
+}
+.si-celsius.si-outline:before {
+  content: "\e98e";
+}
+.si-chart-line-down-2.si-outline:before {
+  content: "\e98f";
+}
+.si-chart-line-down.si-outline:before {
+  content: "\e990";
+}
+.si-chart-line-star.si-outline:before {
+  content: "\e991";
+}
+.si-chart-line-up-2.si-outline:before {
+  content: "\e992";
+}
+.si-chart-line-up.si-outline:before {
+  content: "\e993";
+}
+.si-chart-line.si-outline:before {
+  content: "\e994";
+}
+.si-chart-pie-3.si-outline:before {
+  content: "\e995";
+}
+.si-chart-pie-4.si-outline:before {
+  content: "\e996";
+}
+.si-chart-pie-simple.si-outline:before {
+  content: "\e997";
+}
+.si-chart-pie-too.si-outline:before {
+  content: "\e998";
+}
+.si-chart-simple-2.si-outline:before {
+  content: "\e999";
+}
+.si-chart-simple-3.si-outline:before {
+  content: "\e99a";
+}
+.si-chart-simple.si-outline:before {
+  content: "\e99b";
+}
+.si-chart.si-outline:before {
+  content: "\e99c";
+}
+.si-check-circle.si-outline:before {
+  content: "\e99d";
+}
+.si-check-square.si-outline:before {
+  content: "\e99e";
+}
+.si-check.si-outline:before {
+  content: "\e99f";
+}
+.si-cheque.si-outline:before {
+  content: "\e9a0";
+}
+.si-chrome.si-outline:before {
+  content: "\e9a1";
+}
+.si-classmates.si-outline:before {
+  content: "\e9a2";
+}
+.si-click.si-outline:before {
+  content: "\e9a3";
+}
+.si-clipboard.si-outline:before {
+  content: "\e9a4";
+}
+.si-cloud-add.si-outline:before {
+  content: "\e9a5";
+}
+.si-cloud-change.si-outline:before {
+  content: "\e9a6";
+}
+.si-cloud-download.si-outline:before {
+  content: "\e9a7";
+}
+.si-cloud.si-outline:before {
+  content: "\e9a8";
+}
+.si-code.si-outline:before {
+  content: "\e9a9";
+}
+.si-coffee.si-outline:before {
+  content: "\e9aa";
+}
+.si-color-swatch.si-outline:before {
+  content: "\e9ab";
+}
+.si-colors-square.si-outline:before {
+  content: "\e9ac";
+}
+.si-compass.si-outline:before {
+  content: "\e9ad";
+}
+.si-copy-success.si-outline:before {
+  content: "\e9ae";
+}
+.si-copy.si-outline:before {
+  content: "\e9af";
+}
+.si-courier-express.si-outline:before {
+  content: "\e9b0";
+}
+.si-courier.si-outline:before {
+  content: "\e9b1";
+}
+.si-credit-cart.si-outline:before {
+  content: "\e9b2";
+}
+.si-cross-circle.si-outline:before {
+  content: "\e9b3";
+}
+.si-cross-square.si-outline:before {
+  content: "\e9b4";
+}
+.si-cross.si-outline:before {
+  content: "\e9b5";
+}
+.si-crown-2.si-outline:before {
+  content: "\e9b6";
+}
+.si-crown.si-outline:before {
+  content: "\e9b7";
+}
+.si-css.si-outline:before {
+  content: "\e9b8";
+}
+.si-cube-2.si-outline:before {
+  content: "\e9b9";
+}
+.si-cube-3.si-outline:before {
+  content: "\e9ba";
+}
+.si-cup.si-outline:before {
+  content: "\e9bb";
+}
+.si-dash.si-outline:before {
+  content: "\e9bc";
+}
+.si-data.si-outline:before {
+  content: "\e9bd";
+}
+.si-delete-files.si-outline:before {
+  content: "\e9be";
+}
+.si-delete-folder.si-outline:before {
+  content: "\e9bf";
+}
+.si-delivery-2.si-outline:before {
+  content: "\e9c0";
+}
+.si-delivery-3.si-outline:before {
+  content: "\e9c1";
+}
+.si-delivery-24.si-outline:before {
+  content: "\e9c2";
+}
+.si-delivery-door.si-outline:before {
+  content: "\e9c3";
+}
+.si-delivery-geolocation.si-outline:before {
+  content: "\e9c4";
+}
+.si-delivery-time.si-outline:before {
+  content: "\e9c5";
+}
+.si-delivery.si-outline:before {
+  content: "\e9c6";
+}
+.si-design-2.si-outline:before {
+  content: "\e9c7";
+}
+.si-design-frame.si-outline:before {
+  content: "\e9c8";
+}
+.si-design-mask.si-outline:before {
+  content: "\e9c9";
+}
+.si-design.si-outline:before {
+  content: "\e9ca";
+}
+.si-devices-2.si-outline:before {
+  content: "\e9cb";
+}
+.si-devices.si-outline:before {
+  content: "\e9cc";
+}
+.si-diamonds.si-outline:before {
+  content: "\e9cd";
+}
+.si-directbox-default.si-outline:before {
+  content: "\e9ce";
+}
+.si-disconnect.si-outline:before {
+  content: "\e9cf";
+}
+.si-discount.si-outline:before {
+  content: "\e9d0";
+}
+.si-disk.si-outline:before {
+  content: "\e9d1";
+}
+.si-dislike.si-outline:before {
+  content: "\e9d2";
+}
+.si-dj.si-outline:before {
+  content: "\e9d3";
+}
+.si-document.si-outline:before {
+  content: "\e9d4";
+}
+.si-dollar.si-outline:before {
+  content: "\e9d5";
+}
+.si-dots-circle-vertical.si-outline:before {
+  content: "\e9d6";
+}
+.si-dots-circle.si-outline:before {
+  content: "\e9d7";
+}
+.si-dots-horizontal.si-outline:before {
+  content: "\e9d8";
+}
+.si-dots-square-vertical.si-outline:before {
+  content: "\e9d9";
+}
+.si-dots-square.si-outline:before {
+  content: "\e9da";
+}
+.si-dots-vertical.si-outline:before {
+  content: "\e9db";
+}
+.si-double-check-circle.si-outline:before {
+  content: "\e9dc";
+}
+.si-double-check.si-outline:before {
+  content: "\e9dd";
+}
+.si-double-down.si-outline:before {
+  content: "\e9de";
+}
+.si-double-left-arrow.si-outline:before {
+  content: "\e9df";
+}
+.si-double-left.si-outline:before {
+  content: "\e9e0";
+}
+.si-double-right-arrow.si-outline:before {
+  content: "\e9e1";
+}
+.si-double-right.si-outline:before {
+  content: "\e9e2";
+}
+.si-double-up.si-outline:before {
+  content: "\e9e3";
+}
+.si-down-square.si-outline:before {
+  content: "\e9e4";
+}
+.si-down.si-outline:before {
+  content: "\e9e5";
+}
+.si-dribbble.si-outline:before {
+  content: "\e9e6";
+}
+.si-drop.si-outline:before {
+  content: "\e9e7";
+}
+.si-dropbox.si-outline:before {
+  content: "\e9e8";
+}
+.si-educare.si-outline:before {
+  content: "\e9e9";
+}
+.si-electricity.si-outline:before {
+  content: "\e9ea";
+}
+.si-electronic-clock.si-outline:before {
+  content: "\e9eb";
+}
+.si-element-1.si-outline:before {
+  content: "\e9ec";
+}
+.si-element-2.si-outline:before {
+  content: "\e9ed";
+}
+.si-element-3.si-outline:before {
+  content: "\e9ee";
+}
+.si-element-4.si-outline:before {
+  content: "\e9ef";
+}
+.si-element-5.si-outline:before {
+  content: "\e9f0";
+}
+.si-element-6.si-outline:before {
+  content: "\e9f1";
+}
+.si-element-7.si-outline:before {
+  content: "\e9f2";
+}
+.si-element-8.si-outline:before {
+  content: "\e9f3";
+}
+.si-element-9.si-outline:before {
+  content: "\e9f4";
+}
+.si-element-10.si-outline:before {
+  content: "\e9f5";
+}
+.si-element-11.si-outline:before {
+  content: "\e9f6";
+}
+.si-element-12.si-outline:before {
+  content: "\e9f7";
+}
+.si-element-equal.si-outline:before {
+  content: "\e9f8";
+}
+.si-element-plus.si-outline:before {
+  content: "\e9f9";
+}
+.si-emoji-happy.si-outline:before {
+  content: "\e9fa";
+}
+.si-enjin-coin.si-outline:before {
+  content: "\e9fb";
+}
+.si-entrance-left.si-outline:before {
+  content: "\e9fc";
+}
+.si-entrance-right.si-outline:before {
+  content: "\e9fd";
+}
+.si-eraser.si-outline:before {
+  content: "\e9fe";
+}
+.si-euro.si-outline:before {
+  content: "\e9ff";
+}
+.si-exit-down.si-outline:before {
+  content: "\ea00";
+}
+.si-exit-left.si-outline:before {
+  content: "\ea01";
+}
+.si-exit-right-corner.si-outline:before {
+  content: "\ea02";
+}
+.si-exit-right.si-outline:before {
+  content: "\ea03";
+}
+.si-exit-up.si-outline:before {
+  content: "\ea04";
+}
+.si-external-drive.si-outline:before {
+  content: "\ea05";
+}
+.si-eye-slash.si-outline:before {
+  content: "\ea06";
+}
+.si-eye.si-outline:before {
+  content: "\ea07";
+}
+.si-facebook.si-outline:before {
+  content: "\ea08";
+}
+.si-faceid.si-outline:before {
+  content: "\ea09";
+}
+.si-fasten.si-outline:before {
+  content: "\ea0a";
+}
+.si-fat-rows.si-outline:before {
+  content: "\ea0b";
+}
+.si-feather.si-outline:before {
+  content: "\ea0c";
+}
+.si-figma.si-outline:before {
+  content: "\ea0d";
+}
+.si-file-added.si-outline:before {
+  content: "\ea0e";
+}
+.si-file-deleted.si-outline:before {
+  content: "\ea0f";
+}
+.si-file-down.si-outline:before {
+  content: "\ea10";
+}
+.si-file-left.si-outline:before {
+  content: "\ea11";
+}
+.si-file-right.si-outline:before {
+  content: "\ea12";
+}
+.si-file-sheet.si-outline:before {
+  content: "\ea13";
+}
+.si-file-up.si-outline:before {
+  content: "\ea14";
+}
+.si-file.si-outline:before {
+  content: "\ea15";
+}
+.si-files-tablet.si-outline:before {
+  content: "\ea16";
+}
+.si-filter-edit.si-outline:before {
+  content: "\ea17";
+}
+.si-filter-search.si-outline:before {
+  content: "\ea18";
+}
+.si-filter-square.si-outline:before {
+  content: "\ea19";
+}
+.si-filter-tablet.si-outline:before {
+  content: "\ea1a";
+}
+.si-filter-tick.si-outline:before {
+  content: "\ea1b";
+}
+.si-filter.si-outline:before {
+  content: "\ea1c";
+}
+.si-finance-calculator.si-outline:before {
+  content: "\ea1d";
+}
+.si-financial-schedule.si-outline:before {
+  content: "\ea1e";
+}
+.si-fingerprint-scanning.si-outline:before {
+  content: "\ea1f";
+}
+.si-flag.si-outline:before {
+  content: "\ea20";
+}
+.si-flash-circle.si-outline:before {
+  content: "\ea21";
+}
+.si-flask.si-outline:before {
+  content: "\ea22";
+}
+.si-focus.si-outline:before {
+  content: "\ea23";
+}
+.si-folder-added.si-outline:before {
+  content: "\ea24";
+}
+.si-folder-down.si-outline:before {
+  content: "\ea25";
+}
+.si-folder-up.si-outline:before {
+  content: "\ea26";
+}
+.si-folder.si-outline:before {
+  content: "\ea27";
+}
+.si-frame.si-outline:before {
+  content: "\ea28";
+}
+.si-gear.si-outline:before {
+  content: "\ea29";
+}
+.si-general-mouse.si-outline:before {
+  content: "\ea2a";
+}
+.si-geolocation-home.si-outline:before {
+  content: "\ea2b";
+}
+.si-geolocation.si-outline:before {
+  content: "\ea2c";
+}
+.si-ghost.si-outline:before {
+  content: "\ea2d";
+}
+.si-gift.si-outline:before {
+  content: "\ea2e";
+}
+.si-github.si-outline:before {
+  content: "\ea2f";
+}
+.si-glass.si-outline:before {
+  content: "\ea30";
+}
+.si-google-play.si-outline:before {
+  content: "\ea31";
+}
+.si-google.si-outline:before {
+  content: "\ea32";
+}
+.si-graph-2.si-outline:before {
+  content: "\ea33";
+}
+.si-graph-3.si-outline:before {
+  content: "\ea34";
+}
+.si-graph-4.si-outline:before {
+  content: "\ea35";
+}
+.si-graph-up.si-outline:before {
+  content: "\ea36";
+}
+.si-graph.si-outline:before {
+  content: "\ea37";
+}
+.si-grid-2.si-outline:before {
+  content: "\ea38";
+}
+.si-grid-frame.si-outline:before {
+  content: "\ea39";
+}
+.si-grid.si-outline:before {
+  content: "\ea3a";
+}
+.si-handcart.si-outline:before {
+  content: "\ea3b";
+}
+.si-happy-emoji.si-outline:before {
+  content: "\ea3c";
+}
+.si-heart-circle.si-outline:before {
+  content: "\ea3d";
+}
+.si-heart.si-outline:before {
+  content: "\ea3e";
+}
+.si-home-1.si-outline:before {
+  content: "\ea3f";
+}
+.si-home-2.si-outline:before {
+  content: "\ea40";
+}
+.si-home-3.si-outline:before {
+  content: "\ea41";
+}
+.si-home.si-outline:before {
+  content: "\ea42";
+}
+.si-html.si-outline:before {
+  content: "\ea43";
+}
+.si-icon.si-outline:before {
+  content: "\ea44";
+}
+.si-illustrator.si-outline:before {
+  content: "\ea45";
+}
+.si-information-2.si-outline:before {
+  content: "\ea46";
+}
+.si-information-3.si-outline:before {
+  content: "\ea47";
+}
+.si-information-4.si-outline:before {
+  content: "\ea48";
+}
+.si-information-5.si-outline:before {
+  content: "\ea49";
+}
+.si-information.si-outline:before {
+  content: "\ea4a";
+}
+.si-instagram.si-outline:before {
+  content: "\ea4b";
+}
+.si-joystick.si-outline:before {
+  content: "\ea4c";
+}
+.si-js-2.si-outline:before {
+  content: "\ea4d";
+}
+.si-js.si-outline:before {
+  content: "\ea4e";
+}
+.si-kanban.si-outline:before {
+  content: "\ea4f";
+}
+.si-key-square.si-outline:before {
+  content: "\ea50";
+}
+.si-key.si-outline:before {
+  content: "\ea51";
+}
+.si-keyboard.si-outline:before {
+  content: "\ea52";
+}
+.si-laptop.si-outline:before {
+  content: "\ea53";
+}
+.si-laravel.si-outline:before {
+  content: "\ea54";
+}
+.si-left-square.si-outline:before {
+  content: "\ea55";
+}
+.si-left.si-outline:before {
+  content: "\ea56";
+}
+.si-like-2.si-outline:before {
+  content: "\ea57";
+}
+.si-like-folder.si-outline:before {
+  content: "\ea58";
+}
+.si-like-shapes.si-outline:before {
+  content: "\ea59";
+}
+.si-like-tag.si-outline:before {
+  content: "\ea5a";
+}
+.si-like.si-outline:before {
+  content: "\ea5b";
+}
+.si-loading.si-outline:before {
+  content: "\ea5c";
+}
+.si-lock-2.si-outline:before {
+  content: "\ea5d";
+}
+.si-lock-3.si-outline:before {
+  content: "\ea5e";
+}
+.si-lock.si-outline:before {
+  content: "\ea5f";
+}
+.si-logistic.si-outline:before {
+  content: "\ea60";
+}
+.si-lots-shopping.si-outline:before {
+  content: "\ea61";
+}
+.si-lovely.si-outline:before {
+  content: "\ea62";
+}
+.si-lts.si-outline:before {
+  content: "\ea63";
+}
+.si-magnifier.si-outline:before {
+  content: "\ea64";
+}
+.si-map.si-outline:before {
+  content: "\ea65";
+}
+.si-mask.si-outline:before {
+  content: "\ea66";
+}
+.si-maximize.si-outline:before {
+  content: "\ea67";
+}
+.si-medal-star.si-outline:before {
+  content: "\ea68";
+}
+.si-menu.si-outline:before {
+  content: "\ea69";
+}
+.si-message-add.si-outline:before {
+  content: "\ea6a";
+}
+.si-message-edit.si-outline:before {
+  content: "\ea6b";
+}
+.si-message-minus.si-outline:before {
+  content: "\ea6c";
+}
+.si-message-notif.si-outline:before {
+  content: "\ea6d";
+}
+.si-message-programming.si-outline:before {
+  content: "\ea6e";
+}
+.si-message-question.si-outline:before {
+  content: "\ea6f";
+}
+.si-message-text-2.si-outline:before {
+  content: "\ea70";
+}
+.si-message-text.si-outline:before {
+  content: "\ea71";
+}
+.si-messages.si-outline:before {
+  content: "\ea72";
+}
+.si-microsoft.si-outline:before {
+  content: "\ea73";
+}
+.si-milk.si-outline:before {
+  content: "\ea74";
+}
+.si-minus-circle.si-outline:before {
+  content: "\ea75";
+}
+.si-minus-folder.si-outline:before {
+  content: "\ea76";
+}
+.si-minus-square.si-outline:before {
+  content: "\ea77";
+}
+.si-minus.si-outline:before {
+  content: "\ea78";
+}
+.si-monitor-mobile.si-outline:before {
+  content: "\ea79";
+}
+.si-moon.si-outline:before {
+  content: "\ea7a";
+}
+.si-more-2.si-outline:before {
+  content: "\ea7b";
+}
+.si-mouse-circle.si-outline:before {
+  content: "\ea7c";
+}
+.si-mouse-square.si-outline:before {
+  content: "\ea7d";
+}
+.si-mouse.si-outline:before {
+  content: "\ea7e";
+}
+.si-nexo.si-outline:before {
+  content: "\ea7f";
+}
+.si-night-day.si-outline:before {
+  content: "\ea80";
+}
+.si-note-2.si-outline:before {
+  content: "\ea81";
+}
+.si-note.si-outline:before {
+  content: "\ea82";
+}
+.si-notepad-bookmark.si-outline:before {
+  content: "\ea83";
+}
+.si-notepad-edit.si-outline:before {
+  content: "\ea84";
+}
+.si-notepad.si-outline:before {
+  content: "\ea85";
+}
+.si-notification-2.si-outline:before {
+  content: "\ea86";
+}
+.si-notification-bing.si-outline:before {
+  content: "\ea87";
+}
+.si-notification-circle.si-outline:before {
+  content: "\ea88";
+}
+.si-notification-favorite.si-outline:before {
+  content: "\ea89";
+}
+.si-notification-on.si-outline:before {
+  content: "\ea8a";
+}
+.si-notification-status.si-outline:before {
+  content: "\ea8b";
+}
+.si-notification.si-outline:before {
+  content: "\ea8c";
+}
+.si-ocean.si-outline:before {
+  content: "\ea8d";
+}
+.si-office-bag.si-outline:before {
+  content: "\ea8e";
+}
+.si-package.si-outline:before {
+  content: "\ea8f";
+}
+.si-pails.si-outline:before {
+  content: "\ea90";
+}
+.si-paintbucket.si-outline:before {
+  content: "\ea91";
+}
+.si-paper-clip.si-outline:before {
+  content: "\ea92";
+}
+.si-parcel-tracking.si-outline:before {
+  content: "\ea93";
+}
+.si-parcel.si-outline:before {
+  content: "\ea94";
+}
+.si-password-check.si-outline:before {
+  content: "\ea95";
+}
+.si-paypal.si-outline:before {
+  content: "\ea96";
+}
+.si-pencil.si-outline:before {
+  content: "\ea97";
+}
+.si-people.si-outline:before {
+  content: "\ea98";
+}
+.si-percentage.si-outline:before {
+  content: "\ea99";
+}
+.si-phone.si-outline:before {
+  content: "\ea9a";
+}
+.si-photoshop.si-outline:before {
+  content: "\ea9b";
+}
+.si-picture.si-outline:before {
+  content: "\ea9c";
+}
+.si-pill.si-outline:before {
+  content: "\ea9d";
+}
+.si-pin.si-outline:before {
+  content: "\ea9e";
+}
+.si-plus-circle.si-outline:before {
+  content: "\ea9f";
+}
+.si-plus-square.si-outline:before {
+  content: "\eaa0";
+}
+.si-plus.si-outline:before {
+  content: "\eaa1";
+}
+.si-pointers.si-outline:before {
+  content: "\eaa2";
+}
+.si-price-tag.si-outline:before {
+  content: "\eaa3";
+}
+.si-printer.si-outline:before {
+  content: "\eaa4";
+}
+.si-profile-circle.si-outline:before {
+  content: "\eaa5";
+}
+.si-profile-user.si-outline:before {
+  content: "\eaa6";
+}
+.si-pulse.si-outline:before {
+  content: "\eaa7";
+}
+.si-purchase.si-outline:before {
+  content: "\eaa8";
+}
+.si-python.si-outline:before {
+  content: "\eaa9";
+}
+.si-question-2.si-outline:before {
+  content: "\eaaa";
+}
+.si-question.si-outline:before {
+  content: "\eaab";
+}
+.si-questionnaire-tablet.si-outline:before {
+  content: "\eaac";
+}
+.si-ranking.si-outline:before {
+  content: "\eaad";
+}
+.si-react.si-outline:before {
+  content: "\eaae";
+}
+.si-receipt-square.si-outline:before {
+  content: "\eaaf";
+}
+.si-rescue.si-outline:before {
+  content: "\eab0";
+}
+.si-right-left.si-outline:before {
+  content: "\eab1";
+}
+.si-right-square.si-outline:before {
+  content: "\eab2";
+}
+.si-right.si-outline:before {
+  content: "\eab3";
+}
+.si-rocket.si-outline:before {
+  content: "\eab4";
+}
+.si-route.si-outline:before {
+  content: "\eab5";
+}
+.si-router.si-outline:before {
+  content: "\eab6";
+}
+.si-row-horizontal.si-outline:before {
+  content: "\eab7";
+}
+.si-row-vertical.si-outline:before {
+  content: "\eab8";
+}
+.si-safe-home.si-outline:before {
+  content: "\eab9";
+}
+.si-satellite.si-outline:before {
+  content: "\eaba";
+}
+.si-save-2.si-outline:before {
+  content: "\eabb";
+}
+.si-save-deposit.si-outline:before {
+  content: "\eabc";
+}
+.si-scan-barcode.si-outline:before {
+  content: "\eabd";
+}
+.si-scooter-2.si-outline:before {
+  content: "\eabe";
+}
+.si-scooter.si-outline:before {
+  content: "\eabf";
+}
+.si-screen.si-outline:before {
+  content: "\eac0";
+}
+.si-scroll.si-outline:before {
+  content: "\eac1";
+}
+.si-search-list.si-outline:before {
+  content: "\eac2";
+}
+.si-security-check.si-outline:before {
+  content: "\eac3";
+}
+.si-security-user.si-outline:before {
+  content: "\eac4";
+}
+.si-send.si-outline:before {
+  content: "\eac5";
+}
+.si-setting-2.si-outline:before {
+  content: "\eac6";
+}
+.si-setting-3.si-outline:before {
+  content: "\eac7";
+}
+.si-setting-4.si-outline:before {
+  content: "\eac8";
+}
+.si-setting.si-outline:before {
+  content: "\eac9";
+}
+.si-share.si-outline:before {
+  content: "\eaca";
+}
+.si-shield-cross.si-outline:before {
+  content: "\eacb";
+}
+.si-shield-search.si-outline:before {
+  content: "\eacc";
+}
+.si-shield-slash.si-outline:before {
+  content: "\eacd";
+}
+.si-shield-tick.si-outline:before {
+  content: "\eace";
+}
+.si-shield.si-outline:before {
+  content: "\eacf";
+}
+.si-ship.si-outline:before {
+  content: "\ead0";
+}
+.si-shop.si-outline:before {
+  content: "\ead1";
+}
+.si-simcard-2.si-outline:before {
+  content: "\ead2";
+}
+.si-simcard.si-outline:before {
+  content: "\ead3";
+}
+.si-size.si-outline:before {
+  content: "\ead4";
+}
+.si-slack.si-outline:before {
+  content: "\ead5";
+}
+.si-slider-horizontal-2.si-outline:before {
+  content: "\ead6";
+}
+.si-slider-horizontal.si-outline:before {
+  content: "\ead7";
+}
+.si-slider-vertical-2.si-outline:before {
+  content: "\ead8";
+}
+.si-slider-vertical.si-outline:before {
+  content: "\ead9";
+}
+.si-slider.si-outline:before {
+  content: "\eada";
+}
+.si-sms.si-outline:before {
+  content: "\eadb";
+}
+.si-snapchat.si-outline:before {
+  content: "\eadc";
+}
+.si-social-media.si-outline:before {
+  content: "\eadd";
+}
+.si-soft-2.si-outline:before {
+  content: "\eade";
+}
+.si-soft-3.si-outline:before {
+  content: "\eadf";
+}
+.si-soft.si-outline:before {
+  content: "\eae0";
+}
+.si-some-files.si-outline:before {
+  content: "\eae1";
+}
+.si-sort.si-outline:before {
+  content: "\eae2";
+}
+.si-speaker.si-outline:before {
+  content: "\eae3";
+}
+.si-spotify.si-outline:before {
+  content: "\eae4";
+}
+.si-spring-framework.si-outline:before {
+  content: "\eae5";
+}
+.si-square-brackets.si-outline:before {
+  content: "\eae6";
+}
+.si-star.si-outline:before {
+  content: "\eae7";
+}
+.si-status.si-outline:before {
+  content: "\eae8";
+}
+.si-subtitle.si-outline:before {
+  content: "\eae9";
+}
+.si-sun.si-outline:before {
+  content: "\eaea";
+}
+.si-support-24.si-outline:before {
+  content: "\eaeb";
+}
+.si-switch.si-outline:before {
+  content: "\eaec";
+}
+.si-syringe.si-outline:before {
+  content: "\eaed";
+}
+.si-tablet-book.si-outline:before {
+  content: "\eaee";
+}
+.si-tablet-delete.si-outline:before {
+  content: "\eaef";
+}
+.si-tablet-down.si-outline:before {
+  content: "\eaf0";
+}
+.si-tablet-ok.si-outline:before {
+  content: "\eaf1";
+}
+.si-tablet-text-down.si-outline:before {
+  content: "\eaf2";
+}
+.si-tablet-text-up.si-outline:before {
+  content: "\eaf3";
+}
+.si-tablet-up.si-outline:before {
+  content: "\eaf4";
+}
+.si-tablet.si-outline:before {
+  content: "\eaf5";
+}
+.si-tag-cross.si-outline:before {
+  content: "\eaf6";
+}
+.si-tag.si-outline:before {
+  content: "\eaf7";
+}
+.si-teacher.si-outline:before {
+  content: "\eaf8";
+}
+.si-tech-wifi.si-outline:before {
+  content: "\eaf9";
+}
+.si-technology-2.si-outline:before {
+  content: "\eafa";
+}
+.si-technology-3.si-outline:before {
+  content: "\eafb";
+}
+.si-technology-4.si-outline:before {
+  content: "\eafc";
+}
+.si-technology.si-outline:before {
+  content: "\eafd";
+}
+.si-telephone-geolocation.si-outline:before {
+  content: "\eafe";
+}
+.si-test-tubes.si-outline:before {
+  content: "\eaff";
+}
+.si-text-align-center.si-outline:before {
+  content: "\eb00";
+}
+.si-text-align-justify-center.si-outline:before {
+  content: "\eb01";
+}
+.si-text-align-left.si-outline:before {
+  content: "\eb02";
+}
+.si-text-align-right.si-outline:before {
+  content: "\eb03";
+}
+.si-text-bold.si-outline:before {
+  content: "\eb04";
+}
+.si-text-circle.si-outline:before {
+  content: "\eb05";
+}
+.si-text-italic.si-outline:before {
+  content: "\eb06";
+}
+.si-text-number.si-outline:before {
+  content: "\eb07";
+}
+.si-text-strikethrough.si-outline:before {
+  content: "\eb08";
+}
+.si-text-underline.si-outline:before {
+  content: "\eb09";
+}
+.si-text.si-outline:before {
+  content: "\eb0a";
+}
+.si-thermometer.si-outline:before {
+  content: "\eb0b";
+}
+.si-theta.si-outline:before {
+  content: "\eb0c";
+}
+.si-tiktok.si-outline:before {
+  content: "\eb0d";
+}
+.si-time.si-outline:before {
+  content: "\eb0e";
+}
+.si-timer.si-outline:before {
+  content: "\eb0f";
+}
+.si-to-left.si-outline:before {
+  content: "\eb10";
+}
+.si-to-right.si-outline:before {
+  content: "\eb11";
+}
+.si-toggle-off-circle.si-outline:before {
+  content: "\eb12";
+}
+.si-toggle-off.si-outline:before {
+  content: "\eb13";
+}
+.si-toggle-on-circle.si-outline:before {
+  content: "\eb14";
+}
+.si-toggle-on.si-outline:before {
+  content: "\eb15";
+}
+.si-trailer.si-outline:before {
+  content: "\eb16";
+}
+.si-trash-square.si-outline:before {
+  content: "\eb17";
+}
+.si-trash.si-outline:before {
+  content: "\eb18";
+}
+.si-tree.si-outline:before {
+  content: "\eb19";
+}
+.si-trello.si-outline:before {
+  content: "\eb1a";
+}
+.si-triangle.si-outline:before {
+  content: "\eb1b";
+}
+.si-truck.si-outline:before {
+  content: "\eb1c";
+}
+.si-ts.si-outline:before {
+  content: "\eb1d";
+}
+.si-twitch.si-outline:before {
+  content: "\eb1e";
+}
+.si-twitter.si-outline:before {
+  content: "\eb1f";
+}
+.si-two-credit-cart.si-outline:before {
+  content: "\eb20";
+}
+.si-underlining.si-outline:before {
+  content: "\eb21";
+}
+.si-up-down.si-outline:before {
+  content: "\eb22";
+}
+.si-up-square.si-outline:before {
+  content: "\eb23";
+}
+.si-up.si-outline:before {
+  content: "\eb24";
+}
+.si-update-file.si-outline:before {
+  content: "\eb25";
+}
+.si-update-folder.si-outline:before {
+  content: "\eb26";
+}
+.si-user-edit.si-outline:before {
+  content: "\eb27";
+}
+.si-user-square.si-outline:before {
+  content: "\eb28";
+}
+.si-user-tick.si-outline:before {
+  content: "\eb29";
+}
+.si-user.si-outline:before {
+  content: "\eb2a";
+}
+.si-verify.si-outline:before {
+  content: "\eb2b";
+}
+.si-vibe.si-outline:before {
+  content: "\eb2c";
+}
+.si-virus.si-outline:before {
+  content: "\eb2d";
+}
+.si-vue.si-outline:before {
+  content: "\eb2e";
+}
+.si-vuesax.si-outline:before {
+  content: "\eb2f";
+}
+.si-wallet.si-outline:before {
+  content: "\eb30";
+}
+.si-wanchain.si-outline:before {
+  content: "\eb31";
+}
+.si-watch.si-outline:before {
+  content: "\eb32";
+}
+.si-whatsapp.si-outline:before {
+  content: "\eb33";
+}
+.si-wifi-home.si-outline:before {
+  content: "\eb34";
+}
+.si-wifi-square.si-outline:before {
+  content: "\eb35";
+}
+.si-wifi.si-outline:before {
+  content: "\eb36";
+}
+.si-wrench.si-outline:before {
+  content: "\eb37";
+}
+.si-xaomi.si-outline:before {
+  content: "\eb38";
+}
+.si-xd.si-outline:before {
+  content: "\eb39";
+}
+.si-xmr.si-outline:before {
+  content: "\eb3a";
+}
+.si-yii.si-outline:before {
+  content: "\eb3b";
+}
+.si-youtube.si-outline:before {
+  content: "\eb3c";
+}

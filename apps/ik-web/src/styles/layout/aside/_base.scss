@@ -1,0 +1,98 @@
+//
+// Aside Default
+//
+
+// General mode(all devices)
+.aside {
+  [data-st-aside-minimize="true"] & {
+    box-shadow: var(--st-aside-box-shadow);
+    background-color: var(--st-aside-bg-color);
+  }
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--st-aside-base-toggle-btn-box-shadow);
+  background-color: var(--st-aside-base-toggle-btn-bg-color);
+  padding: 0;
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+  .aside {
+    transform: translateX(calc(-#{get($aside-config, width, desktop)} + 5px));
+    transition: $transition-base;
+    width: get($aside-config, width, desktop);
+
+    [data-st-aside-minimize="true"] & {
+      transform: translateX(0);
+      transition: $transition-base;
+    }
+
+    .aside-toggle {
+      display: flex;
+      box-shadow: var(--st-aside-base-toggle-btn-box-shadow) !important;
+      background-color: var(--st-aside-base-toggle-btn-bg-color) !important;
+    }
+
+    [data-st-aside-minimize="true"] & {
+      .aside-toggle {
+        opacity: 0;
+        transition: $transition-base;
+      }
+
+      &:hover {
+        .aside-toggle {
+          opacity: 1;
+          transition: $transition-base;
+        }
+      }
+    }
+
+    // Logo
+    .aside-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--st-aside-logo-bg-color);
+      height: calc(#{get($header-config, fixed, height, desktop)} + var(--st-toolbar-height-tablet-and-mobile));
+      padding: 0 get($aside-config, padding-x);
+      flex-shrink: 0;
+    }
+
+    // Aside footer
+    .aside-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    // Fixed aside mode
+    [data-st-aside-fixed="true"] & {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: get($aside-config, z-index);
+    }
+
+    // Static aside mode
+    .aside-static & {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+  .aside {
+    display: none;
+    width: get($aside-config, width, tablet-and-mobile);
+
+    // Logo, Toggle
+    .aside-logo,
+    .aside-toggle {
+      display: none;
+    }
+  }
+}

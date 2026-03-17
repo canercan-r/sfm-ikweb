@@ -1,0 +1,21 @@
+//
+// Dialog
+//
+
+mat-dialog-container {
+  padding: 0 !important;
+
+  .modal {
+    display: block;
+    position: relative;
+
+    .modal-dialog {
+      margin: 0;
+    }
+  }
+
+  mat-dialog-content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}

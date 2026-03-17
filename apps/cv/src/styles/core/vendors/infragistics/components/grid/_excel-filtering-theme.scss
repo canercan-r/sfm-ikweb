@@ -1,0 +1,25 @@
+//
+// Excel Filtering Theme
+//
+
+.igx-excel-filter__apply {
+  @include button($custom-raised-button);
+}
+
+.igx-excel-filter__cancel {
+  @include button($custom-flat-button);
+}
+
+.igx-excel-filter__icon--filtered {
+  .igx-icon {
+    color: rgba(var(--#{$prefix}white-rgb), 0.5);
+  }
+}
+
+.igx-excel-filter__menu-header {
+  h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // white-space: nowrap;
+  }
+}

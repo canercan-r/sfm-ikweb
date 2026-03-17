@@ -1,0 +1,130 @@
+<ng-container *ngIf="searchType === SearchType.MODAL; else overlayTemp">
+  <ng-container *ngTemplateOutlet="searchPanel"></ng-container>
+</ng-container>
+<ng-template #overlayTemp>
+  <!-- Search toggle -->
+  <button
+    class="btn btn-icon btn-color-gray-700 btn-active-light-primary rounded position-relative"
+    [ngClass]="toolbarButtonHeightClass"
+    (click)="open()"
+    #searchButton
+    mat-icon-button
+  >
+    <i
+      class="fa-solid fa-magnifying-glass"
+      [ngClass]="toolbarButtonIconSizeClass"
+    ></i>
+  </button>
+</ng-template>
+
+<!-- Search panel -->
+<ng-template #searchPanel>
+  <div
+    class="position-fixed position-sm-static overflow-hidden menu menu-sub menu-sub-dropdown p-7"
+    [ngClass]="
+      searchType === SearchType.MODAL
+        ? 'w-100x w-md-100 show'
+        : 'w-325px w-md-375px show'
+    "
+  >
+    <form class="w-100 position-relative mb-3" autocomplete="off">
+      <i
+        class="fa-regular fa-magnifying-glass fs-3 position-absolute top-50 translate-middle-y ms-0"
+        [ngClass]="{ 'd-none': loading }"
+      ></i>
+      <span
+        class="position-absolute top-50 start-0 translate-middle-y lh-0 me-1"
+        [ngClass]="{ 'd-none': !loading }"
+      >
+        <span
+          class="spinner-border h-15px w-15px align-middle text-gray-400"
+        ></span>
+      </span>
+      <input
+        type="text"
+        class="form-control form-control-flush ps-10"
+        name="search"
+        value=""
+        [placeholder]="'Global.Ara' | translate"
+        #searchInput
+        [formControl]="searchControl"
+      />
+      <span
+        class="btn btn-flush btn-active-color-primary position-absolute top-50 end-0 translate-middle-y lh-0"
+        *ngIf="searchInput.value.length > 0"
+        (click)="searchInput.value = ''; clear()"
+      >
+        <i class="fa-regular fa-xmark fs-3 me-0"></i>
+      </span>
+    </form>
+
+    <div class="separator border-gray-200 mb-6"></div>
+
+    <div *ngIf="results?.length > 0; else emptyTemplate">
+      <div
+        class="scroll-y pe-3"
+        [ngClass]="
+          searchType === SearchType.MODAL
+            ? 'mh-400px mh-lg-600px'
+            : 'mh-200px mh-lg-350px'
+        "
+      >
+        <h3 class="fs-5 text-muted fw-semibold m-0 pb-5">
+          {{ "Global.Sonuclar" | translate }}
+        </h3>
+        <div
+          class="d-flex flex-column mb-5"
+          *ngFor="let customer of results; let i = index"
+        >
+          <ng-container
+            *ngTemplateOutlet="customerResult; context: { $implicit: customer }"
+          >
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #emptyTemplate>
+      <div class="text-center" *ngIf="searchInput?.value?.length >= minLength">
+        <div class="pt-10 pb-10">
+          <i class="fa-solid fa-file-circle-xmark fs-3x opacity-50"></i>
+        </div>
+        <div class="pb-15 fw-semibold">
+          <h3 class="text-gray-600 fs-5 mb-2">
+            {{ "Global.SonucBulunamadi" | translate }}
+          </h3>
+          <div class="text-muted fs-7">
+            {{ "Global.SonucBulunamadiAciklama" | translate }}
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</ng-template>
+
+<!-- Customer result template -->
+<ng-template #customerResult let-customer>
+  <div
+    class="d-flex align-items-center text-hover-primary cursor-pointer"
+    (click)="select(customer)"
+  >
+    <div class="symbol symbol-40px me-4">
+      <div class="symbol-label">
+        <i
+          class="fa-solid fs-2 text-primary"
+          [ngClass]="{
+            'fa-user': customer.cinsiyet === Cinsiyet.BELIRTILMEMIS,
+            'fa-user-tie-hair': customer.cinsiyet === Cinsiyet.ERKEK,
+            'fa-user-tie-hair-long': customer.cinsiyet === Cinsiyet.KADIN
+          }"
+        ></i>
+      </div>
+    </div>
+    <div class="d-flex flex-column justify-content-center fw-bold">
+      <span class="fs-6 fw-bold">
+        {{ customer.adi }} {{ customer.soyadi }}
+      </span>
+      <span class="fs-7 fw-bold text-muted"> {{ customer.cepTel }} </span>
+    </div>
+  </div>
+</ng-template>

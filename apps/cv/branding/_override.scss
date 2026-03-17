@@ -1,0 +1,13 @@
+//
+// To make future updates easier consider the global variables from _override.scss for current branding in this file.
+//
+
+// Primary
+// $primary: #3486FA;
+// $primary-inverse: #ffffff;
+$primary: {{primaryColor}};
+$primary-inverse: {{contrastColor}};
+$primary-active: darken($primary, 12%);
+$primary-light: lighten($primary, 35%);
+$primary-dark: {{primaryDarkColor}};
+$primary-disable: lighten($primary, 5%);

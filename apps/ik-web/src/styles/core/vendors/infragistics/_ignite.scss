@@ -1,0 +1,69 @@
+// @use "@infragistics/igniteui-angular/lib/core/styles/themes" as *;
+@use "@infragistics/igniteui-angular/theming" as *;
+@forward "@infragistics/igniteui-angular/theming";
+
+// $primary: #ea0029;
+
+// $my-palette: palette(
+//   $primary: #2ab759,
+//   $secondary: #f96a88,
+// );
+
+// $palette: $light-material-palette;
+$schema: $light-material-schema;
+
+// $default-palette: $palette;
+
+// $custom-palette: palette(
+//   $primary: $primary,
+//   $secondary: $primary,
+// );
+
+// $green-palette: palette(
+//   $primary: #09f,
+//   $secondary: #72da67,
+//   $surface: #333,
+//   $info: #1377d5,
+//   $success: #4eb862,
+//   $warn: #fbb13c,
+//   $error: #ff134a,
+// );
+
+// $gray-btn-color: color($green-palette, "gray", 800);
+
+// @include core();
+
+// $my-elevations: (
+//   0: $box-shadow-xs,
+//   1: $box-shadow-xs,
+//   2: $box-shadow-xs,
+//   3: $box-shadow-xs,
+//   4: $box-shadow-xs,
+//   5: $box-shadow-xs,
+//   6: $box-shadow-xs,
+//   7: $box-shadow-sm,
+//   8: $box-shadow-sm,
+//   9: $box-shadow-sm,
+//   10: $box-shadow-sm,
+//   11: $box-shadow-sm,
+//   12: $box-shadow-sm,
+//   13: $box-shadow,
+//   14: $box-shadow,
+//   15: $box-shadow,
+//   16: $box-shadow,
+//   17: $box-shadow,
+//   18: $box-shadow,
+//   19: $box-shadow-lg,
+//   20: $box-shadow-lg,
+//   21: $box-shadow-lg,
+//   22: $box-shadow-lg,
+//   23: $box-shadow-lg,
+//   24: $box-shadow-lg,
+// );
+
+// $custom-palette: palette(
+//   $primary: $primary,
+//   $secondary: $primary,
+// );
+
+// @include theme($custom-palette, $elevations: $my-elevations);

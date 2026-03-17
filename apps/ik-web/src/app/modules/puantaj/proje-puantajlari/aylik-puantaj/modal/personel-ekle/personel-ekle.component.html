@@ -1,0 +1,124 @@
+<div
+  class="card d-flex flex-column flex-fill h-100 shadow-none rounded-0 w-100 overflow-hidden"
+>
+  <div class="card-header border-0 align-items-center">
+    <span class="fs-4 fw-bold">
+      {{ "Global.PersonelEkle" | translate }}
+    </span>
+    <button class="btn btn-sm btn-icon ms-auto" (click)="dismiss()">
+      <i class="fa-solid fa-xmark fs-3"></i>
+    </button>
+  </div>
+  <div class="card-body h-100 overflow-auto">
+    <form [formGroup]="form" class="row row-gap-3">
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-input
+          name="tcKimlikNo"
+          label="Puantaj.ProjePuantajlari.AylikPuantaj.PersonelEkle.TCKimlikNo"
+          formControlName="tcKimlikNo"
+        >
+        </ikweb-input>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-input
+          name="adi"
+          label="Puantaj.ProjePuantajlari.AylikPuantaj.PersonelEkle.Adi"
+          formControlName="adi"
+        >
+        </ikweb-input>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-input
+          name="soyadi"
+          label="Puantaj.ProjePuantajlari.AylikPuantaj.PersonelEkle.Soyadi"
+          formControlName="soyadi"
+        >
+        </ikweb-input>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-input
+          name="ucret"
+          label="Puantaj.ProjePuantajlari.AylikPuantaj.PersonelEkle.Ucret"
+          formControlName="ucret"
+        >
+        </ikweb-input>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-date-picker
+          name="girisTarihi"
+          label="Puantaj.ProjePuantajlari.AylikPuantaj.PersonelEkle.GirisTarihi"
+          formControlName="girisTarihi"
+        >
+        </ikweb-date-picker>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-select
+          name="pozisyon"
+          label="Puantaj.ProjePuantajlari.AylikPuantaj.PersonelEkle.Pozisyon"
+          formControlName="pozisyon"
+          [data]=""
+          valueKey=""
+          displayKey=""
+        >
+        </ikweb-select>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-select
+          name="calismaSekli"
+          label="Puantaj.ProjePuantajlari.AylikPuantaj.PersonelEkle.CalismaSekli"
+          formControlName="calismaSekli"
+          [data]=""
+          valueKey=""
+          displayKey=""
+        >
+        </ikweb-select>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-select
+          name="odemeTipi"
+          label="Puantaj.ProjePuantajlari.AylikPuantaj.PersonelEkle.OdemeTipi"
+          formControlName="odemeTipi"
+          [data]=""
+          valueKey=""
+          displayKey=""
+        >
+        </ikweb-select>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-checkbox
+          label="Puantaj.ProjePuantajlari.AylikPuantaj.PersonelEkle.cikisGiris"
+          formControlName="cikisGiris"
+        >
+        </ikweb-checkbox>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-date-picker
+          name="cikisTarihi"
+          label="Puantaj.ProjePuantajlari.AylikPuantaj.PersonelEkle.cikisTarihi"
+          formControlName="cikisTarihi"
+        >
+        </ikweb-date-picker>
+      </section>
+    </form>
+  </div>
+  <div class="card-footer border-0">
+    <div class="d-flex flex-stack">
+      <button class="btn btn-sm btn-success">
+        {{ "Global.Save" | translate }}
+      </button>
+
+      <button class="btn btn-sm btn-transparent">
+        {{ "Global.Temizle" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

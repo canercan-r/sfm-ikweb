@@ -1,0 +1,27 @@
+<igx-input-group>
+  <label igxLabel [for]="name">{{ label | translate }}</label>
+  <textarea
+    #textarea
+    igxInput
+    type="text"
+    [formControl]="control"
+    [name]="name"
+    [maxlength]="maxlength"
+    [readonly]="readonly"
+    [rows]="rows"
+  ></textarea>
+  <igx-hint position="end"
+    >{{ textarea.value.length }}/{{ maxlength }}</igx-hint
+  >
+</igx-input-group>
+
+<!-- <textarea
+  rows="3"
+  igxInput
+  #pushMesajTextarea
+  name="pushMesaj"
+  maxlength="200"
+  placeholder="{{ 'Dashboard.Modals.BildirimGonder.Mesaj' | translate }}"
+  formControlName="mesaj"
+></textarea>
+<igx-hint position="end">{{ pushMesajTextarea.value.length }}/200</igx-hint> -->

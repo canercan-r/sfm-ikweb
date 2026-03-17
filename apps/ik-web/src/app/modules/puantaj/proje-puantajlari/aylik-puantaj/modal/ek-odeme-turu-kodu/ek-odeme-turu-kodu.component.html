@@ -1,0 +1,24 @@
+<div class="card card-spacing-reset">
+  <button
+    class="btn btn-sm btn-icon position-absolute z-index-2 end-0"
+    (click)="dismiss()"
+  >
+    <i class="fa-solid fa-xmark fs-3 text-light"></i>
+  </button>
+
+  <div
+    class="card-body p-0"
+    id="st_aylikPuantajEkOdemeTuruKodu_scroll"
+    data-st-scroll="true"
+    data-st-scroll-save-state="false"
+    data-st-scroll-height="auto"
+    data-st-scroll-wrappers="#st_aylikPuantajEkOdemeTuruKodu_body"
+    data-st-scroll-dependencies="#st_header, #st_toolbar"
+    [attr.data-st-scroll-offset]="_sharedHelper.contentSpacing"
+  >
+    <lib-mock-grid
+      id="st_aylikPuantajEkOdemeTuruKodu_body"
+      #aylikPuantajEkOdemelerGrid
+    ></lib-mock-grid>
+  </div>
+</div>

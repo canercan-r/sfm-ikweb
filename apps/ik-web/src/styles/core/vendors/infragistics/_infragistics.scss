@@ -1,0 +1,70 @@
+//
+// Customized Ignite UI for Angular Version For App
+//
+
+// @use "@infragistics/igniteui-angular/lib/core/styles/themes" as *;
+@use "@infragistics/igniteui-angular/theming" as *;
+@use "ignite" as *;
+
+@include core();
+@include typography();
+
+$palette: palette(
+  $primary: $primary,
+  $secondary: $secondary,
+  $surface: $white,
+  $gray: $gray-100,
+  $info: $info,
+  $success: $success,
+  $warn: $warning,
+  $error: $danger,
+);
+
+$elevations: (
+  0: $box-shadow-xs,
+  1: $box-shadow-xs,
+  2: $box-shadow-xs,
+  3: $box-shadow-xs,
+  4: $box-shadow-xs,
+  5: $box-shadow-xs,
+  6: $box-shadow-xs,
+  7: $box-shadow-sm,
+  8: $box-shadow-sm,
+  9: $box-shadow-sm,
+  10: $box-shadow-sm,
+  11: $box-shadow-sm,
+  12: $box-shadow-sm,
+  13: $box-shadow,
+  14: $box-shadow,
+  15: $box-shadow,
+  16: $box-shadow,
+  17: $box-shadow,
+  18: $box-shadow,
+  19: $box-shadow-lg,
+  20: $box-shadow-lg,
+  21: $box-shadow-lg,
+  22: $box-shadow-lg,
+  23: $box-shadow-lg,
+  24: $box-shadow-lg,
+);
+
+@include theme($palette: $palette, $schema: $schema, $elevations: $elevations);
+
+@import "components/button-theme";
+@import "components/icon-theme";
+@import "components/paginator-theme";
+@import "components/column-actions-theme";
+@import "components/input-group-theme";
+@import "components/checkbox-theme";
+@import "components/radio-theme";
+@import "components/drop-down-theme";
+@import "components/combo-theme";
+@import "components/select-theme";
+@import "components/calendar-theme";
+@import "components/time-picker-theme";
+@import "components/label-theme";
+@import "components/tabs-theme";
+
+@import "components/grid/grid-theme";
+@import "components/grid/grid-toolbar-theme";
+@import "components/grid/excel-filtering-theme";

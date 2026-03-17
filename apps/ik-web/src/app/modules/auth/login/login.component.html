@@ -1,0 +1,113 @@
+<form
+  class="w-100"
+  [formGroup]="loginForm"
+  novalidate="novalidate"
+  autocomplete="off"
+  id="st_auth_login_form"
+  (ngSubmit)="login()"
+>
+  <div class="mb-5">
+    <h1 class="text-gray-900 fw-bolder mb-3">
+      {{ "Auth.Login.Title" | translate }}
+    </h1>
+    <div class="text-gray-500 fw-semibold fs-6">
+      {{ "Auth.Login.Description" | translate }}
+    </div>
+  </div>
+
+  <ikweb-alert
+    *ngIf="hasError"
+    class="animate__animated animate__shakeX"
+    icon="fa-solid fa-circle-xmark"
+    color="danger"
+    size="20px"
+    bglightcolor="danger"
+    message="Auth.Login.Msg.IncorrectMsg"
+  ></ikweb-alert>
+
+  <div class="row gap-5">
+    <div class="col-12">
+      <ikweb-input
+        name="email"
+        type="text"
+        label="Auth.Login.Email"
+        formControlName="email"
+        [inputGroupType]="'border'"
+      >
+      </ikweb-input>
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: 'Global.BuAlanGereklidir' | translate,
+          control: loginForm.controls['email']
+        }"
+      ></ng-container>
+    </div>
+
+    <div class="col-12">
+      <ikweb-input
+        type="password"
+        name="password"
+        label="Auth.Login.Password"
+        formControlName="password"
+        autocomplete="one-time-code"
+        [inputGroupType]="'border'"
+      >
+      </ikweb-input>
+      <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: 'Global.BuAlanGereklidir' | translate,
+          control: loginForm.controls['password']
+        }"
+      ></ng-container>
+    </div>
+
+    <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold">
+      <ikweb-checkbox label="Auth.Login.RememberMe" formControlName="remember">
+      </ikweb-checkbox>
+
+      <!-- <a class="btn btn-link link-primary" (click)="forgotPassword()">
+        {{ "Auth.Login.SifremiUnuttum" | translate }}</a
+      > -->
+    </div>
+
+    <div class="col-12">
+      <button
+        type="submit"
+        id="st_login_submit"
+        class="btn btn-lg btn-primary w-100 mb-5"
+        [disabled]="loginForm.invalid || (isLoading$ | async)"
+      >
+        <ng-container *ngIf="isLoading$ | async">
+          <span class="indicator-progress" [style.display]="'block'">
+            {{ "Global.LutfenBekleyiniz" | translate }}
+            <span
+              class="spinner-border spinner-border-sm align-middle ms-2"
+            ></span>
+          </span>
+        </ng-container>
+        <ng-container *ngIf="(isLoading$ | async) === false">
+          <span class="indicator-label">{{
+            "Global.Continue" | translate
+          }}</span>
+        </ng-container>
+      </button>
+    </div>
+  </div>
+</form>
+
+<ng-template
+  #formError
+  let-control="control"
+  let-message="message"
+  let-validation="validation"
+>
+  <ikweb-hint
+    *ngIf="control.hasError(validation) && (control.dirty || control.touched)"
+    color="danger"
+    [message]="message"
+  ></ikweb-hint>
+</ng-template>

@@ -1,0 +1,643 @@
+<form [formGroup]="form">
+  <div class="card mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5>
+        {{
+          "InsanKaynaklari.Personeller.PersonelDetay.KisiselBilgiler"
+            | translate
+        }}
+      </h5>
+
+      <a
+        class="collapsible"
+        data-bs-toggle="collapse"
+        href="#kisiselBilgilerCollapse"
+        role="button"
+        aria-expanded="true"
+        aria-controls="kisiselBilgilerCollapse"
+      >
+        <i
+          class="fa-duotone fa-solid fa-circle-arrow-down text-primary fs-4 rotate-180"
+        ></i>
+      </a>
+    </div>
+
+    <div class="card-body d-flex flex-column gap-3">
+      <div class="row row-gap-3">
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-date-picker
+            name="yillikIzinBasTarihi"
+            label="InsanKaynaklari.Personeller.PersonelDetay.YillikIzinBasTarihi"
+            formControlName="yillikIzinBasTarihi"
+          >
+          </ikweb-date-picker>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-input
+            name="dogumYeri"
+            label="InsanKaynaklari.Personeller.PersonelDetay.DogumYeri"
+            formControlName="dogumYeri"
+          >
+          </ikweb-input>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-input
+            name="sskNo"
+            label="InsanKaynaklari.Personeller.PersonelDetay.SskNo"
+            formControlName="sskNo"
+          >
+          </ikweb-input>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-input
+            name="babaAdi"
+            label="InsanKaynaklari.Personeller.PersonelDetay.BabaAdi"
+            formControlName="babaAdi"
+          >
+          </ikweb-input>
+        </section>
+      </div>
+      <div id="kisiselBilgilerCollapse" class="collapse show" #collapseRef>
+        <div class="row row-gap-3">
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-input
+              name="cariHesapKodu"
+              label="InsanKaynaklari.Personeller.PersonelDetay.CariHesapKodu"
+              formControlName="cariHesapKodu"
+            >
+            </ikweb-input>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5>
+        {{
+          "InsanKaynaklari.Personeller.PersonelDetay.GorevBilgileri" | translate
+        }}
+      </h5>
+
+      <a
+        class="collapsible"
+        data-bs-toggle="collapse"
+        href="#gorevBilgileriCollapse"
+        role="button"
+        aria-expanded="true"
+        aria-controls="gorevBilgileriCollapse"
+      >
+        <i
+          class="fa-duotone fa-solid fa-circle-arrow-down text-primary fs-4 rotate-180"
+        ></i>
+      </a>
+    </div>
+
+    <div class="card-body d-flex flex-column gap-3">
+      <div class="row row-gap-3">
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-input
+            name="projesi"
+            label="InsanKaynaklari.Personeller.PersonelDetay.Projesi"
+            formControlName="projesi"
+          >
+          </ikweb-input>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-input
+            name="pozisyonu"
+            label="InsanKaynaklari.Personeller.PersonelDetay.Pozisyonu"
+            formControlName="pozisyonu"
+          >
+          </ikweb-input>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-input
+            name="kadroKodu"
+            label="InsanKaynaklari.Personeller.PersonelDetay.KadroKodu"
+            formControlName="kadroKodu"
+          >
+          </ikweb-input>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-input
+            name="projeTel"
+            label="InsanKaynaklari.Personeller.PersonelDetay.ProjeTel"
+            formControlName="projeTel"
+          >
+          </ikweb-input>
+        </section>
+      </div>
+      <div id="gorevBilgileriCollapse" class="collapse show" #collapseRef>
+        <div class="row row-gap-3">
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-date-picker
+              name="girisTarihi"
+              label="InsanKaynaklari.Personeller.PersonelDetay.GirisTarihi"
+              formControlName="girisTarihi"
+            >
+            </ikweb-date-picker>
+          </section>
+
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-date-picker
+              name="cikisTarihi"
+              label="InsanKaynaklari.Personeller.PersonelDetay.CikisTarihi"
+              formControlName="cikisTarihi"
+            >
+            </ikweb-date-picker>
+          </section>
+
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-input
+              name="sskNo"
+              label="InsanKaynaklari.Personeller.PersonelDetay.SskNo"
+              formControlName="sskNo"
+            >
+            </ikweb-input>
+          </section>
+
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-input
+              name="babaAdi"
+              label="InsanKaynaklari.Personeller.PersonelDetay.BabaAdi"
+              formControlName="babaAdi"
+            >
+            </ikweb-input>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5>
+        {{
+          "InsanKaynaklari.Personeller.PersonelDetay.EhliyetBilgisi" | translate
+        }}
+      </h5>
+    </div>
+
+    <div class="card-body d-flex flex-column gap-3">
+      <div class="row row-gap-3">
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-select
+            name="ehliyetSinifi"
+            label="InsanKaynaklari.Personeller.PersonelDetay.EhliyetSinifi"
+            formControlName="ehliyetSinifi"
+            [data]=""
+            valueKey=""
+            displayKey=""
+          >
+          </ikweb-select>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-date-picker
+            name="ehliyetTarihi"
+            label="InsanKaynaklari.Personeller.PersonelDetay.EhliyetTarihi"
+            formControlName="ehliyetTarihi"
+          >
+          </ikweb-date-picker>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5>
+        {{
+          "InsanKaynaklari.Personeller.PersonelDetay.IletisimBilgileri"
+            | translate
+        }}
+      </h5>
+
+      <a
+        class="collapsible"
+        data-bs-toggle="collapse"
+        href="#iletisimBilgileriCollapse"
+        role="button"
+        aria-expanded="true"
+        aria-controls="iletisimBilgileriCollapse"
+      >
+        <i
+          class="fa-duotone fa-solid fa-circle-arrow-down text-primary fs-4 rotate-180"
+        ></i>
+      </a>
+    </div>
+
+    <div class="card-body d-flex flex-column gap-3">
+      <div class="row row-gap-3">
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-input
+            name="cepTel"
+            label="InsanKaynaklari.Personeller.PersonelDetay.CepTel"
+            formControlName="cepTel"
+          >
+          </ikweb-input>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-checkbox
+            label="InsanKaynaklari.Personeller.PersonelDetay.TelefonYok"
+            formControlName="telefonYok"
+          >
+          </ikweb-checkbox>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-input
+            name="ePosta"
+            label="InsanKaynaklari.Personeller.PersonelDetay.EPosta"
+            formControlName="ePosta"
+          >
+          </ikweb-input>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-input
+            name="kurumEPosta"
+            label="InsanKaynaklari.Personeller.PersonelDetay.KurumEPosta"
+            formControlName="kurumEPosta"
+          >
+          </ikweb-input>
+        </section>
+      </div>
+      <div id="iletisimBilgileriCollapse" class="collapse show" #collapseRef>
+        <div class="row row-gap-3">
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-select
+              name="ikametgahIli"
+              label="InsanKaynaklari.Personeller.PersonelDetay.IkametgahIli"
+              formControlName="ikametgahIli"
+              [data]=""
+              valueKey=""
+              displayKey=""
+            >
+            </ikweb-select>
+          </section>
+
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-select
+              name="ikametgahIlcesi"
+              label="InsanKaynaklari.Personeller.PersonelDetay.IkametgahIlcesi"
+              formControlName="ikametgahIlcesi"
+              [data]=""
+              valueKey=""
+              displayKey=""
+            >
+            </ikweb-select>
+          </section>
+
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-input
+              name="ikametgahSemti"
+              label="InsanKaynaklari.Personeller.PersonelDetay.IkametgahSemti"
+              formControlName="ikametgahSemti"
+            >
+            </ikweb-input>
+          </section>
+
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-input
+              name="ikametgahAdresi"
+              label="InsanKaynaklari.Personeller.PersonelDetay.IkametgahAdresi"
+              formControlName="ikametgahAdresi"
+            >
+            </ikweb-input>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5>
+        {{
+          "InsanKaynaklari.Personeller.PersonelDetay.OzelBilgiler" | translate
+        }}
+      </h5>
+
+      <a
+        class="collapsible"
+        data-bs-toggle="collapse"
+        href="#ozelBilgilerCollapse"
+        role="button"
+        aria-expanded="true"
+        aria-controls="ozelBilgilerCollapse"
+      >
+        <i
+          class="fa-duotone fa-solid fa-circle-arrow-down text-primary fs-4 rotate-180"
+        ></i>
+      </a>
+    </div>
+
+    <div class="card-body d-flex flex-column gap-3">
+      <div class="row row-gap-3">
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-select
+            name="kanGrubu"
+            label="InsanKaynaklari.Personeller.PersonelDetay.KanGrubu"
+            formControlName="kanGrubu"
+            [data]=""
+            valueKey=""
+            displayKey=""
+          >
+          </ikweb-select>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-select
+            name="boy"
+            label="InsanKaynaklari.Personeller.PersonelDetay.Boy"
+            formControlName="boy"
+            [data]=""
+            valueKey=""
+            displayKey=""
+          >
+          </ikweb-select>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-select
+            name="kilo"
+            label="InsanKaynaklari.Personeller.PersonelDetay.Kilo"
+            formControlName="kilo"
+            [data]=""
+            valueKey=""
+            displayKey=""
+          >
+          </ikweb-select>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-select
+            name="pantolonOlcusu"
+            label="InsanKaynaklari.Personeller.PersonelDetay.PantolonOlcusu"
+            formControlName="pantolonOlcusu"
+            [data]=""
+            valueKey=""
+            displayKey=""
+          >
+          </ikweb-select>
+        </section>
+      </div>
+      <div id="ozelBilgilerCollapse" class="collapse show" #collapseRef>
+        <div class="row row-gap-3">
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-select
+              name="gomlekOlcusu"
+              label="InsanKaynaklari.Personeller.PersonelDetay.GomlekOlcusu"
+              formControlName="gomlekOlcusu"
+              [data]=""
+              valueKey=""
+              displayKey=""
+            >
+            </ikweb-select>
+          </section>
+
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-select
+              name="kabanOlcusu"
+              label="InsanKaynaklari.Personeller.PersonelDetay.KabanOlcusu"
+              formControlName="kabanOlcusu"
+              [data]=""
+              valueKey=""
+              displayKey=""
+            >
+            </ikweb-select>
+          </section>
+
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-select
+              name="ceketOlcusu"
+              label="InsanKaynaklari.Personeller.PersonelDetay.CeketOlcusu"
+              formControlName="ceketOlcusu"
+              [data]=""
+              valueKey=""
+              displayKey=""
+            >
+            </ikweb-select>
+          </section>
+
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-select
+              name="ayakkabıNo"
+              label="InsanKaynaklari.Personeller.PersonelDetay.AyakkabıNo"
+              formControlName="ayakkabıNo"
+              [data]=""
+              valueKey=""
+              displayKey=""
+            >
+            </ikweb-select>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5>
+        {{
+          "InsanKaynaklari.Personeller.PersonelDetay.DigerBilgiler" | translate
+        }}
+      </h5>
+
+      <a
+        class="collapsible"
+        data-bs-toggle="collapse"
+        href="#digerBilgilerCollapse"
+        role="button"
+        aria-expanded="true"
+        aria-controls="digerBilgilerCollapse"
+      >
+        <i
+          class="fa-duotone fa-solid fa-circle-arrow-down text-primary fs-4 rotate-180"
+        ></i>
+      </a>
+    </div>
+
+    <div class="card-body d-flex flex-column gap-3">
+      <div class="row row-gap-3">
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-input
+            name="acilDurumlardaAranacakKisi"
+            label="InsanKaynaklari.Personeller.PersonelDetay.AcilDurumlardaAranacakKisi"
+            formControlName="acilDurumlardaAranacakKisi"
+          >
+          </ikweb-input>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-input
+            name="acilDurumdaAranacakKisiTel"
+            label="InsanKaynaklari.Personeller.PersonelDetay.AcilDurumdaAranacakKisiTel"
+            formControlName="acilDurumdaAranacakKisiTel"
+          >
+          </ikweb-input>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-select
+            name="calismaGrubu"
+            label="InsanKaynaklari.Personeller.PersonelDetay.calismaGrubu"
+            formControlName="calismaGrubu"
+            [data]=""
+            valueKey=""
+            displayKey=""
+          >
+          </ikweb-select>
+        </section>
+
+        <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <ikweb-select
+            name="uyruk"
+            label="InsanKaynaklari.Personeller.PersonelDetay.Uyruk"
+            formControlName="uyruk"
+            [data]=""
+            valueKey=""
+            displayKey=""
+          >
+          </ikweb-select>
+        </section>
+      </div>
+      <div id="digerBilgilerCollapse" class="collapse show" #collapseRef>
+        <div class="row row-gap-3 mb-5">
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-select
+              name="medeniHali"
+              label="InsanKaynaklari.Personeller.PersonelDetay.MedeniHali"
+              formControlName="medeniHali"
+              [data]=""
+              valueKey=""
+              displayKey=""
+            >
+            </ikweb-select>
+          </section>
+
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-input
+              name="ozelKodu"
+              label="InsanKaynaklari.Personeller.PersonelDetay.OzelKodu"
+              formControlName="ozelKodu"
+            >
+            </ikweb-input>
+          </section>
+
+          <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <ikweb-input
+              name="POKSID"
+              label="InsanKaynaklari.Personeller.PersonelDetay.POKSID"
+              formControlName="POKSID"
+            >
+            </ikweb-input>
+          </section>
+        </div>
+
+        <div class="row row-gap-3 d-flex align-items-center mb-3">
+          <section class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <span>{{
+              "InsanKaynaklari.Personeller.PersonelDetay.HaklarinBaslangicTarihiDogruMu"
+                | translate
+            }}</span>
+          </section>
+          <section class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+            <ikweb-checkbox
+              [label]="
+                form.get('telefonYok')?.value ? 'Global.Evet' : 'Global.Hayir'
+              "
+              formControlName="telefonYok"
+            ></ikweb-checkbox>
+          </section>
+        </div>
+
+        <div class="row row-gap-3 d-flex align-items-center mb-3">
+          <section class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <span>{{
+              "InsanKaynaklari.Personeller.PersonelDetay.AcilDurumlardaKanVerirMisiniz"
+                | translate
+            }}</span>
+          </section>
+          <section class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+            <ikweb-checkbox
+              [label]="
+                form.get('acilDurumlardaKanVerirMisiniz')?.value
+                  ? 'Global.Evet'
+                  : 'Global.Hayir'
+              "
+              formControlName="acilDurumlardaKanVerirMisiniz"
+            ></ikweb-checkbox>
+          </section>
+        </div>
+
+        <div class="row row-gap-3 d-flex align-items-center mb-3">
+          <section class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <span>{{
+              "InsanKaynaklari.Personeller.PersonelDetay.SigaraKullaniyorMusunuz"
+                | translate
+            }}</span>
+          </section>
+          <section class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+            <ikweb-checkbox
+              [label]="
+                form.get('sigaraKullaniyorMusunuz')?.value
+                  ? 'Global.Evet'
+                  : 'Global.Hayir'
+              "
+              formControlName="sigaraKullaniyorMusunuz"
+            ></ikweb-checkbox>
+          </section>
+        </div>
+
+        <div class="row row-gap-3 d-flex align-items-center mb-3">
+          <section class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <span>{{
+              "InsanKaynaklari.Personeller.PersonelDetay.OnemliBirRahatsizlikGecirdinizMi"
+                | translate
+            }}</span>
+          </section>
+          <section class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+            <ikweb-checkbox
+              [label]="
+                form.get('onemliBirRahatsizlikGecirdinizMi')?.value
+                  ? 'Global.Evet'
+                  : 'Global.Hayir'
+              "
+              formControlName="onemliBirRahatsizlikGecirdinizMi"
+            ></ikweb-checkbox>
+          </section>
+        </div>
+
+        <div class="row row-gap-3 d-flex align-items-center">
+          <section class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <span>{{
+              "InsanKaynaklari.Personeller.PersonelDetay.FizikselRahatsizliginizVarMi"
+                | translate
+            }}</span>
+          </section>
+          <section class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+            <ikweb-checkbox
+              [label]="
+                form.get('fizikselRahatsizliginizVarMi')?.value
+                  ? 'Global.Evet'
+                  : 'Global.Hayir'
+              "
+              formControlName="fizikselRahatsizliginizVarMi"
+            ></ikweb-checkbox>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

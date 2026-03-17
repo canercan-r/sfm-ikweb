@@ -1,0 +1,65 @@
+<!-- begin::Brand -->
+<div class="aside-logo py-8" id="st_aside_logo" *ngIf="asideLogo">
+  <!-- begin::Logo -->
+  <a routerLink="/" class="d-flex align-items-center">
+    <img
+      alt="Logo"
+      [src]="getLogo(logoTypeEnum.LogoOnDark)"
+      class="h-25px logo"
+    />
+  </a>
+  <!-- end::Logo -->
+</div>
+<!-- end::Brand  -->
+
+<!-- begin::Aside toggle -->
+<ng-container *ngIf="asideMinimize">
+  <div
+    id="st_app_aside_toggle"
+    class="aside-toggle btn btn-icon btn-shadow btn-sm btn-color-muted btn-active-color-primary h-30px w-30px position-absolute top-40px start-100 translate-middle rotate active z-index-3"
+    data-st-toggle="true"
+    data-st-toggle-state="active"
+    data-st-toggle-target="body"
+    data-st-toggle-name="aside-minimize"
+  >
+    <i class="fa-solid fa-chevron-right fs-3 rotate-180"></i>
+  </div>
+</ng-container>
+<!-- end::Aside toggler -->
+
+<!-- begin::Aside menu -->
+<div
+  #stAsideScroll
+  id="st_aside_nav"
+  class="aside-nav d-flex flex-column align-lg-center flex-column-fluid w-100 pt-lg-0"
+>
+  <cv-aside-menu
+    [favorite]="asideFavorite"
+    [icon]="asideIcon"
+    [menu]="asideMenu"
+    class="aside-menu flex-column-fluid"
+  >
+  </cv-aside-menu>
+</div>
+<!-- end::Aside menu -->
+
+<!-- begin::Footer -->
+<div class="aside-footer flex-column-auto" id="st_aside_footer">
+  <!--begin::Menu-->
+  <div class="d-flex justify-content-center">
+    <button
+      type="button"
+      class="btn btm-sm btn-icon btn-active-color-primary"
+      data-st-menu-trigger="click"
+      data-popper-placement="right-end"
+      data-st-menu-flip="top-end"
+    >
+      <i class="fa-solid fa-grip fs-1"></i>
+    </button>
+    <!--begin::Menu-->
+    <cv-dropdown-menu></cv-dropdown-menu>
+    <!--end::Menu-->
+  </div>
+  <!--end::Menu-->
+</div>
+<!-- end::Footer -->

@@ -1,0 +1,93 @@
+<div class="toolbar bg-black">
+  <div
+    id="st_toolbar_container"
+    [ngClass]="toolbarContainerCssClasses"
+    class="d-flex flex-stack"
+  >
+    <ng-container *ngTemplateOutlet="tempTitle"></ng-container>
+  </div>
+</div>
+
+<ng-template #tempTitle>
+  <div
+    #stPageTitle
+    class="page-title d-flex"
+    [ngClass]="pageTitleCssClass"
+    data-st-swapper="true"
+    data-st-swapper-mode="prepend"
+    data-st-swapper-parent="{default: '#st_content_container', 'lg': '#st_toolbar_container'}"
+  >
+    <ng-container *ngIf="title$ | async as title">
+      <ng-container *ngIf="showTitle">
+        <h1
+          *ngIf="bc$ | async as _bc"
+          class="fw-bolder my-0 fs-5 lh-1"
+          [ngClass]="
+            device === 'mobile' || ('tablet' && orientation === 'portrait')
+              ? 'text-dark'
+              : toolbarBg
+              ? 'text-white'
+              : 'text-dark'
+          "
+        >
+          <ng-container *ngIf="_bc.length === 0; else else_bcTemplate">
+            {{ title | translate }}
+          </ng-container>
+          <ng-template #else_bcTemplate>
+            <ng-content select="[title]"></ng-content>
+          </ng-template>
+        </h1>
+      </ng-container>
+
+      <ng-container *ngIf="showBC">
+        <ng-container *ngIf="bc$ | async as _bc">
+          <ng-container *ngIf="_bc.length > 0">
+            <ng-container *ngIf="pageTitleDirection === 'row' && customTitle">
+              <span class="h-20px border-gray-200 border-start mx-4"></span>
+            </ng-container>
+            <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-0">
+              <li
+                *ngFor="let bc of _bc"
+                class="breadcrumb-item"
+                [ngClass]="!bc.isSeparator && bc.isActive ? 'text-dark' : ''"
+                [ngClass]="!bc.isSeparator && !bc.isActive ? 'text-muted' : ''"
+              >
+                <ng-container *ngIf="!bc.isSeparator">
+                  <a class="text-muted text-hover-primary">
+                    {{ bc.title }}
+                  </a>
+                </ng-container>
+                <ng-container *ngIf="bc.isSeparator">
+                  <span
+                    class="bullet w-5px h-2px"
+                    [ngClass]="
+                      device === 'mobile' ||
+                      ('tablet' && orientation === 'portrait')
+                        ? 'bg-gray-400'
+                        : toolbarBg
+                        ? 'bg-gray-700'
+                        : 'bg-gray-200'
+                    "
+                  ></span>
+                </ng-container>
+              </li>
+              <li
+                class="breadcrumb-item"
+                [ngClass]="
+                  device === 'mobile' ||
+                  ('tablet' && orientation === 'portrait')
+                    ? 'text-dark'
+                    : toolbarBg
+                    ? 'text-white'
+                    : 'text-dark'
+                "
+              >
+                {{ title }}
+              </li>
+            </ul>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-template>

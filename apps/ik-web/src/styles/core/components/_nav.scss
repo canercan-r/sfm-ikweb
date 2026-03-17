@@ -1,0 +1,219 @@
+//
+// Nav
+//
+
+.nav-link {
+  display: block;
+  padding: var(--#{$prefix}nav-link-padding-y)
+    var(--#{$prefix}nav-link-padding-x);
+  @include font-size(var(--#{$prefix}nav-link-font-size));
+  font-weight: var(--#{$prefix}nav-link-font-weight);
+  color: var(--#{$prefix}nav-link-color);
+  text-decoration: if($link-decoration == none, null, none);
+  background: none;
+  border: 0;
+  @include transition($nav-link-transition);
+
+  &:hover,
+  &:focus {
+    color: var(--#{$prefix}nav-link-hover-color);
+    text-decoration: if($link-hover-decoration == underline, none, null);
+  }
+
+  &:focus-visible {
+    outline: 0;
+    box-shadow: $nav-link-focus-box-shadow;
+  }
+
+  // Disabled state lightens text
+  &.disabled,
+  &:disabled {
+    color: var(--#{$prefix}nav-link-disabled-color) !important;
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+// Nav pills
+.nav-pills {
+  .nav-item {
+    margin-right: 0.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+// Stretch items
+.nav-stretch {
+  align-items: stretch;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+
+  .nav-item {
+    display: flex;
+    align-items: stretch;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// Nav group
+.nav-group {
+  padding: 0.35rem;
+  @include border-radius($border-radius);
+  background-color: var(--#{$prefix}gray-100);
+
+  // Outline nav group
+  &.nav-group-outline {
+    background-color: transparent;
+    border: 1px solid var(--#{$prefix}border-color);
+  }
+
+  // Fluid option
+  &.nav-group-fluid {
+    display: flex;
+
+    > label,
+    > .btn {
+      position: relative;
+      flex-shrink: 0;
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+
+    > label {
+      margin-right: 0.1rem;
+
+      > .btn {
+        width: 100%;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+// Nav controls
+
+$control-m-offset: 0.75rem;
+$control-px: 1rem;
+
+@mixin control-arrow($type) {
+  display: flex;
+  align-items: center;
+
+  // Arrow type;
+  @if ($type==arrow-end) {
+    padding-left: $control-px;
+  }
+
+  @if ($type==arrow-start) {
+    padding-right: $control-px;
+  }
+}
+
+.nav-control {
+  display: flex;
+
+  .nav-control-prev {
+    @include control-arrow(arrow-start);
+  }
+
+  .nav-control-next {
+    @include control-arrow(arrow-end);
+  }
+
+  ~ .nav-content {
+    margin-top: -$control-m-offset;
+  }
+
+  > .nav-control-buttons {
+    .nav-control-button {
+      &.nav-control-prev {
+        left: 0;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        ::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0px;
+          right: 0px;
+          bottom: 0px;
+          z-index: -1;
+          opacity: 0.75;
+          border-top-right-radius: 3rem;
+          border-bottom-right-radius: 3rem;
+          // box-shadow: inset 85px 0 60px -50px #ffffff;
+        }
+      }
+
+      &.nav-control-next {
+        right: 0;
+        ::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0px;
+          right: 0px;
+          bottom: 0px;
+          z-index: -1;
+          opacity: 0.75;
+          border-top-left-radius: 3rem;
+          border-bottom-left-radius: 3rem;
+          box-shadow: inset -85px 0 60px -50px #ffffff;
+        }
+      }
+
+      position: absolute;
+      z-index: 1;
+      top: calc(50% - 5px);
+      bottom: auto;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      overflow: hidden;
+    }
+  }
+}
+
+.nav-st-scroll {
+  ~ .nav-content {
+    height: 100%;
+    .tab-content {
+      height: 100%;
+      .tab-pane {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.nav-header {
+  border-radius: $border-radius;
+  padding: $card-header-py $card-px;
+  background-color: $white;
+}
+
+[data-st-sticky-nav-header="on"] {
+  .nav-header {
+    right: get($content-spacing, desktop);
+    box-shadow: $card-box-shadow;
+  }
+}

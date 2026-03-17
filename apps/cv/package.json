@@ -1,0 +1,11 @@
+{
+  "author": "",
+  "description": "",
+  "license": "ISC",
+  "main": "index.js",
+  "name": "ik-login-web",
+  "scripts": {
+    "brand:web": "node ./scripts/configure.js -t=demo"
+  },
+  "version": "1.0.0"
+}

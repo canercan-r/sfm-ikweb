@@ -1,0 +1,347 @@
+<div
+  class="hover-scroll-overlay-y my-lg-5 pe-lg-n1"
+  id="st_aside_menu_wrapper"
+  data-st-scroll="true"
+  data-st-scroll-height="auto"
+  data-st-scroll-dependencies="#st_aside_footer"
+  data-st-scroll-wrappers="#st_aside, #st_aside_menu"
+  data-st-scroll-offset="1px"
+>
+  <div
+    class="menu menu-column menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold"
+    id="#st_aside_menu"
+    data-st-menu="true"
+  >
+    <!--begin::Menu Container-->
+    <ng-container *ngIf="menu">
+      <ng-container *ngFor="let item of menu; first as isFirst">
+        <ng-container
+          *ngIf="item.title"
+          [ngTemplateOutlet]="menu1LevelTemplate"
+          [ngTemplateOutletContext]="{ item: item }"
+        >
+        </ng-container>
+      </ng-container>
+    </ng-container>
+    <!--end::Menu Container-->
+
+    <!-- begin::1 Level -->
+    <ng-template #menu1LevelTemplate let-item="item">
+      <!-- begin::if don't have submenu -->
+      <ng-container *ngIf="!item.submenu">
+        <div class="menu-item py-3" routerLinkActive="here show">
+          <!--begin:Menu link-->
+          <a
+            class="menu-link menu-center"
+            routerLinkActive="show"
+            [routerLink]="'/' + item.link"
+          >
+            <span class="menu-icon me-0">
+              <ng-container *ngIf="icon === 'svg'; else font">
+                <span
+                  class="svg-icon svg-icon-2"
+                  [inlineSVG]="'assets/icons/' + item.icon + '.svg'"
+                  [cacheSVG]="true"
+                ></span>
+              </ng-container>
+              <ng-template #font>
+                <i [ngClass]="item.icon" class="fs-3"></i>
+              </ng-template>
+            </span>
+            <span class="menu-title">
+              {{ item.title | translate }}
+            </span>
+            <span class="menu-badge" *ngIf="item.badge">
+              <span class="badge badge-light-success">{{
+                item.badge | translate
+              }}</span>
+            </span>
+          </a>
+          <!--end:Menu link-->
+        </div>
+      </ng-container>
+      <!-- end::if don't have submenu -->
+
+      <!-- begin::if has submenu -->
+      <ng-container *ngIf="item.submenu">
+        <div
+          class="menu-item py-3"
+          data-st-menu-trigger="click"
+          data-st-menu-placement="right-start"
+          routerLinkActive="here show"
+        >
+          <span class="menu-link menu-center">
+            <span class="menu-icon me-0">
+              <ng-container *ngIf="icon === 'svg'; else font">
+                <span
+                  class="svg-icon svg-icon-2"
+                  [inlineSVG]="'assets/icons/' + item.icon + '.svg'"
+                  [cacheSVG]="true"
+                ></span>
+              </ng-container>
+              <ng-template #font>
+                <i [ngClass]="item.icon" class="fs-3"></i>
+              </ng-template>
+            </span>
+            <span class="menu-title">
+              {{ item.title | translate }}
+            </span>
+            <span class="menu-badge" *ngIf="item.badge">
+              <span class="badge badge-light-success">{{
+                item.badge | translate
+              }}</span>
+            </span>
+          </span>
+          <div
+            class="menu-sub menu-sub-dropdown w-225px w-lg-275px px-1 py-4"
+            routerLinkActive="menu-active-bg show"
+          >
+            <ng-container
+              *ngFor="let sub of item.submenu"
+              [ngTemplateOutlet]="menu2LevelTemplate"
+              [ngTemplateOutletContext]="{ item: sub }"
+            >
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+      <!-- end::if has submenu -->
+    </ng-template>
+    <!-- end::1 Level -->
+
+    <!-- begin::2 Level -->
+    <ng-template #menu2LevelTemplate let-item="item">
+      <!-- begin::if don't have submenu -->
+      <ng-container *ngIf="!item.submenu">
+        <div class="menu-item">
+          <a class="menu-link" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title text-start" [routerLink]="item.link">
+              {{ item.title | translate }}
+            </span>
+            <span
+              class="menu-favorite"
+              *ngIf="favorite"
+              (click)="toggleStar($event, item)"
+              [ngClass]="{ active: item.starred }"
+              placement="top"
+              [ngbTooltip]="
+                item.starred
+                  ? 'Sık Kullanılanlardan Çıkar'
+                  : 'Sık Kullanılanlara Ekle'
+              "
+            >
+              <i class="fa-solid fa-star fs-5"></i>
+            </span>
+          </a>
+        </div>
+      </ng-container>
+      <!-- end::if don't have submenu -->
+
+      <!-- begin::if has submenu -->
+      <ng-container *ngIf="item.submenu">
+        <div
+          class="menu-item menu-accordion"
+          routerLinkActive="here show"
+          data-st-menu-trigger="click"
+        >
+          <!--begin:Menu link-->
+          <span class="menu-link">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title text-start" [attr.data-link]="item.link">{{
+              item.title | translate
+            }}</span>
+            <span class="menu-arrow"></span>
+          </span>
+          <!--end:Menu link-->
+          <!--begin:Menu sub-->
+          <div
+            class="menu-sub menu-sub-accordion"
+            routerLinkActive="menu-active-bg show"
+          >
+            <ng-container
+              *ngFor="let sub of item.submenu"
+              [ngTemplateOutlet]="menu3LevelTemplate"
+              [ngTemplateOutletContext]="{ item: sub }"
+            >
+            </ng-container>
+          </div>
+          <!--end:Menu sub-->
+        </div>
+      </ng-container>
+      <!-- end::if has submenu -->
+    </ng-template>
+    <!-- end::2 Level -->
+
+    <!-- begin::3 Level -->
+    <ng-template #menu3LevelTemplate let-item="item">
+      <!-- begin::if don't have submenu -->
+      <ng-container *ngIf="!item.submenu">
+        <div class="menu-item">
+          <a class="menu-link" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title text-start" [routerLink]="item.link">
+              {{ item.title | translate }}
+            </span>
+            <span
+              class="menu-favorite"
+              *ngIf="favorite"
+              (click)="toggleStar($event, item)"
+              [ngClass]="{ active: item.starred }"
+              placement="top"
+              [ngbTooltip]="
+                item.starred
+                  ? 'Sık Kullanılanlardan Çıkar'
+                  : 'Sık Kullanılanlara Ekle'
+              "
+            >
+              <i class="fa-solid fa-star fs-5"></i>
+            </span>
+          </a>
+        </div>
+      </ng-container>
+      <!-- end::if don't have submenu -->
+
+      <!-- begin::if has submenu -->
+      <ng-container *ngIf="item.submenu">
+        <div
+          class="menu-item menu-accordion"
+          routerLinkActive="here show"
+          data-st-menu-trigger="click"
+        >
+          <!--begin:Menu link-->
+          <span class="menu-link">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title text-start" [attr.data-link]="item.link">{{
+              item.title | translate
+            }}</span>
+            <span class="menu-arrow"></span>
+          </span>
+          <!--end:Menu link-->
+          <!--begin:Menu sub-->
+          <div
+            class="menu-sub menu-sub-accordion"
+            routerLinkActive="menu-active-bg show"
+          >
+            <ng-container
+              *ngFor="let sub of item.submenu"
+              [ngTemplateOutlet]="menu4LevelTemplate"
+              [ngTemplateOutletContext]="{ item: sub }"
+            >
+            </ng-container>
+          </div>
+          <!--end:Menu sub-->
+        </div>
+      </ng-container>
+      <!-- end::if has submenu -->
+    </ng-template>
+    <!-- end::3 Level -->
+
+    <!-- begin::4 Level -->
+    <ng-template #menu4LevelTemplate let-item="item">
+      <!-- begin::if don't have submenu -->
+      <ng-container *ngIf="!item.submenu">
+        <div class="menu-item">
+          <a class="menu-link" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title text-start" [routerLink]="item.link">
+              {{ item.title | translate }}
+            </span>
+            <span
+              class="menu-favorite"
+              *ngIf="favorite"
+              (click)="toggleStar($event, item)"
+              [ngClass]="{ active: item.starred }"
+              placement="top"
+              [ngbTooltip]="
+                item.starred
+                  ? 'Sık Kullanılanlardan Çıkar'
+                  : 'Sık Kullanılanlara Ekle'
+              "
+            >
+              <i class="fa-solid fa-star fs-5"></i>
+            </span>
+          </a>
+        </div>
+      </ng-container>
+      <!-- end::if don't have submenu -->
+
+      <!-- begin::if has submenu -->
+      <ng-container *ngIf="item.submenu">
+        <div
+          class="menu-item menu-accordion"
+          routerLinkActive="here show"
+          data-st-menu-trigger="click"
+        >
+          <!--begin:Menu link-->
+          <span class="menu-link">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title text-start" [attr.data-link]="item.link">{{
+              item.title | translate
+            }}</span>
+            <span class="menu-arrow"></span>
+          </span>
+          <!--end:Menu link-->
+          <!--begin:Menu sub-->
+          <div
+            class="menu-sub menu-sub-accordion"
+            routerLinkActive="menu-active-bg show"
+          >
+            <ng-container
+              *ngFor="let sub of item.submenu"
+              [ngTemplateOutlet]="menu5LevelTemplate"
+              [ngTemplateOutletContext]="{ item: sub }"
+            >
+            </ng-container>
+          </div>
+          <!--end:Menu sub-->
+        </div>
+      </ng-container>
+      <!-- end::if has submenu -->
+    </ng-template>
+    <!-- end::4 Level -->
+
+    <!-- begin::5 Level -->
+    <ng-template #menu5LevelTemplate let-item="item">
+      <ng-container *ngIf="!item.submenu">
+        <div class="menu-item">
+          <a class="menu-link" routerLinkActive="active">
+            <span class="menu-bullet">
+              <span class="bullet bullet-dot"></span>
+            </span>
+            <span class="menu-title text-start" [routerLink]="item.link">
+              {{ item.title | translate }}
+            </span>
+            <span
+              class="menu-favorite"
+              *ngIf="favorite"
+              (click)="toggleStar($event, item)"
+              [ngClass]="{ active: item.starred }"
+              placement="top"
+              [ngbTooltip]="
+                item.starred
+                  ? 'Sık Kullanılanlardan Çıkar'
+                  : 'Sık Kullanılanlara Ekle'
+              "
+            >
+              <i class="fa-solid fa-star fs-5"></i>
+            </span>
+          </a>
+        </div>
+      </ng-container>
+    </ng-template>
+    <!-- end::5 Level -->
+  </div>
+</div>

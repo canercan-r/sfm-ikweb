@@ -1,0 +1,43 @@
+//
+// Hoverable
+//
+
+@mixin app-layout-minimize($class) {
+  // Desktop mode
+  @include media-breakpoint-up(lg) {
+    [data-st-#{$class}-minimize="on"]:not(
+        [data-st-#{$class}-hoverable="true"]
+      ) {
+      .#{$class} {
+        @content;
+      }
+    }
+
+    [data-st-#{$class}-minimize="on"][data-st-#{$class}-hoverable="true"] {
+      .#{$class} {
+        &:not(:hover) {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+@mixin app-layout-minimize-mobile($class) {
+  // Tablet & mobile modes
+  @include media-breakpoint-down(lg) {
+    [data-st-#{$class}-minimize-mobile="on"]:not[data-st-#{$class}-hoverable-mobile="true"] {
+      .#{$class} {
+        @content;
+      }
+    }
+
+    [data-st-#{$class}-minimize-mobile="on"][data-st-#{$class}-hoverable-mobile="true"] {
+      .#{$class} {
+        &:not(:hover) {
+          @content;
+        }
+      }
+    }
+  }
+}

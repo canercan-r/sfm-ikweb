@@ -1,0 +1,40 @@
+//
+// Select Theme
+//
+
+$custom-tabs-theme: tabs-theme(
+  $item-background: $white,
+  $item-active-background: $white,
+  $item-hover-background: $white,
+);
+
+@include css-vars($custom-tabs-theme);
+
+.igx-tabs {
+  &__header {
+    border-radius: $border-radius;
+    margin-bottom: get($content-spacing, desktop);
+    padding: 0 1rem;
+  }
+
+  &__panels {
+    border-radius: $border-radius;
+  }
+
+  &.rounded-top-0 {
+    .igx-tabs__header {
+      border-top-left-radius: 0 !important;
+      border-top-right-radius: 0 !important;
+    }
+  }
+
+  &.stepper-tabs {
+    width: auto;
+
+    .igx-tabs__header-item-inner {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+}

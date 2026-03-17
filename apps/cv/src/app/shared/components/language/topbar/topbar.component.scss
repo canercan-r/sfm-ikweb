@@ -1,0 +1,6 @@
+:host ::ng-deep {
+  .btncustom {
+    color: var(--custom-primary-light-active);
+    background-color: var(--custom-primary-light-active) red;
+  }
+}

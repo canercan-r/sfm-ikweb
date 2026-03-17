@@ -1,0 +1,7 @@
+//
+// Column Actions Theme
+//
+
+$column-actions-theme: column-actions-theme($title-color: $black);
+
+@include css-vars($column-actions-theme);

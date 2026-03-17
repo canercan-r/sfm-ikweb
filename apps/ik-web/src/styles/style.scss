@@ -1,0 +1,22 @@
+//
+// Theme style
+//
+
+// Initialize
+@import "init";
+
+// Components
+@import "./core/components/components";
+@import "components/components";
+
+// Material UI framework includes
+@import "core/vendors/material/material";
+
+// Infragistics Components
+@import "core/vendors/infragistics/infragistics";
+
+// Layout
+@import "layout/layout";
+@import url("https://kendo.cdn.telerik.com/2019.1.115/styles/kendo.blueopal.min.css");
+@import url("https://kendo.cdn.telerik.com/2019.1.115/styles/kendo.common.min.css");
+@import "ngx-toastr/toastr";

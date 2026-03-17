@@ -1,0 +1,41 @@
+<div class="d-flex flex-stack" *ngIf="inputGroupType == 'border' && label">
+  <label
+    class="form-label"
+    igxLabel
+    [for]="name"
+    [ngClass]="{ required: control.hasError('required') }"
+    >{{ label | translate }}</label
+  >
+</div>
+
+<igx-input-group
+  [type]="inputGroupType"
+  [ngStyle]="formButton && { '--ig-size': 'var(--ig-size-small)' }"
+  [ngClass]="{
+    'igx-input-group--readonly': readonly,
+    'igx-input-group--disabled': disabled,
+    'form-control-button form-control-button-textarea': formButton,
+    'form-control form-control-transparent form-control-button-textarea': formButton,
+  }"
+>
+  <label *ngIf="inputGroupType != 'border'" igxLabel [for]="name">{{
+    label | translate
+  }}</label>
+  <textarea
+    class="form-control form-control-transparent"
+    #textarea
+    igxInput
+    type="text"
+    [formControl]="control"
+    [name]="name"
+    [maxlength]="maxlength"
+    [rows]="rows"
+    (input)="nameChanging(name, $event)"
+    [disabled]="disabled"
+    [readonly]="readonly || disabled"
+    [required]="required"
+  ></textarea>
+  <igx-hint *ngIf="maxlength" position="end"
+    >{{ textarea.value.length }}/{{ maxlength }}</igx-hint
+  >
+</igx-input-group>

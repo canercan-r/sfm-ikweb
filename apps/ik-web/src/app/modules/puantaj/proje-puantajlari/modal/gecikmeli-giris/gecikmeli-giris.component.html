@@ -1,0 +1,73 @@
+<div
+  class="card d-flex flex-column flex-fill h-100 shadow-none rounded-0 w-100 overflow-hidden"
+>
+  <div class="card-header border-0">
+    <span class="card-title fs-4 fw-bold">
+      {{ "Puantaj.ProjePuantajlari.GecikmeliGirisDegistir.Title" | translate }}
+    </span>
+
+    <div class="card-toolbar">
+      <button class="btn btn-sm btn-icon ms-auto" (click)="dismiss()">
+        <i class="fa-solid fa-xmark fs-3"></i>
+      </button>
+    </div>
+  </div>
+  <div class="card-body h-100 overflow-auto">
+    <form
+      [formGroup]="form"
+      class="row row-gap-3"
+      id="st_gunlukPuantajParmakIzi_cardForm"
+    >
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="d-flex align-items-center">
+          <ikweb-checkbox class="mt-1 pb-3" formControlName="gecmisGun">
+          </ikweb-checkbox>
+          <div class="d-flex align-items-end form-control p-0 border-0">
+            <span>{{
+              "Puantaj.ProjePuantajlari.GecikmeliGirisDegistir.GecmisGunOnce"
+                | translate
+            }}</span>
+
+            <igx-input-group class="px-1 w-25">
+              <input
+                class="text-center"
+                igxInput
+                formControlName="gecmisGunSayisi"
+                type="text"
+                libNumberOnly
+              />
+            </igx-input-group>
+
+            <span>{{
+              "Puantaj.ProjePuantajlari.GecikmeliGirisDegistir.GecmisGunSonra"
+                | translate
+            }}</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-checkbox
+          label="Puantaj.ProjePuantajlari.GecikmeliGirisDegistir.ButunAyGecikmeli"
+          formControlName="butunAyGecmis"
+        >
+        </ikweb-checkbox>
+      </section>
+
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ikweb-checkbox
+          label="Puantaj.ProjePuantajlari.GecikmeliGirisDegistir.ProjedeVarsayilanGecikme"
+          formControlName="projedeVarsayilanGecikme"
+        >
+        </ikweb-checkbox>
+      </section>
+    </form>
+  </div>
+  <div class="card-footer border-0">
+    <div class="d-flex flex-stack">
+      <button class="btn btn-sm btn-success">
+        {{ "Global.Save" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

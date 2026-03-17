@@ -1,0 +1,102 @@
+//
+// Form
+//
+
+// Form control
+.form-control {
+  &.mat-input-element {
+    padding: $input-btn-padding-y $input-btn-padding-x;
+    margin-top: 0 !important;
+    font-size: $input-font-size;
+    font-weight: $input-font-weight;
+    line-height: $input-line-height;
+    box-sizing: inherit; // ANGULAR11 fix
+
+    border-color: $gray-300 !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+
+    &:focus {
+      color: $input-focus-color;
+      background-color: $input-focus-bg !important;
+      border-color: $primary !important;
+    }
+
+    &.form-control-solid {
+      border: 1px solid $input-border-color;
+      color: $input-solid-color;
+      background-color: $input-solid-bg;
+    }
+
+    &.form-control-sm {
+      @include border-radius($input-border-radius-sm);
+      font-size: $input-btn-font-size-sm;
+      padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
+    }
+
+    &.form-control-lg {
+      @include border-radius($input-border-radius-lg);
+      font-size: $input-btn-font-size-lg;
+      padding: $input-btn-padding-y-lg $input-btn-padding-x-lg;
+    }
+  }
+}
+
+.mat-form-field {
+  font-family: $font-family-sans-serif !important;
+  display: block !important;
+}
+
+.mat-form-field[floatlabel="always"] {
+  &.mat-form-field-invalid {
+    .form-control {
+      border-color: $danger !important;
+    }
+  }
+
+  .mat-form-field-infix {
+    padding: 0 !important;
+  }
+
+  .mat-form-field-label-wrapper {
+    top: -1.675rem;
+    padding-top: 1.675rem;
+
+    .mat-form-field-label {
+      font-size: $form-label-font-size;
+      font-weight: $form-label-font-weight;
+      transform: translateY(-1.28125em) scale(1) perspective(0) translateZ(0.001px) !important;
+    }
+  }
+
+
+  .mat-select {
+    margin-top: $input-btn-padding-y-lg;
+
+    .mat-select-arrow {
+      opacity: 0;
+    }
+  }
+
+  .mat-datepicker-toggle {
+    cursor: pointer;
+
+    button {
+      opacity: 0;
+    }
+  }
+
+  .mat-form-field-underline {
+    display: none !important;
+  }
+}
+
+.datepicker {
+  .mat-form-field-suffix {
+    margin-left: -$input-bg-size;
+  }
+}
+
+.mat-select-arrow-wrapper {
+  opacity: 0;
+}

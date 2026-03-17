@@ -1,0 +1,20 @@
+<ikweb-toolbar [backClick]="true" [bc$]="bc$">
+  <div action class="d-flex align-items-center">
+    <button class="btn btn-sm btn-success" (click)="goBack()">
+      {{ "Global.Tamam" | translate }}
+    </button>
+  </div>
+</ikweb-toolbar>
+
+<div
+  class="card card-spacing-reset"
+  id="st_eksikKayitlar_scroll"
+  data-st-scroll="true"
+  data-st-scroll-save-state="false"
+  data-st-scroll-height="auto"
+  data-st-scroll-wrappers="#st_eksikKayitlar_body"
+  data-st-scroll-dependencies="#st_header, #st_toolbar"
+  [attr.data-st-scroll-offset]="_sharedHelper.contentSpacingFull"
+>
+  <lib-mock-grid id="st_eksikKayitlar_body" #eksikKayitlarGrid></lib-mock-grid>
+</div>

@@ -1,0 +1,22 @@
+// Specifies large size for all components to match the previous defaults
+// This may not be needed for your project. Please consult https://www.infragistics.com/products/ignite-ui-angular/angular/components/general/update-guide for more details.
+
+:root {
+  --ig-size: var(--ig-size-medium);
+}
+
+// Font
+@import "assets/fonts/planc/font-planc.css";
+
+/* You can add global styles to this file, and also import other style files */
+@import "styles/style.scss";
+
+// Replace above style with this css file to enable RTL styles
+// @import "./assets/css/style.rtl.css";
+
+// 3rd-Party plugins customization
+@import "styles/core/vendors/plugins/plugins";
+
+// 3rd-Party NPM
+@import "@fortawesome/fontawesome-pro/css/all.min.css";
+@import "animate.css/animate.css";

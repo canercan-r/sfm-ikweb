@@ -1,0 +1,150 @@
+//
+// To make future updates easier consider overriding the global variables from _variables.bootstrap.scss and _variables.custom.scss for current demo in this file.
+// Note that this file is included first and variables defined in _variables.bootstrap.scss and _variables.custom.scss
+// are not accessible in this file but you can override any global variable as shown below:
+//
+
+// Theme colors
+// Success
+$success: #50cd89;
+$success-active: #47be7d;
+$success-light: #e8fff3;
+$success-light-dark: #1c3238;
+$success-inverse: #ffffff;
+
+// Info
+$info: #7239ea;
+$info-active: #5014d0;
+$info-light: #f8f5ff;
+$info-light-dark: #2f264f;
+$info-inverse: #ffffff;
+
+// Danger
+$danger: #f1416c;
+$danger-active: #d9214e;
+$danger-light: #fff5f8;
+$danger-light-dark: #3a2434;
+$danger-inverse: #ffffff;
+
+// Warning
+$warning: #ffc107;
+$warning-active: #f1bc00;
+$warning-light: #fff8dd;
+$warning-light-dark: #392f28;
+$warning-inverse: #ffffff;
+
+// Blue
+$blue: #0066ff;
+$blue-active: #0962e8;
+$blue-light: #d2e3fc;
+$blue-light-dark: #252b34;
+$blue-inverse: #ffffff;
+
+// Red
+$red: #dc3545;
+$red-active: #b72332;
+$red-light: #f9cfd3;
+$red-light-dark: #42292c;
+$red-inverse: #ffffff;
+
+// Yellow
+$yellow: #fcd974;
+$yellow-active: #ffc107;
+$yellow-light: #f5e5b6;
+$yellow-light-dark: #3e3827;
+$yellow-inverse: #252b34;
+
+// Orange
+$orange: #ff4d00;
+$orange-active: #c23a00;
+$orange-light: #ffeae1;
+$orange-light-dark: #55392c;
+$orange-inverse: #ffffff;
+
+// Deep Orange
+$deep-orange: #ee8d0e;
+$deep-orange-active: #9c5d0b;
+$deep-orange-light: #f0d7b7;
+$deep-orange-light-dark: #41311b;
+$deep-orange-inverse: #ffffff;
+
+// Green
+$green: #198754;
+$green-active: #11673f;
+$green-light: #cbf5e2;
+$green-light-dark: #273e33;
+$green-inverse: #ffffff;
+
+// Indigo
+$indigo: #4880c8;
+$indigo-active: #1c3b62;
+$indigo-light: #c2d9f7;
+$indigo-light-dark: #232d39;
+$indigo-inverse: #ffffff;
+
+// Deep Indigo
+$deep-indigo: #2c184f;
+$deep-indigo-active: #1d0447;
+$deep-indigo-light: #e0d0fa;
+$deep-indigo-light-dark: #150e21;
+$deep-indigo-inverse: #ffffff;
+
+// Lime
+$lime: #98eecc;
+$lime-active: #62c39c;
+$lime-light: #c0f4df;
+$lime-light-dark: #243b32;
+$lime-inverse: #303030;
+
+// Mint
+$mint: #10bed6;
+$mint-active: #0c8797;
+$mint-light: #a9edf6;
+$mint-light-dark: #225057;
+$mint-inverse: #ffffff;
+
+// Amber
+$amber: #cf7135;
+$amber-active: #9c3f05;
+$amber-light: #f1ceb9;
+$amber-light-dark: #251810;
+$amber-inverse: #ffffff;
+
+//Purple
+$purple: #bf51e0;
+$purple-active: #61087c;
+$purple-light: #eac0f6;
+$purple-light-dark: #2c1333;
+$purple-inverse: #ffffff;
+
+// Deep Purple
+$deep-purple: #67258d;
+$deep-purple-active: #380752;
+$deep-purple-light: #ecd2fb;
+$deep-purple-light-dark: #23132d;
+$deep-purple-inverse: #ffffff;
+
+// Teal
+$teal: #1dc894;
+$teal-active: #20b387;
+$teal-light: #d2f7ec;
+$teal-light-dark: #16362c;
+$teal-inverse: #ffffff;
+
+// Pink
+$pink: #f68df9;
+$pink-active: #68056b;
+$pink-light: #f5c5f7;
+$pink-light-dark: #2e112f;
+$pink-inverse: #ffffff;
+
+// Magenta
+$magenta: #e10e8d;
+$magenta-active: #a90768;
+$magenta-light: #fff1fe;
+$magenta-light-dark: #361a2b;
+$magenta-inverse: #ffffff;
+
+// Card Box Shadow
+$card-box-shadow: 0px 0px 20px 0px rgba(76, 87, 125, 0.02);
+$card-box-shadow-dark: 0px 0px 20px 0px rgba(76, 87, 125, 0.02);

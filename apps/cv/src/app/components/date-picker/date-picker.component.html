@@ -1,0 +1,44 @@
+<div class="d-flex flex-stack" *ngIf="inputGroupType == 'border' && label">
+  <label
+    class="form-label"
+    igxLabel
+    [for]="name"
+    [ngClass]="{ required: control.hasError('required') }"
+    >{{ label | translate }}</label
+  >
+</div>
+
+<igx-date-picker
+  [ngStyle]="formButton && { '--ig-size': 'var(--ig-size-small)' }"
+  [ngClass]="{
+      'form-control-button': formButton,
+      'form-control form-control-transparent': formButton,
+      'igx-input-group--disabled': disabled,
+      'igx-input-group--empty-required': isEmptyRequired,
+    }"
+  [type]="inputGroupType"
+  [value]="viewDate"
+  [mode]="mode"
+  [id]="name"
+  [inputFormat]="inputFormat"
+  [locale]="_lang.locale.code"
+  [formatter]="formatter"
+  [(ngModel)]="value"
+  [formControl]="control"
+  [weekStart]="weekStart"
+  [todayButtonLabel]="todayLabel | translate"
+  (closed)="dtpClose($event)"
+  [readOnly]="readonly || disabled"
+  [maxValue]="maxValue"
+  [minValue]="minValue"
+  [required]="required"
+  [disabled]="disabled"
+>
+  <label *ngIf="inputGroupType != 'border'" igxLabel>{{
+    label | translate
+  }}</label>
+  <igx-picker-toggle [hidden]="readonly" igxSuffix>
+    <i class="fa-regular fa-calendar fs-4"></i>
+  </igx-picker-toggle>
+  <igx-picker-clear> </igx-picker-clear>
+</igx-date-picker>

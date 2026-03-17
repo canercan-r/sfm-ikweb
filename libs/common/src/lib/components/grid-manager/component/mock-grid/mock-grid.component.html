@@ -1,0 +1,156 @@
+<igx-grid
+  #theGrid
+  [data]="data"
+  [allowFiltering]="true"
+  filterMode="excelStyleFilter"
+  (doubleClick)="dblClick($event)"
+  [pinning]="pinningConfig"
+  [height]="gridOption?.height"
+  [width]="gridOption?.width"
+  [moving]="gridOption?.columnMovable"
+  emptyGridMessage="{{ 'Gridler.GridEmptyMessage' | translate }}"
+  (rowSelectionChanging)="onRowSelectionChange($event)"
+  (columnResized)="resizing($event)"
+  (columnInit)="initColumns($event)"
+  [rowSelection]="gridOption?.rowSelectionMode"
+  [resourceStrings]="langService.resourceStrings"
+>
+  <igx-paginator
+    #defaultPaginator
+    [perPage]="gridOption?.perPage"
+    [(page)]="theGrid.page"
+    [totalRecords]="theGrid.totalRecords"
+    [selectOptions]="selectOptions"
+  >
+    <igx-paginator-content>
+      <span class="igx-grid-total d-none d-lg-flex me-5">
+        {{ "Gridler.TotalRecords" | translate }} {{ totalCount }}
+      </span>
+
+      <igx-select
+        (selectionChanging)="onPageSizeChange($event.newSelection.value)"
+      >
+        <igx-select-item
+          *ngFor="let val of [5, 10, 15, 20, 25, 50, 100, 1000, 10000]"
+          [value]="val"
+          [selected]="gridOption?.perPage === val"
+        >
+          {{ val }}
+        </igx-select-item>
+      </igx-select>
+
+      <igx-grid-toolbar class="transparent">
+        <igx-grid-toolbar-actions>
+          <igx-grid-toolbar-hiding
+            title="{{ 'Grid.ColumnHide' | translate }}"
+            prompt="{{ 'Grid.FilterColumn' | translate }}"
+            [overlaySettings]="overlaySettingsAuto"
+          >
+          </igx-grid-toolbar-hiding>
+
+          <igx-grid-toolbar-pinning
+            title="{{ 'Grid.PinnedColumns' | translate }}"
+            prompt="{{ 'Grid.FilterColumn' | translate }}"
+            [overlaySettings]="overlaySettingsAuto"
+          >
+          </igx-grid-toolbar-pinning>
+
+          <igx-grid-toolbar-exporter
+            [filename]="LibGrids[gridOption?.gridId]"
+            [overlaySettings]="overlaySettingsAuto"
+          >
+            {{ "Gridler.Export" | translate }}
+            <span excelText>{{
+              "Gridler.Toolbar.ExportExel" | translate
+            }}</span>
+            <span csvText>{{ "Gridler.Toolbar.ExportCsv" | translate }}</span>
+          </igx-grid-toolbar-exporter>
+        </igx-grid-toolbar-actions>
+      </igx-grid-toolbar>
+
+      <igx-page-nav></igx-page-nav>
+    </igx-paginator-content>
+  </igx-paginator>
+
+  <igx-column
+    *ngFor="let column of columnField"
+    [field]="column.field"
+    [headerTemplate]="columnHeader"
+    [header]="getFieldTranslate(column.field) | translate"
+    [sortable]="!column.colRef && column.sortable"
+    [filterable]="!column.colRef && column.filterable"
+    [pinned]="column.pinned"
+    [width]="column.width"
+    [minWidth]="column.minWidth"
+    [maxWidth]="column.maxWidth"
+    [dataType]="column.type"
+    [resizable]="column.resizable ?? false"
+  >
+    <ng-template igxCell let-cell="cell">
+      <ng-container *ngIf="column.colRef">
+        <ng-container
+          *ngTemplateOutlet="column.colRef; context: { cell: cell }"
+        ></ng-container>
+      </ng-container>
+
+      <ng-container
+        *ngIf="
+          !column.colRef &&
+          gridOption?.gridId.toString() ===
+            LibGrids.periyodikBakimTakvimiBakimGrid.toString()
+        "
+      >
+        <ng-container
+          *ngIf="
+            ![
+              'bakimAdi',
+              'bakimKodu',
+              'bakimID',
+              'bakimTipi',
+              'ekipmanKodu',
+              'ekipmanAdi',
+              'ekipmanID'
+            ].includes(cell.column.field);
+            else badgeTemplate
+          "
+        >
+          <button
+            (contextmenu)="onRghtClick($event, cell)"
+            (click)="imgClick($event, cell)"
+            class="btn btn-sm btn-icon"
+            [ngClass]="
+              cell.value == 2
+                ? 'btn-color-success btn-active-icon-success'
+                : cell.value == 0
+                ? 'btn-color-danger btn-active-icon-danger'
+                : 'btn-color-gray-500'
+            "
+          >
+            <i *ngIf="cell.value == 2" class="fa-solid fa-check fs-3"></i>
+            <i *ngIf="cell.value == 0" class="fa-solid fa-wrench fs-3"></i>
+          </button>
+        </ng-container>
+
+        <ng-template #badgeTemplate>
+          <div class="currency-badge-container">{{ cell.value }}</div>
+        </ng-template>
+      </ng-container>
+
+      <ng-container
+        *ngIf="
+          !column.colRef &&
+          gridOption?.gridId.toString() !==
+            LibGrids.periyodikBakimTakvimiBakimGrid.toString()
+        "
+      >
+        {{ cell.value }}
+      </ng-container>
+    </ng-template>
+  </igx-column>
+</igx-grid>
+
+<ng-template let-column #columnHeader>
+  <div class="title-inner">
+    {{ column.header }}
+  </div>
+</ng-template>

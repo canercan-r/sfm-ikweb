@@ -1,0 +1,43 @@
+<div class="card card-spacing-reset">
+  <div class="card-body" id="st_kidemKontrol_cardBody">
+    <form [formGroup]="form" class="row row-gap-3">
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-select
+          name="hesaplamaTuru"
+          label="Puantaj.ProjePuantajlari.KidemKontrolEkrani.HesaplamaTuru"
+          formControlName="hesaplamaTuru"
+          [data]=""
+          valueKey=""
+          displayKey=""
+        >
+        </ikweb-select>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-checkbox
+          label="Puantaj.ProjePuantajlari.KidemKontrolEkrani.DetaylariGoster"
+          formControlName="detaylariGoster"
+        >
+        </ikweb-checkbox>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-1 mt-auto">
+        <button class="btn btn-sm btn-primary">
+          {{ "Global.Listele" | translate }}
+        </button>
+      </section>
+    </form>
+  </div>
+
+  <div
+    id="st_kidemKontrol_scroll"
+    data-st-scroll="true"
+    data-st-scroll-save-state="false"
+    data-st-scroll-height="auto"
+    data-st-scroll-wrappers="#st_kidemKontrol_body"
+    data-st-scroll-dependencies="#st_header, #st_toolbar, #st_kidemKontrol_cardBody"
+    [attr.data-st-scroll-offset]="_sharedHelper.contentSpacing"
+  >
+    <lib-mock-grid id="st_kidemKontrol_body" #kidemKontrolGrid></lib-mock-grid>
+  </div>
+</div>

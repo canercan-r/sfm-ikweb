@@ -1,0 +1,162 @@
+//
+// Border
+//
+
+.border-active:not(.active):not(:active):not(:hover):not(:focus) {
+  border-color: transparent !important;
+}
+
+.border-hover:not(:hover):not(:focus):not(.active):not(:active) {
+  cursor: pointer;
+  border-color: transparent !important;
+}
+
+// Gray border colors
+@each $name, $value in $gray {
+  // Initial
+  .border-gray-#{$name} {
+    border-color: var(--#{$prefix}gray-#{$name}) !important;
+  }
+}
+
+// Hover border colors
+@each $name, $value in $theme-colors {
+  .border-hover-#{$name}:hover {
+    border-color: var(--#{$prefix}#{$name}) !important;
+  }
+
+  .border-active-#{$name}.active {
+    border-color: var(--#{$prefix}#{$name}) !important;
+  }
+}
+
+// Hover transparent
+.border-hover-transparent:hover {
+  border-color: transparent !important;
+}
+
+// Dashed style
+.border-dashed {
+  border-style: dashed !important;
+  border-color: var(--#{$prefix}border-dashed-color);
+}
+
+.border-top-dashed {
+  border-top-style: dashed !important;
+}
+
+.border-bottom-dashed {
+  border-bottom-style: dashed !important;
+}
+
+.border-start-dashed {
+  border-left-style: dashed !important;
+}
+
+.border-end-dashed {
+  border-right-style: dashed !important;
+}
+
+// Dotted style
+.border-dotted {
+  border-style: dotted !important;
+}
+
+.border-top-dotted {
+  border-top-style: dotted !important;
+}
+
+.border-bottom-dotted {
+  border-bottom-style: dotted !important;
+}
+
+.border-start-dotted {
+  border-left-style: dotted !important;
+}
+
+.border-end-dotted {
+  border-right-style: dotted !important;
+}
+
+// Border transparent
+.border-transparent {
+  border-color: transparent !important;
+}
+
+// Border body
+.border-body {
+  border-color: var(--#{$prefix}body-bg) !important;
+}
+
+// Border radiuses
+.rounded-top-0 {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.rounded-bottom-0 {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.rounded-start-0 {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.rounded-end-0 {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+// Responsive helpers
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    // Border Width
+    .border#{$infix}-0 {
+      border-width: 0 !important;
+    }
+
+    .border#{$infix}-1 {
+      border-width: 1px !important;
+    }
+
+    .border#{$infix}-2 {
+      border-width: 1px !important;
+    }
+
+    .rounded#{$infix}-0 {
+      border-radius: 0 !important;
+    }
+
+    .rounded#{$infix}-1 {
+      border-radius: $border-radius-sm !important;
+    }
+
+    .rounded#{$infix}-2 {
+      border-radius: $border-radius !important;
+    }
+
+    .rounded#{$infix}-3 {
+      border-radius: $border-radius-lg !important;
+    }
+
+    .rounded#{$infix}-4 {
+      border-radius: $border-radius-xl !important;
+    }
+
+    .rounded#{$infix}-5 {
+      border-radius: $border-radius-2xl !important;
+    }
+
+    .rounded#{$infix}-6 {
+      border-radius: $border-radius-3xl !important;
+    }
+  }
+}

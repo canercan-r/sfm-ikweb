@@ -1,0 +1,46 @@
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { LayoutService } from '@ikweb-layout/core/layout.service';
+import { PageInfoService, PageLink } from '@ikweb-layout/core/page-info.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { Observable, Subscription } from 'rxjs';
+
+@Component({
+  selector: 'ikweb-page-title',
+  templateUrl: './page-title.component.html',
+})
+export class PageTitleComponent implements OnInit, OnDestroy {
+  private unsubscribe: Subscription[] = [];
+  showTitle: boolean = true;
+  showBC: boolean = true;
+  title$: Observable<string>;
+  description$: Observable<string>;
+  bc$: Observable<Array<PageLink>>;
+  pageTitleCssClass: string = '';
+  pageTitleDirection: string = 'row';
+  toolbarBg = true;
+
+  constructor(
+    private pageInfo: PageInfoService,
+    private layout: LayoutService,
+    private readonly _device: DeviceDetectorService
+  ) { }
+
+  ngOnInit(): void {
+    this.title$ = this.pageInfo.title.asObservable();
+    this.description$ = this.pageInfo.description.asObservable();
+    this.bc$ = this.pageInfo.breadcrumbs.asObservable();
+    this.showTitle = this.layout.getProp('pageTitle.display') as boolean;
+    this.showBC = this.layout.getProp('pageTitle.breadCrumbs') as boolean;
+    this.pageTitleCssClass = this.layout.getStringCSSClasses('pageTitle');
+    this.pageTitleDirection = this.layout.getProp('pageTitle.direction') as string;
+    this.toolbarBg = this.layout.getProp('toolbar.toolbarBg') as boolean;
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe.forEach((sb) => sb.unsubscribe());
+  }
+
+  get device(): string {
+    return this._device.deviceType;
+  }
+}

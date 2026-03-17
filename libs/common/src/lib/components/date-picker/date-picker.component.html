@@ -1,0 +1,17 @@
+<igx-date-picker
+  [value]="viewDate"
+  [mode]="mode"
+  [inputFormat]="inputFormat"
+  [locale]="_lang.locale.code"
+  [formatter]="formatter"
+  [formControl]="control"
+  [weekStart]="weekStart"
+  [todayButtonLabel]="todayLabel | translate"
+  (closed)="dtpClose($event)"
+>
+  <label igxLabel>{{ label | translate }}</label>
+  <igx-picker-toggle igxSuffix>
+    <i class="fa-regular fa-calendar fs-4"></i>
+  </igx-picker-toggle>
+  <igx-picker-clear> </igx-picker-clear>
+</igx-date-picker>

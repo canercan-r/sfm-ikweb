@@ -1,0 +1,55 @@
+//
+// Font Icon
+//
+
+i {
+  line-height: 1;
+  color: var(--#{$prefix}text-muted);
+  @include font-icon-size(get($font-sizes, base));
+
+  // Theme colors
+  @each $name, $color in $theme-text-colors {
+    &.bi-#{$name},
+    &.si-#{$name},
+    &.fa-#{$name},
+    &.fonticon-#{$name},
+    &.la-#{$name} {
+      &.bi,
+      &[class^="fonticon-"],
+      &[class*=" fonticon-"],
+      &[class^="fa-"],
+      &[class^="si-"],
+      &[class*=" fa-"],
+      &[class^="la-"],
+      &[class*=" la-"] {
+        color: var(--#{$prefix}text-#{$name});
+      }
+    }
+  }
+
+  // Responsive icon sizes
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      // Sizes
+      @each $name, $value in $font-sizes {
+        &.bi#{$infix}-#{$name} {
+          @include font-icon-size($value, true);
+        }
+        &.si#{$infix}-#{$name} {
+          @include font-icon-size($value, true);
+        }
+        &.fa#{$infix}-#{$name} {
+          @include font-icon-size($value, true);
+        }
+        &.la#{$infix}-#{$name} {
+          @include font-icon-size($value, true);
+        }
+        &.fonticon#{$infix}-#{$name} {
+          @include font-icon-size($value, true);
+        }
+      }
+    }
+  }
+}

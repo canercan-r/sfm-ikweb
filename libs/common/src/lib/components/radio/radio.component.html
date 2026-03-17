@@ -1,0 +1,5 @@
+<igx-radio-group [formControl]="control" (change)="change($event)">
+  <igx-radio class="pe-5" *ngFor="let d of data" [value]="d[valueKey]">
+    {{ d[displayKey] }}
+  </igx-radio>
+</igx-radio-group>

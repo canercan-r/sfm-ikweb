@@ -1,0 +1,210 @@
+<div class="d-flex flex-stack" *ngIf="inputGroupType == 'border'">
+  <label
+    class="form-label"
+    igxLabel
+    [for]="name"
+    [ngClass]="{ required: control.hasError('required') }"
+    >{{ label | translate }}</label
+  >
+  <button
+    labelButtonText
+    class="btn btn-link p-0 fs-6"
+    (click)="labelButtonClick()"
+  >
+    {{ labelButtonText | translate }}
+  </button>
+</div>
+
+<ng-container
+  *ngIf="type !== 'tel' && type !== 'password' && type !== 'number'"
+>
+  <igx-input-group
+    [type]="inputGroupType"
+    [ngStyle]="formButton && { '--ig-size': 'var(--ig-size-small)' }"
+    [className]="className"
+    [ngClass]="{
+      'igx-input-group--readonly': readonly,
+      'igx-input-group--disabled': disabled,
+      'form-control-button': formButton,
+      'form-control form-control-transparent': formButton,
+    }"
+  >
+    <igx-prefix class="px-0" *ngIf="prefix">
+      <ng-content select="[prefix]"></ng-content>
+    </igx-prefix>
+    <label
+      *ngIf="inputGroupType != 'border'"
+      [ngClass]="{ required: control.hasError('required') }"
+      igxLabel
+      [for]="name"
+      >{{ label | translate }}</label
+    >
+    <input
+      class="form-control form-control-transparent"
+      [ngClass]="{
+        'is-invalid':
+          control.invalid && (control.dirty || control.touched) && !readonly,
+        'is-valid':
+          control.valid && (control.dirty || control.touched) && !readonly
+      }"
+      igxInput
+      [name]="name"
+      [type]="type"
+      [id]="name"
+      (change)="inputHandler($event)"
+      (keypress)="keypressHandler($event, maxlength)"
+      (keyup)="keyupHandler($event)"
+      (blur)="blurHandler($event)"
+      (focus)="focusHandler($event)"
+      [formControl]="control"
+      [(ngModel)]="value"
+      [maxlength]="maxlength"
+      [minlength]="minlength"
+      [attr.placeholder]="placeholder"
+      [autocomplete]="autocomplete"
+      [readonly]="readonly || disabled"
+      [required]="required"
+      [disabled]="disabled"
+    />
+    <igx-suffix class="px-0" *ngIf="suffix">
+      <ng-content select="[suffix]"></ng-content>
+    </igx-suffix>
+  </igx-input-group>
+</ng-container>
+
+<div class="position-relative" [hidden]="type !== 'tel'">
+  <!-- <ikweb-phone-number-country-inner
+    [innerId]="innerId"
+    [triggerId]="triggerId"
+    (countryChangeEmit)="countryChange($event)"
+  ></ikweb-phone-number-country-inner> -->
+  <igx-input-group [type]="inputGroupType">
+    <igx-prefix *ngIf="prefix" class="w-50px"> </igx-prefix>
+    <label
+      *ngIf="inputGroupType != 'border'"
+      [ngClass]="{ required: control.hasError('required') }"
+      igxLabel
+      [for]="name"
+      >{{ label | translate }}</label
+    >
+    <input
+      #focusInput
+      class="form-control form-control-transparent"
+      [ngClass]="{
+        'is-invalid': control.invalid && (control.dirty || control.touched),
+        'is-valid': control.valid && (control.dirty || control.touched)
+      }"
+      igxInput
+      [name]="name"
+      [type]="type"
+      [formControl]="control"
+      [maxlength]="maxlength"
+      [minlength]="minlength"
+      [attr.placeholder]="placeholder | translate"
+      [autocomplete]="autocomplete"
+      [igxMask]="phoneMask"
+      [igxTextSelection]="true"
+    />
+    <igx-suffix *ngIf="suffix">
+      <ng-content select="[suffix]"></ng-content>
+    </igx-suffix>
+  </igx-input-group>
+</div>
+
+<div *ngIf="type == 'number'">
+  <igx-input-group
+    [ngStyle]="formButton && { '--ig-size': 'var(--ig-size-small)' }"
+    [ngClass]="{
+    className,
+    'igx-input-group--readonly': readonly,
+    'igx-input-group--disabled': disabled,
+    'form-control-button': formButton,
+    'form-control form-control-transparent': formButton,
+  }"
+    [type]="inputGroupType"
+  >
+    <igx-prefix *ngIf="prefix" class="w-50px"> </igx-prefix>
+    <label
+      *ngIf="inputGroupType != 'border'"
+      [ngClass]="{ required: control.hasError('required') }"
+      igxLabel
+      [for]="name"
+      >{{ label | translate }}</label
+    >
+    <input
+      class="form-control form-control-transparent"
+      [ngClass]="{
+        'is-invalid': control?.invalid && (control?.dirty || control?.touched),
+        'is-valid': control?.valid && (control?.dirty || control?.touched)
+      }"
+      igxInput
+      [name]="name"
+      [id]="name"
+      type="number"
+      NumbersOnly
+      [allowDecimals]="allowDecimals"
+      [allowSign]="allowSign"
+      [formControl]="control"
+      [(ngModel)]="value"
+      [maxlength]="maxlength"
+      [minlength]="minlength"
+      [min]="min"
+      [max]="max"
+      (change)="inputHandler($event)"
+      (keypress)="keypressHandler($event, maxlength)"
+      (keyup)="keyupHandler($event)"
+      (blur)="blurHandler($event)"
+      (focus)="focusHandler($event)"
+      [attr.placeholder]="placeholder | translate"
+      [autocomplete]="autocomplete"
+      [igxTextSelection]="true"
+      [readonly]="readonly || disabled"
+      [required]="required"
+      [disabled]="disabled"
+    />
+    <igx-suffix class="px-0" *ngIf="suffix">
+      <ng-content select="[suffix]"></ng-content>
+    </igx-suffix>
+  </igx-input-group>
+</div>
+
+<ng-container *ngIf="type === 'password'">
+  <igx-input-group [type]="inputGroupType">
+    <label
+      *ngIf="inputGroupType != 'border'"
+      [ngClass]="{ required: control.hasError('required') }"
+      igxLabel
+      [for]="name"
+      >{{ label | translate }}</label
+    >
+    <input
+      class="form-control form-control-transparent"
+      [ngClass]="{
+        'is-invalid': control.invalid && (control.dirty || control.touched),
+        'is-valid': control.valid && (control.dirty || control.touched)
+      }"
+      igxInput
+      #password
+      [name]="name"
+      [id]="name"
+      (keypress)="keypressHandler($event, maxlength)"
+      [type]="showPassword ? 'text' : 'password'"
+      [required]="required"
+      [formControl]="control"
+      [(ngModel)]="value"
+      [maxlength]="maxlength"
+      [minlength]="minlength"
+      [autocomplete]="autocomplete"
+      [attr.placeholder]="placeholder"
+      [readonly]="readonly || disabled"
+      [required]="required"
+      [disabled]="disabled"
+    />
+    <i
+      igxSuffix
+      *ngIf="password.value"
+      (click)="showPassword = !showPassword"
+      class="fa-solid fa-{{ togglePasswordVisibility }} fs-3 text-muted"
+    ></i>
+  </igx-input-group>
+</ng-container>

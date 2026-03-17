@@ -1,0 +1,40 @@
+//
+// SVG Illusrator
+//
+
+@mixin svg-illustrator-color($color, $important: false) {
+  svg {
+    [fill]:not(.permanent):not(g) {
+      transition: fill 0.3s ease;
+      fill: $color valueif($important, !important, null);
+    }
+
+    &:hover {
+      [fill]:not(.permanent):not(g) {
+        transition: fill 0.3s ease;
+      }
+    }
+  }
+}
+
+@mixin svg-illustrator-transition() {
+  svg {
+    [fill]:not(g) {
+      transition: fill 0.3s ease;
+    }
+  }
+}
+
+@mixin svg-illustrator-size($size, $important: false) {
+  svg {
+    height: $size valueif($important, !important, null);
+    width: $size valueif($important, !important, null);
+  }
+
+  &.svg-4by3 {
+    svg {
+      height: calc($size / divide(4, 3));
+      width: $size;
+    }
+  }
+}

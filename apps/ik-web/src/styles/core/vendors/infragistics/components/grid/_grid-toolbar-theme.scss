@@ -1,0 +1,37 @@
+//
+// Grid Toolbar Theme
+//
+
+$custom-grid-toolbar-theme: grid-toolbar-theme(
+  $background-color: $white,
+  $item-text-color: $dropdown-color,
+  $item-hover-background: $dropdown-link-hover-bg,
+  $item-hover-text-color: $dropdown-link-hover-color,
+  $item-focus-background: $dropdown-link-active-bg,
+  $item-focus-text-color: $dropdown-link-active-color,
+);
+
+@include css-vars($custom-grid-toolbar-theme);
+
+.igx-grid-toolbar {
+  position: relative;
+  width: auto;
+  min-height: 3.125rem;
+  border-bottom: none;
+
+  &__dd-list {
+    padding: $dropdown-padding-y;
+
+    &-items {
+      padding-right: $dropdown-padding-x;
+      padding-left: $dropdown-padding-x;
+      border-radius: $border-radius;
+    }
+  }
+  &__actions {
+    .igx-button--outlined {
+      --background: transparent !important;
+      @include button($custom-actions-button);
+    }
+  }
+}

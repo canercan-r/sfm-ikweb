@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Asset Mobile on android device",
+            "type": "cordova",
+            "request": "launch",
+            "platform": "android",
+            "target": "device",
+            "port": 9222,
+            "sourceMaps": true,
+            "outFiles": [],
+            "cwd": "${workspaceFolder}/integrations/mobile",
+            "ionicLiveReload": false
+        },
+        {
+            "name": "Attach to Asset Mobile app on android device",
+            "type": "cordova",
+            "request": "attach",
+            "platform": "android",
+            "target": "device",
+            "port": 9222,
+            "sourceMaps": true,
+            "cwd": "${workspaceFolder}/integrations/mobile"
+        }
+    ]
+}

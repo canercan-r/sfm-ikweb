@@ -1,0 +1,25 @@
+//
+// CSS Variables
+//
+
+:root {
+  // Breakpoints
+  @each $breakpoint, $value in $grid-breakpoints {
+    --#{$prefix}#{$breakpoint}: #{$value};
+  }
+
+  // Senkronthemes scrollbar component
+  --#{$prefix}scrollbar-size: #{$scrollbar-size};
+  --#{$prefix}scrollbar-overlay-size: #{$scrollbar-overlay-size};
+  --#{$prefix}scrollbar-overlay-space: #{$scrollbar-overlay-space};
+
+  // Senkronthemes grid component
+  --#{$prefix}spacer: #{$spacer};
+  --#{$prefix}gutter: #{$gutter};
+  --#{$prefix}grid-row: #{$grid-row};
+  --#{$prefix}grid-row-columns: #{$grid-row-columns};
+
+  // Bootstrap general
+  --#{$prefix}white-bg-rgb: #{to-rgb($white)};
+  --#{$prefix}black-bg-rgb: #{to-rgb($black)};
+}

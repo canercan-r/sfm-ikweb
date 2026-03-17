@@ -1,0 +1,120 @@
+//
+// Nav
+//
+
+// Stepper tabs
+.nav-stepper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--#{$prefix}border-color);
+  justify-content: space-around;
+
+  .nav-item {
+    position: relative;
+    margin-bottom: -1px;
+
+    // Arrow States
+    &:not(:first-child) {
+      &::before {
+        position: absolute;
+        content: "\f105";
+        right: 0;
+        left: 0;
+        top: 50%;
+        bottom: 0;
+        transform: translateX(-50%) translateY(-50%);
+        font-family: "Font Awesome 6 Pro";
+        font-weight: 400;
+      }
+    }
+
+    // Show States
+    &.show {
+      .nav-link {
+        $color: var(--#{$prefix}magenta);
+        @include activeHoverStateBefore($color);
+      }
+    }
+
+    // Base link
+    .nav-link {
+      color: var(--#{$prefix}gray-500);
+      border: 0;
+      border-bottom: 1px solid transparent;
+      transition: $transition-link;
+      padding: 0.5rem 0;
+      margin: 0 1rem;
+      position: relative;
+
+      // Active & Hover States
+      &.active,
+      &:hover:not(.disabled) {
+        $color: var(--#{$prefix}magenta);
+        @include activeHoverStateBefore($color);
+      }
+    }
+
+    // First Item
+    &:first-child {
+      .nav-link {
+        margin-left: 0;
+      }
+    }
+
+    // Last Item
+    &:last-child {
+      .nav-link {
+        margin-right: 0;
+      }
+    }
+  }
+
+  // 2x Line
+  &.nav-line-tabs-2x {
+    border-bottom-width: 2px;
+
+    .nav-item {
+      margin-bottom: -2px;
+
+      .nav-link {
+        border-bottom-width: 2px;
+      }
+    }
+
+    // Active & Hover States
+    .nav-item .nav-link.active,
+    .nav-item.show .nav-link,
+    .nav-item .nav-link:hover:not(.disabled) {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+  // Stepper tabs
+  .nav-stepper {
+    display: flex;
+    overflow: auto;
+    justify-content: space-between;
+
+    .nav-item {
+      // Arrow States
+      &:not(:first-child) {
+        &::before {
+          position: absolute;
+          content: "\f105";
+          right: auto;
+          left: auto;
+          top: 50%;
+          bottom: 0;
+          transform: translateX(-50%) translateY(-50%);
+          font-family: "Font Awesome 6 Pro";
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

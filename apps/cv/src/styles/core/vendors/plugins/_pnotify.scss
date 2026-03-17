@@ -1,0 +1,86 @@
+//
+// Pnotify
+//
+
+// Base
+.ui-pnotify {
+  &-modal-overlay {
+    background-color: var(--#{$prefix}body-bg) !important;
+    opacity: 0.25;
+  }
+
+  // Icon
+  &-icon {
+    font-size: $pnotify-icon-size;
+  }
+
+  // Title
+  &-title {
+    font-size: $pnotify-title-size;
+    font-weight: $font-weight-bold;
+    color: $white;
+    margin-bottom: 0 !important;
+    margin-left: $pnotify-margin-x !important;
+  }
+
+  // Text
+  &-text {
+    font-size: $pnotify-text-size;
+    font-weight: $font-weight-bold;
+    word-wrap: break-word;
+    margin-left: $pnotify-margin-x !important;
+  }
+
+  &-title ~ &-text {
+    margin-top: $pnotify-margin-y !important;
+  }
+
+  &-container {
+    box-shadow: $box-shadow !important;
+    border-radius: $border-radius !important;
+    border: 0 !important;
+    padding: $input-btn-padding-x-lg !important;
+
+    // States
+    &.brighttheme-success {
+      background-color: var(--#{$prefix}success);
+      color: var(--#{$prefix}success-inverse);
+    }
+
+    &.brighttheme-info {
+      background-color: var(--#{$prefix}info);
+      color: var(--#{$prefix}info-inverse);
+    }
+
+    &.brighttheme-notice {
+      background-color: var(--#{$prefix}warning);
+      color: var(--#{$prefix}warning-inverse);
+    }
+
+    &.brighttheme-error {
+      background-color: var(--#{$prefix}danger);
+      color: var(--#{$prefix}danger-inverse);
+    }
+  }
+
+  &-closer,
+  &-sticker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -12px 0 0 !important;
+    background: rgba(0, 0, 0, 0.1);
+    font-size: $pnotify-buttons-size;
+    color: $gray-200;
+    width: $pnotify-buttons-width;
+    height: $pnotify-buttons-height;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// .ui-pnotify-title~.ui-pnotify-text {
+//   margin-top: $pnotify-margin-y !important;
+// }

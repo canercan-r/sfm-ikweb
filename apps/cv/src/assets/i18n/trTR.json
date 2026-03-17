@@ -1,0 +1,199 @@
+{
+  "APP_NAME": "Senkron Tech",
+  "AskerlikDurumlari": {
+    "Muaf": "Muaf",
+    "Tecilli": "Tecilli",
+    "Yapildi": "Yapıldı",
+    "Yapilmadi": "Yapılmadı"
+  },
+  "Auth": {
+    "Description": "E-mail adresinizi ve şifrenizi ilgili alanlara giriniz.",
+    "Form": {
+      "Title": "Başvuru Formu"
+    },
+    "Login": {
+      "BilgilerHatali": "Kullanıcı adı veya şifre hatalı.",
+      "DevamEtmekIcinBlaBlaBla": "Devam etmek için <strong>{{alertParam1}}</strong> hesabını ve <strong>{{alertParam2}}</strong> şifresini kullanın.",
+      "EMail": "E-Mail",
+      "GirisYapButton": "Giriş Yap",
+      "KullaniciAdi": "Kullanıcı Adı",
+      "KullaniciVeSifreniziKontrolEdiniz": "Kullanıcı adı, şifre bilgilerinizi kontrol ederek tekrar deneyiniz.",
+      "OturumAc": "Oturum Aç",
+      "OturumuAcikTut": "Oturumu Açık Tut",
+      "Sifre": "Şifre",
+      "Title": "Oturum açın"
+    },
+    "Title": "Şimdi Başlayalım"
+  },
+  "CINSIYET": {
+    "ERKEK": "Erkek",
+    "KADIN": "Kadın"
+  },
+  "DilSeviyeleri": {
+    "Baslangic": "Başlangıç",
+    "Iyi": "İyi",
+    "Orta": "Orta"
+  },
+  "EhliyetDurum": {
+    "VAR": "Ehliyetim Var",
+    "YOK": "Ehliyetim Yok"
+  },
+  "EngelDurum": {
+    "VAR": "Engel Durumu Var",
+    "YOK": "Engel Durumu Yok"
+  },
+  "Global": {
+    "Aciklama": "Açıklama",
+    "Almanca": "Almanca",
+    "Ara": "Ara",
+    "AskerlikDurumu": "Askerlik Yaptınız Mı?",
+    "Basarili": "Başarılı",
+    "BasariliTxt": "İşlem başarılı bir şekilde tamamlandı.",
+    "Bilgi": "Bilgi",
+    "Bloklar": "Bloklar",
+    "Bolumler": "Bölümler",
+    "CVYukle": "CV Yükle",
+    "DataNotGet": "Form verileri alınamadı. Lütfen sayfayı yenileyiniz.",
+    "DevamEt": "Devam Et",
+    "Dil": "Dil",
+    "DilDegistir": "Dil Değiştir",
+    "Duzenle": "Düzenle",
+    "EngelDurumu": "Engel Durumunuz Var Mı?",
+    "ErrorOccured": "Hata Oluştu",
+    "Export": "Dışa Aktar",
+    "Filtre": "Filtre",
+    "Filtrele": "Filtrele",
+    "Fransizca": "Fransızca",
+    "Geri": "Geri",
+    "Hata": "Hata",
+    "Ingilizce": "İngilizce",
+    "KamerayaBaglan": "Kameraya Bağlan",
+    "Kaydet": "Kaydet",
+    "KaydiSil": "Kaydı Sil",
+    "KaydiSilMsg": "Bu kaydı silmek istediğinize emin misiniz?",
+    "LutfenBekleyin": "Lütfen bekleyin...",
+    "NotFound": "Bu sayfa için data bulunamadı",
+    "OturumuKapat": "Oturumu Kapat",
+    "Raporlar": "Raporlar",
+    "RaporlariGoruntule": "Raporları Görüntüle",
+    "Sil": "Sil",
+    "SonucBulunamadi": "Sonuç Bulunamadı",
+    "SonucBulunamadiAciklama": "Lütfen farklı bir sorgu ile tekrar deneyin.",
+    "Sonuclar": "Sonuçlar",
+    "SourceNotValid": "QR Kaynağı Geçersiz!",
+    "Tamam": "Tamam",
+    "Tamamla": "Tamamla",
+    "Tarih": "Tarih",
+    "Tarihler": {
+      "BuAy": "Bu Ay",
+      "BuHafta": "Bu Hafta",
+      "BuYil": "Bu Yıl",
+      "Bugun": "Bugün",
+      "Dun": "Dün",
+      "DuneGore": "Düne Göre",
+      "GecenAy": "Geçen Ay",
+      "GecenAyaGore": "Geçen Aya Göre",
+      "GecenHafta": "Geçen Hafta",
+      "GecenHaftayaGore": "Geçen Haftaya Göre",
+      "GecenYil": "Geçen Yıl",
+      "GelecekAy": "Gelecek Ay",
+      "GelecekHafta": "Gelecek Hafta",
+      "GelecekYil": "Gelecek Yıl",
+      "Tarih": "Tarih",
+      "Yarin": "Yarın"
+    },
+    "TryAgainLater": "Daha sonra tekrar deneyin",
+    "TumLokasyonlar": "Tüm Lokasyonlar",
+    "Tumu": "Tümü",
+    "Turkce": "Türkçe",
+    "Uyari": "Uyarı",
+    "Validation": {
+      "EPostaAlaniBosGecilemez": "E-Posta Alanı Boş Geçilemez",
+      "EPostaAlaniGecersiz": "E-Posta Alanı Geçersiz",
+      "EPostaEnAz3SembolIcermelidir": "E-Posta En Az 3 Sembol İçermelidir",
+      "EPostaGirisiYapiniz": "E-Posta Girişi Yapınız",
+      "EPostaMaksimum360SembolIcermelidir": "E-Posta Maksimum 360 Sembol İçermelidir",
+      "EskiSifreAlaniBosGecilemez": "Eski Şifre Alanı Boş Geçilemez",
+      "EskiSifreYeniSifreAyniOlamaz": "Eski Şifre ile Yeni Şifre Alanı Aynı Olamaz.",
+      "HataliGirisHakkiAsildi": "Çok fazla hatalı giriş yaptığınız için hesabınız kilitlenmiştir. Lütfen yöneticinize başvurunuz.",
+      "IslemBasarili": "İşlem Başarılı",
+      "IslemBasarisiz": "İşlem Başarısız",
+      "KullaniciAdiEnAz3SembolIcermelidir": "Kullanıcı Adı En Az 3 Sembol İçermelidir",
+      "KullaniciAdiGirisiBosGecilemez": "Kullanıcı Adı Boş Geçilemez",
+      "KullaniciAdiGirisiYapiniz": "Kullanıcı Adı Girişi Yapınız",
+      "KullaniciAdiMaksimum100SembolIcermelidir": "Kullanıcı Adı Maksimum 100 Sembol İçermelidir",
+      "KullaniciVeSifreniziKontrolEdiniz": "Kullanıcı adı, şifre bilgilerinizi kontrol ederek tekrar deneyiniz.",
+      "SifreAlaniBosGecilemez": "Şifre Alanı Boş Geçilemez",
+      "SifreEnAz3SembolIcermelidir": "Şifre En Az 3 Sembol İçermelidir",
+      "SifreGirisiYapiniz": "Şifre Girişi Yapınız",
+      "SifreMaksimum100SembolIcermelidir": "Şifre Maksimum 100 Sembol İçermelidir",
+      "SifreTekrarAlaniBosGecilemez": "Şifre Tekrar Alanı Boş Geçilemez",
+      "SifreVeSifreTekrarAlanlariAyniOlmalidir": "Şifre ve Şifre Tekrar Alanları Verileri Aynı Olmalıdır"
+    },
+    "Vazgec": "Vazgeç",
+    "WrongFromat": "Yanlış Dosya Formatı",
+    "enUS": "İngilizce",
+    "trTR": "Türkçe"
+  },
+  "Home": {
+    "GelenBildirimBlaBlaBla": "Bugün {{adet}} bildirimin var.",
+    "Merhaba": "Merhaba",
+    "Title": "Anasayfa"
+  },
+  "Job": {
+    "FormSaved": {
+      "Title": "Form Kaydedildi"
+    },
+    "Register": {
+      "Ad": "Ad",
+      "BolgeOtel": "Bölge ya da Otel",
+      "Departman": "Departman",
+      "GorevTanimi": "Görev",
+      "Hello": "Merhaba",
+      "HelloDes": "Lüften bilgilerinizi doldurunuz.",
+      "ID": "TC. Kimlik/Pasaport No",
+      "STAJ": "Staj",
+      "Soyad": "Soyad",
+      "TAM_ZAMANLI": "Tam Zamanlı",
+      "Telefon": "Telefon",
+      "Title": "İş Başvuru Kayıt"
+    },
+    "Steps": {
+      "BASLANGIC": "Başlangıç",
+      "Egitim": {
+        "Dil": "Konuşulan Diller",
+        "EgitimDurumu": "Eğitim Durumu",
+        "Title": "Eğitim"
+      },
+      "Genel": {
+        "BirthDate": "Doğum Tarihi",
+        "Cinsiyet": "Cinsiyet",
+        "EPosta": "E-Posta",
+        "Lokasyonlar": "Lokasyonlar",
+        "Title": "Genel",
+        "Uyruk": "Uyruk"
+      },
+      "IYI": "İyi",
+      "ORTA": "Orta",
+      "Title": "Başvuru Formu",
+      "Yetkinlik": {
+        "ENGELDURUM": "Engel Durumunuzu Belirtiniz",
+        "Ehliyetler": "Ehliyetler",
+        "Title": "Yetkinlik",
+        "ozgecmis": "Özgeçmişinizi Yazınız"
+      }
+    }
+  },
+  "Msg": {
+    "ApplicationRTitle": "Başvurunuz Alınmıştır",
+    "ApplicationRecieved": "Grubumuza gösterdiğiniz ilgi ve güven için teşekkür ederiz.",
+    "BigFileError": "Dosya boyutunuz: {{DosyaBoyutu}} MB'dır. Sistem maximum dosya boyut sınırı: {{DosyaSiniri}} MB'dır! Bu değer aşılamaz.",
+    "CannotReadPdf": "Pdf doyası okunamadı.",
+    "ShiftCouldnotGet": "Vardiya bilgileri alınamadı.",
+    "WrongFileFormat": "Lütfen pdf uzantılı dosya yükleyiniz."
+  },
+  "Splash": {
+    "Description": "İş fırsatlarını görün ve kariyer yolculuğunuza devam edin.",
+    "Title": "Burada yerin hazır!"
+  }
+}

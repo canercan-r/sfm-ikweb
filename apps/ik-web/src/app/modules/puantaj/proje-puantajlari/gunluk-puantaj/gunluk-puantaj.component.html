@@ -1,0 +1,179 @@
+<ikweb-toolbar [backClick]="true" [bc$]="bc$" [title]="puantaj.projeAdi">
+</ikweb-toolbar>
+
+<div class="card card-spacing-reset">
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th
+            *ngFor="let col of normalKolonlar"
+            [ngClass]="
+              col == 'aylikKilitli'
+                ? 'pb-0 d-flex align-items-center text-nowrap'
+                : 'text-nowrap'
+            "
+          >
+            <ng-container *ngIf="col == 'aylikKilitli'; else elseTemplate">
+              <ikweb-checkbox (ngModel)="(false)" [readonly]="true">
+              </ikweb-checkbox>
+              {{ "Puantaj.ProjePuantajlari.GunlukPuantaj." + col | translate }}
+            </ng-container>
+            <ng-template #elseTemplate>
+              {{ "Puantaj.ProjePuantajlari.GunlukPuantaj." + col | translate }}
+            </ng-template>
+          </th>
+
+          <th *ngFor="let gun of gunKolonlari">{{ gun }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of gunlukPuantaj">
+          <td
+            [ngClass]="{ 'pt-0': col == 'aylikKilitli' }"
+            *ngFor="let col of normalKolonlar"
+          >
+            <ng-container [ngSwitch]="col">
+              <ng-container *ngSwitchCase="'aylikKilitli'">
+                <ikweb-checkbox
+                  [(ngModel)]="p[col]"
+                  [readonly]="true"
+                ></ikweb-checkbox>
+              </ng-container>
+
+              <ng-container *ngSwitchDefault>
+                {{ p[col] }}
+              </ng-container>
+            </ng-container>
+          </td>
+
+          <td
+            class="cursor-pointer"
+            *ngFor="let deger of p.gunlerUi; let i = index"
+            [igxToggleAction]="dropdownCell"
+            [igxDropDownItemNavigation]="dropdownCell"
+            (click)="seciliGunIndex = i"
+          >
+            {{ deger }}
+          </td>
+
+          <igx-drop-down #dropdownCell [width]="'300px'" [height]="'350px'">
+            <igx-drop-down-item
+              (click)="gunleriDuzenle(p, seciliGunIndex, 'X')"
+            >
+              {{ "Puantaj.ProjePuantajlari.GunlukPuantaj.Geldi" | translate }}
+            </igx-drop-down-item>
+            <igx-drop-down-item
+              (click)="gunleriDuzenle(p, seciliGunIndex, 'OFF')"
+            >
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.HaftaTatili" | translate
+              }}
+            </igx-drop-down-item>
+            <igx-drop-down-item
+              (click)="gunleriDuzenle(p, seciliGunIndex, 'Bİ')"
+            >
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.BayramTatili"
+                  | translate
+              }}
+            </igx-drop-down-item>
+            <igx-drop-down-item
+              class="border-bottom"
+              (click)="gunleriDuzenle(p, seciliGunIndex, 'GG')"
+            >
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.GeciciGorev" | translate
+              }}
+            </igx-drop-down-item>
+
+            <igx-drop-down-item
+              (click)="gunleriDuzenle(p, seciliGunIndex, 'DVS')"
+            >
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.Devamsiz" | translate
+              }}
+            </igx-drop-down-item>
+            <igx-drop-down-item
+              class="border-bottom"
+              (click)="gunleriDuzenle(p, seciliGunIndex, 'R')"
+            >
+              {{ "Puantaj.ProjePuantajlari.GunlukPuantaj.Raporlu" | translate }}
+            </igx-drop-down-item>
+
+            <igx-drop-down-item
+              (click)="gunleriDuzenle(p, seciliGunIndex, 'Yİ')"
+            >
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.YillikIzin" | translate
+              }}
+            </igx-drop-down-item>
+            <igx-drop-down-item
+              (click)="gunleriDuzenle(p, seciliGunIndex, 'Mİ')"
+            >
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.MazeretIzni" | translate
+              }}
+            </igx-drop-down-item>
+            <igx-drop-down-item
+              (click)="gunleriDuzenle(p, seciliGunIndex, 'Üİ')"
+            >
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.UcretsizIzin"
+                  | translate
+              }}
+            </igx-drop-down-item>
+            <igx-drop-down-item
+              (click)="gunleriDuzenle(p, seciliGunIndex, 'Cİ')"
+            >
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.CenazeIzni" | translate
+              }}
+            </igx-drop-down-item>
+            <igx-drop-down-item
+              (click)="gunleriDuzenle(p, seciliGunIndex, 'Eİ')"
+            >
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.EvlilikIzni" | translate
+              }}
+            </igx-drop-down-item>
+            <igx-drop-down-item
+              class="border-bottom"
+              (click)="gunleriDuzenle(p, seciliGunIndex, 'Dİ')"
+            >
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.DogumIzniBaba"
+                  | translate
+              }}
+            </igx-drop-down-item>
+
+            <igx-drop-down-item>
+              {{ "Puantaj.ProjePuantajlari.GunlukPuantaj.Temizle" | translate }}
+            </igx-drop-down-item>
+            <igx-drop-down-item (click)="fazlaMesaiGir(p)">
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.FazlaMesaiGir"
+                  | translate
+              }}
+            </igx-drop-down-item>
+            <igx-drop-down-item>
+              {{ "Puantaj.ProjePuantajlari.GunlukPuantaj.Kilitle" | translate }}
+            </igx-drop-down-item>
+            <igx-drop-down-item (click)="parmakIziKaydiGoster(p)">
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.ParmakIziKaydiniGoster"
+                  | translate
+              }}
+            </igx-drop-down-item>
+            <igx-drop-down-item>
+              {{
+                "Puantaj.ProjePuantajlari.GunlukPuantaj.TumunuGeldiIsaretle"
+                  | translate
+              }}
+            </igx-drop-down-item>
+          </igx-drop-down>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

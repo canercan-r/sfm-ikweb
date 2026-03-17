@@ -1,0 +1,21 @@
+//
+// Customized Material Angular Version For App
+//
+
+// Override Global
+@import "color";
+@import "typography";
+
+// Override Framework Components
+@import "components/button";
+@import "components/toolbar";
+@import "components/dropdown";
+@import "components/form";
+@import "components/drawer";
+@import "components/tooltip";
+@import "components/dialog";
+@import "components/overlay";
+@import "components/table";
+
+// Override Theming
+@import "theming";

@@ -1,0 +1,799 @@
+<igx-banner #gridOptionsMissingBanner class="angular-with-newlines banner-border">
+  {{ bannerMessage }}
+</igx-banner>
+<button *ngIf="showBanner" igxButton="flat" igxRipple (click)="gridOptionsMissingBanner.toggle()">
+  <igx-icon fontSet="material">error_outline</igx-icon>
+</button>
+<ng-container *ngIf="canRender$ | async">
+  <ng-container *ngIf="gridPages$ | async as page">
+    <igx-grid
+      #theGrid
+      *ngIf="isNormalGrid"
+      [data]="page.PageContent"
+      [height]="gridOption.height"
+      [moving]="gridOption.columnMovable"
+      [isLoading]="isLoading"
+      [width]="gridOption.width"
+      [clipboardOptions]="copyOptions"
+      emptyGridMessage="{{ 'Gridler.GridEmptyMessage' | translate }}"
+      [allowFiltering]="true"
+      [hideRowSelectors]="gridOption.hideRowSelectors"
+      [filterMode]="filterStyle"
+      [hideGroupedColumns]="false"
+      (columnInit)="initColumns($event)"
+      (dataPreLoad)="processData($event)"
+      (cellClick)="onCellClick($event)"
+      (doubleClick)="dblClick($event)"
+      (contextMenu)="contextMenu($event)"
+      (filteringDone)="filteringDone($event)"
+      (filtering)="filtering($event)"
+      (sortingDone)="sortingDone($event)"
+      (columnResized)="resizing($event)"
+      (columnMovingEnd)="movingEnds($event)"
+      (columnMovingStart)="movingStarts($event)"
+      (columnVisibilityChanged)="visibilityChanged($event)"
+      (rowSelectionChanging)="onRowSelectionChange($event)"
+      [rowSelection]="gridOption.multipleRowSelection ? 'multiple' : gridOption.singleRowSelection ? 'single' : 'none'"
+      [allowAdvancedFiltering]="true"
+      (advancedFilteringExpressionsTreeChange)="advencedFilteringExpressionsTreeChange($event)"
+      [summaryRowHeight]="50"
+      (rowEditDone)="editDone($event)"
+      (cellEditDone)="cellEdit($event)"
+      [pinning]="pinningConfig"
+      [locale]="_langService.localePrefix"
+      [resourceStrings]="_langService.resourceStrings"
+    >
+      <igx-paginator
+        #defaultPaginator
+        *ngIf="gridOption.pagingType !== pagingTypes.REMOTE && gridOption.pagingType !== pagingTypes.NONE"
+        [perPage]="gridOption.perPage"
+        [(page)]="theGrid.page"
+        [totalRecords]="theGrid.totalRecords"
+        [selectOptions]="selectOptions"
+      >
+        <igx-paginator-content>
+          <span class="igx-grid-total d-none d-lg-flex me-5">{{ "Gridler.TotalRecords" | translate }} {{ totalCount }}</span>
+          <igx-select (selectionChanging)="onPageSizeChange($event.newSelection.value)">
+            <igx-select-item *ngFor="let val of [5, 10, 15, 20, 25, 50, 100, 1000, 10000]" [value]="val" [selected]="gridOption.perPage === val">
+              {{ val }}
+            </igx-select-item>
+          </igx-select>
+          <!-- <igx-page-size></igx-page-size> -->
+          <button *ngIf="pendingSave" (click)="saveSettings()" igxIconButton="flat" igxRipple>
+            <igx-icon fontSet="material">save</igx-icon>
+          </button>
+
+          <button *ngIf="procedureDidChange" (click)="overwriteWithDefualts()" igxIconButton="flat" igxRipple>
+            <igx-icon fontSet="material">fingerprint</igx-icon>
+          </button>
+
+          <!-- <igx-switch [checked]="false" class="hidden-mobile" (change)="toogleGridToolbar($event)">
+            {{'Gridler.Toolbar.ToogleToolbar' | translate}}</igx-switch> -->
+
+          <button *ngIf="canExportLangKeys" (click)="showColumnsExport()" igxIconButton="flat" igxRipple>
+            <igx-icon fontSet="material">touch_app</igx-icon>
+          </button>
+
+          <!-- TODO igx-grid-toolbar2        <igx-grid-toolbar class="transparent igx-grid-toolbar2">-->
+          <igx-grid-toolbar #toolbar class="transparent igx-grid-toolbar2">
+            <igx-grid-toolbar-actions>
+              <igx-grid-toolbar-hiding
+                title="{{ 'Grid.ColumnHide' | translate }}"
+                prompt="{{ 'Grid.FilterColumn' | translate }}"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+              </igx-grid-toolbar-hiding>
+              <igx-grid-toolbar-pinning
+                title="{{ 'Grid.PinnedColumns' | translate }}"
+                prompt="{{ 'Grid.FilterColumn' | translate }}"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+              </igx-grid-toolbar-pinning>
+              <igx-grid-toolbar-exporter
+                #toolbarExporter
+                (exportStarted)="onExportStarted($event)"
+                *ngIf="canExport"
+                [exportCSV]="canExport"
+                [exportExcel]="canExport"
+                [filename]="LibGrids[gridOption.gridId]"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+                {{ "Gridler.Export" | translate }}
+                <span excelText>{{ "Gridler.Toolbar.ExportExel" | translate }}</span>
+                <span csvText>{{ "Gridler.Toolbar.ExportCsv" | translate }}</span>
+              </igx-grid-toolbar-exporter>
+            </igx-grid-toolbar-actions>
+          </igx-grid-toolbar>
+
+          <igx-page-nav></igx-page-nav>
+        </igx-paginator-content>
+      </igx-paginator>
+
+      <igx-paginator
+        #remotePaginator
+        *ngIf="gridOption.pagingType === pagingTypes.REMOTE"
+        [perPage]="gridOption.perPage"
+        [(page)]="theGrid.page"
+        [totalRecords]="theGrid.totalRecords"
+        [selectOptions]="selectOptions"
+      >
+        <igx-paginator-content>
+          <span class="igx-grid-total me-5 d-none d-lg-flex">{{ "Gridler.TotalRecords" | translate }} {{ totalCount }}</span>
+          <igx-select (selectionChanging)="onPageSizeChange($event.newSelection.value)">
+            <igx-select-item *ngFor="let val of [5, 10, 15, 20, 25, 50, 100, 1000, 10000]" [value]="val" [selected]="gridOption.perPage === val">
+              {{ val }}
+            </igx-select-item>
+          </igx-select>
+          <!-- <igx-page-size></igx-page-size> -->
+          <button *ngIf="pendingSave" (click)="saveSettings()" igxIconButton="flat" igxRipple>
+            <igx-icon fontSet="material">save</igx-icon>
+          </button>
+
+          <button *ngIf="procedureDidChange" (click)="overwriteWithDefualts()" igxIconButton="flat" igxRipple>
+            <igx-icon fontSet="material">fingerprint</igx-icon>
+          </button>
+
+          <!-- <igx-switch [checked]="false" class="hidden-mobile" (change)="toogleGridToolbar($event)">
+            {{'Gridler.Toolbar.ToogleToolbar' | translate}}</igx-switch> -->
+
+          <button *ngIf="canExportLangKeys" (click)="showColumnsExport()" igxIconButton="flat" igxRipple>
+            <igx-icon fontSet="material">touch_app</igx-icon>
+          </button>
+          <!-- TODO igx-grid-toolbar2        <igx-grid-toolbar class="transparent igx-grid-toolbar2">-->
+          <igx-grid-toolbar #toolbar class="transparent igx-grid-toolbar2">
+            <igx-grid-toolbar-actions>
+              <igx-grid-toolbar-hiding
+                title="{{ 'Grid.ColumnHide' | translate }}"
+                prompt="{{ 'Grid.FilterColumn' | translate }}"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+              </igx-grid-toolbar-hiding>
+              <igx-grid-toolbar-pinning
+                title="{{ 'Grid.PinnedColumns' | translate }}"
+                prompt="{{ 'Grid.FilterColumn' | translate }}"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+              </igx-grid-toolbar-pinning>
+              <igx-grid-toolbar-exporter
+                #toolbarExporter
+                (exportStarted)="onExportStarted($event)"
+                *ngIf="canExport"
+                [exportCSV]="canExport"
+                [exportExcel]="canExport"
+                [filename]="LibGrids[gridOption.gridId]"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+                {{ "Gridler.Export" | translate }}
+                <span excelText>{{ "Gridler.Toolbar.ExportExel" | translate }}</span>
+                <span csvText>{{ "Gridler.Toolbar.ExportCsv" | translate }}</span>
+              </igx-grid-toolbar-exporter>
+              <!-- <button class="ms-2" igxButton="outlined" igxRipple>
+                <igx-icon family="material">history</igx-icon>
+                <span>{{ "Audit.Title" | translate }}</span>
+              </button> -->
+              <button *ngIf="currentWhereSqlQuery != ''" class="ms-2" igxButton="outlined" igxRipple (click)="clearGridFilters()">
+                <igx-icon>filter_alt_off</igx-icon>
+                <span>{{ "Gridler.Toolbar.ClearFilter" | translate }}</span>
+              </button>
+            </igx-grid-toolbar-actions>
+          </igx-grid-toolbar>
+
+          <!-- <igx-page-nav></igx-page-nav> -->
+          <div class="igx-page-nav">
+            <button [disabled]="isFirstPage || navigationDisabled" (click)="paginate(1)" igxIconButton="flat" igxRipple>
+              <igx-icon fontSet="material">first_page</igx-icon>
+            </button>
+
+            <button [disabled]="isFirstPage || navigationDisabled" (click)="previousPage()" igxIconButton="flat" igxRipple>
+              <igx-icon fontSet="material">chevron_left</igx-icon>
+            </button>
+
+            <span>{{ currentPage }} {{ "Gridler.pageOFpageDivider" | translate }} {{ TotalPages }}</span>
+
+            <button [disabled]="isLastPage || navigationDisabled" (click)="nextPage()" igxRipple igxIconButton="flat">
+              <igx-icon fontSet="material">chevron_right</igx-icon>
+            </button>
+
+            <button [disabled]="isLastPage || navigationDisabled" (click)="paginate(TotalPages)" igxIconButton="flat" igxRipple>
+              <igx-icon fontSet="material">last_page</igx-icon>
+            </button>
+          </div>
+        </igx-paginator-content>
+      </igx-paginator>
+
+      <div *ngFor="let c of rootGridColums">
+        <igx-column
+          *ngIf="(!c.columnType || c.columnType === ColumnTypes.Default) && !c.dataSource"
+          [field]="c.field"
+          [header]="getFieldLangKey(c.field) | translate"
+          [width]="c.width"
+          [minWidth]="c.minWidth"
+          [maxWidth]="c.maxWidth"
+          [dataType]="c.type"
+          [pipeArgs]="formatOptions"
+          [disableHiding]="c.disableHiding"
+        >
+        </igx-column>
+
+        <igx-column
+          *ngIf="(!c.columnType || c.columnType === ColumnTypes.Default) && c.dataSource"
+          [field]="c.field"
+          [disableHiding]="c.disableHiding"
+          [header]="getFieldLangKey(c.field) | translate"
+          [editable]="true"
+        >
+          <ng-template igxCellEditor let-cell="cell" let-value>
+            <igx-select class="cell-select" [(ngModel)]="cell.editValue">
+              <igx-select-item *ngFor="let data of getComboDatas(c.field)" [value]="data.value" [text]="data.viewValue">
+                {{ data.viewValue }}
+              </igx-select-item>
+            </igx-select>
+          </ng-template>
+        </igx-column>
+
+        <igx-column-group *ngIf="c.columnType === ColumnTypes.Master" [header]="getFieldLangKey(c.field) | translate">
+          <igx-column
+            *ngFor="let subC of getSubColumns(c.columnID)"
+            [field]="subC.field"
+            [header]="getFieldLangKey(subC.field) | translate"
+            [width]="subC.width"
+            [minWidth]="subC.minWidth"
+            [maxWidth]="subC.maxWidth"
+            [dataType]="subC.type"
+            [disableHiding]="c.disableHiding"
+          >
+          </igx-column>
+        </igx-column-group>
+      </div>
+    </igx-grid>
+
+    <igx-hierarchical-grid
+      #theHGrid
+      *ngIf="!isNormalGrid"
+      [data]="page.PageContent"
+      [height]="gridOption.height"
+      [width]="gridOption.width"
+      [primaryKey]="page.PrimaryKey"
+      [clipboardOptions]="copyOptions"
+      [moving]="gridOption.columnMovable"
+      emptyGridMessage="{{ 'Gridler.GridEmptyMessage' | translate }}"
+      [allowFiltering]="true"
+      [filterMode]="filterStyle"
+      (dataPreLoad)="processData($event)"
+      (cellClick)="onCellClick($event)"
+      (doubleClick)="dblClick($event)"
+      (columnInit)="initColumns($event)"
+      (contextMenu)="contextMenu($event)"
+      (filteringDone)="filteringDone($event)"
+      (filtering)="filtering($event)"
+      (sortingDone)="sortingDone($event)"
+      (columnResized)="resizing($event)"
+      (columnMovingEnd)="movingEnds($event)"
+      (columnMovingStart)="movingStarts($event)"
+      (columnVisibilityChanged)="visibilityChanged($event)"
+      (rowSelectionChanging)="onRowSelectionChange($event)"
+      [rowSelection]="gridOption.multipleRowSelection ? 'multiple' : 'none'"
+      [summaryRowHeight]="50"
+      (rowToggle)="rowToggle($event, page.PrimaryKey)"
+      (rowEditDone)="editDone($event)"
+      (cellEditDone)="cellEdit($event)"
+    >
+      <igx-paginator
+        #defaultPaginator
+        *ngIf="gridOption.pagingType !== pagingTypes.REMOTE && gridOption.pagingType !== pagingTypes.NONE"
+        [perPage]="gridOption.perPage"
+        [(page)]="theHGrid.page"
+        [totalRecords]="theHGrid.totalRecords"
+        [selectOptions]="selectOptions"
+      >
+        <igx-paginator-content>
+          <span class="igx-grid-total me-5 d-none d-lg-flex">{{ "Gridler.TotalRecords" | translate }} {{ totalCount }}</span>
+          <igx-select (selectionChanging)="onPageSizeChange($event.newSelection.value)">
+            <igx-select-item *ngFor="let val of [5, 10, 15, 20, 25, 50, 100, 1000, 10000]" [value]="val" [selected]="gridOption.perPage === val">
+              {{ val }}
+            </igx-select-item>
+          </igx-select>
+          <!-- <igx-page-size></igx-page-size> -->
+          <button *ngIf="pendingSave" (click)="saveSettings()" igxIconButton="flat" igxRipple>
+            <igx-icon fontSet="material">save</igx-icon>
+          </button>
+
+          <button *ngIf="procedureDidChange" (click)="overwriteWithDefualts()" igxIconButton="flat" igxRipple>
+            <igx-icon fontSet="material">fingerprint</igx-icon>
+          </button>
+
+          <!-- <igx-switch [checked]="false" class="hidden-mobile" (change)="toogleGridToolbar($event)">
+            {{'Gridler.Toolbar.ToogleToolbar' | translate}}</igx-switch> -->
+
+          <button *ngIf="canExportLangKeys" (click)="showColumnsExport()" igxIconButton="flat" igxRipple>
+            <igx-icon fontSet="material">touch_app</igx-icon>
+          </button>
+
+          <!-- TODO igx-grid-toolbar2        <igx-grid-toolbar class="transparent igx-grid-toolbar2">-->
+          <igx-grid-toolbar #toolbar class="transparent igx-grid-toolbar2">
+            <igx-grid-toolbar-actions>
+              <igx-grid-toolbar-hiding
+                title="{{ 'Grid.ColumnHide' | translate }}"
+                prompt="{{ 'Grid.FilterColumn' | translate }}"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+              </igx-grid-toolbar-hiding>
+              <igx-grid-toolbar-pinning
+                title="{{ 'Grid.PinnedColumns' | translate }}"
+                prompt="{{ 'Grid.FilterColumn' | translate }}"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+              </igx-grid-toolbar-pinning>
+              <igx-grid-toolbar-exporter
+                #toolbarExporter
+                (exportStarted)="onExportHierarchicalStarted($event)"
+                *ngIf="canExport"
+                [exportCSV]="canExport"
+                [exportExcel]="canExport"
+                [filename]="LibGrids[gridOption.gridId]"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+                {{ "Gridler.Export" | translate }}
+                <span excelText>{{ "Gridler.Toolbar.ExportExel" | translate }}</span>
+                <span csvText>{{ "Gridler.Toolbar.ExportCsv" | translate }}</span>
+              </igx-grid-toolbar-exporter>
+            </igx-grid-toolbar-actions>
+          </igx-grid-toolbar>
+
+          <igx-page-nav></igx-page-nav>
+        </igx-paginator-content>
+      </igx-paginator>
+
+      <igx-paginator
+        #remotePaginator
+        *ngIf="gridOption.pagingType === pagingTypes.REMOTE"
+        [perPage]="gridOption.perPage"
+        [(page)]="theHGrid.page"
+        [totalRecords]="theHGrid.totalRecords"
+        [selectOptions]="selectOptions"
+      >
+        <igx-paginator-content>
+          <span class="igx-grid-total d-none d-lg-flex me-5">{{ "Gridler.TotalRecords" | translate }} {{ totalCount }}</span>
+          <igx-select (selectionChanging)="onPageSizeChange($event.newSelection.value)">
+            <igx-select-item *ngFor="let val of [5, 10, 15, 20, 25, 50, 100, 1000, 10000]" [value]="val" [selected]="gridOption.perPage === val">
+              {{ val }}
+            </igx-select-item>
+          </igx-select>
+          <!-- <igx-page-size></igx-page-size> -->
+          <button *ngIf="pendingSave" (click)="saveSettings()" igxIconButton="flat" igxRipple>
+            <igx-icon fontSet="material">save</igx-icon>
+          </button>
+
+          <button *ngIf="procedureDidChange" (click)="overwriteWithDefualts()" igxIconButton="flat" igxRipple>
+            <igx-icon fontSet="material">fingerprint</igx-icon>
+          </button>
+
+          <!-- <igx-switch [checked]="false" class="hidden-mobile" (change)="toogleGridToolbar($event)">
+            {{'Gridler.Toolbar.ToogleToolbar' | translate}}</igx-switch> -->
+
+          <button *ngIf="canExportLangKeys" (click)="showColumnsExport()" igxIconButton="flat" igxRipple>
+            <igx-icon fontSet="material">touch_app</igx-icon>
+          </button>
+
+          <!-- TODO igx-grid-toolbar2        <igx-grid-toolbar class="transparent igx-grid-toolbar2">-->
+          <igx-grid-toolbar #toolbar class="transparent igx-grid-toolbar2">
+            <igx-grid-toolbar-actions>
+              <igx-grid-toolbar-hiding
+                title="{{ 'Grid.ColumnHide' | translate }}"
+                prompt="{{ 'Grid.FilterColumn' | translate }}"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+              </igx-grid-toolbar-hiding>
+              <igx-grid-toolbar-pinning
+                title="{{ 'Grid.PinnedColumns' | translate }}"
+                prompt="{{ 'Grid.FilterColumn' | translate }}"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+              </igx-grid-toolbar-pinning>
+              <igx-grid-toolbar-exporter
+                #toolbarExporter
+                (exportStarted)="onExportHierarchicalStarted($event)"
+                *ngIf="canExport"
+                [exportCSV]="canExport"
+                [exportExcel]="canExport"
+                [filename]="LibGrids[gridOption.gridId]"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+                {{ "Gridler.Export" | translate }}
+                <span excelText>{{ "Gridler.Toolbar.ExportExel" | translate }}</span>
+                <span csvText>{{ "Gridler.Toolbar.ExportCsv" | translate }}</span>
+              </igx-grid-toolbar-exporter>
+            </igx-grid-toolbar-actions>
+          </igx-grid-toolbar>
+
+          <!-- <igx-page-nav></igx-page-nav> -->
+          <div class="igx-page-nav">
+            <button [disabled]="isFirstPage || navigationDisabled" (click)="paginate(1)" igxIconButton="flat" igxRipple>
+              <igx-icon fontSet="material">first_page</igx-icon>
+            </button>
+
+            <button [disabled]="isFirstPage || navigationDisabled" (click)="previousPage()" igxIconButton="flat" igxRipple>
+              <igx-icon fontSet="material">chevron_left</igx-icon>
+            </button>
+
+            <span>{{ currentPage }} {{ "Gridler.pageOFpageDivider" | translate }} {{ TotalPages }}</span>
+
+            <button [disabled]="isLastPage || navigationDisabled" (click)="nextPage()" igxRipple igxIconButton="flat">
+              <igx-icon fontSet="material">chevron_right</igx-icon>
+            </button>
+
+            <button [disabled]="isLastPage || navigationDisabled" (click)="paginate(TotalPages)" igxIconButton="flat" igxRipple>
+              <igx-icon fontSet="material">last_page</igx-icon>
+            </button>
+          </div>
+        </igx-paginator-content>
+      </igx-paginator>
+
+      <div *ngFor="let c of rootGridColums">
+        <igx-column
+          *ngIf="(!c.columnType || c.columnType === ColumnTypes.Default) && !c.dataSource"
+          [field]="c.field"
+          [header]="getFieldLangKey(c.field) | translate"
+          [width]="c.width"
+          [minWidth]="c.minWidth"
+          [maxWidth]="c.maxWidth"
+          [dataType]="c.type"
+          [pipeArgs]="formatOptions"
+        >
+        </igx-column>
+
+        <igx-column
+          *ngIf="(!c.columnType || c.columnType === ColumnTypes.Default) && c.dataSource"
+          [field]="c.field"
+          [header]="getFieldLangKey(c.field) | translate"
+          [editable]="true"
+        >
+          <ng-template igxCellEditor let-cell="cell" let-value>
+            <igx-select class="cell-select" [(ngModel)]="cell.editValue">
+              <igx-select-item *ngFor="let data of getComboDatas(c.field)" [value]="data.value" [text]="data.viewValue">
+                {{ data.viewValue }}
+              </igx-select-item>
+            </igx-select>
+          </ng-template>
+        </igx-column>
+
+        <igx-column-group *ngIf="c.columnType === ColumnTypes.Master" [header]="getFieldLangKey(c.field) | translate">
+          <igx-column
+            *ngFor="let subC of getSubColumns(c.columnID)"
+            [field]="subC.field"
+            [header]="getFieldLangKey(subC.field) | translate"
+            [width]="subC.width"
+            [minWidth]="subC.minWidth"
+            [maxWidth]="subC.maxWidth"
+            [dataType]="subC.type"
+          >
+          </igx-column>
+        </igx-column-group>
+      </div>
+
+      <!-- *** TODO: Static Double Level Hierarchical Grid. This must be change -->
+      <igx-row-island
+        #theFirstGrid
+        *ngIf="gridData.FirstLevel"
+        [clipboardOptions]="copyOptions"
+        emptyGridMessage="{{ 'Gridler.GridEmptyMessage' | translate }}"
+        [primaryKey]="gridData.FirstLevel.Page.PrimaryKey"
+        [allowFiltering]="rowisland"
+        (rowToggle)="rowToggleDetay($event, gridData.FirstLevel.Page.PrimaryKey)"
+        (cellEditDone)="editDone($event)"
+        (cellClick)="onCellClick($event)"
+        (rowSelectionChanging)="onRowSelectionChange($event)"
+        (rowAdd)="addRowByIndexFirstGrid($event)"
+        (rowDelete)="deleteRow($event)"
+        (rowDeleted)="deleteRow($event)"
+      >
+        <igx-paginator #islandPaginator [(perPage)]="theHGrid.perPage"> </igx-paginator>
+
+        <div *ngFor="let c of getFirstLevelColumns()">
+          <igx-column
+            *ngIf="(!c.columnType || c.columnType === ColumnTypes.Default) && !c.dataSource"
+            [field]="c.field"
+            [header]="getFieldLangKeyDetay(c.field) | translate"
+            [width]="c.width"
+            [minWidth]="c.minWidth"
+            [maxWidth]="c.maxWidth"
+            [dataType]="c.type"
+            [hidden]="c.field === page.PrimaryKey ? true : false"
+            [pipeArgs]="formatOptions"
+            [cellTemplate]="c.colRef"
+            [editable]="c.editable"
+          >
+          </igx-column>
+
+          <igx-column
+            *ngIf="(!c.columnType || c.columnType === ColumnTypes.Default) && c.dataSource"
+            [field]="c.field"
+            [header]="getFieldLangKey(c.field) | translate"
+            [editable]="true"
+          >
+            <ng-template igxCellEditor let-cell="cell" let-value>
+              <igx-select class="cell-select" [(ngModel)]="cell.editValue">
+                <igx-select-item *ngFor="let data of getComboDatas(c.field)" [value]="data.value" [text]="data.viewValue">
+                  {{ data.viewValue }}
+                </igx-select-item>
+              </igx-select>
+            </ng-template>
+          </igx-column>
+
+          <igx-column-group *ngIf="c.columnType === ColumnTypes.Master" [header]="getFieldLangKeyDetay(c.field) | translate">
+            <igx-column
+              *ngFor="let subC of getSubColumns(c.columnID)"
+              [field]="subC.field"
+              [header]="getFieldLangKeyDetay(subC.field) | translate"
+              [width]="subC.width"
+              [minWidth]="subC.minWidth"
+              [maxWidth]="subC.maxWidth"
+              [dataType]="subC.type"
+            >
+            </igx-column>
+          </igx-column-group>
+          <!-- <igx-column [headerTemplate]="columnHeader" [hidden]=" c.field === page.PrimaryKey ? true : false"
+            [resizable]="true" [cellTemplate]="c['colRef']" [field]="c.field"
+            [header]="getFieldLangKeyDetay(c.field) | translate" [width]="c.width" [minWidth]="c.minWidth"
+            [maxWidth]="c.maxWidth" [dataType]="c.type">
+          </igx-column> -->
+        </div>
+
+        <igx-row-island
+          *ngIf="gridData.SecondLevel"
+          [clipboardOptions]="copyOptions"
+          emptyGridMessage="{{ 'Gridler.GridEmptyMessage' | translate }}"
+          [primaryKey]="gridData.SecondLevel.Page.PrimaryKey"
+          [allowFiltering]="rowisland"
+        >
+          <igx-paginator #islandPaginator [(perPage)]="theHGrid.perPage"> </igx-paginator>
+
+          <igx-column
+            *ngFor="let c of gridData.SecondLevel.Columns"
+            [headerTemplate]="columnHeader"
+            [cellTemplate]="c['colRef']"
+            [field]="c.field"
+            [header]="getFieldLangKeyDetay(c.field) | translate"
+            [width]="c.width"
+            [minWidth]="c.minWidth"
+            [maxWidth]="c.maxWidth"
+            [dataType]="c.type"
+            [pipeArgs]="formatOptions"
+          ></igx-column>
+        </igx-row-island>
+        <!-- *** -->
+      </igx-row-island>
+    </igx-hierarchical-grid>
+
+    <!--Burası master detay grid için temp olarak oluşturuldu. Tamamen excel export için yapıldı.
+  Normal master detay grid export edilince data arka planda istediği formata çevrilip bu gride veriliyor ve export işlemi bu grid üzeinden oluyor-->
+    <igx-hierarchical-grid #theTempHGrid [data]="tempData.data" hidden="true">
+      <igx-column
+        *ngFor="let c of tempData.masterColumns"
+        [field]="c.field"
+        [header]="getFieldLangKey(c.field) | translate"
+        [width]="c.width"
+        [minWidth]="c.minWidth"
+        [maxWidth]="c.maxWidth"
+        [dataType]="c.type"
+        [hidden]="c.hidden"
+        [pipeArgs]="formatOptions"
+      >
+      </igx-column>
+
+      <igx-row-island *ngIf="tempData.firsLevelDetailColumns.length > 0" [key]="'DetayFirst'" [autoGenerate]="false">
+        <igx-column
+          *ngFor="let c of tempData.firsLevelDetailColumns"
+          [field]="c.field"
+          [hidden]="c.field === tempData.masterPrimaryKey ? true : false"
+          [header]="getFieldLangKeyDetay(c.field) | translate"
+          [width]="c.width"
+          [minWidth]="c.minWidth"
+          [maxWidth]="c.maxWidth"
+          [dataType]="c.type"
+          [pipeArgs]="formatOptions"
+        >
+        </igx-column>
+
+        <igx-row-island *ngIf="tempData.secondLevelDetailColumns.length > 0" [key]="'DetaySecond'" [autoGenerate]="false">
+          <igx-column
+            *ngFor="let c of tempData.secondLevelDetailColumns"
+            [field]="c.field"
+            [hidden]="c.field === tempData.firstLevelPrimaryKey ? true : false"
+            [header]="getFieldLangKeyDetay(c.field) | translate"
+            [width]="c.width"
+            [minWidth]="c.minWidth"
+            [maxWidth]="c.maxWidth"
+            [dataType]="c.type"
+            [pipeArgs]="formatOptions"
+          >
+          </igx-column>
+        </igx-row-island>
+      </igx-row-island>
+    </igx-hierarchical-grid>
+  </ng-container>
+</ng-container>
+
+<igx-toast #grid_toast></igx-toast>
+
+<ng-template let-column #columnHeader>
+  <div class="title-inner">
+    {{ column.header }}
+    <!-- <button igxIconButton="flat" class="col-header-icon" [igxToggleAction]="colHeadermenu" igxRipple>
+      <igx-icon fontSet="material">more_vert</igx-icon>
+    </button>
+    <igx-drop-down #colHeadermenu (selectionChanging)="columnOptionsMenu($event,column)">
+      <igx-drop-down-item *ngFor="let action of columnsHeaderMenuActions" [value]="action.actionId">
+        <span translate="Gridler.ColumnHeaderMenu.{{action.actionValue}}"></span>
+        <igx-icon class="col-header-icon" fontSet="material">{{action.actionIcon}}</igx-icon>
+      </igx-drop-down-item>
+    </igx-drop-down> -->
+    <button *ngIf="rootGridColums[column.index]?.hasSummary" igxIconButton="flat" class="col-header-icon" igxRipple (click)="toggleSummary(column)">
+      <igx-icon fontSet="material">functions</igx-icon>
+    </button>
+  </div>
+</ng-template>
+
+<ng-template igxSummary let-summaryResults #summaryTemplate>
+  <div class="flex-container m-2">
+    <span class="truncate"> {{ "Globals.Total" | translate }} : </span>
+    <span class="text-summary ml-5"> {{ remoteSum ? remoteSum : (summaryResults[3].summaryResult | number : "1.2-2") }}</span>
+  </div>
+</ng-template>
+
+<ng-template #booleanCell igxCell let-val let-cell="cell">
+  <i *ngIf="val" class="fa-duotone text-success fa-solid fa-circle-check"></i>
+  <i *ngIf="!val" class="fa-duotone text-danger fa-solid fa-circle-xmark"></i>
+</ng-template>
+
+<ng-template #imageCell igxCell let-val let-cell="cell">
+  <lib-symbol
+    [type]="'img'"
+    symbolclass="symbol-fixed"
+    [img]="val ? 'data:image/png;base64,' + val : 'assets/avatars/blank.png'"
+    [radius]="'square'"
+    [sizemd]="'35px'"
+    [size]="'35px'"
+    [fs]="'1'"
+    [overlay]="true"
+    class="my-5"
+  >
+  </lib-symbol>
+</ng-template>
+
+<ng-template #remotePager let-grid>
+  <div class="igx-paginator">
+    <div class="igx-paginator__select">
+      <igx-select (selectionChanging)="onPageSizeChange($event.newSelection.value)">
+        <igx-select-item *ngFor="let val of [5, 10, 15, 20, 25, 50, 100, 1000, 10000]" [value]="val" [selected]="gridOption.perPage === val">
+          {{ val }}
+        </igx-select-item>
+      </igx-select>
+
+      <span class="igx-grid-total d-none d-lg-flex me-5">{{ "Gridler.TotalRecords" | translate }} {{ totalCount }}</span>
+
+      <button *ngIf="pendingSave" (click)="saveSettings()" igxIconButton="flat" igxRipple>
+        <igx-icon fontSet="material">save</igx-icon>
+      </button>
+
+      <button *ngIf="procedureDidChange" (click)="overwriteWithDefualts()" igxIconButton="flat" igxRipple>
+        <igx-icon fontSet="material">fingerprint</igx-icon>
+      </button>
+
+      <igx-switch [checked]="false" class="hidden-mobile" (change)="toogleGridToolbar($event)">
+        {{ "Gridler.Toolbar.ToogleToolbar" | translate }}</igx-switch
+      >
+
+      <button *ngIf="canExportLangKeys" (click)="showColumnsExport()" igxIconButton="flat" igxRipple>
+        <igx-icon fontSet="material">touch_app</igx-icon>
+      </button>
+    </div>
+    <div class="igx-page-nav">
+      <button [disabled]="isFirstPage || navigationDisabled" (click)="paginate(1)" igxIconButton="flat" igxRipple>
+        <igx-icon fontSet="material">first_page</igx-icon>
+      </button>
+
+      <button [disabled]="isFirstPage || navigationDisabled" (click)="previousPage()" igxIconButton="flat" igxRipple>
+        <igx-icon fontSet="material">chevron_left</igx-icon>
+      </button>
+
+      <span>{{ currentPage }} {{ "Gridler.pageOFpageDivider" | translate }} {{ TotalPages }}</span>
+
+      <button [disabled]="isLastPage || navigationDisabled" (click)="nextPage()" igxRipple igxIconButton="flat">
+        <igx-icon fontSet="material">chevron_right</igx-icon>
+      </button>
+
+      <button [disabled]="isLastPage || navigationDisabled" (click)="paginate(TotalPages)" igxIconButton="flat" igxRipple>
+        <igx-icon fontSet="material">last_page</igx-icon>
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #defaultPager let-grid>
+  <div class="igx-paginator">
+    <div class="igx-paginator__select">
+      <span class="igx-grid-total d-none d-lg-flex me-5">{{ "Gridler.TotalRecords" | translate }} {{ totalCount }}</span>
+      <igx-select (selectionChanging)="onPageSizeChange($event.newSelection.value)">
+        <igx-select-item *ngFor="let val of [5, 10, 15, 20, 25, 50, 100, 1000, 10000]" [value]="val" [selected]="grid.perPage === val">
+          {{ val }}
+        </igx-select-item>
+      </igx-select>
+
+      <button *ngIf="pendingSave" (click)="saveSettings()" igxIconButton="flat" igxRipple>
+        <igx-icon fontSet="material">save</igx-icon>
+      </button>
+
+      <button *ngIf="procedureDidChange" (click)="overwriteWithDefualts()" igxIconButton="flat" igxRipple>
+        <igx-icon fontSet="material">fingerprint</igx-icon>
+      </button>
+
+      <igx-switch [checked]="false" class="hidden-mobile" (change)="toogleGridToolbar($event)">
+        {{ "Gridler.Toolbar.ToogleToolbar" | translate }}</igx-switch
+      >
+
+      <button *ngIf="canExportLangKeys" (click)="showColumnsExport()" igxIconButton="flat" igxRipple>
+        <igx-icon fontSet="material">touch_app</igx-icon>
+      </button>
+    </div>
+    <div class="igx-page-nav">
+      <button [disabled]="grid.isFirstPage" (click)="grid.paginate(0)" igxIconButton="flat" igxRipple>
+        <igx-icon>first_page</igx-icon>
+      </button>
+      <button [disabled]="grid.isFirstPage" (click)="grid.previousPage()" igxIconButton="flat" igxRipple>
+        <igx-icon>chevron_left</igx-icon>
+      </button>
+      <span>{{ grid.page + 1 }} / {{ grid.totalPages }}</span>
+      <button [disabled]="grid.isLastPage" (click)="grid.nextPage()" igxRipple igxIconButton="flat">
+        <igx-icon>chevron_right</igx-icon>
+      </button>
+      <button [disabled]="grid.isLastPage" (click)="grid.paginate(grid.totalPages - 1)" igxIconButton="flat" igxRipple>
+        <igx-icon>last_page</igx-icon>
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #islandPager let-grid>
+  <div *ngIf="grid.paging && grid.totalPages > 0" class="igx-paginator">
+    <div class="igx-paginator__select">
+      <igx-select (selectionChanging)="grid.perPage = $event.newSelection.value">
+        <igx-select-item *ngFor="let val of [5, 10, 15, 20, 25, 50, 100]" [value]="val" [selected]="grid.perPage === val">
+          {{ val }}
+        </igx-select-item>
+      </igx-select>
+
+      <span class="igx-grid-total d-none d-lg-flex me-5">{{ "Gridler.TotalRecords" | translate }} {{ grid.totalRecords }}</span>
+    </div>
+    <div class="igx-page-nav">
+      <button [disabled]="grid.isFirstPage" (click)="grid.paginate(0)" igxIconButton="flat" igxRipple>
+        <igx-icon>first_page</igx-icon>
+      </button>
+      <button [disabled]="grid.isFirstPage" (click)="grid.previousPage()" igxIconButton="flat" igxRipple>
+        <igx-icon>chevron_left</igx-icon>
+      </button>
+      <span>{{ grid.page + 1 }} / {{ grid.totalPages }}</span>
+      <button [disabled]="grid.isLastPage" (click)="grid.nextPage()" igxRipple igxIconButton="flat">
+        <igx-icon>chevron_right</igx-icon>
+      </button>
+      <button [disabled]="grid.isLastPage" (click)="grid.paginate(grid.totalPages - 1)" igxIconButton="flat" igxRipple>
+        <igx-icon>last_page</igx-icon>
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<igx-dialog
+  #columnsKeysDialog
+  title="Export Lang Keys"
+  leftButtonLabel="Cancel"
+  (leftButtonSelect)="columnsKeysDialog.close()"
+  rightButtonLabel="Copy"
+  (rightButtonSelect)="copyToClipboard()"
+  backgroundClick="true"
+  [closeOnOutsideSelect]="true"
+>
+  <div class="export-form">
+    <textarea #exportTextArea rows="18" cols="101" [readonly]="true" style="margin: 10px">{{ exportLangKeys | json }}</textarea>
+  </div>
+</igx-dialog>

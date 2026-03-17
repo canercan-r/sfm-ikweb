@@ -1,0 +1,36 @@
+:host ::ng-deep {
+  display: flex;
+  flex: 1;
+  .cv-toolbar {
+    width: 100%;
+  }
+
+  // .mat-stepper-horizontal
+  //   .mat-horizontal-stepper-header-container
+  //   .mat-horizontal-stepper-header[aria-selected="true"] {
+  //   background-color: var(--custom-primary);
+  //   border-radius: 27px;
+  //   width: 100px;
+  //   padding: 1px 7px;
+  // }
+
+  // .mat-stepper-horizontal
+  //   .mat-horizontal-stepper-header-container
+  //   .mat-horizontal-stepper-header[aria-selected="true"]
+  //   .mat-step-icon {
+  //   width: 30px;
+  //   height: 30px;
+  //   margin: 0;
+  //   background: var(--st-white);
+  //   color: var(--custom-primary);
+  // }
+  // .customBrand {
+  //   background: var(--custom-primary);
+  //   background-color: var(--custom-primary);
+  //   color: white;
+  // }
+  // .customBrand:hover {
+  //   background-color: var(--custom-primary-light-dark);
+  //   color: white;
+  // }
+}

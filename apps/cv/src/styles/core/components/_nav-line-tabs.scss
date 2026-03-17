@@ -1,0 +1,109 @@
+//
+// Nav
+//
+
+// Active & Hover States
+@mixin activeHoverStateBefore($color) {
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: $color;
+    transition: $transition-link;
+    border-radius: var(--#{$prefix}border-radius-pill);
+  }
+}
+
+// Line tabs
+.nav-line-tabs {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--#{$prefix}border-color);
+
+  .nav-item {
+    margin-bottom: -1px;
+
+    // Show States
+    &.show {
+      .nav-link {
+        $color: var(--#{$prefix}dark);
+        @include activeHoverStateBefore($color);
+      }
+    }
+
+    // Base link
+    .nav-link {
+      color: var(--#{$prefix}gray-500);
+      border: 0;
+      border-bottom: 1px solid transparent;
+      transition: $transition-link;
+      padding: 0.5rem 0;
+      margin: 0 1rem;
+      position: relative;
+
+      // Active & Hover States
+      &.active,
+      &:hover:not(.disabled) {
+        $color: var(--#{$prefix}dark);
+        @include activeHoverStateBefore($color);
+      }
+    }
+
+    // First Item
+    &:first-child {
+      .nav-link {
+        margin-left: 0;
+      }
+    }
+
+    // Last Item
+    &:last-child {
+      .nav-link {
+        margin-right: 0;
+      }
+    }
+  }
+
+  // 2x Line
+  &.nav-line-tabs-2x {
+    border-bottom-width: 2px;
+
+    .nav-item {
+      margin-bottom: -2px;
+
+      .nav-link {
+        border-bottom-width: 2px;
+      }
+    }
+
+    // Active & Hover States
+    .nav-item .nav-link.active,
+    .nav-item.show .nav-link,
+    .nav-item .nav-link:hover:not(.disabled) {
+      border-bottom-width: 2px;
+    }
+  }
+
+  // 0 Line
+  &.nav-line-tabs-0 {
+    border-bottom-width: 0;
+
+    .nav-item {
+      margin-bottom: 0;
+
+      .nav-link {
+        border-bottom-width: 0;
+      }
+    }
+
+    // Active & Hover States
+    .nav-item .nav-link.active,
+    .nav-item.show .nav-link,
+    .nav-item .nav-link:hover:not(.disabled) {
+      border-bottom-width: 0;
+    }
+  }
+}

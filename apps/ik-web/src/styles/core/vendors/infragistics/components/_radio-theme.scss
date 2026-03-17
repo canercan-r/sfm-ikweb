@@ -1,0 +1,12 @@
+//
+// Checkbox Theme
+//
+
+$custom-radio-theme: radio-theme(
+  $fill-color: $primary,
+  $fill-color-hover: $primary,
+  $fill-hover-border-color: $primary,
+  $label-color: $gray-700,
+);
+
+@include css-vars($custom-radio-theme);

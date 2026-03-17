@@ -1,0 +1,36 @@
+<div class="d-flex flex-stack" *ngIf="inputGroupType == 'border' && label">
+  <label
+    class="form-label"
+    igxLabel
+    [for]="name"
+    [ngClass]="{ required: control.hasError('required') }"
+    >{{ label | translate }}</label
+  >
+</div>
+
+<igx-combo
+  [ngStyle]="formButton && { '--ig-size': 'var(--ig-size-small)' }"
+  [ngClass]="{
+      'form-control-button': formButton,
+      'form-control form-control-transparent': formButton,
+      'igx-input-group--disabled': disabled,
+      'igx-input-group--empty-required': isEmptyRequired,
+    }"
+  [type]="inputGroupType"
+  [ngClass]="{ btn: isButton }"
+  [formControl]="control"
+  (selectionChanging)="change($event)"
+  [itemsMaxHeight]="250"
+  [data]="data"
+  [displayKey]="displayKey"
+  [valueKey]="valueKey"
+  [placeholder]="placeholder | translate"
+  [searchPlaceholder]="searchPlaceholder | translate"
+>
+  <label igxLabel *ngIf="inputGroupType != 'border'">
+    {{ label | translate }}
+  </label>
+  <ng-template igxComboToggleIcon let-collapsed>
+    <i class="fa-solid fa-chevron-{{ collapsed ? 'down' : 'up' }} fs-4"></i>
+  </ng-template>
+</igx-combo>

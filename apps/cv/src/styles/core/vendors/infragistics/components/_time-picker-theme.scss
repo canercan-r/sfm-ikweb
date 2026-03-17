@@ -1,0 +1,20 @@
+//
+// Time Picker Theme
+//
+
+$custom-picker-theme: time-picker-theme(
+  $text-color: $dark,
+  $hover-text-color: $primary,
+  $selected-text-color: $primary,
+  $header-background: $primary,
+  $header-hour-text-color: $primary,
+  $background-color: $body-bg,
+);
+
+@include css-vars($custom-picker-theme);
+
+.igx-time-picker__buttons {
+  .igx-button--flat {
+    @include css-vars($custom-flat-button);
+  }
+}

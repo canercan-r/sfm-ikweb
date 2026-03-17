@@ -1,0 +1,98 @@
+//
+// Drop Down Theme
+//
+
+$custom-drop-down-theme: drop-down-theme(
+  $background-color: $dropdown-bg,
+  $header-text-color: $dropdown-header-color,
+  $item-text-color: $dropdown-color,
+  $selected-item-background: $dropdown-link-active-bg,
+  $selected-item-text-color: $dropdown-link-active-color,
+  $selected-hover-item-background: $dropdown-link-hover-bg,
+  $selected-hover-item-text-color: $dropdown-link-hover-color,
+  $selected-focus-item-background: $dropdown-link-active-bg,
+  $selected-focus-item-text-color: $dropdown-link-active-color,
+  $focused-item-background: $dropdown-link-focus-bg,
+  $focused-item-text-color: $dropdown-link-focus-color,
+  $hover-item-background: $dropdown-link-hover-bg,
+  $hover-item-text-color: $dropdown-link-hover-color,
+  $shadow: $box-shadow,
+  $border-radius: $border-radius,
+);
+
+@include css-vars($custom-drop-down-theme);
+
+.igx-drop-down {
+  &__list {
+    padding: $dropdown-padding-y;
+  }
+
+  &__item {
+    padding-inline: $dropdown-item-padding-x;
+    border-radius: $border-radius;
+    margin: $dropdown-item-margin-y 0;
+    min-height: 36px;
+    height: auto;
+  }
+
+  &__inner {
+    white-space: normal;
+  }
+
+  &__item[multiLevel] {
+    .igx-drop-down__content {
+      .igx-drop-down__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        flex-shrink: 0;
+        width: 100%;
+
+        &::after {
+          content: " ";
+          display: block;
+          width: $menu-arrow-size;
+          height: $menu-arrow-size;
+          margin-left: $menu-arrow-space;
+          will-change: transform;
+          background-size: 100% 100%;
+          @include svg-bg-icon(
+            arrow-start,
+            var(--#{$prefix}text-muted)
+          ); // rtl:begin:remove
+          @include svg-bg-icon(
+            arrow-end,
+            var(--#{$prefix}text-muted)
+          ); // rtl:end:remove
+        }
+      }
+    }
+
+    &:hover {
+      .igx-drop-down__inner::after {
+        @include svg-bg-icon(
+          arrow-start,
+          var(--#{$prefix}primary)
+        ); // rtl:begin:remove
+        @include svg-bg-icon(
+          arrow-end,
+          var(--#{$prefix}primary)
+        ); // rtl:end:remove
+      }
+    }
+  }
+
+  &__item {
+    &--selected.igx-drop-down__item--focused {
+      background: $dropdown-bg;
+      color: $dropdown-color;
+    }
+
+    &--selected:hover {
+      background: $dropdown-link-hover-bg !important;
+      color: $dropdown-link-hover-color !important;
+    }
+  }
+}

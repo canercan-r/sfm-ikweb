@@ -1,0 +1,139 @@
+<ikweb-toolbar
+  [backClick]="true"
+  [title]="'InsanKaynaklari.Personeller.PersonelDetay.' + navActiveId"
+  [bc$]="bc$"
+  (backClicked)="onBackClicked()"
+>
+  <div action class="d-flex align-items-center">
+    <button class="btn btn-sm btn-success">
+      {{ "Global.Save" | translate }}
+    </button>
+  </div>
+</ikweb-toolbar>
+
+<div class="card">
+  <div class="card-body pb-0">
+    <div class="d-flex flex-column" id="st_personelDetay_cardBody">
+      <div
+        class="d-flex justify-content-between align-items-start gap-2 flex-wrap"
+      >
+        <div class="d-flex gap-6">
+          <img
+            [src]="personel?.kisiFoto"
+            class="rounded-4 w-100px h-100px object-fit-cover"
+          />
+          <div class="d-flex flex-column justify-content-between">
+            <span class="fs-6 fw-bold">{{
+              personel?.adi + " " + personel?.soyadi
+            }}</span>
+            <div class="d-flex flex-wrap gap-6 fs-8 text-muted">
+              <span
+                >{{
+                  "InsanKaynaklari.Personeller.PersonelDetay.TCKimlikNo"
+                    | translate
+                }}:<span class="ms-1 text-dark">{{
+                  personel?.tcNo
+                }}</span></span
+              >
+              <span
+                >{{
+                  "InsanKaynaklari.Personeller.PersonelDetay.SicilNo"
+                    | translate
+                }}:<span class="ms-1 text-dark">{{
+                  personel?.sicilNo
+                }}</span></span
+              >
+              <span
+                >{{
+                  "InsanKaynaklari.Personeller.PersonelDetay.HaklarinBaslangicTarihi"
+                    | translate
+                }}:<span class="ms-1 text-dark">{{
+                  personel?.haklarinBaslangicTarihi
+                }}</span></span
+              >
+              <span
+                >{{
+                  "InsanKaynaklari.Personeller.PersonelDetay.DogumTarihi"
+                    | translate
+                }}:<span class="ms-1 text-dark">{{
+                  personel?.dogumTarihi
+                }}</span></span
+              >
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-yellow btn-sm">
+          {{ "Global.Edit" | translate }}
+        </button>
+      </div>
+
+      <div class="separator pt-5"></div>
+    </div>
+
+    <div class="nav-control">
+      <div class="nav-control-prev ms-n7" *ngIf="_sharedHelper.width < 1280">
+        <button
+          class="btn btn-sm btn-icon btn-active-color-primary"
+          (click)="controlPrev(scrollContentPersonelNav)"
+        >
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+      </div>
+
+      <div class="hover-scroll-x" #scrollContentPersonelNav>
+        <ul
+          id="st_personelDetay_nav"
+          ngbNav
+          (navChange)="navChanged($event)"
+          #PersonelNav="ngbNav"
+          [activeId]="navActiveId"
+          class="nav nav-line-tabs nav-line-tabs-0 flex-nowrap text-nowrap border-transparent fs-7 fw-bold"
+        >
+          <li
+            class="nav-item"
+            [ngbNavItem]="item"
+            *ngFor="let item of navItems; let i = index"
+            [disabled]="i !== 0"
+          >
+            <a class="nav-link text-active-dark me-6" ngbNavLink>
+              {{
+                "InsanKaynaklari.Personeller.PersonelDetay." + item | translate
+              }}
+            </a>
+            <ng-template ngbNavContent>
+              <ng-container [ngSwitch]="item">
+                <ng-container *ngSwitchCase="'Genel'">
+                  <div
+                    data-st-scroll="true"
+                    data-st-scroll-save-state="false"
+                    data-st-scroll-height="auto"
+                    data-st-scroll-wrappers="#st_personelDetay_body"
+                    data-st-scroll-dependencies="#st_header, #st_toolbar, #st_personelDetay_cardBody, #st_personelDetay_nav"
+                    [attr.data-st-scroll-offset]="_sharedHelper.contentSpacing"
+                    class="scroll-y"
+                  >
+                    <ikweb-personel-detay-genel
+                      id="st_personelDetay_body"
+                      [personel]="personel"
+                    >
+                    </ikweb-personel-detay-genel>
+                  </div>
+                </ng-container>
+              </ng-container>
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-control-next me-n7" *ngIf="_sharedHelper.width < 1280">
+        <button
+          class="btn btn-sm btn-icon btn-active-color-primary"
+          (click)="controlNext(scrollContentPersonelNav)"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="nav-content mt-1" [ngbNavOutlet]="PersonelNav"></div>

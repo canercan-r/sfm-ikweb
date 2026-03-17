@@ -1,0 +1,84 @@
+<ikweb-toolbar [bc$]="bc$">
+  <div action class="d-flex align-items-center">
+    <button class="btn btn-sm btn-yellow" (click)="openFilterModal()">
+      <span
+        ><i class="fa-duotone fa-solid fa-filter-list me-1"></i>
+        {{ "Global.Filtre" | translate }}</span
+      >
+    </button>
+  </div>
+</ikweb-toolbar>
+
+<div
+  class="card card-spacing-reset"
+  data-st-scroll="true"
+  data-st-scroll-save-state="false"
+  data-st-scroll-height="auto"
+  data-st-scroll-wrappers="#st_puantaj_body"
+  data-st-scroll-dependencies="#st_header, #st_toolbar"
+  [attr.data-st-scroll-offset]="_sharedHelper.contentSpacingFull"
+>
+  <lib-mock-grid id="st_puantaj_body" #projePuantajlariGrid></lib-mock-grid>
+</div>
+
+<ng-template #gridCellActionTemp let-cell="cell" class="colWidth">
+  <button
+    class="btn"
+    [igxToggleAction]="dropdownCell"
+    [igxDropDownItemNavigation]="dropdownCell"
+  >
+    <igx-icon class="more_vert_icon" family="material">more_vert</igx-icon>
+  </button>
+  <igx-drop-down #dropdownCell [width]="'300px'" [height]="'350px'">
+    <igx-drop-down-item>
+      {{ "Puantaj.ProjePuantajlari.Onayla" | translate }}
+    </igx-drop-down-item>
+    <igx-drop-down-item class="border-bottom">
+      {{ "Puantaj.ProjePuantajlari.OncekiDurumaDon" | translate }}
+    </igx-drop-down-item>
+    <igx-drop-down-item (click)="gunlukPuantajaGit(cell.row.data)">
+      {{ "Puantaj.ProjePuantajlari.GunlukPuantajCizelgesi" | translate }}
+    </igx-drop-down-item>
+    <igx-drop-down-item
+      class="border-bottom"
+      (click)="aylikPuantajaGit(cell.row.data)"
+    >
+      {{ "Puantaj.ProjePuantajlari.AylikPuantajCizelgesi" | translate }}
+    </igx-drop-down-item>
+    <igx-drop-down-item (click)="gecikmeliGunSayisiniDegistir(cell.row.data)">
+      {{
+        "Puantaj.ProjePuantajlari.GecikmeliGirisGunSayisiniDegistir" | translate
+      }}
+    </igx-drop-down-item>
+    <igx-drop-down-item>
+      {{
+        "Puantaj.ProjePuantajlari.ProjedeVarsayilanGecikmeliGunUygula"
+          | translate
+      }}
+    </igx-drop-down-item>
+    <igx-drop-down-item>
+      {{ "Puantaj.ProjePuantajlari.VardiyaPlanlamasi" | translate }}
+    </igx-drop-down-item>
+    <igx-drop-down-item (click)="puantajKontrol(cell.row.data)">
+      {{ "Puantaj.ProjePuantajlari.PuantajKontrol.Title" | translate }}
+    </igx-drop-down-item>
+    <igx-drop-down-item (click)="ekipmanSayimi(cell.row.data)">
+      {{ "Puantaj.ProjePuantajlari.EkipmanSayimi.EkipmanSayimi" | translate }}
+    </igx-drop-down-item>
+    <igx-drop-down-item (click)="vardiyaBilgiGuncellemesi(cell.row.data)">
+      {{
+        "Puantaj.ProjePuantajlari.VardiyaBilgiGuncellemesi.VardiyaBilgiGuncellemesi"
+          | translate
+      }}
+    </igx-drop-down-item>
+    <igx-drop-down-item>
+      {{ "Puantaj.ProjePuantajlari.TamamlamaSuresiniDegistir" | translate }}
+    </igx-drop-down-item>
+    <igx-drop-down-item (click)="kidemKontrolEkrani(cell.row.data)">
+      {{
+        "Puantaj.ProjePuantajlari.KidemKontrolEkrani.KidemKontrolEkrani"
+          | translate
+      }}
+    </igx-drop-down-item>
+  </igx-drop-down>
+</ng-template>

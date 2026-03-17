@@ -1,0 +1,34 @@
+﻿[
+  {
+    "ApiServerURL": "https://gateway.sfm.net/",
+    "AppName": "SFM - IK WEB",
+    "BrandFolder": "sfm",
+    "BrandName": "sfm",
+    "Colors": {
+      "PrimaryActiveColor": "#2877e7",
+      "PrimaryColor": "#3085fe",
+      "PrimaryInverse": "#ffffff",
+      "PrimaryLightColor": "#dde8fa",
+      "PrimaryLightDarkColor": "#182435"
+    },
+    "LogoSvgOrNot": true,
+    "MockEnabled": true,
+    "Theme": "DEFAULT"
+  },
+  {
+    "ApiServerURL": "https://ssmgw.issturkiye.com/",
+    "AppName": "ISS Türkiye",
+    "BrandFolder": "issturkiye",
+    "BrandName": "issturkiye",
+    "Colors": {
+      "PrimaryActiveColor": "#081f3e",
+      "PrimaryColor": "#102c53",
+      "PrimaryInverse": "#ffffff",
+      "PrimaryLightColor": "#e3ecf8",
+      "PrimaryLightDarkColor": "#5188d2"
+    },
+    "LogoSvgOrNot": true,
+    "MockEnabled": true,
+    "Theme": "DEFAULT"
+  }
+]

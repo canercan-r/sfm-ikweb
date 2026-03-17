@@ -1,0 +1,73 @@
+//
+// Button Theme
+//
+
+$custom-raised-button: button-theme(
+  $foreground: $white,
+  $hover-foreground: $white,
+  $focus-foreground: $white,
+  $background: $primary,
+  $hover-background: $primary-active,
+  $border-radius: $border-radius,
+  $resting-shadow: $btn-box-shadow,
+  $hover-shadow: $btn-box-shadow,
+  $focus-shadow: $btn-box-shadow,
+);
+
+$custom-outline-button: button-theme(
+  $foreground: $primary,
+  $hover-foreground: $primary,
+  $focus-foreground: $primary-active,
+  $border-color: $primary,
+  $hover-border-color: $primary-active,
+  $border-radius: $border-radius,
+  $resting-shadow: $btn-box-shadow,
+  $hover-shadow: $btn-box-shadow,
+  $focus-shadow: $btn-box-shadow,
+);
+
+$custom-actions-button: button-theme(
+  $border-color: $gray-700,
+  $hover-border-color: $gray-900,
+  $border-radius: $border-radius,
+  $resting-shadow: $btn-box-shadow,
+  $hover-shadow: $btn-box-shadow,
+  $focus-shadow: $btn-box-shadow,
+);
+
+$custom-flat-button: button-theme(
+  $foreground: $primary,
+  $hover-foreground: $primary-active,
+  $hover-background: $primary-light,
+  $border-radius: $border-radius,
+);
+
+$custom-icon-button: button-theme(
+  $icon-color: $gray-700,
+  $border-radius: $border-radius,
+  $disabled-background: transparent,
+);
+
+@each $name, $value in $theme-colors {
+  // Base or Raised
+  .btn.btn-#{$name} {
+    @include css-vars($custom-raised-button);
+  }
+
+  // Outline
+  .btn.btn-outline.btn-outline-#{$name} {
+    @include css-vars($custom-outline-button);
+  }
+
+  // Active or Flat
+  .btn.btn-active-#{$name} {
+    @include css-vars($custom-flat-button);
+  }
+
+  // Light
+  @if (theme-light-color($name)) {
+    .btn.btn-active-light-#{$name} {
+      @include css-vars($custom-flat-button);
+    }
+  }
+}

@@ -1,0 +1,85 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */ {
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      // global paths
+      "@lib-core": ["libs/core/src/public-api.ts"],
+      "@lib-common": ["libs/common/src/public-api.ts"],
+      "@mock-api": ["libs/core/src/lib/mock-api/index.ts"],
+
+      // cv paths
+      "@cv-shared/*": ["apps/cv/src/app/shared/*"],
+      "@cv-models/*": ["apps/cv/src/app/models/*"],
+      "@cv-models": ["apps/cv/src/app/models"],
+      "@cv-components/*": ["apps/cv/src/app/components/*"],
+      "@cv-components": ["apps/cv/src/app/components"],
+      "@cv-services/*": ["apps/cv/src/app/services/*"],
+      "@cv-services": ["apps/cv/src/app/services"],
+      "@cv-layout/*": ["apps/cv/src/app/layout/*"],
+      "@cv-layout": ["apps/cv/src/app/layout"],
+      "@cv-scripts/*": ["apps/cv/src/scripts/*"],
+      "@cv-scripts": ["apps/cv/src/scripts"],
+      "@cv-i18n/*": ["apps/cv/src/assets/i18n/*"],
+      "@cv-env/*": ["apps/cv/src/environments/*"],
+
+      // ik-web paths
+      "@ikweb-components": ["apps/ik-web/src/app/components"],
+      "@ikweb-components/*": ["apps/ik-web/src/app/components/*"],
+      "@ikweb-env/*": ["apps/ik-web/src/environments/*"],
+      "@ikweb-i18n/*": ["apps/ik-web/src/assets/i18n/*"],
+      "@ikweb-layout": ["apps/ik-web/src/app/layout"],
+      "@ikweb-layout/*": ["apps/ik-web/src/app/layout/*"],
+      "@ikweb-models": ["apps/ik-web/src/app/models"],
+      "@ikweb-models/*": ["apps/ik-web/src/app/models/*"],
+      "@ikweb-scripts": ["apps/ik-web/src/scripts"],
+      "@ikweb-scripts/*": ["apps/ik-web/src/scripts/*"],
+      "@ikweb-services": ["apps/ik-web/src/app/services"],
+      "@ikweb-services/*": ["apps/ik-web/src/app/services/*"],
+      "@ikweb-shared/*": ["apps/ik-web/src/app/shared/*"],
+
+      "igniteui-dockmanager": [
+        "./node_modules/@infragistics/igniteui-dockmanager"
+      ],
+      "igniteui-dockmanager/*": [
+        "./node_modules/@infragistics/igniteui-dockmanager/*"
+      ],
+      "common": ["dist/common/common", "dist/common"],
+      "core": ["dist/core/core", "dist/core"]
+    },
+    "outDir": "./dist/out-tsc",
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "emitDecoratorMetadata": true,
+    "preserveSymlinks": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "es2020",
+    "lib": ["es2020", "dom"],
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"],
+    "useDefineForClassFields": false
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true,
+    "fullTemplateTypeCheck": true,
+    "preserveWhitespaces": true
+  }
+}

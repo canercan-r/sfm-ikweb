@@ -1,0 +1,175 @@
+//
+// Grid Theme
+//
+
+$custom-grid-theme: grid-theme(
+  $header-background: $primary,
+  $header-text-color: $primary-inverse,
+  $header-border-color: $primary,
+  $grid-shadow: none,
+  $filtering-row-background: $white,
+  $content-background: $white,
+  $row-selected-hover-text-color: $component-hover-color,
+  $row-hover-background: $component-hover-bg,
+  $row-hover-text-color: $component-hover-color,
+  $row-selected-background: $primary-active,
+  $row-selected-text-color: $component-active-color,
+  $cell-selected-within-background: $primary-active,
+  $cell-selected-within-text-color: $component-active-color,
+);
+
+@include css-vars($custom-grid-theme);
+
+.igx-grid-th {
+  border-color: rgba(var(--#{$prefix}white-rgb), 0.5);
+  // border-inline-end-color: var(--#{$prefix}dark) !important;
+  border-width: 0.5px !important;
+
+  &--active {
+    box-shadow: inset 0 0 0 1px var(--header-border-color);
+    border-inline-end-color: var(--header-border-color);
+  }
+
+  &--sortable {
+    .sort-icon {
+      opacity: 1;
+    }
+  }
+
+  .igx-grid-th__title {
+    font-size: var(--igx-grid-head-fs, $font-size-base);
+
+    .title-inner {
+      line-height: 2.6666666667;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .igx-grid-th__icons {
+    height: 100%;
+    margin-left: 0.75rem;
+    --sorted-header-icon-color: rgba(var(--#{$prefix}white-rgb), 0.5);
+    --sortable-header-icon-hover-color: #{$primary-inverse};
+
+    igx-icon {
+      width: var(--igx-icon-size, $font-size-xl);
+      height: var(--igx-icon-size, $font-size-xl);
+      font-size: var(--igx-icon-size, $font-size-xl);
+    }
+  }
+
+  .igx-grid__td {
+    font-size: var(--igx-grid-head-fs, $font-size-sm);
+  }
+}
+
+.igx-grid__tr {
+  &:hover {
+    .igx-grid__td {
+      color: $component-hover-color !important;
+      background: $component-hover-bg !important;
+    }
+  }
+}
+
+.igx-grid__scroll {
+  background: $page-bg;
+  height: calc(
+    var(--#{$prefix}scrollbar-width) + var(--#{$prefix}scrollbar-space)
+  ) !important;
+  z-index: 1040 !important;
+}
+
+.igx-grid__tbody-scrollbar {
+  width: $scrollbar-grid-width !important;
+
+  .igx-vhelper--vertical {
+    width: $scrollbar-grid-width !important;
+  }
+}
+
+.igx-grid__scroll-start {
+  background: $page-bg;
+}
+
+.igx-grid__tfoot {
+  --header-border-color: none;
+}
+
+.igx-grid__td {
+  min-height: 36px !important;
+  height: 36px !important;
+}
+
+.igx-grid__td--pinned-first,
+.igx-grid-th--pinned-first {
+  --pinned-border-color: transparent;
+}
+
+.igx-grid__tr--selected {
+  &.bg-success,
+  &.bg-danger,
+  &.bg-red,
+  &.bg-orange,
+  &.bg-warning {
+    .igx-grid__td--selected {
+      background: transparent !important;
+    }
+  }
+}
+
+.igx-grid-thead__wrapper {
+  z-index: 1 !important;
+}
+
+.igx-grid__tr.bg-success:hover {
+  color: var(--st-success) !important;
+  background: var(--st-success-light) !important;
+}
+
+.igx-grid__tr.bg-success:hover .igx-grid__td {
+  color: var(--st-success) !important;
+  background: var(--st-success-light) !important;
+}
+
+.igx-grid__tr.bg-danger:hover {
+  color: var(--st-danger) !important;
+  background: var(--st-danger-light) !important;
+}
+
+.igx-grid__tr.bg-danger:hover .igx-grid__td {
+  color: var(--st-danger) !important;
+  background: var(--st-danger-light) !important;
+}
+
+.igx-grid__tr.bg-orange:hover {
+  color: var(--st-orange) !important;
+  background: var(--st-orange-light) !important;
+}
+
+.igx-grid__tr.bg-orange:hover .igx-grid__td {
+  color: var(--st-orange) !important;
+  background: var(--st-orange-light) !important;
+}
+
+.igx-grid__tr.bg-warning:hover {
+  color: var(--st-warning) !important;
+  background: var(--st-warning-light) !important;
+}
+
+.igx-grid__tr.bg-warning:hover .igx-grid__td {
+  color: var(--st-warning) !important;
+  background: var(--st-warning-light) !important;
+}
+
+.igx-grid__tr.bg-red:hover {
+  color: var(--st-red) !important;
+  background: var(--st-red-light) !important;
+}
+
+.igx-grid__tr.bg-red:hover .igx-grid__td {
+  color: var(--st-red) !important;
+  background: var(--st-red-light) !important;
+}

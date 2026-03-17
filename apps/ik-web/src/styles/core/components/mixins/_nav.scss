@@ -1,0 +1,18 @@
+//
+// Nav
+//
+
+// Active & Hover States
+@mixin activeHoverStateBefore($color) {
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: $color;
+    transition: $transition-link;
+    border-radius: var(--#{$prefix}border-radius-pill);
+  }
+}

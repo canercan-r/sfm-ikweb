@@ -1,0 +1,19 @@
+<igx-combo
+  class="{{ className }}"
+  [ngClass]="{ btn: isButton }"
+  [formControl]="control"
+  (selectionChanging)="change($event)"
+  [itemsMaxHeight]="250"
+  [data]="data"
+  [displayKey]="displayKey"
+  [valueKey]="valueKey"
+  [placeholder]="placeholder | translate"
+  [searchPlaceholder]="searchPlaceholder | translate"
+>
+  <label igxLabel *ngIf="!isButton">
+    {{ label | translate }}
+  </label>
+  <ng-template igxComboToggleIcon let-collapsed>
+    <i class="fa-solid fa-chevron-{{ collapsed ? 'down' : 'up' }} fs-4"></i>
+  </ng-template>
+</igx-combo>

@@ -1,0 +1,95 @@
+//
+// Header
+//
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: get($header-config, default, height, desktop);
+
+    // Fixed header & sticky header modes
+    [data-st-header-fixed="true"] & {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: get($header-config, fixed, z-index);
+      background-color: var(--st-header-fixed-bg-color);
+      height: get($header-config, fixed, height, desktop);
+      box-shadow: var(--st-header-header-fixed-box-shadow);
+      padding: 0;
+    }
+
+    // Fixed header and fixed toolbar modes
+    [data-st-header-fixed="true"][data-st-toolbar-fixed="true"] & {
+      box-shadow: none;
+    }
+
+    // Aside default enabled, aside fixed & header sticky modes
+    [data-st-aside-minimize="true"][data-st-aside-enabled="true"][data-st-aside-fixed="true"][data-st-header-fixed="true"]
+      & {
+      left: get($aside-config, width, desktop);
+    }
+
+    // Header menu
+    .header-menu {
+      display: flex;
+
+      .menu {
+        // Menu root item
+        > .menu-item {
+          @include menu-link-here-state(
+            $title-color: var(--st-primary),
+            $icon-color: var(--st-primary),
+            $bullet-color: var(--st-primary),
+            $arrow-color: var(--st-primary),
+            $bg-color: var(--st-menu-link-bg-color-active)
+          );
+        }
+      }
+    }
+  }
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: get($header-config, default, height, tablet-and-mobile);
+
+    // Fixed header and header sticky modes
+    [data-st-header-mobile-fixed="true"] & {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: get($header-config, fixed, z-index);
+      height: get($header-config, fixed, height, tablet-and-mobile);
+      min-height: get($header-config, fixed, height, tablet-and-mobile);
+      background-color: var(--st-header-fixed-bg-color);
+      box-shadow: var(--st-header-fixed-box-shadow);
+    }
+
+    // Fixed header and fixed toolbar modes
+    [data-st-header-mobile-fixed="true"][data-st-toolbar-mobile-fixed="true"]
+      & {
+      box-shadow: none;
+    }
+
+    // Header menu
+    .header-menu {
+      display: none;
+      z-index: get($header-config, fixed, z-index) - 1;
+    }
+
+    // Page title
+    .page-title {
+      display: none !important;
+    }
+  }
+}

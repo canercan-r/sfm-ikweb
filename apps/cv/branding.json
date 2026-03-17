@@ -1,0 +1,47 @@
+{
+  "brandFiles": [
+    {
+      "CopyLocation": "{root}/src/environments",
+      "FileName": "environment.prod.ts"
+    },
+    {
+      "CopyLocation": "{root}/src/environments",
+      "FileName": "environment.ts"
+    }
+  ],
+  "brandList": [
+    {
+      "AppDisplayName": "ISS Aday Girişi",
+      "Folder": "iss",
+      "Name": "iss",
+      "Version": "2.0.3"
+    },
+    {
+      "AppDisplayName": "CV Demo",
+      "Folder": "demo",
+      "Name": "demo",
+      "Version": "2.0.3"
+    },
+    {
+      "AppDisplayName": "Senkron  Aday Girişi",
+      "Folder": "senkron",
+      "Name": "senkron",
+      "Version": "2.0.3"
+    },
+    {
+      "AppDisplayName": "Voymaxx Aday Girişi",
+      "Folder": "voymaxx",
+      "Name": "voymaxx",
+      "Version": "2.0.3"
+    }
+  ],
+  "configOptions": {
+    "AppAuthorEmail": "lapis.senkronyazilim@gmail.com",
+    "AppAuthorName": "Senkron Yazilim",
+    "AppAuthorWebSite": "https://www.senkron.net/",
+    "AppDescription": "An awesome HR app.",
+    "brandingFolder": "{root}/branding/",
+    "templateLocation": "config.xml"
+  },
+  "release_notes": "Performans İyileştirmesi Yapıldı"
+}

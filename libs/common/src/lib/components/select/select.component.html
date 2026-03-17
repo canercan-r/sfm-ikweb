@@ -1,0 +1,9 @@
+<igx-select [formControl]="control" (selectionChanging)="change($event)">
+  <label igxLabel>{{ label | translate }}</label>
+  <igx-select-item *ngFor="let d of data" [value]="d[valueKey]">
+    {{ d[displayKey] }}
+  </igx-select-item>
+  <ng-template igxSelectToggleIcon let-collapsed>
+    <i class="fa-solid fa-chevron-{{ collapsed ? 'down' : 'up' }} fs-4"></i>
+  </ng-template>
+</igx-select>

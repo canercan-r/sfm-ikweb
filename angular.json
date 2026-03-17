@@ -1,0 +1,578 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
+  "newProjectRoot": "apps",
+  "projects": {
+    "common": {
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "configurations": {
+            "development": {
+              "tsConfig": "libs/common/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "libs/common/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production",
+          "options": {
+            "project": "libs/common/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "karmaConfig": "libs/common/karma.conf.js",
+            "main": "libs/common/src/test.ts",
+            "tsConfig": "libs/common/tsconfig.spec.json"
+          }
+        }
+      },
+      "prefix": "lib",
+      "projectType": "library",
+      "root": "libs/common",
+      "sourceRoot": "libs/common/src"
+    },
+    "core": {
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "configurations": {
+            "development": {
+              "tsConfig": "libs/core/tsconfig.lib.json"
+            },
+            "production": {
+              "tsConfig": "libs/core/tsconfig.lib.prod.json"
+            }
+          },
+          "defaultConfiguration": "production",
+          "options": {
+            "project": "libs/core/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/**/*.ts",
+              "libs/core/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "karmaConfig": "libs/core/karma.conf.js",
+            "main": "libs/core/src/test.ts",
+            "tsConfig": "libs/core/tsconfig.spec.json"
+          }
+        }
+      },
+      "prefix": "lib",
+      "projectType": "library",
+      "root": "libs/core",
+      "sourceRoot": "libs/core/src"
+    },
+    "cv": {
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "configurations": {
+            "development": {
+              "buildOptimizer": false,
+              "extractLicenses": false,
+              "namedChunks": true,
+              "optimization": false,
+              "sourceMap": true,
+              "vendorChunk": true
+            },
+            "production": {
+              "budgets": [
+                {
+                  "maximumError": "10mb",
+                  "maximumWarning": "8mb",
+                  "type": "initial"
+                },
+                {
+                  "maximumError": "10kb",
+                  "maximumWarning": "8kb",
+                  "type": "anyComponentStyle"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/cv/src/environments/environment.ts",
+                  "with": "apps/cv/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            }
+          },
+          "defaultConfiguration": "production",
+          "options": {
+            "allowedCommonJsDependencies": [
+              "object-path",
+              "apexcharts",
+              "lodash",
+              "moment",
+              "google-libphonenumber",
+              "jszip",
+              "lodash.mergewith",
+              "localforage",
+              "angular2-uuid"
+            ],
+            "assets": [
+              "apps/cv/src/favicon.ico",
+              "apps/cv/src/assets"
+            ],
+            "index": "apps/cv/src/index.html",
+            "inlineStyleLanguage": "scss",
+            "main": "apps/cv/src/main.ts",
+            "outputPath": "dist/cv",
+            "polyfills": "apps/cv/src/polyfills.ts",
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "./node_modules/apexcharts/dist/apexcharts.min.js",
+              "node_modules/hammerjs/hammer.min.js"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            },
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/@infragistics/igniteui-angular/styles/igniteui-angular.css",
+              "apps/cv/src/styles.scss"
+            ],
+            "tsConfig": "apps/cv/tsconfig.app.json"
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "cv:build"
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "development": {
+              "buildTarget": "cv:build:development"
+            },
+            "production": {
+              "buildTarget": "cv:build:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "assets": [
+              "apps/cv/src/favicon.ico",
+              "apps/cv/src/assets"
+            ],
+            "inlineStyleLanguage": "scss",
+            "karmaConfig": "apps/cv/karma.conf.js",
+            "main": "apps/cv/src/test.ts",
+            "polyfills": "apps/cv/src/polyfills.ts",
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            },
+            "styles": [
+              "apps/cv/src/styles.scss"
+            ],
+            "tsConfig": "apps/cv/tsconfig.spec.json"
+          }
+        }
+      },
+      "prefix": "cv",
+      "projectType": "application",
+      "root": "apps/cv",
+      "schematics": {
+        "@schematics/angular:application": {
+          "skipTests": true,
+          "strict": true
+        },
+        "@schematics/angular:component": {
+          "skipTests": true,
+          "style": "scss"
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "sourceRoot": "apps/cv/src"
+    },
+    "ik-login-web": {
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "configurations": {
+            "development": {
+              "buildOptimizer": false,
+              "extractLicenses": false,
+              "namedChunks": true,
+              "optimization": false,
+              "sourceMap": true,
+              "vendorChunk": true
+            },
+            "production": {
+              "budgets": [
+                {
+                  "maximumError": "10mb",
+                  "maximumWarning": "8mb",
+                  "type": "initial"
+                },
+                {
+                  "maximumError": "10kb",
+                  "maximumWarning": "8kb",
+                  "type": "anyComponentStyle"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/ik-login-web/src/environments/environment.ts",
+                  "with": "apps/ik-login-web/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            }
+          },
+          "defaultConfiguration": "production",
+          "options": {
+            "allowedCommonJsDependencies": [
+              "object-path",
+              "apexcharts",
+              "lodash",
+              "moment",
+              "google-libphonenumber",
+              "jszip",
+              "lodash.mergewith",
+              "localforage",
+              "angular2-uuid"
+            ],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/ik-login-web/src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              },
+              "apps/ik-login-web/src/manifest.webmanifest",
+              "apps/ik-login-web/src/manifest.webmanifest",
+              "apps/ik-login-web/src/manifest.webmanifest",
+              "apps/ik-login-web/src/manifest.webmanifest",
+              "apps/ik-login-web/src/manifest.webmanifest"
+            ],
+            "index": "apps/ik-login-web/src/index.html",
+            "inlineStyleLanguage": "scss",
+            "main": "apps/ik-login-web/src/main.ts",
+            "ngswConfigPath": "apps/ik-login-web/ngsw-config.json",
+            "outputPath": "dist/ik-login-web",
+            "polyfills": "apps/ik-login-web/src/polyfills.ts",
+            "scripts": [],
+            "serviceWorker": true,
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            },
+            "styles": [
+              {
+                "input": "node_modules/@ionic/angular/css/core.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/normalize.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/structure.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/typography.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/display.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/padding.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/float-elements.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-alignment.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-transformation.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/flex-utils.css"
+              },
+              {
+                "input": "apps/ik-login-web/src/styles.scss"
+              }
+            ],
+            "tsConfig": "apps/ik-login-web/tsconfig.app.json"
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "ik-login-web:build"
+          }
+        },
+        "ionic-cordova-build": {
+          "builder": "@ionic/cordova-builders:cordova-build",
+          "configurations": {
+            "production": {
+              "browserTarget": "ik-login-web:build:production"
+            }
+          },
+          "options": {
+            "browserTarget": "ik-login-web:build"
+          }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/cordova-builders:cordova-serve",
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "ik-login-web:ionic-cordova-build:production",
+              "devServerTarget": "ik-login-web:serve:production"
+            }
+          },
+          "options": {
+            "cordovaBuildTarget": "ik-login-web:ionic-cordova-build",
+            "devServerTarget": "ik-login-web:serve"
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "development": {
+              "buildTarget": "ik-login-web:build:development"
+            },
+            "production": {
+              "buildTarget": "ik-login-web:build:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "configurations": {
+            "ci": {
+              "progress": false,
+              "watch": false
+            }
+          },
+          "options": {
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/ik-login-web/src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              },
+              "apps/ik-login-web/src/manifest.webmanifest",
+              "apps/ik-login-web/src/manifest.webmanifest",
+              "apps/ik-login-web/src/manifest.webmanifest",
+              "apps/ik-login-web/src/manifest.webmanifest",
+              "apps/ik-login-web/src/manifest.webmanifest"
+            ],
+            "inlineStyleLanguage": "scss",
+            "karmaConfig": "apps/ik-login-web/karma.conf.js",
+            "main": "apps/ik-login-web/src/test.ts",
+            "polyfills": "apps/ik-login-web/src/polyfills.ts",
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            },
+            "styles": [
+              "apps/ik-login-web/src/styles.scss"
+            ],
+            "tsConfig": "apps/ik-login-web/tsconfig.spec.json"
+          }
+        }
+      },
+      "cli": {
+        "schematicCollections": [
+          "@schematics/angular"
+        ]
+      },
+      "prefix": "startermobile",
+      "projectType": "application",
+      "root": "apps/ik-login-web",
+      "schematics": {
+        "@schematics/angular:application": {
+          "skipTests": true,
+          "strict": true
+        },
+        "@schematics/angular:component": {
+          "skipTests": true,
+          "style": "scss"
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "sourceRoot": "apps/ik-login-web/src"
+    },
+    "ik-web": {
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "configurations": {
+            "development": {
+              "extractLicenses": false,
+              "optimization": false,
+              "sourceMap": true
+            },
+            "production": {
+              "budgets": [
+                {
+                  "maximumError": "20mb",
+                  "maximumWarning": "15mb",
+                  "type": "initial"
+                },
+                {
+                  "maximumError": "10kb",
+                  "maximumWarning": "8kb",
+                  "type": "anyComponentStyle"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/ik-web/src/environments/environment.ts",
+                  "with": "apps/ik-web/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            }
+          },
+          "defaultConfiguration": "production",
+          "options": {
+            "allowedCommonJsDependencies": [
+              "object-path",
+              "apexcharts",
+              "lodash",
+              "moment",
+              "google-libphonenumber",
+              "jszip",
+              "lodash.mergewith",
+              "localforage",
+              "angular2-uuid"
+            ],
+            "assets": [
+              "apps/ik-web/src/assets"
+            ],
+            "browser": "apps/ik-web/src/main.ts",
+            "index": "apps/ik-web/src/index.html",
+            "inlineStyleLanguage": "scss",
+            "outputPath": "dist/ik-web",
+            "polyfills": [
+              "apps/ik-web/src/polyfills.ts",
+              "@angular/localize/init"
+            ],
+            "scripts": [
+              "node_modules/apexcharts/dist/apexcharts.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/hammerjs/hammer.min.js"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            },
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/@infragistics/igniteui-angular/styles/igniteui-angular.css",
+              "apps/ik-web/src/styles.scss"
+            ],
+            "tsConfig": "apps/ik-web/tsconfig.app.json"
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "ik-web:build"
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "development": {
+              "buildTarget": "ik-web:build:development"
+            },
+            "production": {
+              "buildTarget": "ik-web:build:production"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "verbose": false
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "assets": [
+              "apps/ik-web/src/assets"
+            ],
+            "inlineStyleLanguage": "scss",
+            "karmaConfig": "apps/ik-web/karma.conf.js",
+            "main": "apps/ik-web/src/test.ts",
+            "polyfills": "apps/ik-web/src/polyfills.ts",
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            },
+            "styles": [
+              "apps/ik-web/src/styles.scss"
+            ],
+            "tsConfig": "apps/ik-web/tsconfig.spec.json"
+          }
+        }
+      },
+      "prefix": "ikweb",
+      "projectType": "application",
+      "root": "apps/ik-web",
+      "schematics": {
+        "@schematics/angular:application": {
+          "skipTests": true,
+          "strict": true
+        },
+        "@schematics/angular:component": {
+          "project": "ikweb",
+          "skipTests": true,
+          "style": "scss"
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "sourceRoot": "apps/ik-web/src"
+    }
+  },
+  "version": 1
+}

@@ -1,0 +1,52 @@
+<div class="d-flex flex-stack" *ngIf="inputGroupType == 'border'">
+  <label
+    class="form-label"
+    igxLabel
+    [for]="name"
+    [ngClass]="{ required: control.hasError('required') }"
+    >{{ label | translate }}</label
+  >
+</div>
+
+<igx-select
+  [ngStyle]="formButton && { '--ig-size': 'var(--ig-size-small)' }"
+  [type]="inputGroupType"
+  class="form-select form-select-transparent"
+  [ngClass]="{
+    'form-select-button': formButton,
+  }"
+  #select
+  [id]="name"
+  [(ngModel)]="value"
+  [formControl]="control"
+  (selectionChanging)="
+    isDynamic ? dynamicChange($event, dynamicItem?.inputName) : change($event)
+  "
+  [overlaySettings]="overlaySettings"
+  [placeholder]="placeholder | translate"
+  [required]="required"
+>
+  <label
+    igxLabel
+    *ngIf="inputGroupType != 'border'"
+    [for]="name"
+    [ngClass]="{ required: control.hasError('required') }"
+    >{{ label | translate }}</label
+  >
+
+  <igx-select-item *ngIf="defaultItem" [value]="defaultItem[valueKey]">
+    {{ displayFormat(defaultItem) }}
+  </igx-select-item>
+
+  <igx-select-item
+    [hidden]="!valueKey"
+    [selected]="selected === d[valueKey]"
+    *ngFor="let d of data"
+    [value]="d[valueKey]"
+  >
+    {{ displayFormat(d) }}
+  </igx-select-item>
+  <ng-template igxSelectToggleIcon let-collapsed>
+    <i class="fa-solid fa-chevron-{{ collapsed ? 'down' : 'up' }} fs-4"></i>
+  </ng-template>
+</igx-select>

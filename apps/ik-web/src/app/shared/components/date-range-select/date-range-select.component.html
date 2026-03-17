@@ -1,0 +1,117 @@
+<button
+  class="{{ buttonClass }}"
+  [overlaySettings]="overlaySettings"
+  [igxToggleAction]="dropDownRangeSelect"
+  [igxDropDownItemNavigation]="dropDownRangeSelect"
+>
+  <i
+    class="fa-solid fa-calendar{{
+      dropDownRangeSelect.collapsed ? '' : '-week'
+    }} fs-4 me-3"
+  ></i>
+  <div class="text-gray-200 fw-bold">
+    <ng-container *ngIf="dateRange">{{ dateRange }} </ng-container>
+    <ng-container *ngIf="!dateStatus && !dateRange">
+      {{ buttonLabel | translate }}
+    </ng-container>
+    <ng-container *ngIf="!!dateStatus && !dateRange">{{
+      "Global.Tarihler." + dateStatus | translate | titlecase
+    }}</ng-container>
+  </div>
+  <i
+    *ngIf="(!!dateStatus || !!dateRange) && clearButton"
+    (click)="clear($event)"
+    class="fa-solid fa-xmark fs-4 ms-3"
+  ></i>
+</button>
+<igx-drop-down
+  #dropDownRangeSelect
+  (selectionChanging)="onSelectionChange($event)"
+>
+  <ng-container *ngIf="isGroup; else elseTemplate">
+    <ng-container *ngIf="groupKey(1)">
+      <ng-container
+        *ngFor="let item of dropdownItems | filterBy : 'filterKey' : filterKey"
+      >
+        <igx-drop-down-item
+          *ngIf="
+            item.groupKey === _groupKey.GUN ||
+            item.filterKey === _filterKey.GECEN
+          "
+          (click)="select(item.valueKey)"
+        >
+          {{ "Global.Tarihler." + item.displayKey | translate }}
+        </igx-drop-down-item>
+      </ng-container>
+      <igx-divider *ngIf="isDivider" class="my-3"></igx-divider>
+    </ng-container>
+
+    <ng-container *ngIf="groupKey(2)">
+      <ng-container
+        *ngFor="let item of dropdownItems | filterBy : 'filterKey' : filterKey"
+      >
+        <igx-drop-down-item
+          *ngIf="item.groupKey === _groupKey.HAFTA"
+          (click)="select(item.valueKey)"
+        >
+          {{ "Global.Tarihler." + item.displayKey | translate }}
+        </igx-drop-down-item>
+      </ng-container>
+      <igx-divider *ngIf="isDivider" class="my-3"></igx-divider>
+    </ng-container>
+
+    <ng-container *ngIf="groupKey(3)">
+      <ng-container
+        *ngFor="let item of dropdownItems | filterBy : 'filterKey' : filterKey"
+      >
+        <igx-drop-down-item
+          *ngIf="item.groupKey === _groupKey.AY"
+          (click)="select(item.valueKey)"
+        >
+          {{ "Global.Tarihler." + item.displayKey | translate }}
+        </igx-drop-down-item>
+      </ng-container>
+      <igx-divider *ngIf="isDivider" class="my-3"></igx-divider>
+    </ng-container>
+
+    <ng-container *ngIf="groupKey(4)">
+      <ng-container
+        *ngFor="let item of dropdownItems | filterBy : 'filterKey' : filterKey"
+      >
+        <igx-drop-down-item
+          *ngIf="item.groupKey === _groupKey.YIL"
+          (click)="select(item.valueKey)"
+        >
+          {{ "Global.Tarihler." + item.displayKey | translate }}
+        </igx-drop-down-item>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <ng-container
+      *ngFor="let item of dropdownItems | filterBy : 'filterKey' : filterKey"
+    >
+      <igx-drop-down-item
+        class="mb-2"
+        [value]="item"
+        *ngIf="
+          item.groupKey === _groupKey.GUN || item.filterKey === _filterKey.BU
+        "
+        (click)="select(item.valueKey)"
+      >
+        {{ "Global.Tarihler." + item.displayKey | translate }}
+      </igx-drop-down-item>
+    </ng-container>
+  </ng-template>
+  <igx-drop-down-item
+    [value]="_filterKey.OZEL"
+    [ngClass]="{ 'igx-drop-down__item--selected': dateRange }"
+  >
+    <ikweb-date-range-picker
+      (onDateSelected)="onDateSelectedChange($event)"
+      *ngIf="isRange"
+      [positionLeft]="true"
+    ></ikweb-date-range-picker>
+  </igx-drop-down-item>
+</igx-drop-down>
+<!-- igx-drop-down__item--selected -->

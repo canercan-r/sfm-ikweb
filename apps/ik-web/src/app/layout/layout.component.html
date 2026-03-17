@@ -1,0 +1,53 @@
+<div class="d-flex flex-column flex-root">
+  <div class="page d-flex flex-row flex-column-fluid">
+    <ikweb-aside
+      *ngIf="asideDisplay"
+      id="st_aside"
+      data-st-drawer="true"
+      data-st-drawer-name="aside"
+      #stAside
+      data-st-drawer-activate="{default: true, lg: false}"
+      data-st-drawer-overlay="{default: true, lg: false}"
+      data-st-drawer-direction="start"
+      data-st-drawer-toggle="#st_aside_toggle"
+      class="aside"
+      [ngClass]="asideCSSClasses"
+    ></ikweb-aside>
+
+    <div class="wrapper d-flex flex-column flex-row-fluid" id="st_wrapper">
+      <ikweb-header
+        id="st_header"
+        [ngClass]="headerCSSClasses"
+        class="header align-items-stretch"
+        #stHeader
+      ></ikweb-header>
+
+      <div id="st_content" class="content d-flex flex-column flex-column-fluid">
+        <ng-container *ngIf="toolbarDisplay">
+          <ikweb-layout-toolbar
+            class="toolbar"
+            [ngClass]="{ 'toolbar-bg': toolbarBg }"
+            id="st_toolbar"
+          ></ikweb-layout-toolbar>
+        </ng-container>
+
+        <div class="post d-flex flex-column-fluid" id="st_post">
+          <ikweb-content
+            id="st_content_container"
+            [ngClass]="contentContainerClasses"
+          ></ikweb-content>
+        </div>
+      </div>
+
+      <ikweb-footer
+        *ngIf="footerDisplay"
+        class="footer py-4 d-flex flex-lg-column"
+        id="st_footer"
+      ></ikweb-footer>
+    </div>
+  </div>
+</div>
+
+<!-- begin:: Scripts -->
+<ikweb-scripts-init></ikweb-scripts-init>
+<!-- end:: Scripts -->

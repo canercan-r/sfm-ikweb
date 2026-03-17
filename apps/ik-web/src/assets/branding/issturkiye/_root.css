@@ -1,0 +1,64 @@
+/*
+ * CSS Variables
+ */
+
+.logo-inside {
+  margin: 32% auto !important;
+}
+
+/*
+##Device = Desktops
+##Screen = 992px to higher resolution desktops
+*/
+
+@media (min-width: 992px) {
+  .logo-inside {
+    width: 50% !important;
+  }
+}
+
+/*
+##Device = Tablet & mobile
+##Screen = 992px to lower resolution tablet & mobile
+*/
+
+/* Tablet & mobile modes */
+@media (max-width: 992px) {
+  .logo-inside {
+    width: 60% !important;
+  }
+}
+
+[data-st-theme="dark"] {
+  .menu-state-primary .menu-item .menu-link.active {
+    color: var(--st-primary-light) !important;
+  }
+
+  .menu-state-primary .menu-item.show > .menu-link .menu-title {
+    color: var(--st-primary-light) !important;
+  }
+
+  .menu-state-primary
+    .menu-item.hover:not(.here)
+    > .menu-link:not(.disabled):not(.active):not(.here)
+    .menu-title,
+  .menu-state-primary
+    .menu-item:not(.here)
+    .menu-link:hover:not(.disabled):not(.active):not(.here)
+    .menu-title {
+    color: var(--st-primary-light) !important;
+  }
+
+  .menu-state-primary
+    .menu-item.hover:not(.here)
+    > .menu-link:not(.disabled):not(.active):not(.here),
+  .menu-state-primary
+    .menu-item:not(.here)
+    .menu-link:hover:not(.disabled):not(.active):not(.here) {
+    color: var(--st-primary-light) !important;
+  }
+
+  .text-hover-primary:hover {
+    color: var(--st-primary-light) !important;
+  }
+}

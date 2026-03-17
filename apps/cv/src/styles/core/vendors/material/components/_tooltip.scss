@@ -1,0 +1,9 @@
+//
+// Tooltip
+//
+
+.mat-tooltip {
+  box-shadow: $tooltip-box-shadow;
+  color: $tooltip-color !important;
+  background-color: $tooltip-bg !important;
+}

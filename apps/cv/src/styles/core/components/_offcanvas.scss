@@ -1,0 +1,63 @@
+%offcanvas-css-vars {
+  --#{$prefix}offcanvas-color: var(--#{$prefix}offcanvas-color);
+  --#{$prefix}offcanvas-bg: var(--#{$prefix}offcanvas-bg-color);
+  --#{$prefix}offcanvas-border-color: var(--#{$prefix}offcanvas-border-color);
+  --#{$prefix}offcanvas-box-shadow: var(--#{$prefix}offcanvas-box-shadow);
+}
+
+.offcanvas-end-sm {
+  width: 200px !important;
+}
+
+.offcanvas-end-md {
+  width: 400px !important;
+}
+
+.offcanvas-end-xmd {
+  width: 600px !important;
+}
+
+.offcanvas-end-lg {
+  width: 800px !important;
+}
+
+.offcanvas-end-quarterScreen {
+  width: 25% !important;
+  overflow-y: auto !important;
+}
+
+.offcanvas-end-halfScreen {
+  width: 50% !important;
+  // overflow-y: auto !important;
+  z-index: 999 !important;
+  background-color: #f1f1f1 !important;
+}
+
+.offcanvas-end-threequarterScreen {
+  width: 75% !important;
+  overflow-y: auto !important;
+  z-index: 999 !important;
+  background-color: #f1f1f1 !important;
+}
+
+.offCanvasBg {
+  background-color: #f1f1f1 !important;
+}
+
+.offCanvasToolbar {
+  background-repeat: no-repeat;
+  background-position: center 70%;
+  background-size: cover;
+  background-image: url("../../../assets/misc/toolbar-bg.jpg");
+}
+
+.offcanvas-end-fullScreen {
+  width: 100% !important;
+  overflow-y: auto !important;
+  z-index: 999 !important;
+  background-color: #f1f1f1 !important;
+}
+
+.offcanvas-backdrop.show {
+  z-index: 999 !important;
+}

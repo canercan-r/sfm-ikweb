@@ -1,0 +1,35 @@
+{
+  "defaultProject": "ik-mobile",
+  "projects": {
+    "ik-login": {
+      "integrations": {
+        "cordova": {
+          "root": "integrations/ik-login"
+        }
+      },
+      "name": "ik-login",
+      "root": "apps/ik-login",
+      "type": "angular"
+    },
+    "ik-login-web": {
+      "integrations": {
+        "cordova": {
+          "root": "integrations/ik-login-web"
+        }
+      },
+      "name": "ik-login-web",
+      "root": "apps/ik-login-web",
+      "type": "angular"
+    },
+    "ik-mobile": {
+      "integrations": {
+        "cordova": {
+          "root": "integrations/ik-mobile"
+        }
+      },
+      "name": "ik-mobile",
+      "root": "apps/ik-mobile",
+      "type": "angular"
+    }
+  }
+}

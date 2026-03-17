@@ -1,0 +1,47 @@
+<div class="card card-spacing-reset">
+  <div class="card-body" id="st_vardiyaBilgi_cardBody">
+    <form [formGroup]="form" class="row row-gap-3">
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-input
+          name="aciklama"
+          label="Puantaj.ProjePuantajlari.VardiyaBilgiGuncellemesi.Aciklama"
+          formControlName="proje"
+        >
+        </ikweb-input>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-input
+          name="projeninAdresi"
+          label="Puantaj.ProjePuantajlari.VardiyaBilgiGuncellemesi.ProjeninAdresi"
+          formControlName="projeninAdresi"
+        >
+        </ikweb-input>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-1 mt-auto">
+        <button class="btn btn-sm btn-primary">
+          {{ "Global.Listele" | translate }}
+        </button>
+      </section>
+    </form>
+  </div>
+
+  <div
+    id="st_vardiyaBilgi_scroll"
+    data-st-scroll="true"
+    data-st-scroll-save-state="false"
+    data-st-scroll-height="auto"
+    data-st-scroll-wrappers="#st_vardiyaBilgi_body"
+    data-st-scroll-dependencies="#st_header, #st_toolbar, #st_vardiyaBilgi_cardBody, #st_vardiyaBilgi_footer"
+    [attr.data-st-scroll-offset]="_sharedHelper.contentSpacing"
+  >
+    <lib-mock-grid id="st_vardiyaBilgi_body" #vardiyaBilgiGrid></lib-mock-grid>
+  </div>
+
+  <div class="card-footer border-0 ms-auto pt-0" id="st_vardiyaBilgi_footer">
+    <button (click)="kaydet()" class="btn btn-sm btn-success">
+      {{ "Global.Save" | translate }}
+    </button>
+  </div>
+</div>

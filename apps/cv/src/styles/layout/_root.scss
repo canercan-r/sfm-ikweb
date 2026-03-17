@@ -1,0 +1,59 @@
+//
+// Root
+//
+
+// Light mode
+@include color-mode(light) {
+  // Page bg
+  --#{$prefix}page-color-rgb: #{to-rgb($page-color)};
+  --#{$prefix}page-bg-rgb: #{to-rgb($page-bg)};
+
+  --#{$prefix}page-color: #{$page-color};
+  --#{$prefix}page-bg: #{$page-bg};
+
+  // Header
+  --st-header-default-bg-color: #{get($header-config, default, bg-color)};
+  --st-header-fixed-bg-color: #{get($header-config, fixed, bg-color)};
+  --st-header-fixed-box-shadow: #{get($header-config, fixed, box-shadow)};
+
+  // Toolbar
+  --st-toolbar-bg-color: #{get($toolbar-config, bg-color)};
+  --st-toolbar-box-shadow: #{get($toolbar-config, box-shadow)};
+  --st-toolbar-border-top: #{get($toolbar-config, border-top)};
+
+  // Aside
+  --st-aside-bg-color: #{get($aside-config, bg-color)};
+  --st-aside-logo-bg-color: #{get($aside-config, logo-bg-color)};
+  --st-aside-box-shadow: #{get($aside-config, box-shadow)};
+  --st-aside-base-toggle-btn-box-shadow: #{get($aside-config, toggle-box-shadow)};
+  --st-aside-base-toggle-btn-bg-color: #{get($aside-config, toggle-bg-color)};
+
+  // Footer
+  --st-footer-bg-color: #{get($footer-config, bg-color)};
+}
+
+// Dark mode
+@include color-mode(dark) {
+  // Page bg
+  --st-page-bg: #{$page-bg-dark};
+
+  // Header
+  --st-header-default-bg-color: #{get($header-config, default, bg-color-dark)};
+  --st-header-fixed-bg-color: #{get($header-config, fixed, bg-color-dark)};
+  --st-header-fixed-box-shadow: #{get($header-config, fixed, box-shadow-dark)};
+
+  // Toolbar
+  --st-toolbar-bg-color: #{get($toolbar-config, bg-color-dark)};
+  --st-toolbar-box-shadow: #{get($toolbar-config, box-shadow-dark)};
+  --st-toolbar-border-top: #{get($toolbar-config, border-top-dark)};
+
+  // Aside
+  --st-aside-bg-color: #{get($aside-config, bg-color)};
+  --st-aside-logo-bg-color: #{get($aside-config, logo-bg-color)};
+  --st-aside-box-shadow: #{get($aside-config, box-shadow-dark)};
+  --st-aside-base-toggle-btn-box-shadow: #{get($aside-config, box-shadow-dark)};
+  --st-aside-base-toggle-btn-bg-color: #{get($aside-config, toggle-bg-color)};
+
+  // Footer
+  --st-footer-bg-color: #{get($footer-config, bg-color-dark)};
+}

@@ -1,0 +1,18 @@
+<igx-radio-group
+  [name]="name"
+  [formControl]="control"
+  (change)="change($event)"
+>
+  <label *ngIf="label" class="fw-semibold">
+    {{ label | translate }}
+  </label>
+  <div
+    [ngClass]="[
+      itemlist === 'row' ? 'd-flex mx-2' : 'd-flex flex-column ms-n2'
+    ]"
+  >
+    <igx-radio *ngFor="let d of data" [value]="d[valueKey]">
+      {{ d[displayKey] }}
+    </igx-radio>
+  </div>
+</igx-radio-group>

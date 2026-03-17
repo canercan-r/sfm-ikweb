@@ -1,0 +1,81 @@
+{
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/$tf": true,
+    "**/.DS_Store": true,
+    "**/.angular": true,
+    "**/.tf": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "**/dist": true,
+    "**/e2e": true,
+    "**/node_modules": true,
+    "**/www": true
+  },
+  "search.exclude": {
+    "**/$tf": true,
+    "**/.angular": true,
+    "**/.vscode": true,
+    "**/bower_components": true,
+    "**/dist": true,
+    // "**/lib": true,
+    "**/node_modules": true,
+    "**/platforms": true,
+    "**/plugins": true,
+    "**/resources": true,
+    "**/scripts": true,
+    "**/src/assets/js": true,
+    "**/www": true
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "generate-translation.path": "/apps/ik-mobile/src/assets/i18n",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#283c58",
+    "activityBar.activeBorder": "#fb5524",
+    "activityBar.background": "#283c58",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#af5078",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "sash.hoverBorder": "#283c58",
+    "statusBar.background": "#182435",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#283c58",
+    "statusBarItem.remoteBackground": "#182435",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#182435",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#18243599",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "commandCenter.border": "#e7e7e799"
+  },
+  "peacock.color": "#182435",
+  "java.configuration.updateBuildConfiguration": "interactive"
+}

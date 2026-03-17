@@ -1,0 +1,57 @@
+<div class="d-flex flex-column flex-root">
+  <div class="page d-flex flex-row flex-column-fluid">
+    <cv-aside
+      *ngIf="asideDisplay"
+      id="st_aside"
+      data-st-drawer="true"
+      data-st-drawer-name="aside"
+      #stAside
+      data-st-drawer-activate="{default: true, lg: false}"
+      data-st-drawer-overlay="{default: true, lg: false}"
+      data-st-drawer-direction="start"
+      data-st-drawer-toggle="#st_aside_toggle"
+      class="aside"
+      [ngClass]="asideCSSClasses"
+    ></cv-aside>
+
+    <div class="wrapper d-flex flex-column flex-row-fluid" id="st_wrapper">
+      <cv-header
+        id="st_header"
+        [ngClass]="headerCSSClasses"
+        class="header align-items-stretch"
+        #stHeader
+      ></cv-header>
+
+      <div id="st_content" class="content d-flex flex-column flex-column-fluid">
+        <ng-container *ngIf="toolbarDisplay">
+          <cv-toolbar
+            class="toolbar"
+            [ngClass]="{ 'toolbar-bg': toolbarBg }"
+            id="st_toolbar"
+          ></cv-toolbar>
+        </ng-container>
+
+        <div class="post d-flex flex-column-fluid" id="st_post">
+          <cv-content
+            id="st_content_container"
+            [ngClass]="contentContainerClasses"
+          ></cv-content>
+        </div>
+      </div>
+
+      <cv-footer
+        *ngIf="footerDisplay"
+        class="footer py-4 d-flex flex-lg-column"
+        id="st_footer"
+      ></cv-footer>
+    </div>
+  </div>
+</div>
+
+<!-- begin:: Scripts -->
+<cv-scripts-init></cv-scripts-init>
+<!-- end:: Scripts -->
+
+<!-- begin:: Drawers -->
+<cv-help-drawer></cv-help-drawer>
+<!-- end:: Drawers -->

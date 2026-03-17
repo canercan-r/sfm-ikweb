@@ -1,0 +1,19 @@
+//
+// Checkbox Theme
+//
+
+$custom-label-theme: label-theme(
+  $color: $gray-900,
+);
+
+$dark-label-theme: label-theme(
+  $color: $gray-900-dark,
+);
+
+@include css-vars($custom-label-theme);
+
+.dark-theme {
+  .igx-input-group {
+    @include css-vars($dark-label-theme);
+  }
+}

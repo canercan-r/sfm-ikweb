@@ -1,0 +1,22 @@
+//
+// Col form label
+//
+
+.form-label {
+  margin-bottom: $form-label-margin-bottom;
+  @include font-size($form-label-font-size);
+  font-style: $form-label-font-style;
+  font-weight: $form-label-font-weight;
+  color: $form-label-color !important;
+}
+
+.label {
+  display: block;
+  font-size: $h3-font-size !important;
+  font-weight: $font-weight-bolder !important;
+  margin-bottom: $grid-row-columns;
+}
+
+.col-form-label {
+  @include font-size($form-label-font-size);
+}

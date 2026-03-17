@@ -1,0 +1,316 @@
+//
+// Custom background helpers
+//
+
+// Background white color
+.bg-white {
+  --#{$prefix}bg-rgb-color: var(--#{$prefix}white-bg-rgb);
+  background-color: $white !important;
+}
+
+// Background black color
+.bg-black {
+  --#{$prefix}bg-rgb-color: var(--#{$prefix}black-bg-rgb);
+  background-color: $black !important;
+}
+
+// Background body color
+.bg-body {
+  --#{$prefix}bg-rgb-color: var(--#{$prefix}body-bg-rgb);
+  background-color: var(--#{$prefix}body-bg) !important;
+}
+
+// Background body color
+.bg-page {
+  --#{$prefix}bg-rgb-color: var(--#{$prefix}page-bg-rgb);
+  background-color: var(--#{$prefix}page-bg) !important;
+}
+
+.bg-hover-body {
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--#{$prefix}body-bg) !important;
+  }
+}
+
+.bg-active-body {
+  &.active {
+    background-color: var(--#{$prefix}body-bg) !important;
+  }
+}
+
+.bg-state-body {
+  cursor: pointer;
+
+  &.active,
+  &:hover {
+    background-color: var(--#{$prefix}body-bg) !important;
+  }
+}
+
+.bg-hover-white {
+  cursor: pointer;
+
+  &:hover {
+    --#{$prefix}bg-rgb-color: var(--#{$prefix}white-bg-rgb);
+    background-color: $white !important;
+  }
+}
+
+.bg-active-white {
+  &.active {
+    --#{$prefix}bg-rgb-color: var(--#{$prefix}white-bg-rgb);
+    background-color: $white !important;
+  }
+}
+
+.bg-state-white {
+  cursor: pointer;
+
+  &.active,
+  &:hover {
+    --#{$prefix}bg-rgb-color: var(--#{$prefix}white-bg-rgb);
+    background-color: $white !important;
+  }
+}
+
+// Background theme light colors
+@each $name, $value in $theme-colors {
+  @for $i from 10 through 100 {
+    @if $i % 10==0 {
+      $percentage: $i * 1%;
+      $k: $i * 10;
+      $amount: calc($i * 10 / 1000);
+
+      .bg-#{$name}-#{$k} {
+        --#{$prefix}bg-rgb-color: var(--#{$prefix}#{$name}-rgb);
+        background-color: rgba(
+          var(--#{$prefix}bg-rgb-color),
+          #{$amount}
+        ) !important;
+        // background-color: rgba($value, $percentage) !important;
+      }
+
+      .bg-darken-#{$name}-#{$k} {
+        background-color: darken($value, $percentage) !important;
+      }
+
+      .bg-lighten-#{$name}-#{$k} {
+        background-color: lighten($value, $percentage) !important;
+      }
+
+      .bg-black-#{$name}-#{$k} {
+        background-color: mix(black, $value, $percentage) !important;
+      }
+
+      .bg-white-#{$name}-#{$k} {
+        background-color: mix(white, $value, $percentage) !important;
+      }
+    }
+  }
+
+  @if (theme-light-color($name)) {
+    .bg-light-#{$name} {
+      background-color: var(--#{$prefix}#{$name}-light) !important;
+    }
+  }
+
+  // Responsive helpers
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      .bg#{$infix}-#{$name} {
+        --#{$prefix}bg-rgb-color: var(--#{$prefix}#{$name}-rgb);
+        background-color: var(--#{$prefix}#{$name}) !important;
+      }
+
+      .bg#{$infix}-#{$name}-active {
+        --#{$prefix}bg-rgb-color: var(--#{$prefix}#{$name}-active-rgb);
+        background-color: var(--#{$prefix}#{$name}-active) !important;
+      }
+    }
+  }
+
+  @if (theme-light-color($name)) {
+    .bg-hover-light-#{$name} {
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--#{$prefix}#{$name}-light) !important;
+      }
+    }
+
+    .bg-state-light-#{$name} {
+      cursor: pointer;
+
+      &.active,
+      &:hover {
+        background-color: var(--#{$prefix}#{$name}-light) !important;
+      }
+    }
+  }
+
+  .bg-hover-#{$name} {
+    cursor: pointer;
+
+    &:hover {
+      --#{$prefix}bg-rgb-color: var(--#{$prefix}#{$name}-rgb);
+      background-color: var(--#{$prefix}#{$name}) !important;
+    }
+  }
+
+  .bg-active-#{$name} {
+    &.active {
+      --#{$prefix}bg-rgb-color: var(--#{$prefix}#{$name}-rgb);
+      background-color: var(--#{$prefix}#{$name}) !important;
+    }
+  }
+
+  .bg-state-#{$name} {
+    cursor: pointer;
+
+    &.active,
+    &:hover {
+      background-color: var(--#{$prefix}#{$name}) !important;
+    }
+  }
+}
+
+// Background gray colors
+@each $name, $value in $gray {
+  // Responsive helpers
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      .bg#{$infix}-gray-#{$name} {
+        --#{$prefix}bg-rgb-color: var(--#{$prefix}gray-#{$name}-rgb);
+        background-color: var(--#{$prefix}gray-#{$name}) !important;
+      }
+
+      .bg#{$infix}-gray-#{$name}i {
+        --#{$prefix}bg-rgb-color: var(--#{$prefix}gray-#{$name}-rgb);
+        background-color: var(--#{$prefix}gray-#{$name}) !important;
+      }
+    }
+  }
+}
+
+// Opacity
+@each $name, $value in $opacity-values {
+  .bg-opacity-#{$name} {
+    background-color: rgba(var(--#{$prefix}bg-rgb-color), #{$value}) !important;
+  }
+
+  .bg-hover-opacity-#{$name}:hover {
+    background-color: rgba(var(--#{$prefix}bg-rgb-color), #{$value}) !important;
+  }
+
+  .bg-active-opacity-#{$name}.active {
+    background-color: rgba(var(--#{$prefix}bg-rgb-color), #{$value}) !important;
+  }
+
+  .bg-state-opacity-#{$name} {
+    .active,
+    &:hover {
+      background-color: rgba(
+        var(--#{$prefix}bg-rgb-color),
+        #{$value}
+      ) !important;
+    }
+  }
+}
+
+// Background image helpers
+// Background repeat
+.bgi-no-repeat {
+  background-repeat: no-repeat;
+}
+
+// Background positions
+.bgi-position-y-top {
+  background-position-y: top;
+}
+
+.bgi-position-y-bottom {
+  background-position-y: bottom;
+}
+
+.bgi-position-y-center {
+  background-position-y: center;
+}
+
+.bgi-position-x-start {
+  background-position-x: left;
+}
+
+.bgi-position-x-end {
+  background-position-x: right;
+}
+
+.bgi-position-x-center {
+  background-position-x: center;
+}
+
+.bgi-position-top {
+  background-position: 0 top;
+}
+
+.bgi-position-bottom {
+  background-position: 0 bottom;
+}
+
+.bgi-position-center {
+  background-position: center;
+}
+
+.bgi-size-100 {
+  background-size: 100% 100%;
+}
+
+.object-fit-fill {
+  object-fit: fill !important;
+}
+
+.object-fit-contain {
+  object-fit: contain !important;
+}
+
+.object-fit-cover {
+  object-fit: cover !important;
+}
+
+.object-fit-scale-down {
+  object-fit: scale-down !important;
+}
+
+// Responsive helpers
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    // Background sizes
+    .bgi-size#{$infix}-auto {
+      background-size: auto;
+    }
+
+    .bgi-size#{$infix}-cover {
+      background-size: cover;
+    }
+
+    .bgi-size#{$infix}-contain {
+      background-size: contain;
+    }
+
+    // Background attachment
+    .bgi-attachment#{$infix}-fixed {
+      background-attachment: fixed;
+    }
+
+    .bgi-attachment#{$infix}-scroll {
+      background-attachment: scroll;
+    }
+  }
+}

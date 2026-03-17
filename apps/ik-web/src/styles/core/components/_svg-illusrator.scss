@@ -1,0 +1,30 @@
+//
+// SVG Icon
+//
+
+.svg-illustrator {
+  line-height: 1;
+
+  @include svg-illustrator-size(get($font-sizes, fluid));
+
+  // Theme colors
+  @each $name, $color in $theme-text-colors {
+    &.svg-illustrator-#{$name} {
+      @include svg-illustrator-color($color);
+    }
+  }
+
+  // Responsive icon sizes
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      // Sizes
+      @each $name, $value in $font-sizes {
+        &.svg-illustrator#{$infix}-#{$name} {
+          @include svg-illustrator-size($value, true);
+        }
+      }
+    }
+  }
+}

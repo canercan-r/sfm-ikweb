@@ -1,0 +1,189 @@
+//
+// Color
+//
+
+// Angular Material custom theme
+// See https://material.angular.io/guide/theming for more details.
+//
+// You can also read https://indepth.dev/tutorials/angular/angular-material-theming-system-complete-guide
+// for more insight about Angular Material theming.
+
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$custom-primary: (
+  // palette
+  100: lighten($primary, 40%),
+  300: lighten($primary, 40%),
+  500: $primary,
+  700: darken($primary, 40%),
+  contrast: (
+    // contrast
+    100: $gray-100,
+    300: $gray-300,
+    500: $primary-inverse,
+    700: $gray-700
+  )
+);
+
+$custom-accent: (
+  // palette
+  100: lighten($success, 8%),
+  300: lighten($success, 8%),
+  500: $success,
+  700: darken($success, 8%),
+  contrast: (
+    // contrast
+    100: $gray-100,
+    300: $gray-300,
+    500: $success-inverse,
+    700: $gray-700
+  )
+);
+
+$custom-warn: (
+  // palette
+  100: lighten($danger, 8%),
+  300: lighten($danger, 8%),
+  500: $danger,
+  700: darken($danger, 8%),
+  contrast: (
+    // contrast
+    100: $gray-100,
+    300: $gray-300,
+    500: $danger-inverse,
+    700: $gray-700
+  )
+);
+
+$custom-red: (
+  // palette
+  100: lighten($red, 8%),
+  300: lighten($red, 8%),
+  500: $red,
+  700: darken($red, 8%),
+  contrast: (
+    // contrast
+    100: $gray-100,
+    300: $gray-300,
+    500: $white,
+    700: $gray-700
+  )
+);
+
+$custom-blue: (
+  // palette
+  100: lighten($blue, 8%),
+  300: lighten($blue, 8%),
+  500: $blue,
+  700: darken($blue, 8%),
+  contrast: (
+    // contrast
+    100: $gray-100,
+    300: $gray-300,
+    500: $white,
+    700: $gray-700
+  )
+);
+
+$mat-primary: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$violet-palette,
+    ),
+  )
+);
+
+// $mat-primary: mat.define-theme($custom-primary, 500, 100, 700);
+// $mat-accent: mat.define-palette($custom-accent, 500, 100, 700);
+// $mat-warn: mat.define-palette($custom-warn, 500, 100, 700);
+// $mat-red: mat.define-palette($custom-red, 500, 100, 700);
+// $mat-blue: mat.define-palette($custom-blue, 500, 100, 700);
+
+$material-light-theme: (
+  // light-theme
+  primary: $mat-primary,
+  // accent: $mat-accent,
+  // warn: $mat-warn,
+  foreground:
+    (
+      // text-color
+      base: $body-color,
+      divider: $gray-600,
+      dividers: $gray-600,
+      disabled: $gray-600,
+      disabled-button: rgba($black, 0.26),
+      disabled-text: $gray-600,
+      hint-text: $black,
+      secondary-text: $black,
+      icon: rgba($black, 0.54),
+      icons: rgba($black, 0.54),
+      text: rgba($black, 0.87),
+      slider-min: rgba($black, 0.87),
+      slider-off: rgba($black, 0.26),
+      slider-off-active: rgba($black, 0.38)
+    ),
+  background: (
+    // background-color
+    status-bar: $success,
+    app-bar: $white,
+    background: $body-bg,
+    hover: rgba($black, 0.04),
+    card: $card-bg,
+    dialog: $body-bg,
+    disabled-button: rgba($gray-600, 0.12),
+    raised-button: $white,
+    focused-button: $white,
+    selected-button: $gray-300,
+    selected-disabled-button: $gray-400,
+    disabled-button-toggle: $gray-200,
+    unselected-chip: $gray-300,
+    disabled-list-option: $gray-200,
+    tooltip: $tooltip-bg
+  )
+);
+
+$material-dark-theme: (
+  // dark-theme
+  primary: $mat-primary,
+  // accent: $mat-accent,
+  // warn: $mat-warn,
+  foreground:
+    (
+      // text-color
+      base: $body-bg,
+      divider: $gray-600,
+      dividers: $gray-600,
+      disabled: $gray-600,
+      disabled-button: rgba($white, 0.26),
+      disabled-text: $gray-600,
+      hint-text: $white,
+      secondary-text: $white,
+      icon: rgba($white, 0.54),
+      icons: rgba($white, 0.54),
+      text: rgba($white, 0.87),
+      slider-min: rgba($white, 0.87),
+      slider-off: rgba($white, 0.26),
+      slider-off-active: rgba($white, 0.38)
+    ),
+  background: (
+    // background-color
+    status-bar: $success,
+    app-bar: $white,
+    background: $body-color,
+    hover: rgba($black, 0.3),
+    card: $card-bg,
+    dialog: $body-bg-dark,
+    disabled-button: rgba($gray-600, 0.12),
+    raised-button: $black,
+    focused-button: $black,
+    selected-button: $gray-300,
+    selected-disabled-button: $gray-400,
+    disabled-button-toggle: $gray-200,
+    unselected-chip: $gray-300,
+    disabled-list-option: $gray-200,
+    tooltip: $tooltip-bg-dark
+  )
+);

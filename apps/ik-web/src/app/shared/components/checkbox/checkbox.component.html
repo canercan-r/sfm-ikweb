@@ -1,0 +1,22 @@
+<igx-checkbox
+  class="form-control form-control-transparent {{ class }}"
+  [ngStyle]="formButton && { '--ig-size': 'var(--ig-size-small)' }"
+  [ngClass]="{
+  'form-control-button': formButton,
+}"
+  [formControl]="control"
+  [disableTransitions]="disableTransitions"
+  (change)="change($event)"
+  [(ngModel)]="value"
+  [checked]="checked"
+  [name]="name"
+  [readonly]="readonly"
+>
+  <ng-container *ngIf="isContract; else elseTemplate">
+    <a class="text-primary fw-bold">{{ label | translate }}</a>
+    <span class="fw-bold"> {{ "Global.Sozlesme.OkudumVeOnayliyorum" | translate }}</span>
+  </ng-container>
+  <ng-template #elseTemplate>
+    {{ label | translate }}
+  </ng-template>
+</igx-checkbox>

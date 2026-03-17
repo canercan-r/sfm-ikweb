@@ -1,0 +1,79 @@
+<div class="card card-spacing-reset">
+  <div class="card-body" id="st_gunlukPuantajFazlaMesai_cardBody">
+    <form [formGroup]="gunlukFazlaMesaiForm" class="row row-gap-3">
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-select
+          name="fazlaMesaiNedeni"
+          label="Puantaj.ProjePuantajlari.GunlukPuantaj.FazlaMesai.FazlaMesaiNedeni"
+          formControlName="fazlaMesaiNedeni"
+          [data]=""
+          valueKey=""
+          displayKey=""
+        >
+        </ikweb-select>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+        <ikweb-select
+          name="fazlaMesaiTuru"
+          label="Puantaj.ProjePuantajlari.GunlukPuantaj.FazlaMesai.FazlaMesaiTuru"
+          formControlName="fazlaMesaiTuru"
+          [data]=""
+          valueKey=""
+          displayKey=""
+        >
+        </ikweb-select>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+        <ikweb-input
+          name="fazlaMesaiOrani"
+          label="Puantaj.ProjePuantajlari.GunlukPuantaj.FazlaMesai.FazlaMesaiOrani"
+          formControlName="fazlaMesaiOrani"
+        >
+        </ikweb-input>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-checkbox
+          label="Puantaj.ProjePuantajlari.GunlukPuantaj.FazlaMesai.MusteriyeFaturalanacak"
+          formControlName="musteriyeFaturalanacak"
+        >
+        </ikweb-checkbox>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+        <ikweb-input
+          name="fazlaMesaiSuresi"
+          label="Puantaj.ProjePuantajlari.GunlukPuantaj.FazlaMesai.FazlaMesaiSuresi"
+          formControlName="fazlaMesaiSuresi"
+        >
+        </ikweb-input>
+      </section>
+    </form>
+  </div>
+
+  <div
+    id="st_gunlukPuantajFazlaMesai_scroll"
+    data-st-scroll="true"
+    data-st-scroll-save-state="false"
+    data-st-scroll-height="auto"
+    data-st-scroll-wrappers="#st_gunlukPuantajFazlaMesai_body"
+    data-st-scroll-dependencies="#st_header, #st_toolbar, #st_gunlukPuantajFazlaMesai_cardBody, #st_gunlukPuantajFazlaMesai_footer"
+    [attr.data-st-scroll-offset]="_sharedHelper.contentSpacing"
+  >
+    <lib-mock-grid
+      id="st_gunlukPuantajFazlaMesai_body"
+      #gunlukPuantajFazlaMesaiGrid
+    ></lib-mock-grid>
+  </div>
+
+  <div
+    class="card-footer border-0 ms-auto pt-0"
+    id="st_gunlukPuantajFazlaMesai_footer"
+  >
+    <button class="btn btn-sm btn-success" (click)="kaydet()">
+      {{ "Global.Save" | translate }}
+    </button>
+  </div>
+</div>

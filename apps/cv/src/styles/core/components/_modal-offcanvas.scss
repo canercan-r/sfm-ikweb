@@ -1,0 +1,216 @@
+//
+// Modal Offcanvas
+//
+
+%modal-offcanvas-css-vars {
+  --#{$prefix}modal-zindex: #{$zindex-modal};
+  --#{$prefix}modal-width: #{$modal-md};
+  --#{$prefix}modal-height: #{$offcanvas-vertical-height};
+  --#{$prefix}modal-padding-x: #{$offcanvas-padding-x};
+  --#{$prefix}modal-padding-y: #{$offcanvas-padding-y};
+  --#{$prefix}modal-transition: #{transform $offcanvas-transition-duration
+    ease-in-out};
+  --#{$prefix}modal-padding: #{$modal-inner-padding};
+  --#{$prefix}modal-margin: #{$modal-dialog-margin};
+  --#{$prefix}modal-color: #{$modal-content-color};
+  --#{$prefix}modal-bg: #{$modal-content-bg};
+  --#{$prefix}modal-border-color: #{$modal-content-border-color};
+  --#{$prefix}modal-border-width: #{$modal-content-border-width};
+  --#{$prefix}modal-border-radius: #{$modal-content-border-radius};
+  --#{$prefix}modal-box-shadow: #{$modal-content-box-shadow-xs};
+  --#{$prefix}modal-inner-border-radius: #{$modal-content-inner-border-radius};
+  --#{$prefix}modal-header-padding-x: #{$modal-header-padding-x};
+  --#{$prefix}modal-header-padding-y: #{$modal-header-padding-y};
+  --#{$prefix}modal-header-padding: #{$modal-header-padding}; // Todo in v6: Split this padding into x and y
+  --#{$prefix}modal-header-border-color: #{$modal-header-border-color};
+  --#{$prefix}modal-header-border-width: #{$modal-header-border-width};
+  --#{$prefix}modal-title-line-height: #{$modal-title-line-height};
+  --#{$prefix}modal-footer-gap: #{$modal-footer-margin-between};
+  --#{$prefix}modal-footer-bg: #{$modal-footer-bg};
+  --#{$prefix}modal-footer-border-color: #{$modal-footer-border-color};
+  --#{$prefix}modal-footer-border-width: #{$modal-footer-border-width};
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $next: breakpoint-next($breakpoint, $grid-breakpoints);
+  $infix: breakpoint-infix($next, $grid-breakpoints);
+
+  .modal-offcanvas#{$infix} {
+    @extend %modal-offcanvas-css-vars;
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $next: breakpoint-next($breakpoint, $grid-breakpoints);
+  $infix: breakpoint-infix($next, $grid-breakpoints);
+
+  .modal-offcanvas#{$infix} {
+    @include media-breakpoint-down($next) {
+      position: fixed;
+      bottom: 0;
+      z-index: var(--#{$prefix}modal-zindex);
+      display: flex;
+      flex-direction: column;
+      max-width: 100%;
+      color: var(--#{$prefix}modal-color);
+      visibility: hidden;
+      background-color: var(--#{$prefix}modal-bg);
+      background-clip: padding-box;
+      outline: 0;
+      @include box-shadow(var(--#{$prefix}modal-box-shadow));
+      @include transition(var(--#{$prefix}modal-transition));
+
+      &.modal-offcanvas-start {
+        top: 0;
+        left: 0;
+        right: auto;
+        width: var(--#{$prefix}modal-width);
+        border-right: var(--#{$prefix}modal-border-width) solid
+          var(--#{$prefix}modal-border-color);
+        transform: translateX(-100%);
+      }
+
+      &.modal-offcanvas-end {
+        top: 0;
+        right: 0;
+        left: auto;
+        width: var(--#{$prefix}modal-width);
+        border-left: var(--#{$prefix}modal-border-width) solid
+          var(--#{$prefix}modal-border-color);
+        transform: translateX(100%);
+      }
+
+      &.modal-offcanvas-top {
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: auto;
+        height: var(--#{$prefix}modal-height);
+        max-height: 100%;
+        border-bottom: var(--#{$prefix}modal-border-width) solid
+          var(--#{$prefix}modal-border-color);
+        transform: translateY(-100%);
+      }
+
+      &.modal-offcanvas-bottom {
+        right: 0;
+        left: 0;
+        top: auto;
+        height: var(--#{$prefix}modal-height);
+        max-height: 100%;
+        border-top: var(--#{$prefix}modal-border-width) solid
+          var(--#{$prefix}modal-border-color);
+        transform: translateY(100%);
+      }
+
+      &.modal-offcanvas-fullscreen {
+        width: 100%;
+      }
+
+      &.modal-offcanvas-sm {
+        --#{$prefix}modal-width: #{$modal-sm};
+      }
+
+      &.modal-offcanvas-md {
+        --#{$prefix}modal-width: #{$modal-md};
+      }
+
+      &.modal-offcanvas-lg {
+        --#{$prefix}modal-width: #{$modal-lg};
+      }
+
+      &.modal-offcanvas-xl {
+        --#{$prefix}modal-width: #{$modal-xl};
+      }
+
+      &.showing,
+      &.show:not(.hiding) {
+        transform: none;
+      }
+
+      &.showing,
+      &.hiding,
+      &.show {
+        visibility: visible;
+      }
+
+      // Shell div to position the modal with bottom padding
+      .modal-dialog {
+        margin: 0;
+        height: 100%;
+      }
+
+      // Actual modal
+      .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        color: var(--#{$prefix}modal-color);
+        pointer-events: auto;
+        background-color: transparent;
+        background-clip: padding-box;
+        border: none;
+        border-radius: auto;
+        box-shadow: none;
+        // Remove focus outline from opened modal
+        outline: 0;
+      }
+    }
+
+    @if not($infix == "") {
+      @include media-breakpoint-up($next) {
+        --#{$prefix}modal-height: auto;
+        --#{$prefix}modal-border-width: 0;
+        background-color: transparent !important; // stylelint-disable-line declaration-no-important
+
+        .modal-offcanvas-header {
+          display: none;
+        }
+
+        .modal-offcanvas-body {
+          display: flex;
+          flex-grow: 0;
+          padding: 0;
+          overflow-y: visible;
+          // Reset `background-color` in case `.bg-*` classes are used in offcanvas
+          background-color: transparent !important; // stylelint-disable-line declaration-no-important
+        }
+      }
+    }
+  }
+}
+
+.modal-offcanvas-backdrop {
+  @include overlay-backdrop(
+    $zindex-offcanvas-backdrop,
+    $offcanvas-backdrop-bg,
+    $offcanvas-backdrop-opacity
+  );
+}
+
+.modal-offcanvas-header {
+  display: flex;
+  align-items: center;
+  padding: var(--#{$prefix}modal-padding-y) var(--#{$prefix}modal-padding-x);
+
+  .btn-close {
+    padding: calc(var(--#{$prefix}modal-padding-y) * 0.5)
+      calc(var(--#{$prefix}modal-padding-x) * 0.5);
+    margin: calc(-0.5 * var(--#{$prefix}modal-padding-y))
+      calc(-0.5 * var(--#{$prefix}modal-padding-x))
+      calc(-0.5 * var(--#{$prefix}modal-padding-y)) auto;
+  }
+}
+
+.modal-offcanvas-title {
+  margin-bottom: 0;
+  line-height: var(--#{$prefix}modal-title-line-height);
+}
+
+.modal-offcanvas-body {
+  flex-grow: 1;
+  padding: var(--#{$prefix}-padding-y) var(--#{$prefix}-padding-x);
+  overflow-y: auto;
+}

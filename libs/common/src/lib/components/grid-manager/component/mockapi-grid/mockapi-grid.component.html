@@ -1,0 +1,135 @@
+<!-- <igx-grid
+  #theGrid
+  [data]="data"
+  [allowFiltering]="true"
+  filterMode="excelStyleFilter"
+  (doubleClick)="dblClick($event)"
+  [pinning]="pinningConfig"
+  (cellEditDone)="cellEdit($event)"
+  (rowSelectionChanging)="onRowSelectionChange($event)"
+  [rowSelection]="gridOption.rowSelectionMode"
+  [height]="gridOption.height"
+  [width]="gridOption.width"
+  [hideGroupedColumns]="false"
+  [emptyGridMessage]="'Gridler.GridEmptyMessage' | translate"
+>
+  <igx-column
+    *ngFor="let column of columnField"
+    [sortable]="column.colRef ? false : true"
+    [filterable]="column.colRef ? false : true"
+    [pinned]="column.pinned"
+    [field]="column.field"
+    [headerTemplate]="columnHeader"
+    [cellTemplate]="column.colRef"
+    [width]="column.width"
+    [minWidth]="column.minWidth"
+    [maxWidth]="column.maxWidth"
+    [dataType]="column.type"
+    [header]="getFieldLangKey(column.field) | translate"
+  >
+  </igx-column>
+</igx-grid> -->
+
+<!-- <igx-grid
+  #theGrid
+  [data]="data"
+  [allowFiltering]="true"
+  filterMode="excelStyleFilter"
+  (doubleClick)="dblClick($event)"
+  [pinning]="pinningConfig"
+  (cellEditDone)="cellEdit($event)"
+  (rowSelectionChanging)="onRowSelectionChange($event)"
+  [rowSelection]="gridOption.rowSelectionMode"
+  [height]="gridOption.height"
+  [width]="gridOption.width"
+  [hideGroupedColumns]="false"
+  emptyGridMessage="{{ 'Gridler.GridEmptyMessage' | translate }}"
+>
+  <igx-column
+    *ngFor="let column of columnField"
+    [sortable]="column.sortable"
+    [filterable]="column.filterable"
+    [pinned]="column.pinned"
+    [field]="column.field"
+    [headerTemplate]="columnHeader"
+    [cellTemplate]="column.colRef"
+    [width]="column.width"
+    [minWidth]="column.minWidth"
+    [maxWidth]="column.maxWidth"
+    [dataType]="column.type"
+    [header]="getFieldLangKey(column.field) | translate"
+  >
+  </igx-column>
+</igx-grid> -->
+
+<igx-grid
+  #theGrid
+  [data]="data"
+  [allowFiltering]="true"
+  filterMode="excelStyleFilter"
+  (doubleClick)="dblClick($event)"
+  [pinning]="pinningConfig"
+  (cellEditDone)="cellEdit($event)"
+  (rowSelectionChanging)="onRowSelectionChange($event)"
+  [rowSelection]="gridOption.rowSelectionMode"
+  [height]="gridOption.height"
+  [width]="gridOption.width"
+  [hideGroupedColumns]="false"
+  [emptyGridMessage]="'Gridler.GridEmptyMessage' | translate"
+>
+  <igx-column
+    *ngFor="let column of columnField"
+    [sortable]="column.colRef ? false : true"
+    [filterable]="column.colRef ? false : true"
+    [pinned]="column.pinned"
+    [field]="column.field"
+    [headerTemplate]="columnHeader"
+    [cellTemplate]="column.colRef"
+    [width]="column.width"
+    [minWidth]="column.minWidth"
+    [maxWidth]="column.maxWidth"
+    [dataType]="column.type"
+    [header]="getFieldLangKey(column.field) | translate"
+  >
+  </igx-column>
+
+  <igx-paginator
+    *ngIf="gridOption.pagingType !== pagingTypes.REMOTE && gridOption.pagingType !== pagingTypes.NONE"
+    [perPage]="gridOption.perPage"
+    [(page)]="theGrid.page"
+    [totalRecords]="totalCount"
+    [selectOptions]="selectOptions"
+  >
+    <igx-paginator-content>
+      <label class="igx-grid-total d-none d-lg-flex me-5"> {{ "Gridler.TotalRecords" | translate }} {{ totalCount }} </label>
+
+      <div class="igx-page-size__select px-5 mw-150px">
+        <igx-select>
+          <igx-select-item *ngFor="let val of selectOptions" [value]="val" [selected]="gridOption.perPage === val">
+            {{ val }}
+          </igx-select-item>
+        </igx-select>
+      </div>
+
+      <igx-grid-toolbar class="transparent">
+        <igx-grid-toolbar-actions>
+          <igx-grid-toolbar-hiding [overlaySettings]="overlaySettingsAuto"></igx-grid-toolbar-hiding>
+          <igx-grid-toolbar-pinning [overlaySettings]="overlaySettingsAuto"></igx-grid-toolbar-pinning>
+          <igx-grid-toolbar-exporter [filename]="LibGrids[gridOption.gridId]" [overlaySettings]="overlaySettingsAuto">
+            {{ "Global.Export" | translate }}
+            <span excelText>{{ "Gridler.Toolbar.ExportExel" | translate }}</span>
+            <span csvText>{{ "Gridler.Toolbar.ExportCsv" | translate }}</span>
+          </igx-grid-toolbar-exporter>
+        </igx-grid-toolbar-actions>
+      </igx-grid-toolbar>
+
+      <igx-page-nav></igx-page-nav>
+    </igx-paginator-content>
+  </igx-paginator>
+</igx-grid>
+
+<ng-template let-column #columnHeader>
+  <div class="title-inner">
+    {{ column.header }}
+  </div>
+</ng-template>

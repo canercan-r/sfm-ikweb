@@ -1,0 +1,310 @@
+<div class="d-flex flex-column flex-root">
+  <div class="page d-flex flex-row flex-column-fluid bg-white">
+    <div
+      class="wrapper d-flex flex-column flex-start justify-content-lg-center flex-row-fluid w-lg-25"
+      id="st_wrapper"
+    >
+      <cv-toolbar
+        [isBack]="true"
+        [toolbarBg]="false"
+        style="width: 100%"
+        [breadcrumb$]="bc$"
+        [customtitle]="null"
+      >
+      </cv-toolbar>
+      <div class="card card-flush bg-transparent">
+        <div class="card-body">
+          <mat-stepper linear #stepper>
+            <!-- [color]="sharedService.primaryColor$ | async" -->
+
+            <mat-step state="genel">
+              <ng-template matStepLabel>
+                <span>{{ "Job.Steps.Genel.Title" | translate }}</span>
+              </ng-template>
+
+              <form
+                [formGroup]="genelForm"
+                novalidate="novalidate"
+                id="genelForm"
+                class="row gx-10 gy-6 mt-1"
+              >
+                <div class="col-12">
+                  <cv-select
+                    name="cinsiyet"
+                    valueKey="cinsiyetID"
+                    displayKey="cinsiyet"
+                    [data]="cinsiyetlerArr"
+                    label="Job.Steps.Genel.Cinsiyet"
+                    formControlName="cinsiyetID"
+                  ></cv-select>
+                </div>
+                <div class="col-12">
+                  <cv-date-picker
+                    label="Job.Steps.Genel.BirthDate"
+                    formControlName="dogumTarihi"
+                    name="dogumTarihi"
+                  ></cv-date-picker>
+                </div>
+                <div class="col-12">
+                  <cv-select
+                    name="uyruk"
+                    valueKey="uyrukID"
+                    displayKey="uyruk"
+                    [data]="uyruklar$ | async"
+                    label="Job.Steps.Genel.Uyruk"
+                    formControlName="uyrukID"
+                  ></cv-select>
+                </div>
+                <div class="col-12">
+                  <cv-input
+                    type="text"
+                    label="Job.Steps.Genel.EPosta"
+                    formControlName="eposta"
+                  >
+                  </cv-input>
+                </div>
+              </form>
+              <div
+                class="d-flex flex-column flex-sm-row justify-content-end mt-3"
+              >
+                <button
+                  [disabled]="genelForm.invalid"
+                  (click)="next()"
+                  class="btn btn-primary w-100 w-md-300px"
+                >
+                  {{ "Global.DevamEt" | translate }}
+                </button>
+              </div>
+            </mat-step>
+
+            <mat-step state="egitim">
+              <ng-template matStepLabel>{{
+                "Job.Steps.Egitim.Title" | translate
+              }}</ng-template>
+
+              <form
+                [formGroup]="egitimForm"
+                novalidate="novalidate"
+                id="egitimForm"
+                class="row gx-10 gy-6 mt-1"
+              >
+                <div class="col-12">
+                  <cv-select
+                    name="egitimDurum"
+                    valueKey="egitimDurumID"
+                    displayKey="egitimDurumu"
+                    [data]="egitimDurumlari$ | async"
+                    label="Job.Steps.Egitim.EgitimDurumu"
+                    formControlName="egitimDurumID"
+                  ></cv-select>
+                </div>
+
+                <div class="col-12">
+                  <cv-combo
+                    name="dil"
+                    (changed)="dilSelectionChange($event)"
+                    valueKey="dilID"
+                    displayKey="dil"
+                    [data]="diller$ | async"
+                    label="Job.Steps.Egitim.Dil"
+                    formControlName="dilID"
+                  ></cv-combo>
+                </div>
+
+                <ng-container formArrayName="dilSeviyesi">
+                  <ng-container
+                    *ngFor="let langForm of dilSeviyesi.controls; let i = index"
+                    [formGroupName]="i"
+                  >
+                    <div class="col-12">
+                      <span class="d-block fs-4 fw-bold mb-3">
+                        {{ langForm.get("dil")?.value | translate }}
+                      </span>
+
+                      <cv-radio
+                        valueKey="seviye"
+                        displayKey="seviyeLangKey"
+                        [data]="dilSeviyeleriArr"
+                        formControlName="dilSeviyesi"
+                      ></cv-radio>
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </form>
+
+              <div class="d-flex flex-column gap-2 flex-sm-row flex-stack mt-3">
+                <button
+                  (click)="previous()"
+                  class="btn btn-light w-100 w-sm-auto order-1 order-sm-0"
+                >
+                  {{ "Global.Geri" | translate }}
+                </button>
+                <button
+                  [disabled]="
+                    egitimForm.controls.dilSeviyesi.invalid ||
+                    egitimForm.controls.dilID.invalid ||
+                    egitimForm.controls.egitimDurumID.invalid
+                  "
+                  (click)="next()"
+                  class="btn btn-primary w-100 w-md-300px"
+                >
+                  {{ "Global.DevamEt" | translate }}
+                </button>
+              </div>
+            </mat-step>
+
+            <mat-step state="yetkinlik">
+              <ng-template matStepLabel>{{
+                "Job.Steps.Yetkinlik.Title" | translate
+              }}</ng-template>
+
+              <form
+                [formGroup]="yetkinlikForm"
+                novalidate="novalidate"
+                id="yetkinlikForm"
+                class="row gx-10 gy-6 mt-1"
+              >
+                <!-- <div class="col-12">
+                  <cv-radio
+                    valueKey="ehliyetDurumID"
+                    displayKey="ehliyetDurumu"
+                    [data]="ehliyetDurumArr"
+                    formControlName="ehliyetDurumID"
+                  ></cv-radio>
+                </div>
+
+                <ng-container
+                  *ngIf="ehliyetDurumIDCtrl.value === ehliyet_durum.VAR"
+                >
+                  <div class="col-12">
+                    <cv-combo
+                      name="ehliyetSinifi"
+                      valueKey="ehliyetSinifi"
+                      displayKey="ehliyetSinifi"
+                      [data]="ehliyetler"
+                      label="Job.Steps.Yetkinlik.Ehliyetler"
+                      formControlName="ehliyetSinifi"
+                    ></cv-combo>
+                  </div>
+                </ng-container>
+                <cv-select
+                  name="askerlikDurum"
+                  *ngIf="askerlikDurumuCtrl.enabled"
+                  valueKey="askerlikDurumID"
+                  displayKey="askerlikDurumu"
+                  [data]="askerlikDurumArr"
+                  label="Global.AskerlikDurumu"
+                  formControlName="askerlikDurumID"
+                ></cv-select> -->
+
+                <div class="col-12">
+                  <cv-select
+                    name="engelDurum"
+                    valueKey="engelDurumID"
+                    displayKey="engelDurumu"
+                    [data]="engelDurumlariArr"
+                    label="Global.EngelDurumu"
+                    formControlName="engelDurumID"
+                  ></cv-select>
+                </div>
+
+                <ng-container
+                  *ngIf="engelDurumIDCtrl.value === engel_durum.VAR"
+                >
+                  <div class="col-12">
+                    <cv-textarea
+                      label="Job.Steps.Yetkinlik.ENGELDURUM"
+                      formControlName="engelDurumu"
+                    >
+                    </cv-textarea>
+                  </div>
+                </ng-container>
+
+                <div class="col-12">
+                  <cv-textarea
+                    label="Job.Steps.Yetkinlik.ozgecmis"
+                    formControlName="ozgecmis"
+                  >
+                  </cv-textarea>
+                </div>
+                <div
+                  class="d-flex flex-column flex-sm-row justify-content-start"
+                >
+                  <div
+                    appearance="standard"
+                    (click)="cvFile.click()"
+                    class="btn btn-outline btn-outline-dashed btn-outline-dark btn-active-light-secondary w-100 w-sm-auto me-sm-2"
+                  >
+                    <!-- <mat-label> {{ "Stepper.Step2.FotografEkle" | translate }} </mat-label> -->
+                    <label class="text-dark">
+                      {{
+                        fileToUpload
+                          ? fileToUpload.name
+                          : ("Global.CVYukle" | translate)
+                      }}
+                    </label>
+                    <input
+                      #cvFile
+                      type="file"
+                      name="cvFile"
+                      (change)="handleFileInput($event)"
+                      style="display: none"
+                      id="cvFile"
+                    />
+                  </div>
+                </div>
+                <div class="col-12 mb-10">
+                  <cv-checkbox
+                    label="{{ sharedService.kvkkText$ | async }}"
+                    [hasInnerHtml]="true"
+                    formControlName="kvkkOnay"
+                  >
+                  </cv-checkbox>
+                </div>
+              </form>
+
+              <!-- accept=".pdf-->
+
+              <div class="d-flex flex-column gap-2 flex-sm-row flex-stack mt-3">
+                <button
+                  (click)="previous()"
+                  class="btn btn-light w-100 w-sm-auto order-1 order-sm-0"
+                >
+                  {{ "Global.Geri" | translate }}
+                </button>
+                <button
+                  #saveBtn
+                  [disabled]="isLoading == false && yetkinlikForm.invalid"
+                  (click)="isLoading = true; saveBtn.disabled = true; send()"
+                  class="btn btn-primary w-100 w-md-300px"
+                >
+                  {{
+                    (isLoading == false
+                      ? "Global.Tamamla"
+                      : "Global.LutfenBekleyin"
+                    ) | translate
+                  }}
+                </button>
+              </div>
+            </mat-step>
+
+            <ng-template matStepperIcon="genel">
+              <i class="fa-regular fa-file-lines"></i>
+            </ng-template>
+            <ng-template matStepperIcon="egitim">
+              <i class="fa-regular fa-graduation-cap"></i>
+            </ng-template>
+            <ng-template matStepperIcon="yetkinlik">
+              <i class="fa-regular fa-hand-holding-skull"></i>
+            </ng-template>
+          </mat-stepper>
+        </div>
+      </div>
+    </div>
+    <div
+      class="d-flex flex-lg-row-fluid w-lg-50 bgi-no-repeat bgi-size-contain bgi-position-x-end order-1 order-lg-2"
+      [style.background-image]="'url(' + rigthPanel + ')'"
+      *ngIf="sharedService.rigthPanel$ | async as rigthPanel"
+    ></div>
+  </div>
+</div>

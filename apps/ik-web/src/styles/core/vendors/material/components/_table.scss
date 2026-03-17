@@ -1,0 +1,14 @@
+// Tables
+.mat-table {
+
+  .mat-cell,
+  .mat-footer-cell,
+  .mat-header-cell {
+    color: inherit;
+    border: none;
+  }
+
+  .mat-header-cell {
+    color: $text-muted !important;
+  }
+}

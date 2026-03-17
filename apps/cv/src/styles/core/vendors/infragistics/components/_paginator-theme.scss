@@ -1,0 +1,8 @@
+//
+// Paginator Theme
+//
+
+$custom-paginator-theme: paginator-theme($background-color: $white,
+);
+
+@include paginator($custom-paginator-theme);
