@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { PageLink } from '@ikweb-layout/core/page-info.service';
 import { TaleplerAPIService } from '@ikweb-services/apis/talepler-api.service';
 import { SharedHelperService } from '@ikweb-shared/services/helper/shared-helper.service';
+import { IGridCellEventArgs } from '@infragistics/igniteui-angular';
 import { GridOptionsBuilder, LibGrids, LibModulesRootLangKeys, MockGridComponent } from '@lib-common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { IGridCellEventArgs } from 'igniteui-angular';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({

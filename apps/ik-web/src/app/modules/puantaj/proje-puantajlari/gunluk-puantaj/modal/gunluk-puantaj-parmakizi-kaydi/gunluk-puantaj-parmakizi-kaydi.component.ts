@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { AKTIF_STATE, IGunlukPuantaj } from '@ikweb-models/components';
 import { PuantajAPIService } from '@ikweb-services/apis/puantaj-api.service';
 import { SharedHelperService } from '@ikweb-shared/services/helper/shared-helper.service';
-import { RadioGroupChangeEventDetail } from '@ionic/core';
 import { GridOptionsBuilder, LibGrids, LibModulesRootLangKeys, MockGridComponent } from '@lib-common';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
@@ -76,7 +75,5 @@ export class GunlukPuantajParmakiziKaydiComponent implements OnInit {
     this._activeModal.dismiss()
   }
 
-  aktifDurumChange(event: RadioGroupChangeEventDetail) {
-
-  }
+  aktifDurumChange(event: any) { }
 }

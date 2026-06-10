@@ -15,34 +15,6 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import {
-  ColumnDbSettings,
-  ColumnTypes,
-  CustomSortingStrategy,
-  DataStorageTypes,
-  GridColumn,
-  GridConfigService,
-  GridLifeCycle,
-  GridOptionsBuilder,
-  GridProviders,
-  GridUtils,
-  IColumnDbSettings,
-  IGridColumn,
-  IGridColumnExt,
-  IGridColumnSortData,
-  IGridConfig,
-  IGridData,
-  IGridNavigationEvent,
-  IGridOptions,
-  IGridPage,
-  IGridRowColor,
-  IGridUserColSettings,
-  LanguageService,
-  LibGrids,
-  LibModulesRootLangKeys,
-  PagingTypes,
-} from '@lib-common';
-import { TranslateService } from '@ngx-translate/core';
-import {
   AbsoluteScrollStrategy,
   AutoPositionStrategy,
   ColumnPinningPosition,
@@ -89,7 +61,35 @@ import {
   RowType,
   SortingDirection,
   VerticalAlignment
-} from 'igniteui-angular';
+} from '@infragistics/igniteui-angular';
+import {
+  ColumnDbSettings,
+  ColumnTypes,
+  CustomSortingStrategy,
+  DataStorageTypes,
+  GridColumn,
+  GridConfigService,
+  GridLifeCycle,
+  GridOptionsBuilder,
+  GridProviders,
+  GridUtils,
+  IColumnDbSettings,
+  IGridColumn,
+  IGridColumnExt,
+  IGridColumnSortData,
+  IGridConfig,
+  IGridData,
+  IGridNavigationEvent,
+  IGridOptions,
+  IGridPage,
+  IGridRowColor,
+  IGridUserColSettings,
+  LanguageService,
+  LibGrids,
+  LibModulesRootLangKeys,
+  PagingTypes,
+} from '@lib-common';
+import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subject, of } from 'rxjs';
 import { catchError, debounceTime, first, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { IGridComboData } from '../models/grid-combo-data';
