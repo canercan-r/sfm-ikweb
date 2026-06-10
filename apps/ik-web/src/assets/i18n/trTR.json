@@ -144,7 +144,8 @@
     "TotalRecords": "Toplam Kayıt"
   },
   "Home": {
-    "Title": "Anasayfa"
+    "Title": "Anasayfa",
+    "ChartAlertMessage": "Daha fazla grafik örneği için <a href='https://ng-doc.vercel.app/' target='_blank' class='fw-bold text-primary'>ng-doc.vercel.app</a> adresini ziyaret edebilirsiniz. Giriş için herhangi bir kullanıcı adı ve şifre geçerlidir."
   },
   "I18N": {
     "MAT_PAGINATOR": {
@@ -539,5 +540,11 @@
       "VardiyaPlanlamasi": "Vardiya Planlaması"
     },
     "Title": "Puantaj"
+  },
+  "Talepler": {
+    "TedarikTalepleri": {
+      "Title": "Tedarik Talepleri"
+    },
+    "Title": "Talepler"
   }
 }

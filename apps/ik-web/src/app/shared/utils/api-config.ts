@@ -18,5 +18,6 @@ export const ApiConfiguration = {
   // mockapi kullanıldığı için / (slash) yerine _ (alt tire) kullanılmşıtır.
   SharedURL: 'Shared_',
   InsanKaynaklariURL: 'InsanKaynaklari_',
-  PuantajURL: 'Puantaj_'
+  PuantajURL: 'Puantaj_',
+  TaleplerURL: 'Talepler_'
 };

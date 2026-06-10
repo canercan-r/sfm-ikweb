@@ -261,6 +261,35 @@ export type CustomSizeType =
   | '1000px';
 
 export type SymbolSizeType =
+  | '0'
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8'
+  | '9'
+  | '10'
+  | '11'
+  | '12'
+  | '13'
+  | '14'
+  | '15'
+  | '16'
+  | '17'
+  | '18'
+  | '19'
+  | '20'
+  | '21'
+  | '22'
+  | '23'
+  | '24'
+  | '25'
+  | '50'
+  | '75'
+  | '100'
   | '20px'
   | '25px'
   | '30px'
@@ -333,14 +362,16 @@ export type BorderRadiusType =
 
 export type RadiusType =
   | 'unset'
-  | 'circle'
+  | BorderRadiusType
   | 'square';
 
 export type RatiosType =
   | '2by3'
   | '2by4'
   | '4by2'
-  | '1by3';
+  | '4by3'
+  | '1by3'
+  | '1by4';
 
 export type ObjectFitType =
   | 'contain'

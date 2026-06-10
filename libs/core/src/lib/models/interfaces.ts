@@ -27,6 +27,10 @@ export interface IUser {
   kullaniciGridSettings: IGridConfig[];
   allowAnonymousRequests: boolean;
   mesaiIslemleriSaatleriGizle: boolean;
+  eskiMesaiFormuAktif: boolean;
+  tesisMesaiFormuLokasyonAktif: boolean;
+  tesisMesaiFormuQRGosterAktif: boolean;
+  tesisMesaiFormuQROkutAktif: boolean;
 
   // mockdata
   password: string;

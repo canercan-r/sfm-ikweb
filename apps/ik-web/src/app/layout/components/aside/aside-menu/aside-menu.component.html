@@ -28,7 +28,7 @@
     <ng-template #menu1LevelTemplate let-item="item">
       <!-- begin::if don't have submenu -->
       <ng-container *ngIf="!item.submenu">
-        <div class="menu-item py-3" routerLinkActive="here show">
+        <div class="menu-item py-1" routerLinkActive="here show">
           <!--begin:Menu link-->
           <a
             class="menu-link menu-center"
@@ -44,10 +44,10 @@
                 ></span>
               </ng-container>
               <ng-template #font>
-                <i [ngClass]="item.icon" class="fs-3"></i>
+                <i [ngClass]="item.icon" class="fs-5"></i>
               </ng-template>
             </span>
-            <span class="menu-title">
+            <span class="menu-title small">
               {{ item.title | translate }}
             </span>
             <span class="menu-badge" *ngIf="item.badge">
@@ -64,7 +64,7 @@
       <!-- begin::if has submenu -->
       <ng-container *ngIf="item.submenu">
         <div
-          class="menu-item py-3"
+          class="menu-item py-1"
           data-st-menu-trigger="click"
           data-st-menu-placement="right-start"
           routerLinkActive="here show"
@@ -79,10 +79,10 @@
                 ></span>
               </ng-container>
               <ng-template #font>
-                <i [ngClass]="item.icon" class="fs-3"></i>
+                <i [ngClass]="item.icon" class="fs-5"></i>
               </ng-template>
             </span>
-            <span class="menu-title">
+            <span class="menu-title small">
               {{ item.title | translate }}
             </span>
             <span class="menu-badge" *ngIf="item.badge">

@@ -89,7 +89,7 @@ import {
   RowType,
   SortingDirection,
   VerticalAlignment
-} from '@infragistics/igniteui-angular';
+} from 'igniteui-angular';
 import { BehaviorSubject, Observable, Subject, of } from 'rxjs';
 import { catchError, debounceTime, first, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { IGridComboData } from '../models/grid-combo-data';

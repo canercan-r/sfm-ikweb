@@ -16,6 +16,11 @@ const Routing: Routes = [
       import('./puantaj/puantaj.module').then((m) => m.PuantajModule),
   },
   {
+    path: 'talepler',
+    loadChildren: () =>
+      import('./talepler/talepler.module').then((m) => m.TaleplerModule),
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',

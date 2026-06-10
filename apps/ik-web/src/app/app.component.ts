@@ -104,17 +104,19 @@ export class AppComponent implements OnInit, OnDestroy {
     } else if (envTheme === 'DARK') {
       this._theming.setTheme('dark');
     } else if (envTheme === 'DEFAULT') {
-      // DEFAULT → sistem tercihine göre ayarla
-      const darkModeOn = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      this._theming.setTheme(darkModeOn ? 'dark' : 'light');
+      this._theming.setTheme('light');
 
-      // Sistem değişikliğini dinle
-      window.matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', (event) => {
-          if ((environment.theme || 'DEFAULT').toUpperCase() === 'DEFAULT') {
-            this._theming.setTheme(event.matches ? 'dark' : 'light');
-          }
-        });
+      // // DEFAULT → sistem tercihine göre ayarla
+      // const darkModeOn = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      // this._theming.setTheme(darkModeOn ? 'dark' : 'light');
+
+      // // Sistem değişikliğini dinle
+      // window.matchMedia('(prefers-color-scheme: dark)')
+      //   .addEventListener('change', (event) => {
+      //     if ((environment.theme || 'DEFAULT').toUpperCase() === 'DEFAULT') {
+      //       this._theming.setTheme(event.matches ? 'dark' : 'light');
+      //     }
+      //   });
     }
   }
 

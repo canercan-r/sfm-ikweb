@@ -109,7 +109,7 @@
               'bakimTipi',
               'ekipmanKodu',
               'ekipmanAdi',
-              'ekipmanID'
+              'ekipmanID',
             ].includes(cell.column.field);
             else badgeTemplate
           "
@@ -122,8 +122,8 @@
               cell.value == 2
                 ? 'btn-color-success btn-active-icon-success'
                 : cell.value == 0
-                ? 'btn-color-danger btn-active-icon-danger'
-                : 'btn-color-gray-500'
+                  ? 'btn-color-danger btn-active-icon-danger'
+                  : 'btn-color-gray-500'
             "
           >
             <i *ngIf="cell.value == 2" class="fa-solid fa-check fs-3"></i>

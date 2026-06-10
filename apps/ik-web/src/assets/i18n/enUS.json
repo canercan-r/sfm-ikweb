@@ -143,7 +143,8 @@
     "TotalRecords": "Total Records"
   },
   "Home": {
-    "Title": "Home"
+    "Title": "Home",
+    "ChartAlertMessage": "For more chart examples, visit <a href='https://ng-doc.vercel.app/' target='_blank' class='fw-bold text-primary'>ng-doc.vercel.app</a>. Any username and password is valid for login."
   },
   "I18N": {
     "MAT_PAGINATOR": {
@@ -538,5 +539,11 @@
       "VardiyaPlanlamasi": "Shift Planning"
     },
     "Title": "Timesheet"
+  },
+  "Talepler": {
+    "TedarikTalepleri": {
+      "Title": "Supply Requests"
+    },
+    "Title": "Requests"
   }
 }

@@ -16,20 +16,22 @@
     id="#st_header_menu"
     data-st-menu="true"
     [ngClass]="{
-      show: device === 'mobile' || ('tablet' && orientation === 'portrait')
+      show: device === 'mobile' || ('tablet' && orientation === 'portrait'),
     }"
   >
     <!--begin::Menu Container-->
-    <ng-container *ngIf="menu">
-      <ng-container *ngFor="let item of menu; first as isFirst">
-        <ng-container
-          *ngIf="item.title"
-          [ngTemplateOutlet]="menu1LevelTemplate"
-          [ngTemplateOutletContext]="{ item: item }"
-        >
+    <div class="menu-scroll-wrapper" style="max-height:calc(100vh - 70px);overflow-y:auto;overscroll-behavior:contain;">
+      <ng-container *ngIf="menu">
+        <ng-container *ngFor="let item of menu; first as isFirst">
+          <ng-container
+            *ngIf="item.title"
+            [ngTemplateOutlet]="menu1LevelTemplate"
+            [ngTemplateOutletContext]="{ item: item }"
+          >
+          </ng-container>
         </ng-container>
       </ng-container>
-    </ng-container>
+    </div>
     <!--end::Menu Container-->
 
     <!-- begin::1 Level -->
@@ -39,7 +41,7 @@
         <div class="menu-item" [class.here]="isActive(item.link)">
           <!--begin:Menu link-->
           <a
-            class="menu-link py-3"
+            class="menu-link py-1"
             [class.active]="isActive(item.link)"
             (click)="routerLink(item.link)"
           >
@@ -52,10 +54,10 @@
                 ></span>
               </ng-container>
               <ng-template #font>
-                <i [ngClass]="item.icon" class="fs-3"></i>
+                <i [ngClass]="item.icon" class="fs-6"></i>
               </ng-template>
             </span>
-            <span class="menu-title text-start">
+            <span class="menu-title text-start fs-7">
               {{ item.title | translate }}
             </span>
             <span class="menu-badge" *ngIf="item.badge">
@@ -76,7 +78,7 @@
           class="menu-item menu-accordion menu-sub-indention"
         >
           <!--begin:Menu link-->
-          <span class="menu-link py-3" [attr.data-link]="item.link">
+          <span class="menu-link py-1" [attr.data-link]="item.link">
             <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
@@ -114,7 +116,7 @@
         >
           <!--begin:Menu link-->
           <span
-            class="menu-link py-3"
+            class="menu-link py-1"
             [ngClass]="calculateMenuItemCssClass(item)"
             [attr.data-link]="item.link"
           >
@@ -127,10 +129,10 @@
                 ></span>
               </ng-container>
               <ng-template #font>
-                <i [ngClass]="item.icon" class="fs-3"></i>
+                <i [ngClass]="item.icon" class="fs-6"></i>
               </ng-template>
             </span>
-            <span class="menu-title text-start">
+            <span class="menu-title text-start fs-7">
               {{ item.title | translate }}
             </span>
             <span class="menu-arrow"></span>
@@ -145,6 +147,7 @@
           <div
             class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-275px"
             data-st-menu-dismiss="false"
+            style="max-height:calc(100vh - 100px);overflow-y:auto;"
           >
             <ng-container
               *ngFor="let sub of item.submenu"
@@ -166,7 +169,7 @@
       <ng-container *ngIf="!item.submenu">
         <div class="menu-item me-lg-1" [class.here]="isActive(item.link)">
           <a
-            class="menu-link py-3"
+            class="menu-link py-1"
             [class.active]="isActive(item.link)"
             (click)="routerLink(item.link)"
           >
@@ -199,7 +202,7 @@
           [ngClass]="calculateMenuItemHereClass(item)"
         >
           <!--begin:Menu link-->
-          <span class="menu-link py-3" [attr.data-link]="item.link">
+          <span class="menu-link py-1" [attr.data-link]="item.link">
             <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
@@ -237,7 +240,7 @@
         >
           <!--begin:Menu link-->
           <span
-            class="menu-link py-3"
+            class="menu-link py-1"
             [ngClass]="calculateMenuItemCssClass(item)"
             [attr.data-link]="item.link"
           >
@@ -254,6 +257,7 @@
           <div
             class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-275px"
             data-st-menu-dismiss="false"
+            style="max-height:calc(100vh - 100px);overflow-y:auto;"
           >
             <ng-container
               *ngFor="let sub of item.submenu"
@@ -276,7 +280,7 @@
         <div class="menu-item me-lg-1" [class.here]="isActive(item.link)">
           <!--begin:Menu link-->
           <a
-            class="menu-link py-3"
+            class="menu-link py-1"
             [class.active]="isActive(item.link)"
             (click)="routerLink(item.link)"
           >
@@ -304,7 +308,7 @@
           class="menu-item menu-accordion menu-sub-indention"
         >
           <!--begin:Menu link-->
-          <span class="menu-link py-3">
+          <span class="menu-link py-1">
             <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
@@ -342,7 +346,7 @@
         >
           <!--begin:Menu link-->
           <span
-            class="menu-link py-3"
+            class="menu-link py-1"
             [ngClass]="calculateMenuItemCssClass(item)"
             [attr.data-link]="item.link"
           >
@@ -359,6 +363,7 @@
           <div
             class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-275px"
             data-st-menu-dismiss="false"
+            style="max-height:calc(100vh - 100px);overflow-y:auto;"
           >
             <ng-container
               *ngFor="let sub of item.submenu"
@@ -380,7 +385,7 @@
       <ng-container *ngIf="!item.submenu">
         <div class="menu-item me-lg-1" [class.here]="isActive(item.link)">
           <!--begin:Menu link-->
-          <a class="menu-link py-3" [class.active]="isActive(item.link)">
+          <a class="menu-link py-1" [class.active]="isActive(item.link)">
             <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
@@ -405,7 +410,7 @@
           class="menu-item menu-accordion menu-sub-indention"
         >
           <!--begin:Menu link-->
-          <span class="menu-link py-3">
+          <span class="menu-link py-1">
             <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
@@ -443,7 +448,7 @@
         >
           <!--begin:Menu link-->
           <span
-            class="menu-link py-3"
+            class="menu-link py-1"
             [ngClass]="calculateMenuItemCssClass(item)"
             [attr.data-link]="item.link"
           >
@@ -460,6 +465,7 @@
           <div
             class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-275px"
             data-st-menu-dismiss="false"
+            style="max-height:calc(100vh - 100px);overflow-y:auto;"
           >
             <ng-container
               *ngFor="let sub of item.submenu"
@@ -480,7 +486,7 @@
       <ng-container *ngIf="!item.submenu">
         <div class="menu-item me-lg-1" [class.here]="isActive(item.link)">
           <!--begin:Menu link-->
-          <a class="menu-link py-3" [class.active]="isActive(item.link)">
+          <a class="menu-link py-1" [class.active]="isActive(item.link)">
             <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
             </span>
@@ -504,7 +510,7 @@
       <!--begin:Menu item-->
       <div class="menu-item" [class.here]="isActive(item.link)">
         <!--begin:Menu link-->
-        <a class="menu-link py-3" [class.active]="isActive(item.link)">
+        <a class="menu-link py-1" [class.active]="isActive(item.link)">
           <span class="menu-bullet">
             <span class="bullet bullet-dot"></span>
           </span>

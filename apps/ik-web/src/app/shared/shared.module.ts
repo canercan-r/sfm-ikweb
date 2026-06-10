@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { LibCommonModule } from '@lib-common';
 import { CoreUIModule } from '@lib-core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ApexChartsModule } from './components/apexcharts/apexcharts.module';
 import { AlertComponent } from './components/alert/alert.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
@@ -41,8 +42,8 @@ const Components = [
 
 @NgModule({
   declarations: [Components, Pipes],
-  imports: [CoreUIModule, LibCommonModule, RouterModule],
-  exports: [Components, Pipes],
+  imports: [CoreUIModule, LibCommonModule, RouterModule, ApexChartsModule],
+  exports: [Components, Pipes, ApexChartsModule],
   providers: [NgbActiveModal, NgbModal],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

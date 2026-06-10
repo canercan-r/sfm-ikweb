@@ -5,7 +5,7 @@ import { PuantajAPIService } from '@ikweb-services/apis/puantaj-api.service';
 import { SharedHelperService } from '@ikweb-shared/services/helper/shared-helper.service';
 import { GridOptionsBuilder, LibGrids, LibModulesRootLangKeys, MockGridComponent } from '@lib-common';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { IGridCellEventArgs } from '@infragistics/igniteui-angular';
+import { IGridCellEventArgs } from 'igniteui-angular';
 import { EkOdemeTuruKoduComponent } from '../ek-odeme-turu-kodu/ek-odeme-turu-kodu.component';
 
 @Component({

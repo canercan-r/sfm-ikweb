@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 
 import localeEN from '@angular/common/locales/en';
 import localeTR from '@angular/common/locales/tr';
-import { ComboResourceStringsEN, GridResourceStringsEN, TimePickerResourceStringsEN } from '@infragistics/igniteui-angular';
+import { ComboResourceStringsEN, GridResourceStringsEN, TimePickerResourceStringsEN } from 'igniteui-angular';
 
 const languageKey = 'language';
 

@@ -42,6 +42,21 @@ export class MenuData {
           },
         ],
       },
+      {
+        id: 4,
+        order: 4,
+        title: 'Talepler.Title',
+        icon: 'fa fa-clipboard-list',
+        link: 'talepler',
+        submenu: [
+          {
+            id: 41,
+            order: 1,
+            title: 'Talepler.TedarikTalepleri.Title',
+            link: '/talepler/tedarik-talepleri',
+          },
+        ],
+      },
     ],
     asideMenu: [],
   };

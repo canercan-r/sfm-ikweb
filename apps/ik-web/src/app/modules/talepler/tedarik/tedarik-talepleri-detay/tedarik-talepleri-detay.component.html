@@ -1,0 +1,38 @@
+<ikweb-toolbar [backClick]="true" [bc$]="bc$" [title]="projeAdi">
+</ikweb-toolbar>
+
+<div
+  class="card card-spacing-reset"
+  data-st-scroll="true"
+  data-st-scroll-save-state="false"
+  data-st-scroll-height="auto"
+  data-st-scroll-wrappers="#st_tedarik_detay_body"
+  data-st-scroll-dependencies="#st_header, #st_toolbar"
+  [attr.data-st-scroll-offset]="_sharedHelper.contentSpacingFull"
+>
+  <lib-mock-grid
+    id="st_tedarik_detay_body"
+    #tedarikTalepleriDetayGrid
+  ></lib-mock-grid>
+</div>
+
+<ng-template #gridCellActionTemp let-cell="cell" class="colWidth">
+  <button class="btn btn-icon">
+    <igx-icon class="more_vert_icon" family="material">more_vert</igx-icon>
+  </button>
+</ng-template>
+
+<!-- <ng-template #gridCellActionTemp let-cell="cell" class="colWidth">
+  <button
+    class="btn"
+    [igxToggleAction]="dropdownCell"
+    [igxDropDownItemNavigation]="dropdownCell"
+  >
+    <igx-icon class="more_vert_icon" family="material">more_vert</igx-icon>
+  </button>
+  <igx-drop-down #dropdownCell [width]="'200px'" [height]="'150px'">
+    <igx-drop-down-item>
+      {{ "Talepler.Tedarik.Detay" | translate }}
+    </igx-drop-down-item>
+  </igx-drop-down>
+</ng-template> -->

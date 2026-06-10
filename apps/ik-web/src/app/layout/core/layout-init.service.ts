@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { DisplayDensity } from '@lib-common';
 import { ILayout } from './default-layout.config';
 import { LayoutService } from './layout.service';
 
@@ -50,9 +51,10 @@ export class LayoutInitService {
       bodyClasses.forEach((cssClass) => document.body.classList.add(cssClass));
     }
 
-    const size = this.layout.getProp('main.displayDensity') as string;
+    const size = this.layout.getProp('main.displayDensity') as DisplayDensity;
+    const igSize = size === DisplayDensity.SMALL ? 'var(--ig-size-small)' : size === DisplayDensity.COSY ? 'var(--ig-size-medium)' : 'var(--ig-size-large)';
 
-    this.bodyStyles += ` --st-component-size: ${size};`;
+    this.bodyStyles += ` --st-component-size: ${igSize};`;
   }
 
   private initHeader() {

@@ -176,7 +176,7 @@ export const DefaultLayoutConfig: ILayout = {
     type: 'default',
     primaryColor: '#773dbd',
     darkSkinEnabled: false,
-    displayDensity: DisplayDensity.COMFORTABLE, // ***The variables in the lib-grid.component.ts should change
+    displayDensity: DisplayDensity.SMALL,
     inputGroupType: 'line',
   },
   loader: {

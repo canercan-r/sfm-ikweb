@@ -18,7 +18,7 @@
     >.menu-item {
       >.menu-link {
         width: calc(#{get($aside-config, width, desktop)} - 16px);
-        height: 74px;
+        height: 54px;
         margin: 0 auto;
         flex-direction: column;
         display: flex;
@@ -27,15 +27,26 @@
         .menu-icon {
           justify-content: center;
           width: 0;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.25rem;
 
           i {
-            font-size: 22px !important;
+            font-size: 18px;
           }
         }
 
         .menu-title {
           flex-grow: 0;
+        }
+      }
+
+      >.menu-sub-dropdown {
+        max-height: calc(100vh - 120px) !important;
+        overflow-y: auto !important;
+        overflow-x: hidden;
+
+        .menu-link {
+          padding-top: 0.4rem;
+          padding-bottom: 0.4rem;
         }
       }
 

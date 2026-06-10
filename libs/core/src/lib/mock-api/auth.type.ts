@@ -105,6 +105,10 @@ export class User extends Auth {
     this.forceToChangePass = user.forceToChangePass;
     this.allowAnonymousRequests = user.allowAnonymousRequests;
     this.mesaiIslemleriSaatleriGizle = user.mesaiIslemleriSaatleriGizle;
+    this.eskiMesaiFormuAktif = user.eskiMesaiFormuAktif;
+    this.tesisMesaiFormuLokasyonAktif = user.tesisMesaiFormuLokasyonAktif;
+    this.tesisMesaiFormuQRGosterAktif = user.tesisMesaiFormuQRGosterAktif;
+    this.tesisMesaiFormuQROkutAktif = user.tesisMesaiFormuQROkutAktif;
 
     this.kullaniciGridSettings = user.kullaniciGridSettings;
   }
@@ -123,6 +127,10 @@ export class User extends Auth {
   forceToChangePass: boolean;
   allowAnonymousRequests: boolean;
   mesaiIslemleriSaatleriGizle: boolean;
+  eskiMesaiFormuAktif: boolean;
+  tesisMesaiFormuLokasyonAktif: boolean;
+  tesisMesaiFormuQRGosterAktif: boolean;
+  tesisMesaiFormuQROkutAktif: boolean;
 
   kullaniciGridSettings: IGridConfig[];
 }

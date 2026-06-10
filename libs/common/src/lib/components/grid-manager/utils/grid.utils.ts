@@ -18,7 +18,7 @@ import {
   IFilteringExpressionsTree,
   ISortingExpression,
   SortingDirection,
-} from '@infragistics/igniteui-angular';
+} from 'igniteui-angular';
 
 const EMPTY_STRING = '';
 const SQL_DATE_FORMAT = 'yyyy-MM-dd';

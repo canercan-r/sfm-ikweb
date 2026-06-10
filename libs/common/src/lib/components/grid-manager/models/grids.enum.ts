@@ -187,6 +187,9 @@ export enum LibGrids {
   IKWeb_Puantaj_VardiyaBilgi = 187,
   IKWeb_Puantaj_KidemKontrol = 188,
 
+  IKWeb_Talepler_TedarikTalepleri = 190,
+  IKWeb_Talepler_TedarikTalepleriDetay = 191,
+
   dosyalarList = 99999,
 }
 

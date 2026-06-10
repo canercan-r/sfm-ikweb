@@ -21,7 +21,7 @@ import {
   IPinningConfig,
   IRowSelectionEventArgs,
   VerticalAlignment
-} from '@infragistics/igniteui-angular';
+} from 'igniteui-angular';
 
 @Component({
   selector: 'lib-mockapi-grid',

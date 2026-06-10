@@ -1,4 +1,4 @@
-import { FIELD_TYPE } from "./enums";
+import { FIELD_TYPE } from "@ik-mobile-shared/models";
 import { ColorType } from "./types";
 
 export interface IReportPrint {

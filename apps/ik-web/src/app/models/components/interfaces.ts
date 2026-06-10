@@ -495,3 +495,31 @@ export interface IKidemKontrol {
   brutKidemTazminati: number;
   kidem: number;
 }
+export interface ITedarikTalepleri {
+  id: string;
+  projeKodu: string;
+  projeAdi: string;
+  kurum: string;
+  hizmetTuru: string;
+  projeSorumlusu: string;
+  direktor: string;
+  direktorYardimcisi: string;
+}
+
+export interface ITedarikTalepleriDetay {
+  id: string;
+  tedarikTalepID: string;
+  talepNo: string;
+  talepTarihi: string;
+  donem: string;
+  talepTuru: string;
+  talepDurumu: string;
+  aciklama: string;
+  segmentB: string;
+  segment1: string;
+  segment2: string;
+  bolgeBaskani: string;
+  dosyaSayisi: string;
+}
+
+

@@ -7,7 +7,7 @@ import { PuantajStoreService } from '@ikweb-services/store/puantaj-store.service
 import { SharedHelperService } from '@ikweb-shared/services/helper/shared-helper.service';
 import { GridOptionsBuilder, LibGrids, LibModulesRootLangKeys, MockGridComponent } from '@lib-common';
 import { NgbModal, NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap';
-import { IGridCellEventArgs } from '@infragistics/igniteui-angular';
+import { IGridCellEventArgs } from 'igniteui-angular';
 import { BehaviorSubject } from 'rxjs';
 import { DosyaEkleComponent } from './modal/dosya-ekle/dosya-ekle.component';
 import { EkOdemelerDetayComponent } from './modal/ek-odemeler-detay/ek-odemeler-detay.component';
