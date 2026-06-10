@@ -40,6 +40,16 @@ export enum ELangType {
   ruRU = 2
 }
 
+export enum FIELD_TYPE {
+  TextBox,
+  DropDown,
+  DatePicker,
+  TextArea,
+  CheckBox,
+  RadioButton,
+  RatingMatrix,
+}
+
 export enum CINSIYET_TURLERI {
   BELIRTILMEMIS = 0,
   ERKEK = 1,

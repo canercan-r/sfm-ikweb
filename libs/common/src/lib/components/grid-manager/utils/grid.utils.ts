@@ -1,4 +1,11 @@
 import { Injectable } from '@angular/core';
+import {
+  FilteringLogic,
+  IFilteringExpression,
+  IFilteringExpressionsTree,
+  ISortingExpression,
+  SortingDirection,
+} from '@infragistics/igniteui-angular';
 import { DataStorageTypes, Utils } from '@lib-common';
 import {
   addMonths,
@@ -12,13 +19,6 @@ import {
   subMonths,
   subYears,
 } from 'date-fns';
-import {
-  FilteringLogic,
-  IFilteringExpression,
-  IFilteringExpressionsTree,
-  ISortingExpression,
-  SortingDirection,
-} from 'igniteui-angular';
 
 const EMPTY_STRING = '';
 const SQL_DATE_FORMAT = 'yyyy-MM-dd';
