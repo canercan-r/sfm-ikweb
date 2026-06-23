@@ -18,7 +18,7 @@ export class TedarikComponent implements OnInit, AfterViewInit {
   @ViewChild('tedarikTalepleriGrid', { static: false }) tedarikTalepleriGrid: MockGridComponent;
 
   bc$: BehaviorSubject<Array<PageLink>> = new BehaviorSubject<Array<PageLink>>([
-    { title: 'Talepler.Title' }
+    { title: 'Talepler.Tedarik.Title' }
   ]);
 
   constructor(

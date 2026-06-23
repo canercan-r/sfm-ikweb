@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ContentChild,
   EventEmitter,
@@ -106,11 +107,15 @@ export class SelectComponent<T extends object>
     this.#onTouch(val);
   }
 
-  constructor(@Inject(Injector) private injector: Injector) { }
+  constructor(
+    @Inject(Injector) private injector: Injector,
+    private _cdr: ChangeDetectorRef
+  ) { }
 
   ngAfterViewInit(): void {
     this.control.markAsPristine();
     this.control.markAsUntouched();
+    this._cdr.detectChanges();
   }
 
   change(event: ISelectionEventArgs) {

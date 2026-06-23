@@ -220,6 +220,12 @@ class MenuComponent {
           },
         },
         {
+          name: 'computeStyles',
+          options: {
+            gpuAcceleration: false,
+          },
+        },
+        {
           name: 'preventOverflow',
         },
         {

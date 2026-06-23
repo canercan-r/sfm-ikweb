@@ -1,0 +1,45 @@
+<div class="card d-flex flex-column flex-fill h-100 shadow-none rounded-0 w-100 overflow-hidden">
+  <div class="card-header border-0 align-items-center">
+    <span class="fs-4 fw-bold">
+      {{ "Talepler.Tedarik.YeniKayit" | translate }}
+    </span>
+    <button class="btn btn-sm btn-icon ms-auto" (click)="dismiss()">
+      <i class="fa-solid fa-xmark fs-3"></i>
+    </button>
+  </div>
+
+  <div class="card-body h-100 overflow-auto pt-0">
+    <div class="row row-gap-4">
+      <section class="col-12">
+        <ikweb-select
+          name="donem"
+          label="Talepler.Tedarik.Donem"
+          [data]="[]"
+          valueKey=""
+          displayKey=""
+        ></ikweb-select>
+      </section>
+
+      <section class="col-12">
+        <ikweb-select
+          name="son5Talep"
+          label="Talepler.Tedarik.Son5Talep"
+          [data]="[]"
+          valueKey=""
+          displayKey=""
+        ></ikweb-select>
+      </section>
+    </div>
+  </div>
+
+  <div class="card-footer border-0">
+    <div class="d-flex flex-stack">
+      <button class="btn btn-sm btn-success" (click)="onKaydet()">
+        {{ "Global.Save" | translate }}
+      </button>
+      <button class="btn btn-sm btn-transparent">
+        {{ "Global.Temizle" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

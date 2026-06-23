@@ -1,0 +1,117 @@
+<div class="d-flex flex-stack mb-3" *ngIf="inputGroupType == 'box'">
+  <label class="fw-bold" igxLabel [for]="name">{{ label | translate }}</label>
+</div>
+
+<igx-input-group
+  [type]="inputGroupType"
+  [ngStyle]="formButton && { '--ig-size': 'var(--ig-size-small)' }"
+  [ngClass]="{
+    'igx-input-group--empty-required': isEmptyRequired,
+    'igx-input-group--disabled': disabled,
+    'form-control-button': formButton,
+    'form-control form-control-transparent': formButton,
+  }"
+>
+  <label *ngIf="inputGroupType != 'box'" igxLabel [for]="name">{{
+    label | translate
+  }}</label>
+  <input
+    #origin
+    igxInput
+    [value]="displayValue"
+    readonly
+    [required]="required"
+    [disabled]="disabled"
+    (click)="open(origin)"
+  />
+
+  <igx-suffix>
+    <i class="fa-regular fa-calendar fs-4" (click)="open(origin)"></i>
+  </igx-suffix>
+</igx-input-group>
+
+<ng-template #overlayTemplate>
+  <div class="d-flex flex-column p-3 bg-white rounded shadow">
+    <div class="d-flex align-items-end gap-2">
+      <igx-calendar [value]="draftDate" (selected)="onDateSelected($event)">
+      </igx-calendar>
+
+      <div class="d-flex align-items-center pb-6">
+        <div class="d-flex flex-column align-items-center">
+          <span class="wheel-name">{{ "Global.ShortHour" | translate }}</span>
+          <div class="wheel-arrow up" (click)="stepValue('hour', -1)">
+            <i class="fa-solid fa-chevron-up"></i>
+          </div>
+          <div class="wheel-column hour">
+            <div
+              class="wheel-track"
+              [style.transform]="'translateY(' + trackOffsetHour + 'px)'"
+              (wheel)="onWheel($event, 'hour')"
+              (touchstart)="onTouchStart($event)"
+              (touchmove)="onTouchMove($event, 'hour')"
+              (mousedown)="onMouseDown($event)"
+              (mousemove)="onMouseMove($event, 'hour')"
+              (mouseup)="onMouseUp()"
+              (mouseleave)="onMouseUp()"
+            >
+              <div
+                *ngFor="let h of visibleHours; let i = index"
+                class="item"
+                [class.active]="h === draftHour"
+                (click)="selectValue(h, 'hour', i)"
+              >
+                {{ h | number: "2.0" }}
+              </div>
+            </div>
+          </div>
+          <div class="wheel-arrow down" (click)="stepValue('hour', 1)">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </div>
+
+        <span class="pre fs-2">:</span>
+
+        <div class="d-flex flex-column align-items-center">
+          <span class="wheel-name">{{ "Global.ShortMin" | translate }}</span>
+          <div class="wheel-arrow up" (click)="stepValue('minute', -1)">
+            <i class="fa-solid fa-chevron-up"></i>
+          </div>
+          <div class="wheel-column minute">
+            <div
+              class="wheel-track"
+              [style.transform]="'translateY(' + trackOffsetMinute + 'px)'"
+              (wheel)="onWheel($event, 'minute')"
+              (touchstart)="onTouchStart($event)"
+              (touchmove)="onTouchMove($event, 'minute')"
+              (mousedown)="onMouseDown($event)"
+              (mousemove)="onMouseMove($event, 'minute')"
+              (mouseup)="onMouseUp()"
+              (mouseleave)="onMouseUp()"
+            >
+              <div
+                *ngFor="let h of visibleMinutes; let i = index"
+                class="item"
+                [class.active]="h === draftMinute"
+                (click)="selectValue(h, 'minute', i)"
+              >
+                {{ h | number: "2.0" }}
+              </div>
+            </div>
+          </div>
+          <div class="wheel-arrow down" (click)="stepValue('minute', 1)">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ms-auto d-flex gap-2">
+      <button class="btn btn-sm btn-transparent" (click)="close()">
+        {{ "Global.Iptal" | translate }}
+      </button>
+      <button class="btn btn-sm btn-text-primary" (click)="apply()">
+        {{ "Global.Tamam" | translate }}
+      </button>
+    </div>
+  </div>
+</ng-template>

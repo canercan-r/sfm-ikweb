@@ -3,51 +3,49 @@
 >
   <div class="card-header border-0 align-items-center">
     <span class="fs-4 fw-bold">
-      {{ "Global.DosyaEkle" | translate }}
+      {{ "Talepler.Tedarik.DosyaEkle" | translate }}
     </span>
     <button class="btn btn-sm btn-icon ms-auto" (click)="dismiss()">
       <i class="fa-solid fa-xmark fs-3"></i>
     </button>
   </div>
+
   <div class="card-body h-100 overflow-auto pt-0">
-    <form [formGroup]="form" class="row row-gap-3">
-      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div [formGroup]="form" class="row row-gap-4">
+      <section class="col-12">
         <ikweb-date-picker
           name="gecerlilikTarihi"
-          label="Puantaj.ProjePuantajlari.AylikPuantaj.GecerlilikTarihi"
+          label="Talepler.Tedarik.Form.GecerlilikTarihi"
           formControlName="gecerlilikTarihi"
-        >
-        </ikweb-date-picker>
+        ></ikweb-date-picker>
       </section>
 
-      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section class="col-12">
         <ikweb-select
           name="dosyaTuru"
-          label="Puantaj.ProjePuantajlari.AylikPuantaj.DosyaTuru"
-          formControlName="dosyaTuru"
-          [data]=""
+          label="Talepler.Tedarik.Form.DosyaTuru"
+          [data]="[]"
           valueKey=""
           displayKey=""
-        >
-        </ikweb-select>
+          formControlName="dosyaTuru"
+        ></ikweb-select>
       </section>
 
-      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section class="col-12">
         <ikweb-input
           name="dosyaLink"
-          label="Puantaj.ProjePuantajlari.AylikPuantaj.DosyaLink"
+          label="Talepler.Tedarik.Form.DosyaLink"
           formControlName="dosyaLink"
-        >
-        </ikweb-input>
+        ></ikweb-input>
       </section>
-    </form>
+    </div>
   </div>
+
   <div class="card-footer border-0">
     <div class="d-flex flex-stack">
       <button class="btn btn-sm btn-success">
         {{ "Global.Ekle" | translate }}
       </button>
-
       <button class="btn btn-sm btn-transparent">
         {{ "Global.Temizle" | translate }}
       </button>

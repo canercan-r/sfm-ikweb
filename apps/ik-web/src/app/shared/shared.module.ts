@@ -3,12 +3,13 @@ import { RouterModule } from '@angular/router';
 import { LibCommonModule } from '@lib-common';
 import { CoreUIModule } from '@lib-core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ApexChartsModule } from './components/apexcharts/apexcharts.module';
 import { AlertComponent } from './components/alert/alert.component';
+import { ApexChartsModule } from './components/apexcharts/apexcharts.module';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { DateRangePickerComponent } from './components/date-range-picker/date-range-picker.component';
 import { DateRangeSelectComponent } from './components/date-range-select/date-range-select.component';
+import { DateTimePickerComponent } from './components/date-time-picker/date-time-picker.component';
 import { LanguageCountryInnerComponent } from './components/dropdown-inner/language-country-inner/language-country-inner.component';
 import { PhoneNumberCountryInnerComponent } from './components/dropdown-inner/phone-number-country-inner/phone-number-country-inner.component';
 import { UserInnerComponent } from './components/dropdown-inner/user-inner/user-inner.component';
@@ -33,6 +34,7 @@ const Components = [
   SymbolComponent,
   DateRangeSelectComponent,
   DateRangePickerComponent,
+  DateTimePickerComponent,
   LanguageCountryInnerComponent,
   PhoneNumberCountryInnerComponent,
   ScriptsInitComponent,

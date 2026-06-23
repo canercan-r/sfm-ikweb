@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ITedarikTalepleri, ITedarikTalepleriDetay } from "@ikweb-models/components/interfaces";
+import { ITedarikTaleplerDosyalar, ITedarikTalepleri, ITedarikTalepleriDetay, ITedarikTalepleriMalzemeler } from "@ikweb-models/components/interfaces";
 import { BaseAPIService } from "@ikweb-shared/services/apis/base-api.service";
 import { DataService, UrlBuilderService } from "@lib-core";
 import { Observable } from "rxjs";
@@ -7,6 +7,8 @@ import { Observable } from "rxjs";
 enum TaleplerAPI {
     GET_TEDARIK_TALEPLERI = 'Tedarik',
     GET_TEDARIK_TALEPLERI_DETAY = 'TedarikTalepleriDetay',
+    GET_TEDARIK_TALEPLERI_MALZEMELER = 'TedarikTalepleri_Malzemeler',
+    GET_TEDARIK_TALEPLERI_DOSYALAR = 'TedarikTalepleri_Dosyalar',
 }
 
 @Injectable({
@@ -30,6 +32,14 @@ export class TaleplerAPIService extends BaseAPIService<TaleplerAPI> {
             TaleplerAPI.GET_TEDARIK_TALEPLERI_DETAY,
             { tedarikTalepID }
         );
+    }
+
+    getTedarikTalepleriMalzemeler(): Observable<ITedarikTalepleriMalzemeler[]> {
+        return this.get<ITedarikTalepleriMalzemeler[]>(TaleplerAPI.GET_TEDARIK_TALEPLERI_MALZEMELER);
+    }
+
+    getTedarikTalepleriDosyalar(): Observable<ITedarikTaleplerDosyalar[]> {
+        return this.get<ITedarikTaleplerDosyalar[]>(TaleplerAPI.GET_TEDARIK_TALEPLERI_DOSYALAR);
     }
 
 }

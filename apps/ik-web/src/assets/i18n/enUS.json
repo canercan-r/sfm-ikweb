@@ -104,6 +104,8 @@
     "RequiredField": "Required Field",
     "Save": "Save",
     "SaveandSend": "Save and Send",
+    "ShortHour": "H",
+    "ShortMin": "M",
     "SifreAlaniBosGecilemez": "Password is required",
     "SifreEnAz3SembolIcermelidir": "Password should have at least 3 symbols",
     "SifreGirisiYapiniz": "Please enter password",
@@ -143,8 +145,8 @@
     "TotalRecords": "Total Records"
   },
   "Home": {
-    "Title": "Home",
-    "ChartAlertMessage": "For more chart examples, visit <a href='https://ng-doc.vercel.app/' target='_blank' class='fw-bold text-primary'>ng-doc.vercel.app</a>. Any username and password is valid for login."
+    "ChartAlertMessage": "For more chart examples, visit <a href='https://ng-doc.vercel.app/' target='_blank' class='fw-bold text-primary'>ng-doc.vercel.app</a>. Any username and password is valid for login.",
+    "Title": "Home"
   },
   "I18N": {
     "MAT_PAGINATOR": {
@@ -331,6 +333,43 @@
         "isBasiSaati": "Work Start Time",
         "soyadi": "Surname",
         "vardiyaTuru": "Shift Type"
+      },
+      "IKWeb_Talepler_Malzemeler": {
+        "Islem": "Action",
+        "birimi": "Unit",
+        "malzemeAdi": "Material Name",
+        "malzemeKodu": "Material Code"
+      },
+      "IKWeb_Talepler_SecilenMalzemeler": {
+        "Geri": "Undo",
+        "Tanımsız": "Undefined",
+        "birimi": "Unit",
+        "malzemeAdi": "Material Name",
+        "malzemeKodu": "Material Code",
+        "miktar": "Quantity",
+        "urunResmi": "Product Image"
+      },
+      "IKWeb_Talepler_TedarikTalepleri": {
+        "Islem": "Action",
+        "durumu": "Status",
+        "projeAdi": "Project Name",
+        "projeKodu": "Project Code",
+        "segment": "Segment",
+        "talepNo": "Request No"
+      },
+      "IKWeb_Talepler_TedarikTalepleriDetay": {
+        "Islem": "Action",
+        "aciklama": "Description",
+        "bolgeBaskani": "Region Manager",
+        "donem": "Period",
+        "dosyaSayisi": "File Count",
+        "segment1": "Segment 1",
+        "segment2": "Segment 2",
+        "segmentB": "Segment B",
+        "talepDurumu": "Request Status",
+        "talepNo": "Request No",
+        "talepTarihi": "Request Date",
+        "talepTuru": "Request Type"
       }
     }
   },
@@ -443,6 +482,7 @@
         "ProjeParmakIziRaporu": "Project Fingerprint Report",
         "Puantaj": "Timesheet",
         "PuantajDurumDegisiklikleri": "Timesheet Status Changes",
+        "Title": "Monthly Timesheet",
         "TutariYenidenHesapla": "Recalculate Amount",
         "YillikIzinDurumu": {
           "CalismaSekli": "Work Type",
@@ -496,6 +536,7 @@
         "ParmakIziKaydiniGoster": "Show Fingerprint Record",
         "Raporlu": "On Medical Leave (R)",
         "Temizle": "Clear",
+        "Title": "Daily Timesheet",
         "TumunuGeldiIsaretle": "Mark All Arrived",
         "UcretsizIzin": "Unpaid Leave (Üİ)",
         "YillikIzin": "Annual Leave (Yİ)",
@@ -518,6 +559,13 @@
       "Onayla": "Confirm",
       "OncekiDurumaDon": "Return to Previous",
       "Operasyon": "Operation",
+      "ParmakIzi": {
+        "GunlukCalismaSaatiTakibi": "Daily Working Hours Tracking",
+        "IseBaslayanlarRaporu": "Job Starters Report",
+        "ParmakIzi": "Fingerprint",
+        "PiCihazlari": "Fp Devices",
+        "ProjePuantajParmakIziRaporu": "Project Timesheet Fingerprint Report"
+      },
       "ProjedeVarsayilanGecikmeliGunUygula": "Apply Default Delay Day to Project",
       "Puantaj": "Timesheet",
       "PuantajKontrol": {
@@ -531,6 +579,7 @@
       "TamamlamaSuresiniDegistir": "Change Completion Time",
       "Tedarik": "Supply",
       "Title": "Project Timesheets",
+      "Vardiya": "Shift",
       "VardiyaBilgiGuncellemesi": {
         "Aciklama": "Description",
         "ProjeninAdresi": "Project Adress",
@@ -541,6 +590,57 @@
     "Title": "Timesheet"
   },
   "Talepler": {
+    "GirdiHizmetTakibi": {
+      "Title": "Input Service Tracking"
+    },
+    "GonderiKaydi": {
+      "Title": "Shipment Record"
+    },
+    "Siparisler": {
+      "Title": "Orders"
+    },
+    "Tedarik": {
+      "Degistir": "Edit",
+      "Donem": "Period",
+      "DosyaEkle": "Add File",
+      "Form": {
+        "Aciklama": "Description",
+        "Degistir": "Change",
+        "DonemeAltDosyalar": "Period Files",
+        "DosyaLink": "File/Link",
+        "DosyaTuru": "File Type",
+        "Dosyalar": "Files",
+        "GecerlilikTarihi": "Validity Date",
+        "Incele": "View",
+        "KaydetVeGonder": "Save and Send",
+        "Malzemeler": "Materials",
+        "ProjeAdi": "Name",
+        "ProjeBilgileri": "Project Information",
+        "ProjeKodu": "Code",
+        "SecilenMalzemeler": "Selected Materials",
+        "TalepBilgileri": "Request Information",
+        "TalepNo": "Request No",
+        "TalepTuru": "Request Type",
+        "Tarih": "Date",
+        "TelNo1": "Phone No 1",
+        "TelNo2": "Phone No 2",
+        "TelNo3": "Phone No 3",
+        "TeslimAdresi": "Project Material Delivery Address",
+        "TeslimAlacakKisi1": "Recipient 1",
+        "TeslimAlacakKisi2": "Recipient 2",
+        "TeslimAlacakKisi3": "Recipient 3",
+        "Title": "Supply Request",
+        "YeniTalep": "New"
+      },
+      "GonderimiIptalEt": "Cancel Submission",
+      "GonderimiIptalEtConfirm": "The submissions of requests that you are authorized for, that are in submitted status and whose period has not expired, will be cancelled. Are you sure?",
+      "Incele": "View",
+      "ProjeDegistir": "Change Project",
+      "Sil": "Delete",
+      "Son5Talep": "Last 5 Requests",
+      "Title": "Supply",
+      "YeniKayit": "New Record"
+    },
     "TedarikTalepleri": {
       "Title": "Supply Requests"
     },

@@ -22,9 +22,53 @@ export class MenuData {
           {
             id: 21,
             order: 1,
-            title: 'Puantaj.ProjePuantajlari.Title',
-            link: '/puantaj/proje-puantajlari',
+            title: 'Puantaj.ProjePuantajlari.ParmakIzi.ParmakIzi',
+            link: '',
+            submenu: [
+              {
+                id: 211,
+                order: 1,
+                title: 'Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari',
+                link: '/puantaj/parmak-izi/pi-cihazlari'
+              },
+              {
+                id: 212,
+                order: 2,
+                title: 'Puantaj.ProjePuantajlari.ParmakIzi.ProjePuantajParmakIziRaporu',
+                link: '/puantaj/parmak-izi-raporu'
+              },
+              {
+                id: 213,
+                order: 3,
+                title: 'Puantaj.ProjePuantajlari.ParmakIzi.GunlukCalismaSaatiTakibi',
+                link: '/puantaj/parmak-izi/gunluk-calisma-saati-takibi'
+              },
+              {
+                id: 214,
+                order: 4,
+                title: 'Puantaj.ProjePuantajlari.ParmakIzi.IseBaslayanlarRaporu',
+                link: '/puantaj/parmak-izi/ise-baslayanlar-raporu'
+              }
+            ]
           },
+          {
+            id: 22,
+            order: 2,
+            title: 'Puantaj.ProjePuantajlari.Vardiya',
+            link: '/puantaj/vardiya',
+          },
+          {
+            id: 23,
+            order: 3,
+            title: 'Puantaj.ProjePuantajlari.GunlukPuantaj.Title',
+            link: '/puantaj/proje-puantajlari/gunluk-puantaj',
+          },
+          {
+            id: 24,
+            order: 4,
+            title: 'Puantaj.ProjePuantajlari.AylikPuantaj.Title',
+            link: '/puantaj/proje-puantajlari/aylik-puantaj',
+          }
         ],
       },
       {
@@ -45,15 +89,33 @@ export class MenuData {
       {
         id: 4,
         order: 4,
-        title: 'Talepler.Title',
+        title: 'Talepler.Tedarik.Title',
         icon: 'fa fa-clipboard-list',
-        link: 'talepler',
+        link: 'tedarik',
         submenu: [
           {
             id: 41,
             order: 1,
-            title: 'Talepler.TedarikTalepleri.Title',
+            title: 'Talepler.Siparisler.Title',
+            link: '/talepler/siparisler',
+          },
+          {
+            id: 42,
+            order: 2,
+            title: 'Talepler.Title',
             link: '/talepler/tedarik-talepleri',
+          },
+          {
+            id: 43,
+            order: 3,
+            title: 'Talepler.GonderiKaydi.Title',
+            link: '/talepler/gonderi-kaydi',
+          },
+          {
+            id: 44,
+            order: 4,
+            title: 'Talepler.GirdiHizmetTakibi.Title',
+            link: '/talepler/girdi-hizmet-takibi',
           },
         ],
       },

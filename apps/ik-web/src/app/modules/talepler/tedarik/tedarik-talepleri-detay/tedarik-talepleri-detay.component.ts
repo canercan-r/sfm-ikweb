@@ -1,10 +1,12 @@
 import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PageLink } from '@ikweb-layout/core/page-info.service';
 import { TaleplerAPIService } from '@ikweb-services/apis/talepler-api.service';
 import { SharedHelperService } from '@ikweb-shared/services/helper/shared-helper.service';
-import { GridOptionsBuilder, IGridColumnExt, LibGrids, LibModulesRootLangKeys, MockGridComponent } from '@lib-common';
+import { ConfirmService, GridOptionsBuilder, IGridColumnExt, LibGrids, LibModulesRootLangKeys, MockGridComponent } from '@lib-common';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BehaviorSubject } from 'rxjs';
+import { YeniKayitComponent } from './modal/yeni-kayit/yeni-kayit.component';
 
 @Component({
   selector: 'ikweb-tedarik-talepleri-detay',
@@ -16,8 +18,8 @@ export class TedarikTalepleriDetayComponent implements OnInit, AfterViewInit {
   @ViewChild('gridCellActionTemp', { read: TemplateRef, static: true }) gridCellActionTemp: TemplateRef<any>;
 
   bc$: BehaviorSubject<Array<PageLink>> = new BehaviorSubject<Array<PageLink>>([
-    { title: 'Talepler.Title' },
-    { title: 'Talepler.TedarikTalepleri.Title', path: '/talepler/tedarik-talepleri' }
+    { title: 'Talepler.Tedarik.Title' },
+    { title: 'Talepler.Title', path: '/talepler/tedarik-talepleri' }
   ]);
 
   private tedarikTalepID: string;
@@ -26,7 +28,10 @@ export class TedarikTalepleriDetayComponent implements OnInit, AfterViewInit {
   constructor(
     readonly _sharedHelper: SharedHelperService,
     private _route: ActivatedRoute,
+    private _router: Router,
     private _taleplerApiService: TaleplerAPIService,
+    private _confirmService: ConfirmService,
+    private _modal: NgbModal,
   ) { }
 
   ngOnInit(): void {
@@ -81,5 +86,28 @@ export class TedarikTalepleriDetayComponent implements OnInit, AfterViewInit {
     });
 
     this.tedarikTalepleriDetayGrid.extraColOpt = extOpt;
+  }
+
+  onGonderimiIptalEt(_cell: any): void {
+    this._confirmService.open({
+      title: '',
+      message: 'Talepler.Tedarik.GonderimiIptalEtConfirm',
+      buttons: {
+        confirm: { show: true, label: 'Global.Evet', color: 'primary' },
+        cancel: { show: true, label: 'Global.Hayir' },
+      },
+    });
+  }
+
+  onYeniKayit(_cell: any): void {
+    this._modal.open(YeniKayitComponent, {
+      windowClass: 'modal-offcanvas modal-offcanvas-end'
+    });
+  }
+
+  onDetayGit(cell: any, mod: 'degistir' | 'incele' | 'sil'): void {
+    this._router.navigate(['/talepler/tedarik-talepleri/talep-form'], {
+      state: { mod, row: cell?.row?.data }
+    });
   }
 }

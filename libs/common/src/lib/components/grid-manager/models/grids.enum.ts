@@ -189,6 +189,9 @@ export enum LibGrids {
 
   IKWeb_Talepler_TedarikTalepleri = 190,
   IKWeb_Talepler_TedarikTalepleriDetay = 191,
+  IKWeb_Talepler_SecilenMalzemeler = 192,
+  IKWeb_Talepler_Malzemeler = 193,
+  IKWeb_Talepler_Dosyalar = 194,
 
   dosyalarList = 99999,
 }

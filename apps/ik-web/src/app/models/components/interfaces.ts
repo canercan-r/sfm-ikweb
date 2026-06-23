@@ -522,4 +522,23 @@ export interface ITedarikTalepleriDetay {
   dosyaSayisi: string;
 }
 
+export interface ITedarikTalepleriMalzemeler {
+  id: string;
+  malzemeKodu: string;
+  malzemeAdi: string;
+  birimi: string;
+  miktar: string;
+  urunResmi: string;
+}
+
+export interface ITedarikTaleplerDosyalar {
+  id: string;
+  eklemeTarihi: string;
+  dosyaAdi: string;
+  dosyaBoyutu: string;
+  dosyaTuru: string;
+  aciklama: string;
+  path: string;
+  gecerlilikTarihi: string;
+}
 

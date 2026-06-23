@@ -105,6 +105,8 @@
     "RequiredField": "Zorunlu Alan",
     "Save": "Kaydet",
     "SaveandSend": "Kaydet ve Gönder",
+    "ShortHour": "S",
+    "ShortMin": "D",
     "SifreAlaniBosGecilemez": "Şifre Alanı Boş Geçilemez",
     "SifreEnAz3SembolIcermelidir": "Şifre En Az 3 Sembol İçermelidir",
     "SifreGirisiYapiniz": "Şifre Girişi Yapınız",
@@ -144,8 +146,8 @@
     "TotalRecords": "Toplam Kayıt"
   },
   "Home": {
-    "Title": "Anasayfa",
-    "ChartAlertMessage": "Daha fazla grafik örneği için <a href='https://ng-doc.vercel.app/' target='_blank' class='fw-bold text-primary'>ng-doc.vercel.app</a> adresini ziyaret edebilirsiniz. Giriş için herhangi bir kullanıcı adı ve şifre geçerlidir."
+    "ChartAlertMessage": "Daha fazla grafik örneği için <a href='https://ng-doc.vercel.app/' target='_blank' class='fw-bold text-primary'>ng-doc.vercel.app</a> adresini ziyaret edebilirsiniz. Giriş için herhangi bir kullanıcı adı ve şifre geçerlidir.",
+    "Title": "Anasayfa"
   },
   "I18N": {
     "MAT_PAGINATOR": {
@@ -332,6 +334,43 @@
         "isBasiSaati": "İşbaşı Saati",
         "soyadi": "Soyadı",
         "vardiyaTuru": "Vardiya Türü"
+      },
+      "IKWeb_Talepler_Malzemeler": {
+        "Islem": "İşlem",
+        "birimi": "Birimi",
+        "malzemeAdi": "Malzeme Adı",
+        "malzemeKodu": "Malzeme Kodu"
+      },
+      "IKWeb_Talepler_SecilenMalzemeler": {
+        "Geri": "Geri",
+        "Tanımsız": "Tanımsız",
+        "birimi": "Birimi",
+        "malzemeAdi": "Malzeme Adı",
+        "malzemeKodu": "Malzeme Kodu",
+        "miktar": "Miktar",
+        "urunResmi": "Ürün Resmi"
+      },
+      "IKWeb_Talepler_TedarikTalepleri": {
+        "Islem": "İşlem",
+        "durumu": "Durumu",
+        "projeAdi": "Proje Adı",
+        "projeKodu": "Proje Kodu",
+        "segment": "Segment",
+        "talepNo": "Talep No"
+      },
+      "IKWeb_Talepler_TedarikTalepleriDetay": {
+        "Islem": "İşlem",
+        "aciklama": "Açıklama",
+        "bolgeBaskani": "Bölge Başkanı",
+        "donem": "Dönem",
+        "dosyaSayisi": "Dosya Sayısı",
+        "segment1": "Segment 1",
+        "segment2": "Segment 2",
+        "segmentB": "Segment B",
+        "talepDurumu": "Talep Durumu",
+        "talepNo": "Talep No",
+        "talepTarihi": "Talep Tarihi",
+        "talepTuru": "Talep Türü"
       }
     }
   },
@@ -444,6 +483,7 @@
         "ProjeParmakIziRaporu": "Proje Parmak İzi Raporu",
         "Puantaj": "Puantaj",
         "PuantajDurumDegisiklikleri": "Puantaj Durum Değişiklikleri",
+        "Title": "Aylık Puantaj",
         "TutariYenidenHesapla": "Tutarı Yeniden Hesapla",
         "YillikIzinDurumu": {
           "CalismaSekli": "Çalışma Şekli",
@@ -497,6 +537,7 @@
         "ParmakIziKaydiniGoster": "Parmak İzi Kaydını Göster",
         "Raporlu": "Raporlu (R)",
         "Temizle": "Temizle",
+        "Title": "Günlük Puantaj",
         "TumunuGeldiIsaretle": "Tümünü Geldi İşaretle",
         "UcretsizIzin": "Ücretsiz İzin (Üİ)",
         "YillikIzin": "Yıllık İzin (Yİ)",
@@ -519,6 +560,13 @@
       "Onayla": "Onayla",
       "OncekiDurumaDon": "Önceki Duruma Dön",
       "Operasyon": "Operasyon",
+      "ParmakIzi": {
+        "GunlukCalismaSaatiTakibi": "Daily Working Hours Tracking",
+        "IseBaslayanlarRaporu": "İşe Başlayanlar Raporu",
+        "ParmakIzi": "Parmak İzi",
+        "PiCihazlari": "Pi Cihazları",
+        "ProjePuantajParmakIziRaporu": "Proje Puantaj Parmak İzi Raporu"
+      },
       "ProjedeVarsayilanGecikmeliGunUygula": "Projede Varsayılan Gecikmeli Gün Uygula",
       "Puantaj": "Puantaj",
       "PuantajKontrol": {
@@ -532,6 +580,7 @@
       "TamamlamaSuresiniDegistir": "Tamamlama Süresini Değiştir",
       "Tedarik": "Tedarik",
       "Title": "Proje Puantajları",
+      "Vardiya": "Vardiya",
       "VardiyaBilgiGuncellemesi": {
         "Aciklama": "Açıklama",
         "ProjeninAdresi": "Projenin Adresi",
@@ -542,6 +591,57 @@
     "Title": "Puantaj"
   },
   "Talepler": {
+    "GirdiHizmetTakibi": {
+      "Title": "Girdi Hizmet Takibi"
+    },
+    "GonderiKaydi": {
+      "Title": "Gönderi Kaydı"
+    },
+    "Siparisler": {
+      "Title": "Siparişler"
+    },
+    "Tedarik": {
+      "Degistir": "Değiştir",
+      "Donem": "Dönem",
+      "DosyaEkle": "Dosya Ekle",
+      "Form": {
+        "Aciklama": "Açıklama",
+        "Degistir": "Değiştir",
+        "DonemeAltDosyalar": "Döneme Ait Dosyalar",
+        "DosyaLink": "Dosya/Link",
+        "DosyaTuru": "Dosya Türü",
+        "Dosyalar": "Dosyalar",
+        "GecerlilikTarihi": "Geçerlilik Tarihi",
+        "Incele": "İncele",
+        "KaydetVeGonder": "Kaydet ve Gönder",
+        "Malzemeler": "Malzemeler",
+        "ProjeAdi": "Adı",
+        "ProjeBilgileri": "Proje Bilgileri",
+        "ProjeKodu": "Kodu",
+        "SecilenMalzemeler": "Seçtiğim Malzemeler",
+        "TalepBilgileri": "Talep Bilgileri",
+        "TalepNo": "Talep No",
+        "TalepTuru": "Talep Türü",
+        "Tarih": "Tarih",
+        "TelNo1": "Tel No 1",
+        "TelNo2": "Tel No 2",
+        "TelNo3": "Tel No 3",
+        "TeslimAdresi": "Proje Malzeme Teslim Adresi",
+        "TeslimAlacakKisi1": "Teslim Alacak Kişi 1",
+        "TeslimAlacakKisi2": "Teslim Alacak Kişi 2",
+        "TeslimAlacakKisi3": "Teslim Alacak Kişi 3",
+        "Title": "Tedarik Talebi",
+        "YeniTalep": "Yeni"
+      },
+      "GonderimiIptalEt": "Gönderimi İptal Et",
+      "GonderimiIptalEtConfirm": "Yetkili olduğunuz talep durumu gönderildi durumundaki ve talep döneminin süresi dolmadığı taleplerin gönderimleri iptal edilecek. Emin misiniz?",
+      "Incele": "İncele",
+      "ProjeDegistir": "Proje Değiştir",
+      "Sil": "Sil",
+      "Son5Talep": "Son 5 Talep",
+      "Title": "Tedarik",
+      "YeniKayit": "Yeni Kayıt"
+    },
     "TedarikTalepleri": {
       "Title": "Tedarik Talepleri"
     },

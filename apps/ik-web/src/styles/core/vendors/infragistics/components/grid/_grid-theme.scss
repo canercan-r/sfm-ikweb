@@ -76,9 +76,7 @@ $custom-grid-theme: grid-theme(
 
 .igx-grid__scroll {
   background: $page-bg;
-  height: calc(
-    var(--#{$prefix}scrollbar-width) + var(--#{$prefix}scrollbar-space)
-  ) !important;
+  height: $scrollbar-grid-height !important;
   z-index: 1040 !important;
 }
 
