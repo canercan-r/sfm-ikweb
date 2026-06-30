@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+﻿import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import {
   ConnectedPositioningStrategy,
   DateRange,
@@ -45,8 +45,6 @@ export class DateRangePickerComponent implements OnInit {
   };
 
   private dateFormat = 'dd.MM.yyyy';
-  //   public startDate: Date = new Date(Date.now());
-  //   public endDate: Date = new Date();
   public inputStartDate: string = format(this.startDate, this.dateFormat);
   public inputEndDate: string = format(this.endDate, this.dateFormat);
   public slash = ' - ';
@@ -55,10 +53,6 @@ export class DateRangePickerComponent implements OnInit {
   constructor(readonly _lang: LanguageService) { }
 
   public ngOnInit() {
-    // console.log('_lang.locale.code', this._lang.locale.code);
-    // this.calendar.disabledDates = [{ type: DateRangeType.Before, dateRange: [new Date(Date.now())] }];
-    // const dataRange = this.rangePicker.select(this.startDate, this.endDate);
-    // console.log(dataRange)
     this.inputStartDate = format(this.startDate, this.dateFormat);
     this.inputEndDate = format(this.endDate, this.dateFormat);
   }
@@ -96,9 +90,5 @@ export class DateRangePickerComponent implements OnInit {
   }
 
   public onClosing() {
-    // if (!this.isClickedTwice) {
-    //   this.inputEndDate = this.inputStartDate;
-    //   this.calendar.selectDate(this.startDate);
-    // }
   }
 }

@@ -1,0 +1,166 @@
+<ikweb-toolbar
+  [backClick]="true"
+  [bc$]="bc$"
+  [title]="titleKey | translate"
+  (backClicked)="goBack()"
+>
+  <div action class="d-flex align-items-center gap-2">
+    <button class="btn btn-sm btn-success">
+      {{ "Global.Save" | translate }}
+    </button>
+  </div>
+</ikweb-toolbar>
+
+<div id="st_form_cards_section">
+  <form [formGroup]="form">
+    <div class="card">
+      <div class="card-header border-0 py-0 min-h-30px">
+        <span class="card-title fs-6 fw-bold mb-0">
+          {{ "Talepler.Siparisler.UygunsuzlukFormu.Title" | translate }}
+        </span>
+      </div>
+      <div class="card-body pt-0 pb-4">
+        <div class="row row-gap-3">
+          <section class="col-12 col-md-3">
+            <ikweb-input
+              name="formNo"
+              label="Talepler.Siparisler.UygunsuzlukFormu.FormNo"
+              formControlName="formNo"
+            ></ikweb-input>
+          </section>
+          <section class="col-12 col-md-3">
+            <ikweb-input
+              name="projeAdi"
+              label="Talepler.Siparisler.UygunsuzlukFormu.ProjeAdi"
+              formControlName="projeAdi"
+            ></ikweb-input>
+          </section>
+          <section class="col-12 col-md-3">
+            <ikweb-select
+              name="uygunsuzlukTuru"
+              label="Talepler.Siparisler.UygunsuzlukFormu.UygunsuzlukTuru"
+              formControlName="uygunsuzlukTuru"
+              [data]="[]"
+              valueKey=""
+              displayKey=""
+            ></ikweb-select>
+          </section>
+          <section class="col-12 col-md-3">
+            <ikweb-date-time-picker
+              name="tarih"
+              label="Talepler.Siparisler.UygunsuzlukFormu.Tarih"
+              formControlName="tarih"
+            ></ikweb-date-time-picker>
+          </section>
+          <section class="col-12 col-md-3">
+            <ikweb-input
+              name="tedarikciAdi"
+              label="Talepler.Siparisler.UygunsuzlukFormu.TedarikciAdi"
+              formControlName="tedarikciAdi"
+            ></ikweb-input>
+          </section>
+          <section class="col-12 col-md-3">
+            <ikweb-input
+              name="aciklama"
+              label="Talepler.Siparisler.UygunsuzlukFormu.Aciklama"
+              formControlName="aciklama"
+            ></ikweb-input>
+          </section>
+          <section class="col-12 col-md-3">
+            <ikweb-select
+              name="durumu"
+              label="Talepler.Siparisler.UygunsuzlukFormu.Durumu"
+              formControlName="durumu"
+              [data]="[]"
+              valueKey=""
+              displayKey=""
+            ></ikweb-select>
+          </section>
+          <section class="col-12 col-md-3">
+            <ikweb-input
+              name="siparisNo"
+              label="Talepler.Siparisler.UygunsuzlukFormu.SiparisNo"
+              formControlName="siparisNo"
+            ></ikweb-input>
+          </section>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="card card-spacing-reset mt-1">
+  <ul
+    id="st_malzeme_nav"
+    ngbNav
+    #malzemeNav="ngbNav"
+    [(activeId)]="activeTab"
+    [destroyOnHide]="false"
+    class="nav nav-line-tabs nav-line-tabs-0 flex-nowrap text-nowrap border-transparent fs-7 fw-bold px-5"
+  >
+    <li class="nav-item" [ngbNavItem]="1">
+      <a class="nav-link text-active-dark me-6" ngbNavLink>
+        {{
+          "Talepler.Siparisler.UygunsuzlukFormu.UygunsuzlukMalzemeGirisleri"
+            | translate
+        }}
+      </a>
+      <ng-template ngbNavContent>
+        <div
+          data-st-scroll="true"
+          data-st-scroll-save-state="false"
+          data-st-scroll-height="auto"
+          data-st-scroll-wrappers="#st_malzeme_nav_content, #st_malzeme"
+          data-st-scroll-dependencies="#st_header, #st_toolbar, #st_form_cards_section, #st_malzeme_nav"
+          [attr.data-st-scroll-offset]="
+            _sharedHelper.contentSpacingFullCardReset
+          "
+        >
+          <lib-mock-grid id="st_malzeme" #malzemeGrid></lib-mock-grid>
+        </div>
+      </ng-template>
+    </li>
+    <li class="nav-item" [ngbNavItem]="2">
+      <a class="nav-link text-active-dark me-6" ngbNavLink>
+        {{ "Talepler.Siparisler.UygunsuzlukFormu.Dosyalar" | translate }}
+      </a>
+      <ng-template ngbNavContent>
+        <div
+          data-st-scroll="true"
+          data-st-scroll-save-state="false"
+          data-st-scroll-height="auto"
+          data-st-scroll-wrappers="#st_malzeme_nav_content, #st_dosyalar"
+          data-st-scroll-dependencies="#st_header, #st_toolbar, #st_form_cards_section, #st_malzeme_nav"
+          [attr.data-st-scroll-offset]="
+            _sharedHelper.contentSpacingFullCardReset
+          "
+        >
+          <div id="st_dosyalar"></div>
+        </div>
+      </ng-template>
+    </li>
+  </ul>
+  <div
+    id="st_malzeme_nav_content"
+    class="nav-content"
+    [ngbNavOutlet]="malzemeNav"
+  ></div>
+</div>
+
+<ng-template #islemTemp let-cell="cell">
+  <div class="d-flex justify-content-center align-items-center">
+    <button
+      class="btn btn-sm btn-icon"
+      [overlaySettings]="_sharedHelper.overlaySettingsAuto"
+      [igxToggleAction]="islemDropdown"
+      [igxDropDownItemNavigation]="islemDropdown"
+    >
+      <igx-icon class="more_vert_icon" family="material">more_vert</igx-icon>
+    </button>
+    <igx-drop-down #islemDropdown [width]="'200px'">
+      <igx-drop-down-item (click)="removeRow(cell.row.data)">
+        {{ "Talepler.Siparisler.UygunsuzlukFormu.ListedenKaldir" | translate }}
+      </igx-drop-down-item>
+    </igx-drop-down>
+  </div>
+</ng-template>

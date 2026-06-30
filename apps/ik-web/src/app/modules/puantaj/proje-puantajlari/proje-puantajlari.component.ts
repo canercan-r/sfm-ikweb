@@ -1,5 +1,5 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { AfterViewInit, Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PageLink } from '@ikweb-layout/core/page-info.service';
 import { IPuantaj } from '@ikweb-models/components';
 import { PuantajAPIService } from '@ikweb-services/apis/puantaj-api.service';
@@ -31,10 +31,12 @@ export class ProjePuantajlariComponent implements OnInit, AfterViewInit {
     { title: 'Puantaj.Title' },
   ]);
 
+  mod: 'gunluk' | 'aylik' | null = null;
+
   constructor(
     private _puantajApi: PuantajAPIService,
     readonly _sharedHelper: SharedHelperService,
-    private readonly _cdr: ChangeDetectorRef,
+    private _route: ActivatedRoute,
     private _router: Router,
     private readonly _modal: NgbModal,
     private _puantajStore: PuantajStoreService,
@@ -42,6 +44,7 @@ export class ProjePuantajlariComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this._sharedHelper.initScrollComponent();
+    this.mod = this._route.snapshot.data['mod'] ?? null;
   }
 
   ngAfterViewInit(): void {
@@ -94,14 +97,23 @@ export class ProjePuantajlariComponent implements OnInit, AfterViewInit {
 
   gunlukPuantajaGit(cell: IPuantaj) {
     this._puantajStore.setSelectedPuantaj(cell);
-
     this._router.navigate(['puantaj/gunluk-puantaj', cell.puantajID]);
   }
 
   aylikPuantajaGit(cell: IPuantaj) {
     this._puantajStore.setSelectedPuantaj(cell);
-
     this._router.navigate(['puantaj/aylik-puantaj', cell.puantajID]);
+  }
+
+  onRowDoubleClick(event: any) {
+    const rowData = event?.cell?.row?.data as IPuantaj;
+    if (!rowData) return;
+
+    if (this.mod === 'gunluk') {
+      this.gunlukPuantajaGit(rowData);
+    } else if (this.mod === 'aylik') {
+      this.aylikPuantajaGit(rowData);
+    }
   }
 
   gecikmeliGunSayisiniDegistir(cell: IPuantaj) {

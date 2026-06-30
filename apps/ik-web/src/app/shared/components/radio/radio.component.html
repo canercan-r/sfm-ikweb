@@ -8,7 +8,7 @@
   </label>
   <div
     [ngClass]="[
-      itemlist === 'row' ? 'd-flex mx-2' : 'd-flex flex-column ms-n2'
+      itemlist === 'row' ? 'd-flex' : 'd-flex flex-column'
     ]"
   >
     <igx-radio *ngFor="let d of data" [value]="d[valueKey]">

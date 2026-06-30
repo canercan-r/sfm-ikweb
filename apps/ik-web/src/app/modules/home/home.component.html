@@ -1,444 +1,418 @@
-<div class="container-fluid py-5">
-  <ikweb-alert
-    color="primary"
-    icon="fa-solid fa-circle-info"
-    message="Home.ChartAlertMessage"
-    class="mb-5 d-block"
-  ></ikweb-alert>
+<ikweb-alert
+  color="primary"
+  icon="fa-solid fa-circle-info"
+  message="Home.ChartAlertMessage"
+  class="mb-5 d-block"
+></ikweb-alert>
 
-  <!-- AREA CHARTS -->
-  <div class="row g-5 mb-5 align-items-stretch">
-    <!-- Area 5 -->
-    <div class="col-xl-4" *ngIf="area5Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Area 5</span>
-            <span class="text-muted fw-bold fs-7"
-              >Gelir / Gider Karşılaştırması</span
-            >
-          </h3>
-          <div class="card-toolbar">
-            <div class="fw-bolder fs-3 text-primary">₺24,500</div>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-area5
-            [series]="area5Series"
-            [categories]="area5Categories"
-            [currency]="area5Currency"
-            [height]="area5Height"
-            [baseColor]="area5BaseColor"
-            [baseStrokeColor]="area5BaseStrokeColor"
-            [baseLightColor]="area5BaseLightColor"
-            [secondaryColor]="area5SecondaryColor"
-            [secondaryStrokeColor]="area5SecondaryStrokeColor"
-            [secondaryLightColor]="area5SecondaryLightColor"
-          ></ikweb-apex-area5>
+<div class="row g-5 mb-5 align-items-stretch">
+  <div class="col-xl-4" *ngIf="area5Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Area 5</span>
+          <span class="text-muted fw-bold fs-7"
+            >Gelir / Gider Karşılaştırması</span
+          >
+        </h3>
+        <div class="card-toolbar">
+          <div class="fw-bolder fs-3 text-primary">₺24,500</div>
         </div>
       </div>
-    </div>
-
-    <!-- Area 6 -->
-    <div class="col-xl-4" *ngIf="area6Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Area 6</span>
-            <span class="text-muted fw-bold fs-7">Gelir / Gider Analizi</span>
-          </h3>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-area6
-            [series]="area6Series"
-            [categories]="area6Categories"
-            [height]="area6Height"
-            [baseColor]="area6BaseColor"
-            [baseStrokeColor]="area6BaseStrokeColor"
-            [baseLightColor]="area6BaseLightColor"
-            [secondaryColor]="area6SecondaryColor"
-            [secondaryStrokeColor]="area6SecondaryStrokeColor"
-            [secondaryLightColor]="area6SecondaryLightColor"
-          ></ikweb-apex-area6>
-        </div>
-      </div>
-    </div>
-
-    <!-- Area 7 -->
-    <div class="col-xl-4" *ngIf="area7Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Area 7</span>
-            <span class="text-muted fw-bold fs-7">Bölge Karşılaştırması</span>
-          </h3>
-          <div class="card-toolbar">
-            <div class="fw-bolder fs-3">₺24,500</div>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-area7
-            [series]="area7Series"
-            [categories]="area7Categories"
-            [height]="area7Height"
-            [baseColor]="area7BaseColor"
-            [baseStrokeColor]="area7BaseStrokeColor"
-            [baseLightColor]="area7BaseLightColor"
-            [secondaryColor]="area7SecondaryColor"
-            [secondaryStrokeColor]="area7SecondaryStrokeColor"
-            [secondaryLightColor]="area7SecondaryLightColor"
-            [tertiaryColor]="area7TertiaryColor"
-            [tertiaryStrokeColor]="area7TertiaryStrokeColor"
-            [tertiaryLightColor]="area7TertiaryLightColor"
-          ></ikweb-apex-area7>
-        </div>
+      <div class="card-body p-0">
+        <ikweb-apex-area5
+          [series]="area5Series"
+          [categories]="area5Categories"
+          [currency]="area5Currency"
+          [height]="area5Height"
+          [baseColor]="area5BaseColor"
+          [baseStrokeColor]="area5BaseStrokeColor"
+          [baseLightColor]="area5BaseLightColor"
+          [secondaryColor]="area5SecondaryColor"
+          [secondaryStrokeColor]="area5SecondaryStrokeColor"
+          [secondaryLightColor]="area5SecondaryLightColor"
+        ></ikweb-apex-area5>
       </div>
     </div>
   </div>
 
-  <!-- COLUMN CHARTS -->
-  <div class="row g-5 mb-5 align-items-stretch">
-    <!-- Column 1 -->
-    <div class="col-xl-4" *ngIf="column1Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Column 1</span>
-            <span class="text-muted fw-bold fs-7"
-              >Net Kar / Gelir / Nakit Akışı</span
-            >
-          </h3>
-          <div class="card-toolbar">
-            <div class="fw-bolder fs-3 text-primary">₺15,500</div>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-column1
-            [series]="column1Series"
-            [categories]="column1Categories"
-            [currency]="column1Currency"
-            [height]="column1Height"
-            [baseColor]="column1BaseColor"
-            [secondaryColor]="column1SecondaryColor"
-            [successColor]="column1SuccessColor"
-          ></ikweb-apex-column1>
-        </div>
+  <div class="col-xl-4" *ngIf="area6Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Area 6</span>
+          <span class="text-muted fw-bold fs-7">Gelir / Gider Analizi</span>
+        </h3>
       </div>
-    </div>
-
-    <!-- Column 4 -->
-    <div class="col-xl-4" *ngIf="column4Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Column 4</span>
-            <span class="text-muted fw-bold fs-7"
-              >Aylık Ürün Satış Yüzdesi</span
-            >
-          </h3>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-column4
-            [series]="column4Series"
-            [categories]="column4Categories"
-            [height]="column4Height"
-            [primaryColor]="column4PrimaryColor"
-            [purpleColor]="column4PurpleColor"
-            [successColor]="column4SuccessColor"
-          ></ikweb-apex-column4>
-        </div>
-      </div>
-    </div>
-
-    <!-- Column 7 -->
-    <div class="col-xl-4" *ngIf="column7Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Column 7</span>
-            <span class="text-muted fw-bold fs-7">Nakit Akışı Analizi</span>
-          </h3>
-          <div class="card-toolbar">
-            <div class="fw-bolder fs-3">₺15,500</div>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-column7
-            [series]="column7Series"
-            [categories]="column7Categories"
-            [height]="column7Height"
-            [baseColor]="column7BaseColor"
-            [warningColor]="column7WarningColor"
-            [dangerColor]="column7DangerColor"
-          ></ikweb-apex-column7>
-        </div>
+      <div class="card-body p-0">
+        <ikweb-apex-area6
+          [series]="area6Series"
+          [categories]="area6Categories"
+          [height]="area6Height"
+          [baseColor]="area6BaseColor"
+          [baseStrokeColor]="area6BaseStrokeColor"
+          [baseLightColor]="area6BaseLightColor"
+          [secondaryColor]="area6SecondaryColor"
+          [secondaryStrokeColor]="area6SecondaryStrokeColor"
+          [secondaryLightColor]="area6SecondaryLightColor"
+        ></ikweb-apex-area6>
       </div>
     </div>
   </div>
 
-  <!-- BAR CHARTS -->
-  <div class="row g-5 mb-5 align-items-stretch">
-    <!-- Bar 1 -->
-    <div class="col-xl-4" *ngIf="bar1Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Bar 1</span>
-            <span class="text-muted fw-bold fs-7">Ülke Karşılaştırması</span>
-          </h3>
-          <div class="card-toolbar">
-            <div class="fw-bolder fs-3">₺15,500</div>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-bar1
-            [series]="bar1Series"
-            [categories]="bar1Categories"
-            [height]="bar1Height"
-            [baseColor]="bar1BaseColor"
-          ></ikweb-apex-bar1>
+  <div class="col-xl-4" *ngIf="area7Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Area 7</span>
+          <span class="text-muted fw-bold fs-7">Bölge Karşılaştırması</span>
+        </h3>
+        <div class="card-toolbar">
+          <div class="fw-bolder fs-3">₺24,500</div>
         </div>
       </div>
-    </div>
-
-    <!-- Bar 2 -->
-    <div class="col-xl-4" *ngIf="bar2Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Bar 2</span>
-            <span class="text-muted fw-bold fs-7">Çoklu Seri Bar</span>
-          </h3>
-          <div class="card-toolbar">
-            <div class="fw-bolder fs-3 text-primary">₺15,500</div>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-bar2
-            [series]="bar2Series"
-            [categories]="bar2Categories"
-            [currency]="bar2Currency"
-            [height]="bar2Height"
-            [baseColor]="bar2BaseColor"
-            [secondaryColor]="bar2SecondaryColor"
-            [tertiaryColor]="bar2TertiaryColor"
-          ></ikweb-apex-bar2>
-        </div>
+      <div class="card-body p-0">
+        <ikweb-apex-area7
+          [series]="area7Series"
+          [categories]="area7Categories"
+          [height]="area7Height"
+          [baseColor]="area7BaseColor"
+          [baseStrokeColor]="area7BaseStrokeColor"
+          [baseLightColor]="area7BaseLightColor"
+          [secondaryColor]="area7SecondaryColor"
+          [secondaryStrokeColor]="area7SecondaryStrokeColor"
+          [secondaryLightColor]="area7SecondaryLightColor"
+          [tertiaryColor]="area7TertiaryColor"
+          [tertiaryStrokeColor]="area7TertiaryStrokeColor"
+          [tertiaryLightColor]="area7TertiaryLightColor"
+        ></ikweb-apex-area7>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Bar 6 -->
-    <div class="col-xl-4" *ngIf="bar6Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Bar 6</span>
-            <span class="text-muted fw-bold fs-7">Nakit Akışı Analizi</span>
-          </h3>
-          <div class="card-toolbar">
-            <div class="fw-bolder fs-3">₺15,500</div>
-          </div>
+<div class="row g-5 mb-5 align-items-stretch">
+  <div class="col-xl-4" *ngIf="column1Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Column 1</span>
+          <span class="text-muted fw-bold fs-7"
+            >Net Kar / Gelir / Nakit Akışı</span
+          >
+        </h3>
+        <div class="card-toolbar">
+          <div class="fw-bolder fs-3 text-primary">₺15,500</div>
         </div>
-        <div class="card-body p-0">
-          <ikweb-apex-bar6
-            [series]="bar6Series"
-            [categories]="bar6Categories"
-            [height]="bar6Height"
-            [baseColor]="bar6BaseColor"
-            [warningColor]="bar6WarningColor"
-            [dangerColor]="bar6DangerColor"
-          ></ikweb-apex-bar6>
-        </div>
+      </div>
+      <div class="card-body p-0">
+        <ikweb-apex-column1
+          [series]="column1Series"
+          [categories]="column1Categories"
+          [currency]="column1Currency"
+          [height]="column1Height"
+          [baseColor]="column1BaseColor"
+          [secondaryColor]="column1SecondaryColor"
+          [successColor]="column1SuccessColor"
+        ></ikweb-apex-column1>
       </div>
     </div>
   </div>
 
-  <!-- PIE CHARTS -->
-  <div class="row g-5 mb-5 align-items-stretch">
-    <!-- Pie 1 -->
-    <div class="col-xl-4" *ngIf="pie1Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Pie 1</span>
-            <span class="text-muted fw-bold fs-7">Takım Dağılımı</span>
-          </h3>
-          <div class="card-toolbar">
-            <div class="fw-bolder fs-3">₺24,500</div>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-pie1
-            [series]="pie1Series"
-            [labels]="pie1Labels"
-            [height]="pie1Height"
-          ></ikweb-apex-pie1>
-        </div>
+  <div class="col-xl-4" *ngIf="column4Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Column 4</span>
+          <span class="text-muted fw-bold fs-7">Aylık Ürün Satış Yüzdesi</span>
+        </h3>
       </div>
-    </div>
-
-    <!-- Pie 2 -->
-    <div class="col-xl-4" *ngIf="pie2Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Pie 2</span>
-            <span class="text-muted fw-bold fs-7">Takım Dağılımı (Donut)</span>
-          </h3>
-          <div class="card-toolbar">
-            <div class="fw-bolder fs-3">₺24,500</div>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-pie2
-            [series]="pie2Series"
-            [labels]="pie2Labels"
-            [height]="pie2Height"
-          ></ikweb-apex-pie2>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pie 5 -->
-    <div class="col-xl-4" *ngIf="pie5Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Pie 5</span>
-            <span class="text-muted fw-bold fs-7">Günlük Dağılım</span>
-          </h3>
-          <div class="card-toolbar">
-            <div class="fw-bolder fs-3">₺24,500</div>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-pie5
-            [series]="pie5Series"
-            [labels]="pie5Labels"
-            [height]="pie5Height"
-          ></ikweb-apex-pie5>
-        </div>
+      <div class="card-body p-0">
+        <ikweb-apex-column4
+          [series]="column4Series"
+          [categories]="column4Categories"
+          [height]="column4Height"
+          [primaryColor]="column4PrimaryColor"
+          [purpleColor]="column4PurpleColor"
+          [successColor]="column4SuccessColor"
+        ></ikweb-apex-column4>
       </div>
     </div>
   </div>
 
-  <!-- MIXED CHARTS -->
-  <div class="row g-5 mb-5 align-items-stretch">
-    <!-- Mixed 1 -->
-    <div class="col-xl-4" *ngIf="mixed1Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Mixed 1</span>
-            <span class="text-muted fw-bold fs-7">Karma Grafik 1</span>
-          </h3>
-          <div class="card-toolbar">
-            <div class="fw-bolder text-primary fs-3">₺15,500</div>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-mixed1
-            [series]="mixed1Series"
-            [categories]="mixed1Categories"
-            [currency]="mixed1Currency"
-            [height]="mixed1Height"
-            [baseColor]="mixed1BaseColor"
-            [baseLightColor]="mixed1BaseLightColor"
-            [secondaryColor]="mixed1SecondaryColor"
-          ></ikweb-apex-mixed1>
+  <div class="col-xl-4" *ngIf="column7Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Column 7</span>
+          <span class="text-muted fw-bold fs-7">Nakit Akışı Analizi</span>
+        </h3>
+        <div class="card-toolbar">
+          <div class="fw-bolder fs-3">₺15,500</div>
         </div>
       </div>
-    </div>
-
-    <!-- Mixed 2 -->
-    <div class="col-xl-4" *ngIf="mixed2Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Mixed 2</span>
-            <span class="text-muted fw-bold fs-7">Trafik Kaynağı</span>
-          </h3>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-mixed2
-            [series]="mixed2Series"
-            [categories]="mixed2Categories"
-            [height]="mixed2Height"
-            [baseColor]="mixed2BaseColor"
-            [secondaryColor]="mixed2SecondaryColor"
-          ></ikweb-apex-mixed2>
-        </div>
+      <div class="card-body p-0">
+        <ikweb-apex-column7
+          [series]="column7Series"
+          [categories]="column7Categories"
+          [height]="column7Height"
+          [baseColor]="column7BaseColor"
+          [warningColor]="column7WarningColor"
+          [dangerColor]="column7DangerColor"
+        ></ikweb-apex-column7>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Mixed 3 -->
-    <div class="col-xl-4" *ngIf="mixed3Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Mixed 3</span>
-            <span class="text-muted fw-bold fs-7">Takım Karşılaştırması</span>
-          </h3>
+<div class="row g-5 mb-5 align-items-stretch">
+  <div class="col-xl-4" *ngIf="bar1Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Bar 1</span>
+          <span class="text-muted fw-bold fs-7">Ülke Karşılaştırması</span>
+        </h3>
+        <div class="card-toolbar">
+          <div class="fw-bolder fs-3">₺15,500</div>
         </div>
-        <div class="card-body p-0">
-          <ikweb-apex-mixed3
-            [series]="mixed3Series"
-            [categories]="mixed3Categories"
-            [height]="mixed3Height"
-            [baseColor]="mixed3BaseColor"
-            [baseLightColor]="mixed3BaseLightColor"
-            [secondaryColor]="mixed3SecondaryColor"
-          ></ikweb-apex-mixed3>
-        </div>
+      </div>
+      <div class="card-body p-0">
+        <ikweb-apex-bar1
+          [series]="bar1Series"
+          [categories]="bar1Categories"
+          [height]="bar1Height"
+          [baseColor]="bar1BaseColor"
+        ></ikweb-apex-bar1>
       </div>
     </div>
   </div>
 
-  <div class="row g-5 mb-5 align-items-stretch">
-    <!-- Mixed 4 -->
-    <div class="col-xl-6" *ngIf="mixed4Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Mixed 4</span>
-            <span class="text-muted fw-bold fs-7">Çoklu Takım Analizi</span>
-          </h3>
-        </div>
-        <div class="card-body p-0">
-          <ikweb-apex-mixed4
-            [series]="mixed4Series"
-            [categories]="mixed4Categories"
-            [height]="mixed4Height"
-            [baseColor]="mixed4BaseColor"
-            [secondaryColor]="mixed4SecondaryColor"
-            [secondaryLightColor]="mixed4SecondaryLightColor"
-            [warningColor]="mixed4WarningColor"
-          ></ikweb-apex-mixed4>
+  <div class="col-xl-4" *ngIf="bar2Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Bar 2</span>
+          <span class="text-muted fw-bold fs-7">Çoklu Seri Bar</span>
+        </h3>
+        <div class="card-toolbar">
+          <div class="fw-bolder fs-3 text-primary">₺15,500</div>
         </div>
       </div>
+      <div class="card-body p-0">
+        <ikweb-apex-bar2
+          [series]="bar2Series"
+          [categories]="bar2Categories"
+          [currency]="bar2Currency"
+          [height]="bar2Height"
+          [baseColor]="bar2BaseColor"
+          [secondaryColor]="bar2SecondaryColor"
+          [tertiaryColor]="bar2TertiaryColor"
+        ></ikweb-apex-bar2>
+      </div>
     </div>
+  </div>
 
-    <!-- Mixed 5 -->
-    <div class="col-xl-6" *ngIf="mixed5Series">
-      <div class="card overflow-hidden h-100">
-        <div class="card-header border-0 py-5">
-          <h3 class="card-title align-items-start flex-column">
-            <span class="fw-bolder mb-2 text-dark">Apex Mixed 5</span>
-            <span class="text-muted fw-bold fs-7"
-              >Gelir / Nakit Akışı Analizi</span
-            >
-          </h3>
+  <div class="col-xl-4" *ngIf="bar6Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Bar 6</span>
+          <span class="text-muted fw-bold fs-7">Nakit Akışı Analizi</span>
+        </h3>
+        <div class="card-toolbar">
+          <div class="fw-bolder fs-3">₺15,500</div>
         </div>
-        <div class="card-body p-0">
-          <ikweb-apex-mixed5
-            [series]="mixed5Series"
-            [categories]="mixed5Categories"
-            [height]="mixed5Height"
-            [baseColor]="mixed5BaseColor"
-            [secondaryColor]="mixed5SecondaryColor"
-            [warningColor]="mixed5WarningColor"
-          ></ikweb-apex-mixed5>
+      </div>
+      <div class="card-body p-0">
+        <ikweb-apex-bar6
+          [series]="bar6Series"
+          [categories]="bar6Categories"
+          [height]="bar6Height"
+          [baseColor]="bar6BaseColor"
+          [warningColor]="bar6WarningColor"
+          [dangerColor]="bar6DangerColor"
+        ></ikweb-apex-bar6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-5 mb-5 align-items-stretch">
+  <div class="col-xl-4" *ngIf="pie1Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Pie 1</span>
+          <span class="text-muted fw-bold fs-7">Takım Dağılımı</span>
+        </h3>
+        <div class="card-toolbar">
+          <div class="fw-bolder fs-3">₺24,500</div>
         </div>
+      </div>
+      <div class="card-body p-0">
+        <ikweb-apex-pie1
+          [series]="pie1Series"
+          [labels]="pie1Labels"
+          [height]="pie1Height"
+        ></ikweb-apex-pie1>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-4" *ngIf="pie2Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Pie 2</span>
+          <span class="text-muted fw-bold fs-7">Takım Dağılımı (Donut)</span>
+        </h3>
+        <div class="card-toolbar">
+          <div class="fw-bolder fs-3">₺24,500</div>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <ikweb-apex-pie2
+          [series]="pie2Series"
+          [labels]="pie2Labels"
+          [height]="pie2Height"
+        ></ikweb-apex-pie2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-4" *ngIf="pie5Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Pie 5</span>
+          <span class="text-muted fw-bold fs-7">Günlük Dağılım</span>
+        </h3>
+        <div class="card-toolbar">
+          <div class="fw-bolder fs-3">₺24,500</div>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <ikweb-apex-pie5
+          [series]="pie5Series"
+          [labels]="pie5Labels"
+          [height]="pie5Height"
+        ></ikweb-apex-pie5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-5 mb-5 align-items-stretch">
+  <div class="col-xl-4" *ngIf="mixed1Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Mixed 1</span>
+          <span class="text-muted fw-bold fs-7">Karma Grafik 1</span>
+        </h3>
+        <div class="card-toolbar">
+          <div class="fw-bolder text-primary fs-3">₺15,500</div>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <ikweb-apex-mixed1
+          [series]="mixed1Series"
+          [categories]="mixed1Categories"
+          [currency]="mixed1Currency"
+          [height]="mixed1Height"
+          [baseColor]="mixed1BaseColor"
+          [baseLightColor]="mixed1BaseLightColor"
+          [secondaryColor]="mixed1SecondaryColor"
+        ></ikweb-apex-mixed1>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-4" *ngIf="mixed2Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Mixed 2</span>
+          <span class="text-muted fw-bold fs-7">Trafik Kaynağı</span>
+        </h3>
+      </div>
+      <div class="card-body p-0">
+        <ikweb-apex-mixed2
+          [series]="mixed2Series"
+          [categories]="mixed2Categories"
+          [height]="mixed2Height"
+          [baseColor]="mixed2BaseColor"
+          [secondaryColor]="mixed2SecondaryColor"
+        ></ikweb-apex-mixed2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-4" *ngIf="mixed3Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Mixed 3</span>
+          <span class="text-muted fw-bold fs-7">Takım Karşılaştırması</span>
+        </h3>
+      </div>
+      <div class="card-body p-0">
+        <ikweb-apex-mixed3
+          [series]="mixed3Series"
+          [categories]="mixed3Categories"
+          [height]="mixed3Height"
+          [baseColor]="mixed3BaseColor"
+          [baseLightColor]="mixed3BaseLightColor"
+          [secondaryColor]="mixed3SecondaryColor"
+        ></ikweb-apex-mixed3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-5 mb-5 align-items-stretch">
+  <div class="col-xl-6" *ngIf="mixed4Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Mixed 4</span>
+          <span class="text-muted fw-bold fs-7">Çoklu Takım Analizi</span>
+        </h3>
+      </div>
+      <div class="card-body p-0">
+        <ikweb-apex-mixed4
+          [series]="mixed4Series"
+          [categories]="mixed4Categories"
+          [height]="mixed4Height"
+          [baseColor]="mixed4BaseColor"
+          [secondaryColor]="mixed4SecondaryColor"
+          [secondaryLightColor]="mixed4SecondaryLightColor"
+          [warningColor]="mixed4WarningColor"
+        ></ikweb-apex-mixed4>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-6" *ngIf="mixed5Series">
+    <div class="card overflow-hidden h-100">
+      <div class="card-header border-0 py-5">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="fw-bolder mb-2 text-dark">Apex Mixed 5</span>
+          <span class="text-muted fw-bold fs-7"
+            >Gelir / Nakit Akışı Analizi</span
+          >
+        </h3>
+      </div>
+      <div class="card-body p-0">
+        <ikweb-apex-mixed5
+          [series]="mixed5Series"
+          [categories]="mixed5Categories"
+          [height]="mixed5Height"
+          [baseColor]="mixed5BaseColor"
+          [secondaryColor]="mixed5SecondaryColor"
+          [warningColor]="mixed5WarningColor"
+        ></ikweb-apex-mixed5>
       </div>
     </div>
   </div>

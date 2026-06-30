@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 export interface PageLink {
@@ -136,7 +136,6 @@ export class PageInfoService {
         isSeparator: false,
         isActive: false,
       });
-      // add separator
       result.push({
         title: '',
         path: '',

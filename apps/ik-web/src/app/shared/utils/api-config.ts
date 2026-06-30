@@ -1,4 +1,4 @@
-import { environment } from '@ikweb-env/environment';
+﻿import { environment } from '@ikweb-env/environment';
 
 export const ApiConfiguration = {
   Server: environment.apiServerUrl,
@@ -14,10 +14,8 @@ export const ApiConfiguration = {
   AuthURL: 'Authenticate/Auth',
 
   HomeURL: 'Home/',
-
-  // mockapi kullanıldığı için / (slash) yerine _ (alt tire) kullanılmşıtır.
   SharedURL: 'Shared_',
   InsanKaynaklariURL: 'InsanKaynaklari_',
   PuantajURL: 'Puantaj_',
-  TaleplerURL: 'Talepler_'
+  TedarikURL: 'Tedarik_'
 };

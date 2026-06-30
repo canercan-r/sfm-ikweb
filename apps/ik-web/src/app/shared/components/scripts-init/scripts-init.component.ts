@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+﻿import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ResolveEnd, Router } from '@angular/router';
 import { LayoutService, LayoutType } from '@ikweb-layout/core/layout.service';
 import { PageInfoService } from '@ikweb-layout/core/page-info.service';
@@ -35,7 +35,6 @@ export class ScriptsInitComponent implements OnInit, OnDestroy {
     };
 
     initPageInfo();
-    // subscribe to router events
     this.router.events.pipe(filter((event) => event instanceof ResolveEnd)).subscribe(initPageInfo);
   }
 

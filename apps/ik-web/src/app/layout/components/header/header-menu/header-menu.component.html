@@ -1,6 +1,4 @@
-<!--begin::Menu wrapper-->
-<div class="d-flex align-items-center">
-  <!--begin::Toggle-->
+﻿<div class="d-flex align-items-center">
   <div
     class="d-lg-flex d-none btn btn-icon btn-sm btn-color-gray-700 btn-active-light-primary w-30px h-30px w-md-40px h-md-40px rotate"
     data-st-menu-trigger="click"
@@ -8,9 +6,7 @@
   >
     <i class="fa-solid fa-align-left rotate-90 fs-3"></i>
   </div>
-  <!--end::Toggle-->
 
-  <!-- Menu -->
   <div
     class="menu menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px w-100"
     id="#st_header_menu"
@@ -19,7 +15,6 @@
       show: device === 'mobile' || ('tablet' && orientation === 'portrait'),
     }"
   >
-    <!--begin::Menu Container-->
     <div class="menu-scroll-wrapper" style="max-height:calc(100vh - 70px);overflow-y:auto;overscroll-behavior:contain;">
       <ng-container *ngIf="menu">
         <ng-container *ngFor="let item of menu; first as isFirst">
@@ -32,14 +27,10 @@
         </ng-container>
       </ng-container>
     </div>
-    <!--end::Menu Container-->
 
-    <!-- begin::1 Level -->
     <ng-template #menu1LevelTemplate let-item="item">
-      <!-- begin::if don't have submenu -->
       <ng-container *ngIf="!item.submenu">
         <div class="menu-item" [class.here]="isActive(item.link)">
-          <!--begin:Menu link-->
           <a
             class="menu-link py-1"
             [class.active]="isActive(item.link)"
@@ -66,18 +57,14 @@
               }}</span>
             </span>
           </a>
-          <!--end:Menu link-->
         </div>
       </ng-container>
-      <!-- end::if don't have submenu -->
 
-      <!-- begin::if has submenu indention -->
       <ng-container *ngIf="item.submenu && item.indention">
         <div
           data-st-menu-trigger="click"
           class="menu-item menu-accordion menu-sub-indention"
         >
-          <!--begin:Menu link-->
           <span class="menu-link py-1" [attr.data-link]="item.link">
             <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
@@ -87,8 +74,6 @@
             }}</span>
             <span class="menu-arrow"></span>
           </span>
-          <!--end:Menu link-->
-          <!--begin:Menu sub-->
           <div
             class="menu-sub menu-sub-accordion"
             st-hidden-height="177"
@@ -101,12 +86,9 @@
             >
             </ng-container>
           </div>
-          <!--end:Menu sub-->
         </div>
       </ng-container>
-      <!-- end::if has submenu indention -->
 
-      <!-- begin::if has submenu not indention -->
       <ng-container *ngIf="item.submenu && !item.indention">
         <div
           class="menu-item menu-lg-down-accordion me-lg-1"
@@ -114,7 +96,6 @@
           data-st-menu-placement="right-start"
           [ngClass]="calculateMenuItemHereClass(item)"
         >
-          <!--begin:Menu link-->
           <span
             class="menu-link py-1"
             [ngClass]="calculateMenuItemCssClass(item)"
@@ -142,8 +123,6 @@
               }}</span>
             </span>
           </span>
-          <!--end:Menu link-->
-          <!--begin:Menu sub-->
           <div
             class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-275px"
             data-st-menu-dismiss="false"
@@ -156,16 +135,11 @@
             >
             </ng-container>
           </div>
-          <!--end:Menu sub-->
         </div>
       </ng-container>
-      <!-- end::if has submenu not indention -->
     </ng-template>
-    <!-- end::1 Level -->
 
-    <!-- begin::2 Level -->
     <ng-template #menu2LevelTemplate let-item="item">
-      <!-- begin::if don't have submenu -->
       <ng-container *ngIf="!item.submenu">
         <div class="menu-item me-lg-1" [class.here]="isActive(item.link)">
           <a
@@ -179,29 +153,16 @@
             <span class="menu-title text-start">
               {{ item.title | translate }}
             </span>
-            <!-- <span
-              class="menu-favorite"
-              *ngIf="favorite"
-              (click)="toggleStar($event, item)"
-              [ngClass]="{ active: item.starred }"
-              placement="top"
-              [ngbTooltip]="item.starred ? 'Sık Kullanılanlardan Çıkar' : 'Sık Kullanılanlara Ekle'"
-            >
-              <i class="fa-solid fa-star fs-5"></i>
-            </span> -->
           </a>
         </div>
       </ng-container>
-      <!-- end::if don't have submenu -->
 
-      <!-- begin::if has submenu indention -->
       <ng-container *ngIf="item.submenu && item.indention">
         <div
           data-st-menu-trigger="click"
           class="menu-item menu-accordion menu-sub-indention"
           [ngClass]="calculateMenuItemHereClass(item)"
         >
-          <!--begin:Menu link-->
           <span class="menu-link py-1" [attr.data-link]="item.link">
             <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
@@ -211,8 +172,6 @@
             }}</span>
             <span class="menu-arrow"></span>
           </span>
-          <!--end:Menu link-->
-          <!--begin:Menu sub-->
           <div
             class="menu-sub menu-sub-accordion"
             st-hidden-height="177"
@@ -225,12 +184,9 @@
             >
             </ng-container>
           </div>
-          <!--end:Menu sub-->
         </div>
       </ng-container>
-      <!-- end::if has submenu indention -->
 
-      <!-- begin::if has submenu not indention -->
       <ng-container *ngIf="item.submenu && !item.indention">
         <div
           class="menu-item menu-lg-down-accordion me-lg-1"
@@ -238,7 +194,6 @@
           data-st-menu-placement="right-start"
           [ngClass]="calculateMenuItemHereClass(item)"
         >
-          <!--begin:Menu link-->
           <span
             class="menu-link py-1"
             [ngClass]="calculateMenuItemCssClass(item)"
@@ -252,8 +207,6 @@
             }}</span>
             <span class="menu-arrow"></span>
           </span>
-          <!--end:Menu link-->
-          <!--begin:Menu sub-->
           <div
             class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-275px"
             data-st-menu-dismiss="false"
@@ -266,19 +219,13 @@
             >
             </ng-container>
           </div>
-          <!--end:Menu sub-->
         </div>
       </ng-container>
-      <!-- end::if has submenu not indention -->
     </ng-template>
-    <!-- end::2 Level -->
 
-    <!-- begin::3 Level -->
     <ng-template #menu3LevelTemplate let-item="item">
-      <!-- begin::if don't have submenu -->
       <ng-container *ngIf="!item.submenu">
         <div class="menu-item me-lg-1" [class.here]="isActive(item.link)">
-          <!--begin:Menu link-->
           <a
             class="menu-link py-1"
             [class.active]="isActive(item.link)"
@@ -290,24 +237,15 @@
             <span class="menu-title text-start">
               {{ item.title | translate }}
             </span>
-            <!-- <span class="menu-favorite" *ngIf="favorite" (click)="toggleStar($event, item)"
-              [ngClass]="{ active: item.starred }" placement="top"
-              [ngbTooltip]="item.starred ? 'Sık Kullanılanlardan Çıkar' : 'Sık Kullanılanlara Ekle'">
-              <i class="fa-solid fa-star fs-5"></i>
-            </span> -->
           </a>
-          <!--end:Menu link-->
         </div>
       </ng-container>
-      <!-- end::if don't have submenu -->
 
-      <!-- begin::if has submenu indention -->
       <ng-container *ngIf="item.submenu && item.indention">
         <div
           data-st-menu-trigger="click"
           class="menu-item menu-accordion menu-sub-indention"
         >
-          <!--begin:Menu link-->
           <span class="menu-link py-1">
             <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
@@ -317,8 +255,6 @@
             }}</span>
             <span class="menu-arrow"></span>
           </span>
-          <!--end:Menu link-->
-          <!--begin:Menu sub-->
           <div
             class="menu-sub menu-sub-accordion"
             st-hidden-height="177"
@@ -331,12 +267,9 @@
             >
             </ng-container>
           </div>
-          <!--end:Menu sub-->
         </div>
       </ng-container>
-      <!-- end::if has submenu indention -->
 
-      <!-- begin::if has submenu not indention -->
       <ng-container *ngIf="item.submenu && !item.indention">
         <div
           class="menu-item menu-lg-down-accordion me-lg-1"
@@ -344,7 +277,6 @@
           data-st-menu-placement="right-start"
           [ngClass]="calculateMenuItemHereClass(item)"
         >
-          <!--begin:Menu link-->
           <span
             class="menu-link py-1"
             [ngClass]="calculateMenuItemCssClass(item)"
@@ -358,8 +290,6 @@
             }}</span>
             <span class="menu-arrow"></span>
           </span>
-          <!--end:Menu link-->
-          <!--begin:Menu sub-->
           <div
             class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-275px"
             data-st-menu-dismiss="false"
@@ -372,19 +302,13 @@
             >
             </ng-container>
           </div>
-          <!--end:Menu sub-->
         </div>
       </ng-container>
-      <!-- end::if has submenu not indention -->
     </ng-template>
-    <!-- end::3 Level -->
 
-    <!-- begin::4 Level -->
     <ng-template #menu4LevelTemplate let-item="item">
-      <!-- begin::if don't have submenu -->
       <ng-container *ngIf="!item.submenu">
         <div class="menu-item me-lg-1" [class.here]="isActive(item.link)">
-          <!--begin:Menu link-->
           <a class="menu-link py-1" [class.active]="isActive(item.link)">
             <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
@@ -392,24 +316,15 @@
             <span class="menu-title text-start" (click)="routerLink(item.link)">
               {{ item.title | translate }}
             </span>
-            <!-- <span class="menu-favorite" *ngIf="favorite" (click)="toggleStar($event, item)"
-              [ngClass]="{ active: item.starred }" placement="top"
-              [ngbTooltip]="item.starred ? 'Sık Kullanılanlardan Çıkar' : 'Sık Kullanılanlara Ekle'">
-              <i class="fa-solid fa-star fs-5"></i>
-            </span> -->
           </a>
-          <!--end:Menu link-->
         </div>
       </ng-container>
-      <!-- end::if don't have submenu -->
 
-      <!-- begin::if has submenu indention -->
       <ng-container *ngIf="item.submenu && item.indention">
         <div
           data-st-menu-trigger="click"
           class="menu-item menu-accordion menu-sub-indention"
         >
-          <!--begin:Menu link-->
           <span class="menu-link py-1">
             <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
@@ -419,8 +334,6 @@
             }}</span>
             <span class="menu-arrow"></span>
           </span>
-          <!--end:Menu link-->
-          <!--begin:Menu sub-->
           <div
             class="menu-sub menu-sub-accordion"
             st-hidden-height="177"
@@ -433,12 +346,9 @@
             >
             </ng-container>
           </div>
-          <!--end:Menu sub-->
         </div>
       </ng-container>
-      <!-- end::if has submenu indention -->
 
-      <!-- begin::if has submenu not indention -->
       <ng-container *ngIf="item.submenu && !item.indention">
         <div
           class="menu-item menu-lg-down-accordion me-lg-1"
@@ -446,7 +356,6 @@
           data-st-menu-placement="right-start"
           [ngClass]="calculateMenuItemHereClass(item)"
         >
-          <!--begin:Menu link-->
           <span
             class="menu-link py-1"
             [ngClass]="calculateMenuItemCssClass(item)"
@@ -460,8 +369,6 @@
             }}</span>
             <span class="menu-arrow"></span>
           </span>
-          <!--end:Menu link-->
-          <!--begin:Menu sub-->
           <div
             class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-275px"
             data-st-menu-dismiss="false"
@@ -474,18 +381,13 @@
             >
             </ng-container>
           </div>
-          <!--end:Menu sub-->
         </div>
       </ng-container>
-      <!-- end::if has submenu not indention -->
     </ng-template>
-    <!-- end::4 Level -->
 
-    <!-- begin::5 Level -->
     <ng-template #menu5LevelTemplate let-item="item">
       <ng-container *ngIf="!item.submenu">
         <div class="menu-item me-lg-1" [class.here]="isActive(item.link)">
-          <!--begin:Menu link-->
           <a class="menu-link py-1" [class.active]="isActive(item.link)">
             <span class="menu-bullet">
               <span class="bullet bullet-dot"></span>
@@ -493,23 +395,13 @@
             <span class="menu-title text-start" (click)="routerLink(item.link)">
               {{ item.title | translate }}
             </span>
-            <!-- <span class="menu-favorite" *ngIf="favorite" (click)="toggleStar($event, item)"
-              [ngClass]="{ active: item.starred }" placement="top"
-              [ngbTooltip]="item.starred ? 'Sık Kullanılanlardan Çıkar' : 'Sık Kullanılanlara Ekle'">
-              <i class="fa-solid fa-star fs-5"></i>
-            </span> -->
           </a>
-          <!--end:Menu link-->
         </div>
       </ng-container>
     </ng-template>
-    <!-- end::5 Level -->
 
-    <!-- begin::Indention -->
     <ng-template #menuItemIndentionTemplate let-item="item" let-first="first">
-      <!--begin:Menu item-->
       <div class="menu-item" [class.here]="isActive(item.link)">
-        <!--begin:Menu link-->
         <a class="menu-link py-1" [class.active]="isActive(item.link)">
           <span class="menu-bullet">
             <span class="bullet bullet-dot"></span>
@@ -517,16 +409,8 @@
           <span class="menu-title text-start" (click)="routerLink(item.link)">
             {{ item.title | translate }}
           </span>
-          <!-- <span class="menu-favorite" *ngIf="favorite" (click)="toggleStar($event, item)"
-            [ngClass]="{ active: item.starred }" placement="top"
-            [ngbTooltip]="item.starred ? 'Sık Kullanılanlardan Çıkar' : 'Sık Kullanılanlara Ekle'">
-            <i class="fa-solid fa-star fs-5"></i>
-          </span> -->
         </a>
-        <!--end:Menu link-->
       </div>
-      <!--end:Menu item-->
     </ng-template>
-    <!-- end::Indention -->
   </div>
 </div>

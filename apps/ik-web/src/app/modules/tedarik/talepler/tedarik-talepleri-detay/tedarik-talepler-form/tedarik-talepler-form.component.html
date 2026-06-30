@@ -1,0 +1,342 @@
+<ikweb-toolbar
+  [backClick]="true"
+  [bc$]="bc$"
+  [title]="titleKey"
+  (backClicked)="goBack()"
+>
+  <div action class="d-flex align-items-center gap-2">
+    <ng-container *ngIf="mod === 'yeni' || mod === 'degistir'">
+      <button class="btn btn-sm btn-warning">
+        {{ "Talepler.Tedarik.Form.KaydetVeGonder" | translate }}
+      </button>
+      <button class="btn btn-sm btn-success">
+        {{ "Global.Save" | translate }}
+      </button>
+      <button
+        [overlaySettings]="_sharedHelper.overlaySettingsAuto"
+        [igxToggleAction]="dropdownMenu"
+        [igxDropDownItemNavigation]="dropdownMenu"
+        class="btn btn-sm btn-icon btn-circle btn-primary"
+      >
+        <i class="fa-regular fa-ellipsis-vertical"></i>
+      </button>
+      <igx-drop-down #dropdownMenu [width]="'200px'">
+        <igx-drop-down-item>{{
+          "Global.ExcelExport" | translate
+        }}</igx-drop-down-item>
+        <igx-drop-down-item>{{
+          "Global.Yazdir" | translate
+        }}</igx-drop-down-item>
+      </igx-drop-down>
+    </ng-container>
+    <ng-container *ngIf="mod === 'sil'">
+      <button class="btn btn-sm btn-danger">
+        {{ "Global.Sil" | translate }}
+      </button>
+    </ng-container>
+  </div>
+</ikweb-toolbar>
+
+<form [formGroup]="form">
+  <div id="st_form_cards_section" class="d-flex flex-column gap-3 pb-2">
+    <div class="card">
+      <div class="card-header border-0 py-0 min-h-30px">
+        <span class="card-title fs-6 fw-bold mb-0">
+          {{ "Talepler.Tedarik.Form.TalepBilgileri" | translate }}
+        </span>
+      </div>
+      <div class="card-body pt-0 pb-4">
+        <div class="row row-gap-3">
+          <section class="col-12 col-md-3">
+            <ikweb-select
+              name="donem"
+              label="Talepler.Tedarik.Donem"
+              formControlName="donem"
+              [data]="[]"
+              valueKey=""
+              displayKey=""
+            ></ikweb-select>
+          </section>
+          <section class="col-12 col-md-3">
+            <ikweb-input
+              name="talepNo"
+              label="Talepler.Tedarik.Form.TalepNo"
+              formControlName="talepNo"
+            ></ikweb-input>
+          </section>
+          <section class="col-12 col-md-3">
+            <ikweb-date-time-picker
+              name="tarih"
+              label="Talepler.Tedarik.Form.Tarih"
+              formControlName="tarih"
+            ></ikweb-date-time-picker>
+          </section>
+          <section class="col-12 col-md-3">
+            <ikweb-select
+              name="talepTuru"
+              label="Talepler.Tedarik.Form.TalepTuru"
+              formControlName="talepTuru"
+              [data]="[]"
+              valueKey=""
+              displayKey=""
+            ></ikweb-select>
+          </section>
+          <section class="col-12 col-md-4">
+            <ikweb-input
+              name="teslimAlacakKisi1"
+              label="Talepler.Tedarik.Form.TeslimAlacakKisi1"
+              formControlName="teslimAlacakKisi1"
+              [suffix]="true"
+            >
+              <ng-container suffix>
+                <i class="fa-regular fa-magnifying-glass fs-4 me-4"></i>
+              </ng-container>
+            </ikweb-input>
+          </section>
+          <section class="col-12 col-md-4">
+            <ikweb-input
+              name="teslimAlacakKisi2"
+              label="Talepler.Tedarik.Form.TeslimAlacakKisi2"
+              formControlName="teslimAlacakKisi2"
+              [suffix]="true"
+            >
+              <ng-container suffix>
+                <i class="fa-regular fa-magnifying-glass fs-4 me-4"></i>
+              </ng-container>
+            </ikweb-input>
+          </section>
+          <section class="col-12 col-md-4">
+            <ikweb-input
+              name="teslimAlacakKisi3"
+              label="Talepler.Tedarik.Form.TeslimAlacakKisi3"
+              formControlName="teslimAlacakKisi3"
+              [suffix]="true"
+            >
+              <ng-container suffix>
+                <i class="fa-regular fa-magnifying-glass fs-4 me-4"></i>
+              </ng-container>
+            </ikweb-input>
+          </section>
+          <section class="col-12 col-md-6">
+            <ikweb-input
+              name="aciklama"
+              label="Talepler.Tedarik.Form.Aciklama"
+              formControlName="aciklama"
+            ></ikweb-input>
+          </section>
+          <section class="col-12 col-md-2">
+            <ikweb-input
+              name="telNo1"
+              label="Talepler.Tedarik.Form.TelNo1"
+              formControlName="telNo1"
+            ></ikweb-input>
+          </section>
+          <section class="col-12 col-md-2">
+            <ikweb-input
+              name="telNo2"
+              label="Talepler.Tedarik.Form.TelNo2"
+              formControlName="telNo2"
+            ></ikweb-input>
+          </section>
+          <section class="col-12 col-md-2">
+            <ikweb-input
+              name="telNo3"
+              label="Talepler.Tedarik.Form.TelNo3"
+              formControlName="telNo3"
+            ></ikweb-input>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div class="card flex-shrink-0">
+      <div class="card-header border-0 py-0 min-h-30px">
+        <span class="card-title fs-6 fw-bold mb-0">
+          {{ "Talepler.Tedarik.Form.ProjeBilgileri" | translate }}
+        </span>
+      </div>
+      <div class="card-body pt-0 pb-4">
+        <div class="row row-gap-3">
+          <section class="col-12 col-md-3">
+            <ikweb-input
+              name="projeKodu"
+              label="Talepler.Tedarik.Form.ProjeKodu"
+              formControlName="projeKodu"
+            ></ikweb-input>
+          </section>
+          <section class="col-12 col-md-3">
+            <ikweb-input
+              name="projeAdi"
+              label="Talepler.Tedarik.Form.ProjeAdi"
+              formControlName="projeAdi"
+            ></ikweb-input>
+          </section>
+          <section class="col-12 col-md-6">
+            <ikweb-input
+              name="teslimAdresi"
+              label="Talepler.Tedarik.Form.TeslimAdresi"
+              formControlName="teslimAdresi"
+            ></ikweb-input>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div id="st_grid_card" class="card card-spacing-reset mt-1">
+  <div class="card-body p-0">
+    <div id="st_grids_row" class="row g-0">
+      <div class="col-6 border-end border-3">
+        <ul
+          id="st_secilen_nav"
+          ngbNav
+          #secilenNav="ngbNav"
+          [(activeId)]="activeTab"
+          (activeIdChange)="onTabChange($event)"
+          class="nav nav-line-tabs nav-line-tabs-0 flex-nowrap text-nowrap border-transparent fs-7 fw-bold px-5 pt-1"
+        >
+          <li class="nav-item" [ngbNavItem]="1">
+            <a class="nav-link text-active-dark me-6" ngbNavLink>
+              {{ "Talepler.Tedarik.Form.SecilenMalzemeler" | translate }}
+            </a>
+            <ng-template ngbNavContent>
+              <div
+                data-st-scroll="true"
+                data-st-scroll-save-state="false"
+                data-st-scroll-height="auto"
+                data-st-scroll-wrappers="#st_grids_nav_content, #st_secilen_malzemeler"
+                data-st-scroll-dependencies="#st_header, #st_toolbar, #st_form_cards_section, #st_secilen_nav"
+                [attr.data-st-scroll-offset]="
+                  _sharedHelper.contentSpacingFullCardReset
+                "
+              >
+                <lib-mock-grid
+                  id="st_secilen_malzemeler"
+                  #secilenMalzemelerGrid
+                ></lib-mock-grid>
+              </div>
+            </ng-template>
+          </li>
+          <li class="nav-item" [ngbNavItem]="2">
+            <a class="nav-link text-active-dark me-6" ngbNavLink>
+              {{ "Talepler.Tedarik.Form.DonemeAltDosyalar" | translate }}
+            </a>
+            <ng-template ngbNavContent>
+              <div
+                data-st-scroll="true"
+                data-st-scroll-save-state="false"
+                data-st-scroll-height="auto"
+                data-st-scroll-wrappers="#st_grids_nav_content, #st_donem_dosyalar"
+                data-st-scroll-dependencies="#st_header, #st_toolbar, #st_form_cards_section, #st_secilen_nav"
+                [attr.data-st-scroll-offset]="
+                  _sharedHelper.contentSpacingFullCardReset
+                "
+              >
+                <lib-mock-grid
+                  id="st_donem_dosyalar"
+                  #donemDosyalarGrid
+                ></lib-mock-grid>
+              </div>
+            </ng-template>
+          </li>
+          <li class="nav-item" [ngbNavItem]="3">
+            <a class="nav-link text-active-dark me-6" ngbNavLink>
+              {{ "Talepler.Tedarik.Form.Dosyalar" | translate }}
+            </a>
+            <ng-template ngbNavContent>
+              <div
+                data-st-scroll="true"
+                data-st-scroll-save-state="false"
+                data-st-scroll-height="auto"
+                data-st-scroll-wrappers="#st_grids_nav_content, #st_dosyalar"
+                data-st-scroll-dependencies="#st_header, #st_toolbar, #st_form_cards_section, #st_secilen_nav"
+                [attr.data-st-scroll-offset]="
+                  _sharedHelper.contentSpacingFullCardReset
+                "
+              >
+                <lib-mock-grid id="st_dosyalar" #dosyalarGrid></lib-mock-grid>
+              </div>
+            </ng-template>
+          </li>
+          <button
+            [hidden]="activeTab == 1"
+            class="btn btn-yellow btn-sm ms-auto"
+            (click)="dosyaEkleModal()"
+          >
+            {{ "Global.Ekle" | translate }}
+          </button>
+        </ul>
+        <div
+          id="st_grids_nav_content"
+          class="nav-content mt-1"
+          [ngbNavOutlet]="secilenNav"
+        ></div>
+      </div>
+
+      <div class="col-6 border-start border-3">
+        <div
+          id="st_malzemeler_header"
+          class="px-5 pt-4 pb-5 border-bottom fw-bold fs-7"
+        >
+          {{ "Talepler.Tedarik.Form.Malzemeler" | translate }}
+        </div>
+        <div
+          data-st-scroll="true"
+          data-st-scroll-save-state="false"
+          data-st-scroll-height="auto"
+          data-st-scroll-wrappers="#st_malzemeler"
+          data-st-scroll-dependencies="#st_header, #st_toolbar, #st_form_cards_section, #st_malzemeler_header"
+          [attr.data-st-scroll-offset]="
+            _sharedHelper.contentSpacingFullCardReset
+          "
+        >
+          <lib-mock-grid id="st_malzemeler" #malzemelerGrid></lib-mock-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #malzemelerIslemTemp let-cell="cell">
+  <div class="d-flex justify-content-center align-items-center">
+    <button
+      class="btn btn-sm btn-icon"
+      (click)="toggleMalzeme(cell.row.data)"
+      [title]="cell.row.data._selected ? 'Çıkar' : 'Ekle'"
+    >
+      <i
+        class="fa-regular fs-4"
+        [ngClass]="
+          cell.row.data._selected
+            ? 'fa-circle-check text-success'
+            : 'fa-circle text-gray-400'
+        "
+      ></i>
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #secilenTanımsızTemp let-cell="cell">
+  <div class="d-flex justify-content-center align-items-center">
+    <ikweb-checkbox [(ngModel)]="cell.row.data.tanimsiz"> </ikweb-checkbox>
+  </div>
+</ng-template>
+
+<ng-template #secilenGeriTemp let-cell="cell">
+  <div class="d-flex justify-content-center align-items-center">
+    <button
+      class="btn btn-sm btn-circle btn-danger btn-icon w-20px h-20px"
+      (click)="geriAl(cell.row.data)"
+      title="Geri Al"
+    >
+      <i class="fa-solid fa-rotate-left text-light fs-9"></i>
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #dosyalarIslemTemp let-cell="cell" class="colWidth">
+  <button class="btn">
+    <igx-icon class="more_vert_icon" family="material">more_vert</igx-icon>
+  </button>
+</ng-template>

@@ -28,7 +28,7 @@ export class MenuData {
               {
                 id: 211,
                 order: 1,
-                title: 'Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari',
+                title: 'Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.Title',
                 link: '/puantaj/parmak-izi/pi-cihazlari'
               },
               {
@@ -40,13 +40,13 @@ export class MenuData {
               {
                 id: 213,
                 order: 3,
-                title: 'Puantaj.ProjePuantajlari.ParmakIzi.GunlukCalismaSaatiTakibi',
+                title: 'Puantaj.ProjePuantajlari.ParmakIzi.GunlukCalismaSaatiTakibi.Title',
                 link: '/puantaj/parmak-izi/gunluk-calisma-saati-takibi'
               },
               {
                 id: 214,
                 order: 4,
-                title: 'Puantaj.ProjePuantajlari.ParmakIzi.IseBaslayanlarRaporu',
+                title: 'Puantaj.ProjePuantajlari.ParmakIzi.IseBaslayanlarRaporu.Title',
                 link: '/puantaj/parmak-izi/ise-baslayanlar-raporu'
               }
             ]
@@ -61,13 +61,13 @@ export class MenuData {
             id: 23,
             order: 3,
             title: 'Puantaj.ProjePuantajlari.GunlukPuantaj.Title',
-            link: '/puantaj/proje-puantajlari/gunluk-puantaj',
+            link: '/puantaj/proje-puantajlari/gunluk',
           },
           {
             id: 24,
             order: 4,
             title: 'Puantaj.ProjePuantajlari.AylikPuantaj.Title',
-            link: '/puantaj/proje-puantajlari/aylik-puantaj',
+            link: '/puantaj/proje-puantajlari/aylik',
           }
         ],
       },
@@ -97,25 +97,25 @@ export class MenuData {
             id: 41,
             order: 1,
             title: 'Talepler.Siparisler.Title',
-            link: '/talepler/siparisler',
+            link: '/tedarik/siparisler',
           },
           {
             id: 42,
             order: 2,
             title: 'Talepler.Title',
-            link: '/talepler/tedarik-talepleri',
+            link: '/tedarik/tedarik-talepleri',
           },
           {
             id: 43,
             order: 3,
             title: 'Talepler.GonderiKaydi.Title',
-            link: '/talepler/gonderi-kaydi',
+            link: '/tedarik/gonderi-kaydi',
           },
           {
             id: 44,
             order: 4,
             title: 'Talepler.GirdiHizmetTakibi.Title',
-            link: '/talepler/girdi-hizmet-takibi',
+            link: '/tedarik/girdi-hizmet-takibi',
           },
         ],
       },

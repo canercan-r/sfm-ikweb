@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+﻿import { DOCUMENT } from '@angular/common';
 import { ChangeDetectorRef, Component, EnvironmentInjector, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,7 +18,6 @@ import { first, Observable, Subscription } from 'rxjs';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  // SenkronThemes mock, change it to:
   defaultAuth: ILoginRequest = {
     email: 'caner.can@senkron.net',
     password: 'senkron',
@@ -49,8 +48,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     private _environmentInjector: EnvironmentInjector,
   ) {
     this.isLoading$ = this._api.isLoading$;
-
-    // redirect to home if already logged in
     if (_user.CurrentUser) {
       this._router.navigate(['/']);
     }
@@ -73,14 +70,11 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
   }
-
-  // convenience getter for easy access to form fields
   get ctrl() {
     return this.loginForm.controls;
   }
 
   forgotPassword() {
-    // this._router.navigate(['auth/forgot-password'])
   }
 
   initForm() {
@@ -118,7 +112,6 @@ export class LoginComponent implements OnInit, OnDestroy {
           this._user.insertUser(user as any);
           this._translate.use(user.language.replace('-', ''));
           this.document.documentElement.setAttribute('lang', user?.language?.replace('-', '').substring(0, 2));
-          // this.router.navigate([this.returnUrl]);
           this.setUserCookie();
           this._router.navigate([this._route.snapshot.queryParams['redirect'] || '/home'], { replaceUrl: true });
         } else {
@@ -140,11 +133,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       document.cookie =
         'remember=true;expires=Thu, 18 Dec 2040 12:00:00 UTC; path=/';
     } else {
-      // Email cookie’sini boşalt
       document.cookie =
         'email=;expires=Thu, 18 Dec 2040 12:00:00 UTC; path=/';
-
-      // remember cookie’sini temizle
       document.cookie =
         'remember=;expires=Thu, 18 Dec 2040 12:00:00 UTC; path=/';
     }

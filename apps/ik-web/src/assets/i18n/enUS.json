@@ -50,6 +50,7 @@
     "Download": "Download",
     "DownloadAttachment": "Download Additional File",
     "DownloadStarted": "Download Started, Please Wait",
+    "Duzenle": "Edit",
     "EPostaAlaniBosGecilemez": "E-Mail is required",
     "EPostaAlaniGecersiz": "E-Mail is invalid",
     "EPostaEnAz3SembolIcermelidir": "E-Mail should have at least 3 symbols",
@@ -63,6 +64,7 @@
     "EskiSifreYeniSifreAyniOlamaz": "New password have to be different from the old password.",
     "Evet": "Yes",
     "ExcelExport": "Excel Export",
+    "ExceldenAl": "Import Excel",
     "Eylul": "September",
     "FarkliKaydet": "Save as",
     "Filter": "Filter",
@@ -79,6 +81,7 @@
     "IslemBasarisiz": "Unsuccessful",
     "IslemSirasindaHata": "İşlem sırasında hata oluştu !",
     "Kasim": "November",
+    "Kaydet": "Save",
     "KullaniciAdiEnAz3SembolIcermelidir": "Username should have at least 3 symbols",
     "KullaniciAdiGirisiBosGecilemez": "Username is required",
     "KullaniciAdiGirisiYapiniz": "Please enter username",
@@ -113,6 +116,7 @@
     "SifreTekrarAlaniBosGecilemez": "Please Confirm Password",
     "SifreVeSifreTekrarAlanlariAyniOlmalidir": "Passwords doesn't match.",
     "Sil": "Delete",
+    "SilOnay": "Are you sure you want to delete?",
     "Silindi": "Deleted",
     "SmsIletiHata": "SMS iletimi sırasında hata oluştu !",
     "SozlesmeDescription": "I have read and accept.",
@@ -127,6 +131,7 @@
     "Yada": "or",
     "Yazdir": "Print",
     "Year": "Year",
+    "YeniKayit": "New Record",
     "YonlendiriliyorsunuzLutfenBekleyiniz": "You are being redirected, please wait",
     "ZorunluAlanlariKontrolEdin": "Check Required Fields",
     "arAR": "العربية",
@@ -318,6 +323,57 @@
         "projeAdi": "Project Name",
         "toplamKidemGunu": "Total Seniority Days"
       },
+      "IKWeb_Puantaj_ParmakIzi_GunlukCalisma": {
+        "adiSoyadi": "Full Name",
+        "cikis": "Exit",
+        "erkenGiris": "Early Entry",
+        "gecCikis": "Late Exit",
+        "gecGiris": "Late Entry",
+        "giris": "Entry",
+        "gunlukCalisma": "Daily Work",
+        "pozisyon": "Position",
+        "sicilNo": "Registration No",
+        "siraNo": "Order No",
+        "tarih": "Date",
+        "vardiyaPlani": "Shift Plan"
+      },
+      "IKWeb_Puantaj_ParmakIzi_IseBaslayanlar": {
+        "adiSoyadi": "Full Name",
+        "babaAdi": "Father's Name",
+        "cikisTarihi": "Exit Date",
+        "dogumTarihi": "Date of Birth",
+        "girisTarihi": "Entry Date",
+        "kurumKodu": "Institution Code",
+        "projeAdi": "Project Name",
+        "sicilNo": "Registration No",
+        "sskNo": "SSK No",
+        "tcKimlik": "ID Number",
+        "turu": "Type"
+      },
+      "IKWeb_Puantaj_ParmakIzi_PiCihazlari": {
+        "Islem": "Action",
+        "cihazAdi": "Device Name",
+        "cihazIP": "Device IP",
+        "cihazNo": "Device No",
+        "cihazPort": "Device Port",
+        "cikis": "Exit",
+        "giris": "Entry",
+        "masterCihaz": "Master Device",
+        "sonOkumaTarihi": "Last Read Date"
+      },
+      "IKWeb_Puantaj_ParmakIzi_PiCihazlari_Projeler": {
+        "Islem": "Action",
+        "projeAdi": "Project Name",
+        "projeKodu": "Project Code"
+      },
+      "IKWeb_Puantaj_ParmakIzi_ProjeSecimi": {
+        "hizmetTuru": "Service Type",
+        "kurumAdi": "Institution Name",
+        "projeAdi": "Project Name",
+        "projeKodu": "Project Code",
+        "segment": "Segment",
+        "segmentYoneticileri": "Segment Managers"
+      },
       "IKWeb_Puantaj_PuantajKontrol": {
         "calisanTutari": "Employee Amount",
         "fazlaMesaiTutari": "Overtime Amount",
@@ -349,11 +405,26 @@
         "miktar": "Quantity",
         "urunResmi": "Product Image"
       },
+      "IKWeb_Talepler_Dosyalar": {
+        "Islem": "Action",
+        "aciklama": "Description",
+        "dosyaAdi": "File Name",
+        "dosyaBoyutu": "File Size",
+        "dosyaTuru": "File Type",
+        "eklemeTarihi": "Added Date",
+        "gecerlilikTarihi": "Validity Date",
+        "path": "Path"
+      },
       "IKWeb_Talepler_TedarikTalepleri": {
         "Islem": "Action",
+        "direktor": "Director",
+        "direktorYardimcisi": "Assistant Director",
         "durumu": "Status",
+        "hizmetTuru": "Service Type",
+        "kurum": "Institution",
         "projeAdi": "Project Name",
         "projeKodu": "Project Code",
+        "projeSorumlusu": "Project Manager",
         "segment": "Segment",
         "talepNo": "Request No"
       },
@@ -370,6 +441,93 @@
         "talepNo": "Request No",
         "talepTarihi": "Request Date",
         "talepTuru": "Request Type"
+      },
+      "IKWeb_Tedarik_Siparisler": {
+        "acikUygunsuzlukSayisi": "Open Non-Conformity Count",
+        "donem": "Period",
+        "projeAdi": "Project Name",
+        "projeKodu": "Project Code",
+        "siparisDurumu": "Order Status",
+        "siparisNo": "Order No",
+        "talepNo": "Request No",
+        "talepTuru": "Request Type",
+        "tarih": "Date",
+        "tedarikci": "Supplier",
+        "tedarikciOnayi": "Supplier Approval",
+        "teslimTarihi": "Delivery Date",
+        "uygunsuzlukSayisi": "Non-Conformity Count"
+      },
+      "IKWeb_Tedarik_Siparisler_Malzemeler": {
+        "acikUygunsuzlukSayisi": "Open Non-Conformity Count",
+        "birimi": "Unit",
+        "faturaMiktari": "Invoice Qty",
+        "malzemeAdi": "Material Name",
+        "siparisMiktari": "Order Qty",
+        "teslimAlinanMiktar": "Received Qty",
+        "teslimEdilenMiktar": "Delivered Qty",
+        "uygunsuzlukSayisi": "Non-Conformity Count"
+      },
+      "IKWeb_Tedarik_Siparisler_TeslimFisleri": {
+        "NFCEtiketNo": "NFC Tag No",
+        "ekipmanKodu": "Equipment Code",
+        "fisNo": "Slip No",
+        "fisTarihi": "Slip Date",
+        "malzemeAdi": "Material Name",
+        "malzemeKodu": "Material Code",
+        "siparisMiktari": "Order Qty",
+        "teslimAlindi": "Delivered",
+        "teslimMiktari": "Delivery Qty",
+        "ureticiSeriNo": "Manufacturer Serial No"
+      },
+      "IKWeb_Tedarik_Siparisler_Uygunsuzluklar": {
+        "aciklama": "Description",
+        "tarih": "Date",
+        "uygunsuzlukDurumu": "NC Status",
+        "uygunsuzlukNo": "Non-Conformity No",
+        "uygunsuzlukTuru": "NC Type"
+      },
+      "IKWeb_Tedarik_Siparisler_UygunsuzlukMalzemeGirisleri": {
+        "Islem": "Actions",
+        "aciklama": "Description",
+        "birimi": "Unit",
+        "malzemeAdi": "Material Name",
+        "malzemeKodu": "Material Code",
+        "siparisMiktari": "Order Qty",
+        "uygunsuzMiktar": "Non-Conforming Qty"
+      },
+      "IKWeb_Tedarik_Siparisler_GonderiKaydi": {
+        "birim": "Unit",
+        "malzemeAdi": "Material Name",
+        "malzemeKodu": "Material Code",
+        "miktar": "Quantity"
+      },
+      "IKWeb_Tedarik_Siparisler_GonderiKaydi_Fatura": {
+        "faturaNo": "Invoice No",
+        "faturaTuru": "Invoice Type",
+        "kurum": "Institution",
+        "projeDirektoru": "Project Director",
+        "projeAdi": "Project Name",
+        "tarih": "Date",
+        "tedarikci": "Supplier",
+        "tutar": "Amount"
+      },
+      "IKWeb_Tedarik_Siparisler_GonderiKaydi_Irsaliye": {
+        "ETTN": "ETTN",
+        "durum": "Status",
+        "duzenlemeTarihi": "Issue Date",
+        "eIrsaliyeSiparisNo": "E-Waybill Order No",
+        "gonderenUnvani": "Sender Title",
+        "irsaliyeNo": "Waybill No",
+        "sevkTarihi": "Dispatch Date"
+      },
+      "IKWeb_Tedarik_Siparisler_GonderiKaydi_MalzemeDetay": {
+        "adi": "Name",
+        "barkodu": "Barcode",
+        "kodu": "Code",
+        "malzemeGrubu": "Material Group",
+        "malzemeTuru": "Material Type",
+        "uretici": "Manufacturer",
+        "ureticiKodu": "Manufacturer Code"
       }
     }
   },
@@ -560,10 +718,43 @@
       "OncekiDurumaDon": "Return to Previous",
       "Operasyon": "Operation",
       "ParmakIzi": {
-        "GunlukCalismaSaatiTakibi": "Daily Working Hours Tracking",
-        "IseBaslayanlarRaporu": "Job Starters Report",
+        "GunlukCalismaSaatiTakibi": {
+          "BaslangicTarihi": "Start Date",
+          "BitisTarihi": "End Date",
+          "Personel": "Personnel",
+          "Proje": "Project",
+          "Title": "Daily Working Hours Tracking"
+        },
+        "IseBaslayanlarRaporu": {
+          "BaslangicTarihi": "Start Date",
+          "BitisTarihi": "End Date",
+          "Title": "Job Starters Report"
+        },
         "ParmakIzi": "Fingerprint",
-        "PiCihazlari": "Fp Devices",
+        "PiCihazlari": {
+          "Aktif": "Active",
+          "CihazAdi": "Device Name",
+          "CihazBilgileri": "Device Information",
+          "CihazDurumu": "Device Status",
+          "CihazIP": "Device IP",
+          "CihazKullanimTipi": "Device Usage Type",
+          "CihazNo": "Device No",
+          "CihazPortNo": "Device Port No",
+          "CihazTuru": "Device Type",
+          "Cikis": "Exit",
+          "Duzenle": "Edit Fp Device",
+          "Giris": "Entry",
+          "MasterCihaz": "Master Device",
+          "Pasif": "Passive",
+          "ProjeSecimi": {
+            "AktifOlanlar": "Active Ones",
+            "AktifOlmayanlar": "Inactive Ones",
+            "Kurum": "Institution"
+          },
+          "SonOkumaTarihi": "Last Read Date",
+          "Title": "Fp Devices",
+          "YeniKayit": "Fp Devices - New Record"
+        },
         "ProjePuantajParmakIziRaporu": "Project Timesheet Fingerprint Report"
       },
       "ProjedeVarsayilanGecikmeliGunUygula": "Apply Default Delay Day to Project",
@@ -594,10 +785,78 @@
       "Title": "Input Service Tracking"
     },
     "GonderiKaydi": {
-      "Title": "Shipment Record"
+      "AliciB": {
+        "BinaAdi": "Building Name",
+        "BinaNoKapiNo": "Building No/Door No",
+        "Bulvar": "Boulevard/Street/Road",
+        "Mahalle": "Neighbourhood/District/Town/Village",
+        "PostaKodu": "Postal Code",
+        "Sehir": "City",
+        "Ulke": "Country",
+        "UlkeKodu": "Country Code",
+        "Unvan": "Title",
+        "VergiDairesi": "Tax Office",
+        "VergiKimlikNo": "Tax ID No"
+      },
+      "AliciBilgileri": "Buyer Information",
+      "AliciTuru": "Buyer Type",
+      "AlisIrsaliyeFaturaNo": "Purchase Return Invoice No",
+      "AlisSiparisNo": "Purchase Order No",
+      "DigerAlici": "Other Buyer",
+      "Dosyalar": "Files",
+      "EIrsaliyeDurumu": "E-Waybill Status",
+      "EIrsaliyeNo": "E-Waybill No",
+      "EIrsaliyeOnayDurumu": "E-Waybill Approval Status",
+      "EIrsaliyeTarihi": "E-Waybill Date",
+      "EvrakTuru": "Document Type",
+      "FaturaSecimi": {
+        "AktarimDurumu": "Transfer Status",
+        "Donem": "Period",
+        "Listele": "List",
+        "Tarih1": "Date",
+        "Tarih2": "Date",
+        "Title": "Invoice Selection"
+      },
+      "FirmaAdi": "Company Name",
+      "FirmaKodu": "Company Code",
+      "GonderiKaydi": "Shipment Record",
+      "GonderiKaydiBilgileri": "Shipment Record Information",
+      "GonderimSekli": "Shipment Method",
+      "IrsaliyeSecimi": {
+        "EIrsaliyeSorgula": "E-Waybill Query",
+        "Kurum": "Institution",
+        "Listele": "List",
+        "Tarih1": "Date",
+        "Tarih2": "Date",
+        "Title": "E-Waybill Selection"
+      },
+      "KayitNo": "Record No",
+      "KayitliAlici": "Registered Buyer",
+      "MalzemeDetay": {
+        "ExceldenAktar": "Import from Excel",
+        "KullanimDisindaOlanlariGoster": "Show Out-of-Use Items",
+        "Listele": "List",
+        "MalzemeAdi": "Material Name",
+        "MalzemeGrubu": "Material Group",
+        "MalzemeKodu": "Material Code",
+        "MalzemeTuru": "Material Type",
+        "TalepEdilmeyenleriGoster": "Show Non-Requested Items",
+        "Title": "Material Selection"
+      },
+      "Proje": "Project",
+      "Tarih": "Date",
+      "Tasiyici": "Carrier",
+      "Title": "Create Shipment Record",
+      "Turu": "Type"
     },
     "Siparisler": {
-      "Title": "Orders"
+      "BaslangicTarihi": "Start Date",
+      "BitisTarihi": "End Date",
+      "Proje": "Project",
+      "SiparisMalzemeleri": "Order Materials",
+      "TeslimFisleri": "Delivery Slips",
+      "Title": "Orders",
+      "Uygunsuzluklar": "Non-Conformities"
     },
     "Tedarik": {
       "Degistir": "Edit",

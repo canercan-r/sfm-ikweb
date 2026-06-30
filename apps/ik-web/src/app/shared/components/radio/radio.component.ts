@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Optional, Output, Self } from '@angular/core';
+﻿import { Component, EventEmitter, Input, OnInit, Optional, Output, Self } from '@angular/core';
 import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
 import { IChangeCheckboxEventArgs } from '@infragistics/igniteui-angular';
 import { BehaviorSubject } from 'rxjs';
@@ -64,8 +64,6 @@ export class RadioComponent<T extends object> implements ControlValueAccessor, O
 
   change(eventArgs: IChangeCheckboxEventArgs) {
     const data = eventArgs;
-    // this.value = Array.isArray(data) ? data.map((e) => this.#getValue(e)) : this.#getValue(data);
-    // console.log('this.eventArgs', data)
     this.changed.emit(data);
   }
 

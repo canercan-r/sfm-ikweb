@@ -1,0 +1,98 @@
+<ikweb-toolbar [bc$]="bc$">
+  <div action class="d-flex align-items-center gap-2">
+    <button class="btn btn-sm btn-yellow" (click)="openFilterModal()">
+      <span><i class="fa-duotone fa-solid fa-filter-list me-1"></i>{{ "Global.Filtre" | translate }}</span>
+    </button>
+  </div>
+</ikweb-toolbar>
+
+<div
+  class="card card-spacing-reset"
+  data-st-scroll="true"
+  data-st-scroll-save-state="false"
+  data-st-scroll-height="auto"
+  data-st-scroll-wrappers="#st_siparisler_body"
+  data-st-scroll-dependencies="#st_header, #st_toolbar"
+  [attr.data-st-scroll-offset]="_sharedHelper.contentSpacingFull"
+>
+  <div id="st_siparisler_body" class="h-100">
+    <igx-grid
+      #siparisGrid
+      [data]="siparisler"
+      [height]="'100%'"
+      [width]="'100%'"
+      [allowFiltering]="true"
+      filterMode="excelStyleFilter"
+      emptyGridMessage="{{ 'Gridler.GridEmptyMessage' | translate }}"
+      [resourceStrings]="langService.resourceStrings"
+    >
+      <igx-paginator
+        [perPage]="perPage"
+        [(page)]="siparisGrid.page"
+        [totalRecords]="siparisler.length"
+        [selectOptions]="selectOptions"
+      >
+        <igx-paginator-content>
+          <span class="igx-grid-total d-none d-lg-flex me-5">
+            {{ "Gridler.TotalRecords" | translate }} {{ siparisler.length }}
+          </span>
+
+          <igx-select (selectionChanging)="onPageSizeChange($event.newSelection.value)">
+            <igx-select-item
+              *ngFor="let val of selectOptions"
+              [value]="val"
+              [selected]="perPage === val"
+            >
+              {{ val }}
+            </igx-select-item>
+          </igx-select>
+
+          <igx-grid-toolbar class="transparent">
+            <igx-grid-toolbar-actions>
+              <igx-grid-toolbar-hiding
+                title="{{ 'Grid.ColumnHide' | translate }}"
+                prompt="{{ 'Grid.FilterColumn' | translate }}"
+                [overlaySettings]="overlaySettingsAuto"
+              ></igx-grid-toolbar-hiding>
+
+              <igx-grid-toolbar-pinning
+                title="{{ 'Grid.PinnedColumns' | translate }}"
+                prompt="{{ 'Grid.FilterColumn' | translate }}"
+                [overlaySettings]="overlaySettingsAuto"
+              ></igx-grid-toolbar-pinning>
+
+              <igx-grid-toolbar-exporter
+                filename="Siparisler"
+                [overlaySettings]="overlaySettingsAuto"
+              >
+                {{ "Gridler.Export" | translate }}
+                <span excelText>{{ "Gridler.Toolbar.ExportExel" | translate }}</span>
+                <span csvText>{{ "Gridler.Toolbar.ExportCsv" | translate }}</span>
+              </igx-grid-toolbar-exporter>
+            </igx-grid-toolbar-actions>
+          </igx-grid-toolbar>
+
+          <igx-page-nav></igx-page-nav>
+        </igx-paginator-content>
+      </igx-paginator>
+
+      <ng-template igxGridDetail let-dataItem>
+        <ikweb-siparis-detay
+          [siparisId]="dataItem.id"
+          [malzemeleri]="malzemeleri"
+          [uygunsuzluklar]="uygunsuzluklar"
+          [teslimFisleri]="teslimFisleri"
+        ></ikweb-siparis-detay>
+      </ng-template>
+
+      <igx-column
+        *ngFor="let col of columns"
+        [field]="col.field"
+        [header]="colHeader(col.field) | translate"
+        [width]="col.width"
+        [sortable]="true"
+        [resizable]="true"
+      ></igx-column>
+    </igx-grid>
+  </div>
+</div>

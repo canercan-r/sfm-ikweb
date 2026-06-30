@@ -1,4 +1,4 @@
-<ikweb-toolbar [backClick]="true" [bc$]="bc$" [title]="puantaj?.projeAdi">
+﻿<ikweb-toolbar [backClick]="true" [bc$]="bc$" [title]="puantaj?.projeAdi">
   <div action class="d-flex align-items-center gap-2">
     <ng-container *ngIf="navActiveId == 'Puantaj' || navActiveId == 'Dosyalar'">
       <button class="btn btn-sm btn-warning" (click)="eksikKayitlar()">
@@ -256,9 +256,6 @@
   </igx-drop-down>
 </ng-template>
 
-<!-- <ng-template #cellDateTemp let-cell="cell">
-  {{ _sharedHelper.formatDate(cell.value) }}
-</ng-template> -->
 
 <ng-template #gridCellBrutTemp let-cell="cell">
   <span class="text-danger">{{ cell.value }}</span>

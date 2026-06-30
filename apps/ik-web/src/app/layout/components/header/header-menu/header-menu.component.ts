@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMenu } from '@ikweb-shared/models';
 import { PageStackService } from '@lib-common';
@@ -69,20 +69,3 @@ export class HeaderMenuComponent {
 const getCurrentUrl = (pathname: string): string => {
   return pathname.split(/[?#]/)[0];
 };
-
-// const checkIsActive = (pathname: string, link: string) => {
-//   const current = getCurrentUrl(pathname);
-//   if (!current || !link) {
-//     return false;
-//   }
-
-//   if (current === link) {
-//     return true;
-//   }
-
-//   if (current.indexOf(link) > -1) {
-//     return true;
-//   }
-
-//   return false;
-// };

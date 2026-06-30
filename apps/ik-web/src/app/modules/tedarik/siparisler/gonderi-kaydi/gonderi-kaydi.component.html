@@ -1,0 +1,374 @@
+<ikweb-toolbar
+  [backClick]="true"
+  [bc$]="bc$"
+  [title]="'Talepler.GonderiKaydi.Title' | translate"
+  (backClicked)="goBack()"
+>
+  <div action class="d-flex align-items-center gap-2">
+    <button class="btn btn-sm btn-success">
+      {{ "Global.Save" | translate }}
+    </button>
+
+    <button
+      [overlaySettings]="_sharedHelper.overlaySettingsAuto"
+      [igxToggleAction]="dropdownMenu"
+      [igxDropDownItemNavigation]="dropdownMenu"
+      class="btn btn-sm btn-icon btn-circle btn-primary"
+    >
+      <i class="fa-regular fa-ellipsis-vertical"></i>
+    </button>
+
+    <igx-drop-down #dropdownMenu [width]="'200px'">
+      <igx-drop-down-item>
+        {{ "Global.ExceldenAl" | translate }}
+      </igx-drop-down-item>
+    </igx-drop-down>
+  </div>
+</ikweb-toolbar>
+
+<div class="card card-spacing-reset card-reset">
+  <div class="nav-control px-5 bg-body">
+    <div class="hover-scroll-x">
+      <ul
+        id="st_gonderi_nav"
+        ngbNav
+        #gonderiNav="ngbNav"
+        [activeId]="navActiveId"
+        [destroyOnHide]="false"
+        (navChange)="navChanged($event)"
+        class="nav nav-line-tabs nav-line-tabs-0 flex-nowrap text-nowrap border-transparent fs-7 fw-bold"
+      >
+        <li class="nav-item" [ngbNavItem]="'GonderiKaydi'">
+          <a class="nav-link text-active-dark me-6" ngbNavLink>
+            {{ "Talepler.GonderiKaydi.GonderiKaydi" | translate }}
+          </a>
+          <ng-template ngbNavContent>
+            <div
+              id="st_gonderi_form_section"
+              class="d-flex flex-column px-7 pt-5 pb-0"
+            >
+              <form [formGroup]="form">
+                <div class="card">
+                  <div class="card-header border-0 py-0 min-h-30px">
+                    <span class="card-title fs-6 fw-bold mb-0">
+                      {{
+                        "Talepler.GonderiKaydi.GonderiKaydiBilgileri"
+                          | translate
+                      }}
+                    </span>
+                  </div>
+                  <div class="card-body pt-0 pb-4">
+                    <div class="row row-gap-3">
+                      <section class="col-12 col-md-3">
+                        <ikweb-input
+                          name="kayitNo"
+                          label="Talepler.GonderiKaydi.KayitNo"
+                          formControlName="kayitNo"
+                        ></ikweb-input>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-input
+                          name="alisSiparisNo"
+                          label="Talepler.GonderiKaydi.AlisSiparisNo"
+                          formControlName="alisSiparisNo"
+                        ></ikweb-input>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-date-time-picker
+                          name="tarih"
+                          label="Talepler.GonderiKaydi.Tarih"
+                          formControlName="tarih"
+                        ></ikweb-date-time-picker>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-input
+                          name="proje"
+                          label="Talepler.GonderiKaydi.Proje"
+                          formControlName="proje"
+                          [suffix]="true"
+                        >
+                          <i
+                            suffix
+                            class="fa-solid fa-magnifying-glass fs-5 text-muted me-4"
+                          ></i>
+                        </ikweb-input>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-input
+                          name="alisIrsaliyeFaturaNo"
+                          label="Talepler.GonderiKaydi.AlisIrsaliyeFaturaNo"
+                          formControlName="alisIrsaliyeFaturaNo"
+                          [readonly]="true"
+                          [suffix]="true"
+                        >
+                          <i
+                            suffix
+                            class="fa-solid fa-magnifying-glass fs-5 text-muted cursor-pointer me-4"
+                            (click)="openFaturaSecimi()"
+                          ></i>
+                        </ikweb-input>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-input
+                          name="eIrsaliyeNo"
+                          label="Talepler.GonderiKaydi.EIrsaliyeNo"
+                          formControlName="eIrsaliyeNo"
+                          [readonly]="true"
+                          [suffix]="true"
+                        >
+                          <i
+                            suffix
+                            class="fa-solid fa-magnifying-glass fs-5 text-muted cursor-pointer me-4"
+                            (click)="openIrsaliyeSecimi()"
+                          ></i>
+                        </ikweb-input>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-date-time-picker
+                          name="eIrsaliyeTarihi"
+                          label="Talepler.GonderiKaydi.EIrsaliyeTarihi"
+                          formControlName="eIrsaliyeTarihi"
+                        ></ikweb-date-time-picker>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-select
+                          name="turu"
+                          label="Talepler.GonderiKaydi.Turu"
+                          formControlName="turu"
+                          [data]="[]"
+                          valueKey=""
+                          displayKey=""
+                        ></ikweb-select>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-select
+                          name="evrakTuru"
+                          label="Talepler.GonderiKaydi.EvrakTuru"
+                          formControlName="evrakTuru"
+                          [data]="[]"
+                          valueKey=""
+                          displayKey=""
+                        ></ikweb-select>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-select
+                          name="eIrsaliyeDurumu"
+                          label="Talepler.GonderiKaydi.EIrsaliyeDurumu"
+                          formControlName="eIrsaliyeDurumu"
+                          [data]="[]"
+                          valueKey=""
+                          displayKey=""
+                        ></ikweb-select>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-select
+                          name="gonderimsekli"
+                          label="Talepler.GonderiKaydi.GonderimSekli"
+                          formControlName="gonderimsekli"
+                          [data]="[]"
+                          valueKey=""
+                          displayKey=""
+                        ></ikweb-select>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-select
+                          name="eIrsaliyeOnayDurumu"
+                          label="Talepler.GonderiKaydi.EIrsaliyeOnayDurumu"
+                          formControlName="eIrsaliyeOnayDurumu"
+                          [data]="[]"
+                          valueKey=""
+                          displayKey=""
+                        ></ikweb-select>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mt-1">
+                  <div class="card-header border-0 py-0 min-h-30px">
+                    <span class="card-title fs-6 fw-bold mb-0">
+                      {{ "Talepler.GonderiKaydi.AliciBilgileri" | translate }}
+                    </span>
+                  </div>
+                  <div class="card-body pt-0 pb-4">
+                    <div class="row row-gap-3">
+                      <section class="col-12 col-md-3">
+                        <ikweb-input
+                          name="firmaKodu"
+                          label="Talepler.GonderiKaydi.FirmaKodu"
+                          formControlName="firmaKodu"
+                        ></ikweb-input>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-input
+                          name="firmaAdi"
+                          label="Talepler.GonderiKaydi.FirmaAdi"
+                          formControlName="firmaAdi"
+                        ></ikweb-input>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-input
+                          name="aliciTuru"
+                          label="Talepler.GonderiKaydi.AliciTuru"
+                          formControlName="aliciTuru"
+                        ></ikweb-input>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-input
+                          name="kayitliAlici"
+                          label="Talepler.GonderiKaydi.KayitliAlici"
+                          formControlName="kayitliAlici"
+                        ></ikweb-input>
+                      </section>
+                      <section class="col-12 col-md-3">
+                        <ikweb-input
+                          name="digerAlici"
+                          label="Talepler.GonderiKaydi.DigerAlici"
+                          formControlName="digerAlici"
+                        ></ikweb-input>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div
+              class="mt-1"
+              data-st-scroll="true"
+              data-st-scroll-save-state="false"
+              data-st-scroll-height="auto"
+              data-st-scroll-wrappers="#st_gonderi_nav_content, #st_gonderi_kaydi_grid"
+              data-st-scroll-dependencies="#st_header, #st_toolbar, #st_gonderi_form_section, #st_gonderi_nav"
+              [attr.data-st-scroll-offset]="
+                _sharedHelper.contentSpacingFirstCardReset
+              "
+            >
+              <lib-mock-grid
+                id="st_gonderi_kaydi_grid"
+                #gonderiKaydiGrid
+                (didDoubleClick)="openMalzemeDetay()"
+              ></lib-mock-grid>
+            </div>
+          </ng-template>
+        </li>
+
+        <li class="nav-item" [ngbNavItem]="'AliciBilgileri'">
+          <a class="nav-link text-active-dark me-6" ngbNavLink>
+            {{ "Talepler.GonderiKaydi.AliciBilgileri" | translate }}
+          </a>
+          <ng-template ngbNavContent>
+            <div class="px-7 py-5">
+              <div class="card">
+                <div class="card-body pt-3 pb-4">
+                  <div class="row row-gap-3" [formGroup]="aliciBilgileriForm">
+                    <section class="col-12 col-md-3">
+                      <ikweb-input
+                        name="unvan"
+                        label="Talepler.GonderiKaydi.AliciB.Unvan"
+                        formControlName="unvan"
+                      ></ikweb-input>
+                    </section>
+                    <section class="col-12 col-md-3">
+                      <ikweb-input
+                        name="vergiDairesi"
+                        label="Talepler.GonderiKaydi.AliciB.VergiDairesi"
+                        formControlName="vergiDairesi"
+                      ></ikweb-input>
+                    </section>
+                    <section class="col-12 col-md-3">
+                      <ikweb-input
+                        name="vergiKimlikNo"
+                        label="Talepler.GonderiKaydi.AliciB.VergiKimlikNo"
+                        formControlName="vergiKimlikNo"
+                      ></ikweb-input>
+                    </section>
+                    <section class="col-12 col-md-3">
+                      <ikweb-input
+                        name="mahalle"
+                        label="Talepler.GonderiKaydi.AliciB.Mahalle"
+                        formControlName="mahalle"
+                      ></ikweb-input>
+                    </section>
+                    <section class="col-12 col-md-3">
+                      <ikweb-input
+                        name="binaAdi"
+                        label="Talepler.GonderiKaydi.AliciB.BinaAdi"
+                        formControlName="binaAdi"
+                      ></ikweb-input>
+                    </section>
+                    <section class="col-12 col-md-3">
+                      <ikweb-input
+                        name="binaNoKapiNo"
+                        label="Talepler.GonderiKaydi.AliciB.BinaNoKapiNo"
+                        formControlName="binaNoKapiNo"
+                      ></ikweb-input>
+                    </section>
+                    <section class="col-12 col-md-3">
+                      <ikweb-input
+                        name="sehir"
+                        label="Talepler.GonderiKaydi.AliciB.Sehir"
+                        formControlName="sehir"
+                      ></ikweb-input>
+                    </section>
+                    <section class="col-12 col-md-3">
+                      <ikweb-input
+                        name="bulvar"
+                        label="Talepler.GonderiKaydi.AliciB.Bulvar"
+                        formControlName="bulvar"
+                      ></ikweb-input>
+                    </section>
+                    <section class="col-12 col-md-3">
+                      <ikweb-input
+                        name="postaKodu"
+                        label="Talepler.GonderiKaydi.AliciB.PostaKodu"
+                        formControlName="postaKodu"
+                      ></ikweb-input>
+                    </section>
+                    <section class="col-12 col-md-3">
+                      <ikweb-input
+                        name="ulkeKodu"
+                        label="Talepler.GonderiKaydi.AliciB.UlkeKodu"
+                        formControlName="ulkeKodu"
+                      ></ikweb-input>
+                    </section>
+                    <section class="col-12 col-md-3">
+                      <ikweb-input
+                        name="ulke"
+                        label="Talepler.GonderiKaydi.AliciB.Ulke"
+                        formControlName="ulke"
+                      ></ikweb-input>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+
+        <li class="nav-item" [ngbNavItem]="'Tasiyici'" [disabled]="true">
+          <a class="nav-link text-active-dark me-6" ngbNavLink>
+            {{ "Talepler.GonderiKaydi.Tasiyici" | translate }}
+          </a>
+          <ng-template ngbNavContent>
+            <div class="p-5"></div>
+          </ng-template>
+        </li>
+
+        <li class="nav-item" [ngbNavItem]="'Dosyalar'" [disabled]="true">
+          <a class="nav-link text-active-dark me-6" ngbNavLink>
+            {{ "Talepler.GonderiKaydi.Dosyalar" | translate }}
+          </a>
+          <ng-template ngbNavContent>
+            <div class="p-5"></div>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    id="st_gonderi_nav_content"
+    class="nav-content mt-0"
+    [ngbNavOutlet]="gonderiNav"
+  ></div>
+</div>

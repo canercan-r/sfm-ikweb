@@ -2,6 +2,14 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@ikweb-shared/shared.module';
 import { LibCommonModule } from '@lib-common';
 import { CoreUIModule } from '@lib-core';
+import { GunlukCalismaSaatiTakibiComponent } from './parmak-izi/gunluk-calisma-saati-takibi/gunluk-calisma-saati-takibi.component';
+import { GunlukCalismaFiltreComponent } from './parmak-izi/gunluk-calisma-saati-takibi/modal/gunluk-calisma-filtre/gunluk-calisma-filtre.component';
+import { IseBaslayanlarRaporuComponent } from './parmak-izi/ise-baslayanlar-raporu/ise-baslayanlar-raporu.component';
+import { IseBaslayanlarFiltreComponent } from './parmak-izi/ise-baslayanlar-raporu/modal/ise-baslayanlar-filtre/ise-baslayanlar-filtre.component';
+import { PiCihazlariComponent } from './parmak-izi/pi-cihazlari/pi-cihazlari.component';
+import { PiCihazlariFiltreComponent } from './parmak-izi/pi-cihazlari/modal/pi-cihazlari-filtre/pi-cihazlari-filtre.component';
+import { PiCihazlariDetayComponent } from './parmak-izi/pi-cihazlari/pi-cihazlari-detay/pi-cihazlari-detay.component';
+import { ParmakIziProjeSecimiComponent } from './parmak-izi/pi-cihazlari/pi-cihazlari-detay/modal/parmak-izi-proje-secimi/parmak-izi-proje-secimi.component';
 import { AylikPuantajComponent } from './proje-puantajlari/aylik-puantaj/aylik-puantaj.component';
 import { EksikKayitlarComponent } from './proje-puantajlari/aylik-puantaj/eksik-kayitlar/eksik-kayitlar.component';
 import { DosyaEkleComponent } from './proje-puantajlari/aylik-puantaj/modal/dosya-ekle/dosya-ekle.component';
@@ -28,6 +36,14 @@ import { PuantajRoutingModule } from './puantaj-routing.module';
 
 @NgModule({
   declarations: [
+    GunlukCalismaSaatiTakibiComponent,
+    GunlukCalismaFiltreComponent,
+    IseBaslayanlarRaporuComponent,
+    IseBaslayanlarFiltreComponent,
+    PiCihazlariComponent,
+    PiCihazlariFiltreComponent,
+    PiCihazlariDetayComponent,
+    ParmakIziProjeSecimiComponent,
     ProjePuantajlariComponent,
     GunlukPuantajComponent,
     GunlukPuantajFazlaMesaiComponent,

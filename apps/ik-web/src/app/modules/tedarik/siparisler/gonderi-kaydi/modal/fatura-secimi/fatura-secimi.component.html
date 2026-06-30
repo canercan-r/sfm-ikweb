@@ -1,0 +1,54 @@
+<div class="card card-spacing-reset">
+  <div class="card-body" id="st_faturaSecimi_cardBody">
+    <form [formGroup]="form" class="row row-gap-3">
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-date-time-picker
+          name="tarih1"
+          label="Talepler.GonderiKaydi.FaturaSecimi.Tarih1"
+          formControlName="tarih1"
+        ></ikweb-date-time-picker>
+      </section>
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-select
+          name="donem"
+          label="Talepler.GonderiKaydi.FaturaSecimi.Donem"
+          formControlName="donem"
+          [data]="[]"
+          valueKey=""
+          displayKey=""
+        ></ikweb-select>
+      </section>
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+        <ikweb-select
+          name="aktarimDurumu"
+          label="Talepler.GonderiKaydi.FaturaSecimi.AktarimDurumu"
+          formControlName="aktarimDurumu"
+          [data]="[]"
+          valueKey=""
+          displayKey=""
+        ></ikweb-select>
+      </section>
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-1 d-flex align-items-end pb-1">
+        <button class="btn btn-sm btn-primary" (click)="listele()">
+          {{ "Talepler.GonderiKaydi.FaturaSecimi.Listele" | translate }}
+        </button>
+      </section>
+    </form>
+  </div>
+
+  <div
+    id="st_faturaSecimi_scroll"
+    data-st-scroll="true"
+    data-st-scroll-save-state="false"
+    data-st-scroll-height="auto"
+    data-st-scroll-wrappers="#st_faturaSecimi_body"
+    data-st-scroll-dependencies="#st_faturaSecimi_cardBody"
+    [attr.data-st-scroll-offset]="_sharedHelper.contentSpacing"
+  >
+    <lib-mock-grid
+      id="st_faturaSecimi_body"
+      #faturaGrid
+      (didDoubleClick)="rowSelected($event)"
+    ></lib-mock-grid>
+  </div>
+</div>

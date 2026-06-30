@@ -239,4 +239,8 @@ export class MockGridComponent implements OnInit {
   formatNumbers(val: number): string {
     return `${val}`;
   }
+
+  isBoolean(val: any): boolean {
+    return typeof val === 'boolean';
+  }
 }

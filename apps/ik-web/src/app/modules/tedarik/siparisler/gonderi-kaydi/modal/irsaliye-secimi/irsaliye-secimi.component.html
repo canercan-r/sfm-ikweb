@@ -1,0 +1,62 @@
+<div class="card card-spacing-reset">
+  <div class="card-body" id="st_irsaliyeSecimi_cardBody">
+    <form [formGroup]="form" class="row row-gap-3">
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-input
+          name="kurum"
+          label="Talepler.GonderiKaydi.IrsaliyeSecimi.Kurum"
+          formControlName="kurum"
+          [suffix]="true"
+        >
+          <i
+            suffix
+            class="fa-solid fa-magnifying-glass fs-5 text-muted me-4"
+          ></i>
+        </ikweb-input>
+      </section>
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-input
+          name="eIrsaliyeSorgula"
+          label="Talepler.GonderiKaydi.IrsaliyeSecimi.EIrsaliyeSorgula"
+          formControlName="eIrsaliyeSorgula"
+          [suffix]="true"
+        >
+          <i
+            suffix
+            class="fa-solid fa-magnifying-glass fs-5 text-muted me-4"
+          ></i>
+        </ikweb-input>
+      </section>
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+        <ikweb-date-time-picker
+          name="tarih1"
+          label="Talepler.GonderiKaydi.IrsaliyeSecimi.Tarih1"
+          formControlName="tarih1"
+        ></ikweb-date-time-picker>
+      </section>
+      <section
+        class="col-xs-12 col-sm-6 col-md-4 col-lg-2 d-flex align-items-end pb-1"
+      >
+        <button class="btn btn-sm btn-primary" (click)="listele()">
+          {{ "Talepler.GonderiKaydi.IrsaliyeSecimi.Listele" | translate }}
+        </button>
+      </section>
+    </form>
+  </div>
+
+  <div
+    id="st_irsaliyeSecimi_scroll"
+    data-st-scroll="true"
+    data-st-scroll-save-state="false"
+    data-st-scroll-height="auto"
+    data-st-scroll-wrappers="#st_irsaliyeSecimi_body"
+    data-st-scroll-dependencies="#st_irsaliyeSecimi_cardBody"
+    [attr.data-st-scroll-offset]="_sharedHelper.contentSpacing"
+  >
+    <lib-mock-grid
+      id="st_irsaliyeSecimi_body"
+      #irsaliyeGrid
+      (didDoubleClick)="rowSelected($event)"
+    ></lib-mock-grid>
+  </div>
+</div>

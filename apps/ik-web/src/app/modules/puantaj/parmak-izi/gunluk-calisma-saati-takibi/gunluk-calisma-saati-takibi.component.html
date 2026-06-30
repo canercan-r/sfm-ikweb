@@ -1,0 +1,19 @@
+<ikweb-toolbar [bc$]="bc$">
+  <div action class="d-flex align-items-center gap-2">
+    <button class="btn btn-sm btn-yellow" (click)="openFilterModal()">
+      <span><i class="fa-duotone fa-solid fa-filter-list me-1"></i>{{ "Global.Filtre" | translate }}</span>
+    </button>
+  </div>
+</ikweb-toolbar>
+
+<div
+  class="card card-spacing-reset"
+  data-st-scroll="true"
+  data-st-scroll-save-state="false"
+  data-st-scroll-height="auto"
+  data-st-scroll-wrappers="#st_gunluk_calisma_body"
+  data-st-scroll-dependencies="#st_header, #st_toolbar"
+  [attr.data-st-scroll-offset]="_sharedHelper.contentSpacingFull"
+>
+  <lib-mock-grid id="st_gunluk_calisma_body" #gunlukCalismaGrid></lib-mock-grid>
+</div>

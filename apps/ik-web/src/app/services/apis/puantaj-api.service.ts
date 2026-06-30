@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IAylikPuantaj, IAylikPuantajDosyalar, IAylikPuantajDurumDegisiklikleri, IAylikPuantajEkOdemeler, IAylikPuantajEkOdemeTuruKodu, IAylikPuantajEksikKayitlar, IAylikPuantajEvrakKontrol, IAylikPuantajFazlaMesaiBilgileri, IAylikPuantajYillikIzinDurumu, IEkipmanSayim, IGunlukPuantaj, IGunlukPuantajFazlaMesai, IGunlukPuantajParmakIzi, IKidemKontrol, IPuantaj, IVardiyaBilgi } from '@ikweb-models/components';
+import { IAylikPuantaj, IAylikPuantajDosyalar, IAylikPuantajDurumDegisiklikleri, IAylikPuantajEkOdemeler, IAylikPuantajEkOdemeTuruKodu, IAylikPuantajEksikKayitlar, IAylikPuantajEvrakKontrol, IAylikPuantajFazlaMesaiBilgileri, IAylikPuantajYillikIzinDurumu, IEkipmanSayim, IGunlukPuantaj, IGunlukPuantajFazlaMesai, IGunlukPuantajParmakIzi, IKidemKontrol, IParmakIziGunlukCalisma, IParmakIziIseBaslayanlar, IParmakIziPiCihazlari, IParmakIziProje, IPuantaj, IVardiyaBilgi } from '@ikweb-models/components';
 import { BaseAPIService } from '@ikweb-shared/services/apis/base-api.service';
 import { DataService, UrlBuilderService } from '@lib-core';
 import { Observable } from 'rxjs';
@@ -14,6 +14,11 @@ enum PuantajAPI {
   GET_GUNLUKPUANTAJ = 'GunlukPuantaj',
   GET_GUNLUKPUANTAJ_FAZLAMESAI = 'GunlukPuantaj_FazlaMesai',
   GET_GUNLUKPUANTAJ_PARMAKIZI = 'GunlukPuantaj_ParmakIzi',
+
+  GET_PARMAKIZI_PICIHAZLARI = 'ParmakIzi_PiCihazlari',
+  GET_PARMAKIZI_GUNLUKCALISMA = 'ParmakIzi_GunlukCalisma',
+  GET_PARMAKIZI_ISEBASLAYANLAR = 'ParmakIzi_IseBaslayanlar',
+  GET_PARMAKIZI_PROJELER = 'ParmakIzi_Projeler',
 
   GET_AYLIKPUANTAJ_PUANTAJ = 'AylikPuantaj_Puantaj',
   GET_AYLIKPUANTAJ_EKSIKKAYITLAR = 'AylikPuantaj_EksikKayitlar',
@@ -116,6 +121,22 @@ export class PuantajAPIService extends BaseAPIService<PuantajAPI> {
 
   getAylikPuantajYillikIzinDurumu(puantajID: string): Observable<IAylikPuantajYillikIzinDurumu[]> {
     return this.get<IAylikPuantajYillikIzinDurumu[]>(PuantajAPI.GET_AYLIKPUANTAJ_YILLIKIZINDURUMU, { puantajID });
+  }
+
+  getParmakIziPiCihazlari(): Observable<IParmakIziPiCihazlari[]> {
+    return this.get<IParmakIziPiCihazlari[]>(PuantajAPI.GET_PARMAKIZI_PICIHAZLARI);
+  }
+
+  getParmakIziGunlukCalisma(): Observable<IParmakIziGunlukCalisma[]> {
+    return this.get<IParmakIziGunlukCalisma[]>(PuantajAPI.GET_PARMAKIZI_GUNLUKCALISMA);
+  }
+
+  getParmakIziIseBaslayanlar(): Observable<IParmakIziIseBaslayanlar[]> {
+    return this.get<IParmakIziIseBaslayanlar[]>(PuantajAPI.GET_PARMAKIZI_ISEBASLAYANLAR);
+  }
+
+  getParmakIziProjeler(): Observable<IParmakIziProje[]> {
+    return this.get<IParmakIziProje[]>(PuantajAPI.GET_PARMAKIZI_PROJELER);
   }
 
 }

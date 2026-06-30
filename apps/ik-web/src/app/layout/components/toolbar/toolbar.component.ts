@@ -1,4 +1,4 @@
-import {
+﻿import {
   AfterViewInit,
   Component,
   ElementRef,
@@ -48,11 +48,9 @@ export class ToolbarComponent implements OnInit, AfterViewInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    // Toolbar
     this.toolbarContainerCssClasses = this._layout.getStringCSSClasses('toolbarContainer');
     this.pageTitleAttributes = this._layout.getHTMLAttributes('pageTitle');
     this.toolbarDisplay = this._layout.getProp('toolbar.display') as boolean;
-    // Page Title
     this.title$ = this._page.title.asObservable();
     this.description$ = this._page.description.asObservable();
     this.bc$ = this._page.breadcrumbs.asObservable();

@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+﻿import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
@@ -40,7 +40,6 @@ export class AppComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    // Setup logger
     if (environment.production) {
       Logger.enableProductionMode();
     }
@@ -58,13 +57,9 @@ export class AppComponent implements OnInit, OnDestroy {
     this.themingSubscription = this._theming.theme$.subscribe((theme: ThemeType) => {
       this.applyTheme(theme);
     });
-
-    // Setup translations
     this._lang.init(environment.defaultLanguage, environment.supportedLanguages);
 
     const onNavigationEnd = this._router.events.pipe(filter((event) => event instanceof NavigationEnd));
-
-    // Change page title on navigation or language change, based on route data
     merge(this._translate.onLangChange, onNavigationEnd)
       .pipe(
         map(() => {
@@ -105,23 +100,10 @@ export class AppComponent implements OnInit, OnDestroy {
       this._theming.setTheme('dark');
     } else if (envTheme === 'DEFAULT') {
       this._theming.setTheme('light');
-
-      // // DEFAULT → sistem tercihine göre ayarla
-      // const darkModeOn = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      // this._theming.setTheme(darkModeOn ? 'dark' : 'light');
-
-      // // Sistem değişikliğini dinle
-      // window.matchMedia('(prefers-color-scheme: dark)')
-      //   .addEventListener('change', (event) => {
-      //     if ((environment.theme || 'DEFAULT').toUpperCase() === 'DEFAULT') {
-      //       this._theming.setTheme(event.matches ? 'dark' : 'light');
-      //     }
-      //   });
     }
   }
 
   private async applyTheme(theme: ThemeType) {
-    // body attribute ayarla
     this._document.body.setAttribute('data-st-theme', theme);
   }
 

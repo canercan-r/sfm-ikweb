@@ -542,3 +542,167 @@ export interface ITedarikTaleplerDosyalar {
   gecerlilikTarihi: string;
 }
 
+export interface ITedarikSiparisler {
+  id: string;
+  siparisNo: string;
+  tarih: string;
+  donem: string;
+  tedarikci: string;
+  projeKodu: string;
+  projeAdi: string;
+  talepNo: string;
+  talepTuru: string;
+  uygunsuzlukSayisi: string;
+  acikUygunsuzlukSayisi: string;
+  teslimTarihi: string;
+  siparisDurumu: string;
+  tedarikciOnayi: string;
+}
+
+export interface ITedarikSiparisMalzemeleri {
+  id: string;
+  malzemeAdi: string;
+  birimi: string;
+  siparisMiktari: string;
+  teslimEdilenMiktar: string;
+  teslimAlinanMiktar: string;
+  faturaMiktari: string;
+  uygunsuzlukSayisi: string;
+  acikUygunsuzlukSayisi: string;
+  siparisID: string;
+}
+
+export interface ITedarikSiparisUygunsuzluklar {
+  id: string;
+  uygunsuzlukNo: string;
+  tarih: string;
+  uygunsuzlukDurumu: string;
+  uygunsuzlukTuru: string;
+  aciklama: string;
+  siparisID: string;
+}
+
+export interface ITedarikSiparisTeslimFisleri {
+  id: string;
+  teslimAlindi: string;
+  fisNo: string;
+  fisTarihi: string;
+  malzemeKodu: string;
+  malzemeAdi: string;
+  siparisMiktari: string;
+  teslimMiktari: string;
+  ekipmanKodu: string;
+  ureticiSeriNo: string;
+  NFCEtiketNo: string;
+  siparisID: string;
+}
+
+export interface ITedarikSiparisUygunsuzlukMalzemeGirisleri {
+  id: string;
+  malzemeKodu: string;
+  malzemeAdi: string;
+  siparisMiktari: string;
+  uygunsuzMiktar: string;
+  birimi: string;
+  aciklama: string;
+}
+
+export interface ITedarikSiparisGonderiKaydi {
+  id: string;
+  malzemeKodu: string;
+  malzemeAdi: string;
+  miktar: string;
+  birim: string;
+}
+
+export interface ITedarikSiparisGonderiKaydiMalzemeDetay {
+  id: string;
+  kodu: string;
+  adi: string;
+  uretici: string;
+  ureticiKodu: string;
+  malzemeTuru: string;
+  malzemeGrubu: string;
+  barkodu: string;
+}
+
+export interface ITedarikSiparisGonderiKaydiFatura {
+  id: string;
+  faturaNo: string;
+  faturaTuru: string;
+  tarih: string;
+  kurum: string;
+  projeDirektoru: string;
+  tedarikci: string;
+  projeAdi: string;
+  tutar: string;
+}
+
+export interface ITedarikSiparisGonderiKaydiIrsaliye {
+  id: string;
+  irsaliyeNo: string;
+  gonderenUnvani: string;
+  ETTN: string;
+  durum: string;
+  duzenlemeTarihi: string;
+  sevkTarihi: string;
+  eIrsaliyeSiparisNo: string;
+}
+
+export interface IParmakIziPiCihazlari {
+  id: string;
+  cihazNo: string;
+  cihazAdi: string;
+  cihazIP: string;
+  cihazPort: string;
+  sonOkumaTarihi: string;
+  giris: boolean;
+  cikis: boolean;
+  masterCihaz: string;
+  aktifMi: boolean;
+}
+
+export interface IParmakIziGunlukCalisma {
+  id: string;
+  siraNo: string;
+  tarih: string;
+  sicilNo: string;
+  adiSoyadi: string;
+  pozisyon: string;
+  vardiyaPlani: string;
+  giris: string;
+  cikis: string;
+  erkenGiris: string;
+  gecGiris: string;
+  gecCikis: string;
+  gunlukCalisma: string;
+}
+
+export interface IParmakIziIseBaslayanlar {
+  id: string;
+  sicilNo: string;
+  adiSoyadi: string;
+  projeAdi: string;
+  kurumKodu: string;
+  tcKimlik: string;
+  sskNo: string;
+  dogumTarihi: string;
+  babaAdi: string;
+  girisTarihi: string;
+  cikisTarihi: string;
+  turu: string;
+}
+
+export interface IParmakIziProje {
+  id: string;
+  aktifMi: boolean;
+  kurumAdi: string;
+  projeKodu: string;
+  projeAdi: string;
+  hizmetTuru: string;
+  segment: string;
+  segmentYoneticileri: string;
+}
+
+
+

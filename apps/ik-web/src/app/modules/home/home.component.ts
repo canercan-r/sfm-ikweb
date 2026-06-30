@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '@lib-common';
 import { IApexArea, IApexBar, IApexColumn, IApexMixed, IApexPie } from '../../shared/components/apexcharts/interfaces';
 import { ChartDataService } from '../../shared/services/apis/chart-data.service';
@@ -9,8 +9,6 @@ import { ChartDataService } from '../../shared/services/apis/chart-data.service'
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
-  // Area 6
   area6Series: IApexArea[];
   area6Categories = ['Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
   area6Height = 200;
@@ -20,8 +18,6 @@ export class HomeComponent implements OnInit {
   area6SecondaryColor = '#f1416c';
   area6SecondaryLightColor = '#fff5f8';
   area6SecondaryStrokeColor = '#d9214e';
-
-  // Area 5
   area5Series: IApexArea[];
   area5Categories = ['Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
   area5Currency = '₺';
@@ -32,8 +28,6 @@ export class HomeComponent implements OnInit {
   area5SecondaryColor = '#7239ea';
   area5SecondaryLightColor = '#f8f5ff';
   area5SecondaryStrokeColor = '#5014d0';
-
-  // Area 7
   area7Series: IApexArea[];
   area7Categories = ['Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
   area7Height = 200;
@@ -46,8 +40,6 @@ export class HomeComponent implements OnInit {
   area7TertiaryColor = '#50cd89';
   area7TertiaryLightColor = '#e8fff3';
   area7TertiaryStrokeColor = '#47be7d';
-
-  // Column 1
   column1Series: IApexColumn[];
   column1Categories = ['Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
   column1Currency = '₺';
@@ -55,30 +47,22 @@ export class HomeComponent implements OnInit {
   column1BaseColor = '#7239ea';
   column1SecondaryColor = '#ffc107';
   column1SuccessColor = '#50cd89';
-
-  // Column 4
   column4Series: IApexColumn[];
   column4Categories = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz'];
   column4Height = 300;
   column4PrimaryColor = '#3085fe';
   column4PurpleColor = '#bf51e0';
   column4SuccessColor = '#50cd89';
-
-  // Column 7
   column7Series: IApexColumn[];
   column7Categories: string[] = [];
   column7Height = 300;
   column7BaseColor = '#7239ea';
   column7WarningColor = '#ffc107';
   column7DangerColor = '#f1416c';
-
-  // Bar 1
   bar1Series: IApexBar[];
   bar1Categories = ['Güney Kore', 'Kanada', 'İngiltere', 'Hollanda', 'İtalya', 'Fransa', 'Japonya', 'ABD', 'Çin', 'Almanya'];
   bar1Height = 300;
   bar1BaseColor = '#0dcaf0';
-
-  // Bar 2
   bar2Series: IApexBar[];
   bar2Categories = ['Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
   bar2Currency = '₺';
@@ -86,16 +70,12 @@ export class HomeComponent implements OnInit {
   bar2BaseColor = '#7239ea';
   bar2SecondaryColor = '#ffc107';
   bar2TertiaryColor = '#50cd89';
-
-  // Bar 6
   bar6Series: IApexBar[];
   bar6Categories: string[] = [];
   bar6Height = 300;
   bar6BaseColor = '#7239ea';
   bar6WarningColor = '#ffc107';
   bar6DangerColor = '#f1416c';
-
-  // Mixed 1
   mixed1Series: IApexMixed[];
   mixed1Categories = ['Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem'];
   mixed1Currency = '$';
@@ -103,23 +83,17 @@ export class HomeComponent implements OnInit {
   mixed1BaseColor = '#3085fe';
   mixed1BaseLightColor = '#dde8fa';
   mixed1SecondaryColor = '#7239ea';
-
-  // Mixed 2
   mixed2Series: IApexMixed[];
   mixed2Categories = ['Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl'];
   mixed2Height = 300;
   mixed2BaseColor = '#fcd974';
   mixed2SecondaryColor = '#4880c8';
-
-  // Mixed 3
   mixed3Series: IApexMixed[];
   mixed3Categories = ['Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
   mixed3Height = 300;
   mixed3BaseColor = '#0dcaf0';
   mixed3BaseLightColor = '#cff4fc';
   mixed3SecondaryColor = '#f68df9';
-
-  // Mixed 4
   mixed4Series: IApexMixed[];
   mixed4Categories = ['Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
   mixed4Height = 300;
@@ -127,26 +101,18 @@ export class HomeComponent implements OnInit {
   mixed4SecondaryColor = '#50cd89';
   mixed4SecondaryLightColor = '#e8fff3';
   mixed4WarningColor = '#ffc107';
-
-  // Mixed 5
   mixed5Series: IApexMixed[];
   mixed5Categories = ['Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl'];
   mixed5Height = 300;
   mixed5BaseColor = '#4880c8';
   mixed5SecondaryColor = '#1dc894';
   mixed5WarningColor = '#ffc107';
-
-  // Pie 1
   pie1Series: IApexPie[];
   pie1Labels = ['Takım A', 'Takım B', 'Takım C', 'Takım D', 'Takım E'];
   pie1Height = 250;
-
-  // Pie 2
   pie2Series: IApexPie[];
   pie2Labels = ['Takım A', 'Takım B', 'Takım C', 'Takım D', 'Takım E'];
   pie2Height = 250;
-
-  // Pie 5
   pie5Series: IApexPie[];
   pie5Labels = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma'];
   pie5Height = 250;

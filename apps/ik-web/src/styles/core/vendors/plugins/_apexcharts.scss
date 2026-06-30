@@ -9,6 +9,15 @@
 	font-family: $font-family-sans-serif !important;
 }
 
+.apexcharts-legend-series {
+	display: flex !important;
+	align-items: center !important;
+}
+
+.apexcharts-legend-marker {
+	flex-shrink: 0;
+}
+
 .apexcharts-title-text {
 	font-weight: $font-weight-normal;
 }

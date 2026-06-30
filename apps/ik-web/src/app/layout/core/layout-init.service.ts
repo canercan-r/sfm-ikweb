@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 import { DisplayDensity } from '@lib-common';
 import { ILayout } from './default-layout.config';
 import { LayoutService } from './layout.service';
@@ -13,8 +13,6 @@ export class LayoutInitService {
 
   init() {
     this.layout.initConfig();
-
-    // init base layout
     this.initLayout();
     this.initHeader();
     this.initPageTitle();
@@ -72,8 +70,6 @@ export class LayoutInitService {
     if (tabletAndMobile) {
       document.body.setAttribute('data-st-header-mobile-fixed', 'true');
     }
-
-    // Height setup
     const height = this.layout.getProp('header.height.desktop') as string;
     const heightTabletAndMobile = this.layout.getProp('header.height.tabletAndMobile') as string;
 
@@ -144,8 +140,6 @@ export class LayoutInitService {
     if (fixedTabletAndMobileMode) {
       document.body.setAttribute('data-st-toolbar-mobile-fixed', 'true');
     }
-
-    // Height setup
     const type = this.layout.getProp('toolbar.layout') as string;
     if (type === 'toolbar1') {
       const height = this.layout.getProp('toolbar.layouts.toolbar1.height') as string;
@@ -168,8 +162,6 @@ export class LayoutInitService {
       'contentContainer',
       width === 'fluid' ? 'container-fluid' : width !== 'null' ? '' : 'container-xxl'
     );
-
-    // Spacing setup
     const spacing = this.layout.getProp('content.spacing.desktop') as string;
     const spacingTabletAndMobile = this.layout.getProp('content.spacing.tabletAndMobile') as string;
 
@@ -187,8 +179,6 @@ export class LayoutInitService {
     if (!display) {
       return;
     }
-
-    // Enable Aside
     document.body.setAttribute('data-st-aside-enabled', 'true');
     const theme = this.layout.getProp('aside.theme') as string;
     this.layout.setCSSClass('aside', `aside-${theme}`);
@@ -201,8 +191,6 @@ export class LayoutInitService {
     if (minimized) {
       document.body.setAttribute('data-st-aside-minimize', 'true');
     }
-
-    // Hoverable on minimize
     const hoverable = this.layout.getProp('aside.hoverable') as boolean;
     if (hoverable) {
       this.layout.setCSSClass('aside', `aside-hoverable`);

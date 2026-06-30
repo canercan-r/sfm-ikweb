@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
+﻿import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApiConfiguration } from '@ikweb-shared/utils/api-config';
@@ -6,10 +6,8 @@ import { LanguageService, LibCommonModule } from '@lib-common';
 import { CoreServiceModule, CoreUIModule, UserInfoService } from '@lib-core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import function to register Swiper custom elements
 import { LocationStrategy, PathLocationStrategy, registerLocaleData } from '@angular/common';
 import { register } from 'swiper/element/bundle';
-// register Swiper custom elements
 import { HttpClientModule } from '@angular/common/http';
 import localeEN from '@angular/common/locales/en';
 import localeTR from '@angular/common/locales/tr';
@@ -19,7 +17,6 @@ import { SharedModule } from '@ikweb-shared/shared.module';
 import { AuthService, MockAPIService } from '@mock-api';
 import { TranslateService } from '@ngx-translate/core';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-// register Swiper custom elements
 register();
 
 registerLocaleData(localeEN);
@@ -54,17 +51,12 @@ export function initLocale(userService: UserInfoService) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
-    // #mock-start#
     environment.isMockEnabled
       ? HttpClientInMemoryWebApiModule.forRoot(MockAPIService, {
         passThruUnknownUrl: true,
         dataEncapsulation: false,
       })
       : [],
-    // #mock-end#
-
-    // Libs of your application
     CoreServiceModule.forRoot(ApiConfiguration),
     CoreUIModule,
     LibCommonModule,

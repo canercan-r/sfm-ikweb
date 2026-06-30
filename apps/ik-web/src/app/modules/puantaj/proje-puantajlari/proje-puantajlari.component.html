@@ -18,7 +18,7 @@
   data-st-scroll-dependencies="#st_header, #st_toolbar"
   [attr.data-st-scroll-offset]="_sharedHelper.contentSpacingFull"
 >
-  <lib-mock-grid id="st_puantaj_body" #projePuantajlariGrid></lib-mock-grid>
+  <lib-mock-grid id="st_puantaj_body" #projePuantajlariGrid (didDoubleClick)="onRowDoubleClick($event)"></lib-mock-grid>
 </div>
 
 <ng-template #gridCellActionTemp let-cell="cell" class="colWidth">
@@ -35,15 +35,6 @@
     </igx-drop-down-item>
     <igx-drop-down-item class="border-bottom">
       {{ "Puantaj.ProjePuantajlari.OncekiDurumaDon" | translate }}
-    </igx-drop-down-item>
-    <igx-drop-down-item (click)="gunlukPuantajaGit(cell.row.data)">
-      {{ "Puantaj.ProjePuantajlari.GunlukPuantajCizelgesi" | translate }}
-    </igx-drop-down-item>
-    <igx-drop-down-item
-      class="border-bottom"
-      (click)="aylikPuantajaGit(cell.row.data)"
-    >
-      {{ "Puantaj.ProjePuantajlari.AylikPuantajCizelgesi" | translate }}
     </igx-drop-down-item>
     <igx-drop-down-item (click)="gecikmeliGunSayisiniDegistir(cell.row.data)">
       {{

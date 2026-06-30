@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+﻿import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MenuComponent } from '@ikweb-scripts/components';
 import { SharedAPIService } from '@ikweb-shared/services/apis/shared-api.service';
@@ -47,13 +47,8 @@ export class PhoneNumberCountryInnerComponent implements AfterViewInit {
   click(e?: Event) {
     let itemEl = document.querySelector(`#${this.innerId}`) as HTMLElement;
     let triggerEl = document.querySelector(`#${this.triggerId}`) as HTMLElement;
-    // let buttonEl = document.querySelector("#st_header_user_inner_toggle") as HTMLElement;
     let menu = MenuComponent.getInstance(itemEl);
-    // menu.show(itemEl);
-    // menu.mouseover(itemEl, e);
-    // menu.click(triggerEl, e)
     e ? menu.click(triggerEl, e) : menu.show(itemEl);
-    // menu.show(itemEl);
   }
 
   countrySearchFocus(e?: Event) {

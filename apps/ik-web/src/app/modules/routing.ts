@@ -16,9 +16,9 @@ const Routing: Routes = [
       import('./puantaj/puantaj.module').then((m) => m.PuantajModule),
   },
   {
-    path: 'talepler',
+    path: 'tedarik',
     loadChildren: () =>
-      import('./talepler/talepler.module').then((m) => m.TaleplerModule),
+      import('./tedarik/tedarik.module').then((m) => m.TedarikModule),
   },
   {
     path: '',

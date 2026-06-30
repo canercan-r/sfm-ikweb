@@ -19,9 +19,9 @@ export class ApexBar2Component implements OnInit {
 
   public chartOptions: any = {};
 
-  public gray500 = '#a1a5b7';
-  public gray300 = '#e1e3ea';
-  public gray200 = '#f4f4f4';
+  public gray500 = 'var(--gray-500)';
+  public gray300 = 'var(--gray-300)';
+  public gray200 = 'var(--gray-200)';
 
   ngOnInit(): void {
     this.chartOptions = this.getChartOptions();

@@ -1,6 +1,4 @@
-<div class="d-flex align-items-center" [ngClass]="toolbarButtonMarginClass">
-  <!-- <ikweb-search [searchType]="2" [toolbarButtonHeightClass]="toolbarButtonHeightClass" [toolbarButtonIconSizeClass]="toolbarButtonIconSizeClass">
-  </ikweb-search> -->
+﻿<div class="d-flex align-items-center" [ngClass]="toolbarButtonMarginClass">
 </div>
 
 <div [ngClass]="toolbarSeparatorClass"></div>
@@ -50,28 +48,6 @@
   </div>
 </div>
 
-<!-- <div class="d-flex align-items-center" *ngIf="user$ | async as _user" [ngClass]="toolbarButtonMarginClass" id="st_header_user_menu_toggle">
-
-  <div
-    *ngIf="user$ | async as user"
-    class="btn btn-icon btn-color-gray-700 btn-active-light-primary"
-    [ngClass]="toolbarButtonHeightClass"
-    data-st-menu-trigger="click"
-    data-st-menu-attach="parent"
-    data-st-menu-placement="bottom-end"
-    data-st-menu-flip="bottom"
-  >
-    <ikweb-symbol type="img" size="25px" sizemd="30px" bgcolor="primary" [label1]="_user?.adi" [label2]="_user?.soyadi"></ikweb-symbol>
-  </div>
-
-  <div
-    data-st-menu="true"
-    id="st_topbar_user_inner"
-    class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px"
-  >
-    <ikweb-user-inner [innerId]="'st_topbar_user_inner'"></ikweb-user-inner>
-  </div>
-</div> -->
 
 <ng-container *ngIf="headerLeft === 'menu'">
   <div

@@ -1,0 +1,169 @@
+<div class="siparis-detay">
+  <ul class="nav nav-tabs nav-line-tabs mb-0 px-3">
+    <li class="nav-item">
+      <a
+        class="nav-link fw-semibold"
+        [class.active]="activeTab === 'malzeme'"
+        (click)="activeTab = 'malzeme'"
+      >
+        {{ "Talepler.Siparisler.SiparisMalzemeleri" | translate }}
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link fw-semibold"
+        [class.active]="activeTab === 'uygunsuzluk'"
+        (click)="activeTab = 'uygunsuzluk'"
+      >
+        {{ "Talepler.Siparisler.Uygunsuzluklar" | translate }}
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link fw-semibold"
+        [class.active]="activeTab === 'teslimFisi'"
+        (click)="activeTab = 'teslimFisi'"
+      >
+        {{ "Talepler.Siparisler.TeslimFisleri" | translate }}
+      </a>
+    </li>
+  </ul>
+
+  <div [hidden]="activeTab !== 'malzeme'" class="table-responsive">
+    <table class="table table-sm table-hover mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th
+            *ngFor="let col of malzemeColumns"
+            scope="col"
+            [class.text-end]="col.align === 'end'"
+          >
+            {{ col.label | translate }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredMalzemeleri">
+          <td
+            *ngFor="let col of malzemeColumns"
+            [class.text-end]="col.align === 'end'"
+          >
+            {{ item[col.key] }}
+          </td>
+        </tr>
+        <tr *ngIf="filteredMalzemeleri.length === 0">
+          <td
+            [colSpan]="malzemeColumns.length"
+            class="text-center text-muted py-3"
+          >
+            {{ "Gridler.GridEmptyMessage" | translate }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div [hidden]="activeTab !== 'uygunsuzluk'" class="table-responsive">
+    <table class="table table-sm table-hover mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th *ngFor="let col of uygunsuzlukColumns" scope="col">
+            {{ col.label | translate }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredUygunsuzluklar">
+          <td *ngFor="let col of uygunsuzlukColumns">{{ item[col.key] }}</td>
+        </tr>
+        <tr *ngIf="filteredUygunsuzluklar.length === 0">
+          <td
+            [colSpan]="uygunsuzlukColumns.length"
+            class="text-center text-muted py-3"
+          >
+            {{ "Gridler.GridEmptyMessage" | translate }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div [hidden]="activeTab !== 'teslimFisi'" class="table-responsive">
+    <table class="table table-sm table-hover mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col" class="w-auto">
+            {{ "Talepler.Siparisler.Islemler" | translate }}
+          </th>
+          <th
+            *ngFor="let col of teslimFisleriColumns"
+            scope="col"
+            [class.text-end]="col.align === 'end'"
+          >
+            {{ col.label | translate }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredTeslimFisleri">
+          <td class="w-auto">
+            <button
+              class="btn btn-sm btn-icon"
+              [igxToggleAction]="teslimDropdown"
+              [igxDropDownItemNavigation]="teslimDropdown"
+            >
+              <igx-icon class="more_vert_icon" family="material"
+                >more_vert</igx-icon
+              >
+            </button>
+            <igx-drop-down #teslimDropdown [width]="'260px'">
+              <igx-drop-down-item
+                multiLevel
+                [innerDropdown]="uygunsuzlukDropdown"
+              >
+                <span
+                  class="d-flex justify-content-between align-items-center w-100"
+                >
+                  {{
+                    "Talepler.Siparisler.YeniGUHUygunsuzlukGirisi" | translate
+                  }}
+                </span>
+              </igx-drop-down-item>
+              <igx-drop-down-item>{{
+                "Talepler.Siparisler.GonderiKaydiOlustur" | translate
+              }}</igx-drop-down-item>
+              <igx-drop-down-item>{{
+                "Talepler.Siparisler.Incele" | translate
+              }}</igx-drop-down-item>
+            </igx-drop-down>
+            <igx-drop-down #uygunsuzlukDropdown [width]="'220px'">
+              <igx-drop-down-item (click)="goToUygunsuzlukFormu('teslimat')">{{
+                "Talepler.Siparisler.TeslimatUygunsuzlugu" | translate
+              }}</igx-drop-down-item>
+              <igx-drop-down-item (click)="goToUygunsuzlukFormu('hizmet')">{{
+                "Talepler.Siparisler.HizmetUygunsuzlugu" | translate
+              }}</igx-drop-down-item>
+              <igx-drop-down-item (click)="goToUygunsuzlukFormu('kalite')">{{
+                "Talepler.Siparisler.KaliteUygunsuzlugu" | translate
+              }}</igx-drop-down-item>
+            </igx-drop-down>
+          </td>
+          <td
+            *ngFor="let col of teslimFisleriColumns"
+            [class.text-end]="col.align === 'end'"
+          >
+            {{ item[col.key] }}
+          </td>
+        </tr>
+        <tr *ngIf="filteredTeslimFisleri.length === 0">
+          <td
+            [colSpan]="teslimFisleriColumns.length + 1"
+            class="text-center text-muted py-3"
+          >
+            {{ "Gridler.GridEmptyMessage" | translate }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

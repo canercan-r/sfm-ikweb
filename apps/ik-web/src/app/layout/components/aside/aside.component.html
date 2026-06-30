@@ -1,6 +1,4 @@
-<!-- begin::Brand -->
-<div class="aside-logo py-8" id="st_aside_logo" *ngIf="asideLogo">
-  <!-- begin::Logo -->
+﻿<div class="aside-logo py-8" id="st_aside_logo" *ngIf="asideLogo">
   <a routerLink="/" class="d-flex align-items-center">
     <img
       alt="Logo"
@@ -8,11 +6,8 @@
       class="h-25px logo"
     />
   </a>
-  <!-- end::Logo -->
 </div>
-<!-- end::Brand  -->
 
-<!-- begin::Aside toggle -->
 <ng-container *ngIf="asideMinimize">
   <div
     id="st_app_aside_toggle"
@@ -25,9 +20,7 @@
     <i class="fa-solid fa-chevron-right fs-3 rotate-180"></i>
   </div>
 </ng-container>
-<!-- end::Aside toggler -->
 
-<!-- begin::Aside menu -->
 <div
   #stAsideScroll
   id="st_aside_nav"
@@ -41,8 +34,5 @@
   >
   </ikweb-aside-menu>
 </div>
-<!-- end::Aside menu -->
 
-<!-- begin::Footer -->
 <div class="aside-footer flex-column-auto" id="st_aside_footer"></div>
-<!-- end::Footer -->

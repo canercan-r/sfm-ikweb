@@ -29,10 +29,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let p of gunlukPuantaj">
-          <td
-            [ngClass]="{ 'pt-0': col == 'aylikKilitli' }"
-            *ngFor="let col of normalKolonlar"
-          >
+          <td *ngFor="let col of normalKolonlar">
             <ng-container [ngSwitch]="col">
               <ng-container *ngSwitchCase="'aylikKilitli'">
                 <ikweb-checkbox

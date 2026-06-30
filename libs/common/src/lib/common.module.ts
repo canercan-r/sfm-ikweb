@@ -27,6 +27,7 @@ import { TextareaComponent } from './components/textarea/textarea.component';
 import { TimeComponent } from './components/time.component';
 import { AutoFocusDirective, NumberOnlyDirective, PhoneMaskDirective, SelectLabelDirective } from './directives';
 import { CurrencyMaskDirective } from './directives/currency-mask.directive';
+import { MultiLevelDropDownDirective } from './directives/multilevel-dropdown.directive';
 import { NumbersOnly } from './directives/numbersOnly';
 import {
   CallBackPipe,
@@ -69,7 +70,8 @@ const Directives = [
   NumberOnlyDirective,
   SelectLabelDirective,
   CurrencyMaskDirective,
-  NumbersOnly
+  NumbersOnly,
+  MultiLevelDropDownDirective
 ];
 const Components = [
   FullscreenComponent,

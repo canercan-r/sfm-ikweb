@@ -1,4 +1,4 @@
-<div class="d-flex flex-stack" *ngIf="inputGroupType == 'border'">
+﻿<div class="d-flex flex-stack" *ngIf="inputGroupType == 'border'">
   <label
     class="form-label"
     igxLabel
@@ -73,11 +73,6 @@
 </ng-container>
 
 <div class="position-relative" [hidden]="type !== 'tel'">
-  <!-- <ikweb-phone-number-country-inner
-    [innerId]="innerId"
-    [triggerId]="triggerId"
-    (countryChangeEmit)="countryChange($event)"
-  ></ikweb-phone-number-country-inner> -->
   <igx-input-group [type]="inputGroupType">
     <igx-prefix *ngIf="prefix" class="w-50px"> </igx-prefix>
     <label

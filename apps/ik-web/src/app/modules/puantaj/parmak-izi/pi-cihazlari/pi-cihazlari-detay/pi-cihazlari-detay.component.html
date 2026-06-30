@@ -1,0 +1,140 @@
+<ikweb-toolbar [backClick]="true" [bc$]="bc$"> </ikweb-toolbar>
+
+<div id="st_pi_cihazlari_detay_form_card" class="card">
+  <div class="card-body">
+    <h5 class="fw-bold mb-6">
+      {{
+        "Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.CihazBilgileri"
+          | translate
+      }}
+    </h5>
+
+    <form [formGroup]="form" class="row row-gap-5">
+      <section class="col-xs-12 col-sm-6 col-md-3">
+        <ikweb-input
+          name="cihazNo"
+          label="Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.CihazNo"
+          formControlName="cihazNo"
+        ></ikweb-input>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-3">
+        <ikweb-input
+          name="cihazAdi"
+          label="Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.CihazAdi"
+          formControlName="cihazAdi"
+        ></ikweb-input>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-3">
+        <ikweb-input
+          name="cihazIP"
+          label="Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.CihazIP"
+          formControlName="cihazIP"
+        ></ikweb-input>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-3">
+        <ikweb-input
+          name="cihazPort"
+          label="Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.CihazPortNo"
+          formControlName="cihazPort"
+        ></ikweb-input>
+      </section>
+
+      <section
+        class="col-xs-12 col-sm-6 col-md-3 d-flex align-items-end gap-4 pb-2"
+      >
+        <ikweb-checkbox
+          label="Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.Pasif"
+          formControlName="pasif"
+        ></ikweb-checkbox>
+        <ikweb-checkbox
+          label="Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.Giris"
+          formControlName="giris"
+        ></ikweb-checkbox>
+        <ikweb-checkbox
+          label="Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.Cikis"
+          formControlName="cikis"
+        ></ikweb-checkbox>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-3">
+        <ikweb-select
+          name="cihazTuru"
+          label="Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.CihazTuru"
+          formControlName="cihazTuru"
+          [data]="[]"
+          valueKey=""
+          displayKey=""
+        ></ikweb-select>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-3">
+        <ikweb-date-picker
+          name="sonOkumaTarihi"
+          label="Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.SonOkumaTarihi"
+          formControlName="sonOkumaTarihi"
+        ></ikweb-date-picker>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-3">
+        <ikweb-select
+          name="masterCihaz"
+          label="Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.MasterCihaz"
+          formControlName="masterCihaz"
+          [data]="[]"
+          valueKey=""
+          displayKey=""
+        ></ikweb-select>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-3">
+        <ikweb-select
+          name="cihazKullanimTipi"
+          label="Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.CihazKullanimTipi"
+          formControlName="cihazKullanimTipi"
+          [data]="[]"
+          valueKey=""
+          displayKey=""
+        ></ikweb-select>
+      </section>
+    </form>
+
+    <div class="d-flex justify-content-end gap-2">
+      <button class="btn btn-sm btn-warning" (click)="projeEkle()">
+        {{ "Global.Ekle" | translate }}
+      </button>
+      <button class="btn btn-sm btn-success" (click)="kaydet()">
+        {{ "Global.Kaydet" | translate }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="card card-spacing-reset mt-1"
+  data-st-scroll="true"
+  data-st-scroll-save-state="false"
+  data-st-scroll-height="auto"
+  data-st-scroll-wrappers="#st_pi_cihazlari_detay_body"
+  data-st-scroll-dependencies="#st_header, #st_toolbar, #st_pi_cihazlari_detay_form_card"
+  [attr.data-st-scroll-offset]="_sharedHelper.contentSpacingFull"
+>
+  <lib-mock-grid id="st_pi_cihazlari_detay_body" #projelerGrid></lib-mock-grid>
+</div>
+
+<ng-template #gridCellActionTemp let-cell="cell">
+  <button
+    class="btn"
+    [igxToggleAction]="dropdownCell"
+    [igxDropDownItemNavigation]="dropdownCell"
+  >
+    <igx-icon class="more_vert_icon" family="material">more_vert</igx-icon>
+  </button>
+  <igx-drop-down #dropdownCell [width]="'160px'">
+    <igx-drop-down-item (click)="projeSil(cell.row.data)">
+      {{ "Global.Sil" | translate }}
+    </igx-drop-down-item>
+  </igx-drop-down>
+</ng-template>

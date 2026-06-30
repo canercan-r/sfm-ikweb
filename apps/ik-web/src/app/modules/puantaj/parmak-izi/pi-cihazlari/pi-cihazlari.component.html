@@ -1,0 +1,43 @@
+<ikweb-toolbar [bc$]="bc$">
+  <div action class="d-flex align-items-center gap-2">
+    <button class="btn btn-sm btn-success" (click)="yeniKayit()">
+      <span>{{ "Global.YeniKayit" | translate }}</span>
+    </button>
+    <button class="btn btn-sm btn-yellow" (click)="openFilterModal()">
+      <span
+        ><i class="fa-duotone fa-solid fa-filter-list me-1"></i
+        >{{ "Global.Filtre" | translate }}</span
+      >
+    </button>
+  </div>
+</ikweb-toolbar>
+
+<div
+  class="card card-spacing-reset"
+  data-st-scroll="true"
+  data-st-scroll-save-state="false"
+  data-st-scroll-height="auto"
+  data-st-scroll-wrappers="#st_pi_cihazlari_body"
+  data-st-scroll-dependencies="#st_header, #st_toolbar"
+  [attr.data-st-scroll-offset]="_sharedHelper.contentSpacingFull"
+>
+  <lib-mock-grid id="st_pi_cihazlari_body" #piCihazlariGrid></lib-mock-grid>
+</div>
+
+<ng-template #gridCellActionTemp let-cell="cell">
+  <button
+    class="btn"
+    [igxToggleAction]="dropdownCell"
+    [igxDropDownItemNavigation]="dropdownCell"
+  >
+    <igx-icon class="more_vert_icon" family="material">more_vert</igx-icon>
+  </button>
+  <igx-drop-down #dropdownCell [width]="'200px'">
+    <igx-drop-down-item (click)="duzenle(cell.row.data)">
+      {{ "Global.Duzenle" | translate }}
+    </igx-drop-down-item>
+    <igx-drop-down-item (click)="sil(cell.row.data)">
+      {{ "Global.Sil" | translate }}
+    </igx-drop-down-item>
+  </igx-drop-down>
+</ng-template>

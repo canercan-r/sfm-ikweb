@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+﻿import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PageLink } from '@ikweb-layout/core/page-info.service';
 import { IGunlukPuantaj, IPuantaj } from '@ikweb-models/components';
@@ -79,8 +79,6 @@ export class GunlukPuantajComponent implements OnInit {
     if (gunIndex == null) return;
 
     row.gunlerUi[gunIndex] = durum;
-
-    //todo: api güncellemesi eklenecek
   }
 
   fazlaMesaiGir(row: IGunlukPuantaj) {

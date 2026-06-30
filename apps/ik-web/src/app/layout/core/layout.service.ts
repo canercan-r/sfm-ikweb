@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 import { ApiConfiguration } from '@ikweb-shared/utils/api-config';
 import * as objectPath from 'object-path';
 import { BehaviorSubject } from 'rxjs';
@@ -56,20 +56,14 @@ export class LayoutService {
   public layoutConfigSubject: BehaviorSubject<LayoutType> = new BehaviorSubject<LayoutType>(
     undefined
   );
-
-  // scope list of css classes
   private classes: {
     [key: string]: string[];
   } = getEmptyCssClasses();
-
-  // scope list of html attributes
   private attrs: {
     [key: string]: {
       [attrName: string]: string | boolean;
     };
   } = getEmptyHTMLAttributes();
-
-  // scope list of body css variables
   private cssVariables: ILayoutCSSVariables;
 
   constructor() { }

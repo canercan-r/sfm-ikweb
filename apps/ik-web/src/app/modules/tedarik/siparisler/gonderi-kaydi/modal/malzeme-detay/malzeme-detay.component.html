@@ -1,0 +1,81 @@
+<div class="card card-spacing-reset">
+  <div class="card-body" id="st_malzemeDetay_cardBody">
+    <form [formGroup]="form" class="row row-gap-3">
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-input
+          name="malzemeKodu"
+          label="Talepler.GonderiKaydi.MalzemeDetay.MalzemeKodu"
+          formControlName="malzemeKodu"
+        ></ikweb-input>
+      </section>
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-select
+          name="malzemeTuru"
+          label="Talepler.GonderiKaydi.MalzemeDetay.MalzemeTuru"
+          formControlName="malzemeTuru"
+          [data]="[]"
+          valueKey=""
+          displayKey=""
+        ></ikweb-select>
+      </section>
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-end pb-1">
+        <ikweb-checkbox
+          name="talepEdilmeyenleriGoster"
+          label="Talepler.GonderiKaydi.MalzemeDetay.TalepEdilmeyenleriGoster"
+          formControlName="talepEdilmeyenleriGoster"
+        ></ikweb-checkbox>
+      </section>
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-end pb-1">
+        <button class="btn btn-sm btn-primary w-50" (click)="listele()">
+          {{ "Talepler.GonderiKaydi.MalzemeDetay.Listele" | translate }}
+        </button>
+      </section>
+
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-input
+          name="malzemeAdi"
+          label="Talepler.GonderiKaydi.MalzemeDetay.MalzemeAdi"
+          formControlName="malzemeAdi"
+        ></ikweb-input>
+      </section>
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <ikweb-select
+          name="malzemeGrubu"
+          label="Talepler.GonderiKaydi.MalzemeDetay.MalzemeGrubu"
+          formControlName="malzemeGrubu"
+          [data]="[]"
+          valueKey=""
+          displayKey=""
+        ></ikweb-select>
+      </section>
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-end pb-1">
+        <ikweb-checkbox
+          name="kullanimDisindaOlanlariGoster"
+          label="Talepler.GonderiKaydi.MalzemeDetay.KullanimDisindaOlanlariGoster"
+          formControlName="kullanimDisindaOlanlariGoster"
+        ></ikweb-checkbox>
+      </section>
+      <section class="col-xs-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-end pb-1">
+        <button class="btn btn-sm btn-outline btn-outline-primary w-50">
+          {{ "Talepler.GonderiKaydi.MalzemeDetay.ExceldenAktar" | translate }}
+        </button>
+      </section>
+    </form>
+  </div>
+
+  <div
+    id="st_malzemeDetay_scroll"
+    data-st-scroll="true"
+    data-st-scroll-save-state="false"
+    data-st-scroll-height="auto"
+    data-st-scroll-wrappers="#st_malzemeDetay_body"
+    data-st-scroll-dependencies="#st_malzemeDetay_cardBody"
+    [attr.data-st-scroll-offset]="_sharedHelper.contentSpacing"
+  >
+    <lib-mock-grid
+      id="st_malzemeDetay_body"
+      #malzemeGrid
+      (didDoubleClick)="rowSelected($event)"
+    ></lib-mock-grid>
+  </div>
+</div>

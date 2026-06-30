@@ -1,0 +1,52 @@
+:host {
+  display: block;
+  width: 100%;
+  padding-right: 3rem;
+}
+
+.siparis-detay {
+  width: 100%;
+  background: #fff;
+
+  .nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .nav-link {
+    cursor: pointer;
+
+    &.active {
+      color: #000;
+    }
+  }
+
+  .table-responsive {
+    width: 100%;
+  }
+
+  .table {
+    th,
+    td {
+      border-top: 1px solid #dee2e6;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+      font-size: 0.85rem;
+      vertical-align: middle;
+    }
+
+    th {
+      font-weight: 600;
+    }
+
+    td {
+      font-weight: 400;
+    }
+
+    th:first-child,
+    td:first-child {
+      padding-left: 1rem;
+    }
+  }
+
+}

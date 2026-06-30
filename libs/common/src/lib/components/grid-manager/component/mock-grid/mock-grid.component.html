@@ -19,7 +19,7 @@
     #defaultPaginator
     [perPage]="gridOption?.perPage"
     [(page)]="theGrid.page"
-    [totalRecords]="theGrid.totalRecords"
+    [totalRecords]="totalCount"
     [selectOptions]="selectOptions"
   >
     <igx-paginator-content>
@@ -77,14 +77,14 @@
     [field]="column.field"
     [headerTemplate]="columnHeader"
     [header]="getFieldTranslate(column.field) | translate"
-    [sortable]="!column.colRef && column.sortable"
-    [filterable]="!column.colRef && column.filterable"
+    [sortable]="!column.colRef && (column.sortable ?? true)"
+    [filterable]="!column.colRef && (column.filterable ?? true)"
     [pinned]="column.pinned"
     [width]="column.width"
     [minWidth]="column.minWidth"
     [maxWidth]="column.maxWidth"
     [dataType]="column.type"
-    [resizable]="column.resizable ?? false"
+    [resizable]="column.resizable ?? true"
   >
     <ng-template igxCell let-cell="cell">
       <ng-container *ngIf="column.colRef">
@@ -96,6 +96,7 @@
       <ng-container
         *ngIf="
           !column.colRef &&
+          !isBoolean(cell.value) &&
           gridOption?.gridId.toString() ===
             LibGrids.periyodikBakimTakvimiBakimGrid.toString()
         "
@@ -136,9 +137,21 @@
         </ng-template>
       </ng-container>
 
+      <ng-container *ngIf="!column.colRef && isBoolean(cell.value)">
+        <div class="d-flex justify-content-center">
+          <input
+            type="checkbox"
+            class="form-check-input w-20px h-20px"
+            [checked]="cell.value"
+            (click)="$event.preventDefault()"
+          />
+        </div>
+      </ng-container>
+
       <ng-container
         *ngIf="
           !column.colRef &&
+          !isBoolean(cell.value) &&
           gridOption?.gridId.toString() !==
             LibGrids.periyodikBakimTakvimiBakimGrid.toString()
         "
@@ -152,5 +165,16 @@
 <ng-template let-column #columnHeader>
   <div class="title-inner">
     {{ column.header }}
+  </div>
+</ng-template>
+
+<ng-template #booleanCell let-cell="cell">
+  <div class="d-flex justify-content-center">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      [checked]="cell.value"
+      (click)="$event.preventDefault()"
+    />
   </div>
 </ng-template>

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+﻿import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NavigationCancel, NavigationEnd, Router } from '@angular/router';
 import { MenuComponent } from '@ikweb-scripts/components';
 import { DeviceDetectorService } from 'ngx-device-detector';
@@ -12,7 +12,6 @@ import { LayoutService } from './core/layout.service';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit, AfterViewInit {
-  // Public variables
   selfLayout = 'default';
   asideSelfDisplay: true;
   asideMenuStatic: true;
@@ -29,7 +28,6 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   footerCSSClasses: string;
   headerCSSClasses: string;
   headerHTMLAttributes: any = {};
-  // offcanvases
   extrasSearchOffcanvasDisplay = false;
   extrasNotificationsOffcanvasDisplay = false;
   extrasQuickActionsOffcanvasDisplay = false;
@@ -55,11 +53,9 @@ export class LayoutComponent implements OnInit, AfterViewInit {
     private router: Router
   ) {
     this.initService.init();
-    // this.routingChanges();
   }
 
   ngOnInit(): void {
-    // build view by layout config settings
     this.asideDisplay = this.layout.getProp('aside.display') as boolean;
     this.toolbarDisplay = this.layout.getProp('toolbar.display') as boolean;
     this.footerDisplay = this.layout.getProp('footer.display') as boolean;

@@ -50,6 +50,7 @@
     "Download": "İndir",
     "DownloadAttachment": "Ek Dosya İndir",
     "DownloadStarted": "İndirme İşlemi Başlatıldı Lütfen Bekleyiniz",
+    "Duzenle": "Düzenle",
     "EPostaAlaniBosGecilemez": "E-Posta Alanı Boş Geçilemez",
     "EPostaAlaniGecersiz": "E-Posta Alanı Geçersiz",
     "EPostaEnAz3SembolIcermelidir": "E-Posta En Az 3 Sembol İçermelidir",
@@ -63,6 +64,7 @@
     "EskiSifreYeniSifreAyniOlamaz": "Eski Şifre ile Yeni Şifre Alanı Aynı Olamaz.",
     "Evet": "Evet",
     "ExcelExport": "Excel Export",
+    "ExceldenAl": "Excelden Al",
     "Eylul": "Eylül",
     "FarkliKaydet": "Farklı Kaydet",
     "Filter": "Filtrele",
@@ -80,6 +82,7 @@
     "IslemBasarisiz": "İşlem Başarısız",
     "IslemSirasindaHata": "İşlem sırasında hata oluştu !",
     "Kasim": "Kasım",
+    "Kaydet": "Kaydet",
     "KullaniciAdiEnAz3SembolIcermelidir": "Kullanıcı Adı En Az 3 Sembol İçermelidir",
     "KullaniciAdiGirisiBosGecilemez": "Kullanıcı Adı Boş Geçilemez",
     "KullaniciAdiGirisiYapiniz": "Kullanıcı Adı Girişi Yapınız",
@@ -114,6 +117,7 @@
     "SifreTekrarAlaniBosGecilemez": "Şifre Tekrar Alanı Boş Geçilemez",
     "SifreVeSifreTekrarAlanlariAyniOlmalidir": "Şifre ve Şifre Tekrar Alanları Verileri Aynı Olmalıdır",
     "Sil": "Sil",
+    "SilOnay": "Silmek istediğinizden emin misiniz?",
     "Silindi": "Silindi",
     "SmsIletiHata": "SMS iletimi sırasında hata oluştu !",
     "SozlesmeDescription": "'ni okudum ve kabul ediyorum.",
@@ -128,6 +132,7 @@
     "Yada": "ya da",
     "Yazdir": "Yazdır",
     "Year": "Yıl",
+    "YeniKayit": "Yeni Kayıt",
     "YonlendiriliyorsunuzLutfenBekleyiniz": "Yönlendiriliyorsunuz lütfen bekleyin",
     "ZorunluAlanlariKontrolEdin": "Zorunlu Alanları Kontrol Ediniz",
     "arAR": "العربية",
@@ -319,6 +324,57 @@
         "projeAdi": "Proje Adı",
         "toplamKidemGunu": "Toplam Kıdem Günü"
       },
+      "IKWeb_Puantaj_ParmakIzi_GunlukCalisma": {
+        "adiSoyadi": "Adı Soyadı",
+        "cikis": "Çıkış",
+        "erkenGiris": "Erken Giriş",
+        "gecCikis": "Geç Çıkış",
+        "gecGiris": "Geç Giriş",
+        "giris": "Giriş",
+        "gunlukCalisma": "Günlük Çalışma",
+        "pozisyon": "Pozisyon",
+        "sicilNo": "Sicil No",
+        "siraNo": "Sıra No",
+        "tarih": "Tarih",
+        "vardiyaPlani": "Vardiya Planı"
+      },
+      "IKWeb_Puantaj_ParmakIzi_IseBaslayanlar": {
+        "adiSoyadi": "Adı Soyadı",
+        "babaAdi": "Baba Adı",
+        "cikisTarihi": "Çıkış Tarihi",
+        "dogumTarihi": "Doğum Tarihi",
+        "girisTarihi": "Giriş Tarihi",
+        "kurumKodu": "Kurum Kodu",
+        "projeAdi": "Proje Adı",
+        "sicilNo": "Sicil No",
+        "sskNo": "SSK No",
+        "tcKimlik": "TC Kimlik",
+        "turu": "Türü"
+      },
+      "IKWeb_Puantaj_ParmakIzi_PiCihazlari": {
+        "Islem": "İşlem",
+        "cihazAdi": "Cihaz Adı",
+        "cihazIP": "Cihaz IP",
+        "cihazNo": "Cihaz No",
+        "cihazPort": "Cihaz Port",
+        "cikis": "Çıkış",
+        "giris": "Giriş",
+        "masterCihaz": "Master Cihaz",
+        "sonOkumaTarihi": "Son Okuma Tarihi"
+      },
+      "IKWeb_Puantaj_ParmakIzi_PiCihazlari_Projeler": {
+        "Islem": "İşlem",
+        "projeAdi": "Proje Adı",
+        "projeKodu": "Proje Kodu"
+      },
+      "IKWeb_Puantaj_ParmakIzi_ProjeSecimi": {
+        "hizmetTuru": "Hizmet Türü",
+        "kurumAdi": "Kurum Adı",
+        "projeAdi": "Proje Adı",
+        "projeKodu": "Proje Kodu",
+        "segment": "Segment",
+        "segmentYoneticileri": "Segment Yöneticileri"
+      },
       "IKWeb_Puantaj_PuantajKontrol": {
         "calisanTutari": "Çalışan Tutarı",
         "fazlaMesaiTutari": "Fazla Mesai Tutarı",
@@ -350,11 +406,26 @@
         "miktar": "Miktar",
         "urunResmi": "Ürün Resmi"
       },
+      "IKWeb_Talepler_Dosyalar": {
+        "Islem": "İşlem",
+        "aciklama": "Açıklama",
+        "dosyaAdi": "Dosya Adı",
+        "dosyaBoyutu": "Dosya Boyutu",
+        "dosyaTuru": "Dosya Türü",
+        "eklemeTarihi": "Ekleme Tarihi",
+        "gecerlilikTarihi": "Geçerlilik Tarihi",
+        "path": "Path"
+      },
       "IKWeb_Talepler_TedarikTalepleri": {
         "Islem": "İşlem",
+        "direktor": "Direktör",
+        "direktorYardimcisi": "Direktör Yardımcısı",
         "durumu": "Durumu",
+        "hizmetTuru": "Hizmet Türü",
+        "kurum": "Kurum",
         "projeAdi": "Proje Adı",
         "projeKodu": "Proje Kodu",
+        "projeSorumlusu": "Proje Sorumlusu",
         "segment": "Segment",
         "talepNo": "Talep No"
       },
@@ -371,6 +442,93 @@
         "talepNo": "Talep No",
         "talepTarihi": "Talep Tarihi",
         "talepTuru": "Talep Türü"
+      },
+      "IKWeb_Tedarik_Siparisler": {
+        "acikUygunsuzlukSayisi": "Açık Uygunsuzluk Sayısı",
+        "donem": "Dönem",
+        "projeAdi": "Proje Adı",
+        "projeKodu": "Proje Kodu",
+        "siparisDurumu": "Sipariş Durumu",
+        "siparisNo": "Sipariş No",
+        "talepNo": "Talep No",
+        "talepTuru": "Talep Türü",
+        "tarih": "Tarih",
+        "tedarikci": "Tedarikçi",
+        "tedarikciOnayi": "Tedarikçi Onayı",
+        "teslimTarihi": "Teslim Tarihi",
+        "uygunsuzlukSayisi": "Uygunsuzluk Sayısı"
+      },
+      "IKWeb_Tedarik_Siparisler_Malzemeler": {
+        "acikUygunsuzlukSayisi": "Açık Uygunsuzluk Sayısı",
+        "birimi": "Birimi",
+        "faturaMiktari": "Fatura Miktarı",
+        "malzemeAdi": "Malzeme Adı",
+        "siparisMiktari": "Sipariş Miktarı",
+        "teslimAlinanMiktar": "Teslim Alınan Miktar",
+        "teslimEdilenMiktar": "Teslim Edilen Miktar",
+        "uygunsuzlukSayisi": "Uygunsuzluk Sayısı"
+      },
+      "IKWeb_Tedarik_Siparisler_TeslimFisleri": {
+        "NFCEtiketNo": "NFC Etiket No",
+        "ekipmanKodu": "Ekipman Kodu",
+        "fisNo": "Fiş No",
+        "fisTarihi": "Fiş Tarihi",
+        "malzemeAdi": "Malzeme Adı",
+        "malzemeKodu": "Malzeme Kodu",
+        "siparisMiktari": "Sipariş Miktarı",
+        "teslimAlindi": "Teslim Alındı",
+        "teslimMiktari": "Teslim Miktarı",
+        "ureticiSeriNo": "Üretici Seri No"
+      },
+      "IKWeb_Tedarik_Siparisler_UygunsuzlukMalzemeGirisleri": {
+        "Islem": "İşlemler",
+        "aciklama": "Açıklama",
+        "birimi": "Birimi",
+        "malzemeAdi": "Malzeme Adı",
+        "malzemeKodu": "Malzeme Kodu",
+        "siparisMiktari": "Sipariş Miktarı",
+        "uygunsuzMiktar": "Uygunsuz Miktar"
+      },
+      "IKWeb_Tedarik_Siparisler_Uygunsuzluklar": {
+        "aciklama": "Açıklama",
+        "tarih": "Tarih",
+        "uygunsuzlukDurumu": "Uygunsuzluk Durumu",
+        "uygunsuzlukNo": "Uygunsuzluk No",
+        "uygunsuzlukTuru": "Uygunsuzluk Türü"
+      },
+      "IKWeb_Tedarik_Siparisler_GonderiKaydi": {
+        "birim": "Birimi",
+        "malzemeAdi": "Malzeme Adı",
+        "malzemeKodu": "Malzeme Kodu",
+        "miktar": "Miktar"
+      },
+      "IKWeb_Tedarik_Siparisler_GonderiKaydi_Fatura": {
+        "faturaNo": "Fatura No",
+        "faturaTuru": "Fatura Türü",
+        "kurum": "Kurum",
+        "projeDirektoru": "Proje Direktörü",
+        "projeAdi": "Proje Adı",
+        "tarih": "Tarih",
+        "tedarikci": "Tedarikçi",
+        "tutar": "Tutar"
+      },
+      "IKWeb_Tedarik_Siparisler_GonderiKaydi_Irsaliye": {
+        "ETTN": "ETTN",
+        "durum": "Durum",
+        "duzenlemeTarihi": "Düzenleme Tarihi",
+        "eIrsaliyeSiparisNo": "E-İrsaliye Sipariş No",
+        "gonderenUnvani": "Gönderen Ünvanı",
+        "irsaliyeNo": "İrsaliye No",
+        "sevkTarihi": "Sevk Tarihi"
+      },
+      "IKWeb_Tedarik_Siparisler_GonderiKaydi_MalzemeDetay": {
+        "adi": "Adı",
+        "barkodu": "Barkodu",
+        "kodu": "Kodu",
+        "malzemeGrubu": "Malzeme Grubu",
+        "malzemeTuru": "Malzeme Türü",
+        "uretici": "Üretici",
+        "ureticiKodu": "Üretici Kodu"
       }
     }
   },
@@ -561,10 +719,43 @@
       "OncekiDurumaDon": "Önceki Duruma Dön",
       "Operasyon": "Operasyon",
       "ParmakIzi": {
-        "GunlukCalismaSaatiTakibi": "Daily Working Hours Tracking",
-        "IseBaslayanlarRaporu": "İşe Başlayanlar Raporu",
+        "GunlukCalismaSaatiTakibi": {
+          "BaslangicTarihi": "Başlangıç Tarihi",
+          "BitisTarihi": "Bitiş Tarihi",
+          "Personel": "Personel",
+          "Proje": "Proje",
+          "Title": "Günlük Çalışma Saati Takibi"
+        },
+        "IseBaslayanlarRaporu": {
+          "BaslangicTarihi": "Başlangıç Tarihi",
+          "BitisTarihi": "Bitiş Tarihi",
+          "Title": "İşe Başlayanlar Raporu"
+        },
         "ParmakIzi": "Parmak İzi",
-        "PiCihazlari": "Pi Cihazları",
+        "PiCihazlari": {
+          "Aktif": "Aktif",
+          "CihazAdi": "Cihaz Adı",
+          "CihazBilgileri": "Cihaz Bilgileri",
+          "CihazDurumu": "Cihaz Durumu",
+          "CihazIP": "Cihaz IP",
+          "CihazKullanimTipi": "Cihaz Kullanım Tipi",
+          "CihazNo": "Cihaz No",
+          "CihazPortNo": "Cihaz Port No",
+          "CihazTuru": "Cihaz Türü",
+          "Cikis": "Çıkış",
+          "Duzenle": "Pi Cihazı Düzenle",
+          "Giris": "Giriş",
+          "MasterCihaz": "Master Cihaz",
+          "Pasif": "Pasif",
+          "ProjeSecimi": {
+            "AktifOlanlar": "Aktif Olanlar",
+            "AktifOlmayanlar": "Aktif Olmayanlar",
+            "Kurum": "Kurum"
+          },
+          "SonOkumaTarihi": "Son Okuma Tarihi",
+          "Title": "Pi Cihazları",
+          "YeniKayit": "Pi Cihazları - Yeni Kayıt"
+        },
         "ProjePuantajParmakIziRaporu": "Proje Puantaj Parmak İzi Raporu"
       },
       "ProjedeVarsayilanGecikmeliGunUygula": "Projede Varsayılan Gecikmeli Gün Uygula",
@@ -595,10 +786,102 @@
       "Title": "Girdi Hizmet Takibi"
     },
     "GonderiKaydi": {
-      "Title": "Gönderi Kaydı"
+      "AliciB": {
+        "BinaAdi": "Bina Adı",
+        "BinaNoKapiNo": "Bina No/Kapı No",
+        "Bulvar": "Bulvar/Cadde/Sokak",
+        "Mahalle": "Mahalle/Semt/İlçe/Kasaba/Köy",
+        "PostaKodu": "Posta Kodu",
+        "Sehir": "Şehir",
+        "Ulke": "Ülke",
+        "UlkeKodu": "Ülke Kodu",
+        "Unvan": "Ünvan",
+        "VergiDairesi": "Vergi Dairesi",
+        "VergiKimlikNo": "Vergi Kimlik No"
+      },
+      "AliciBilgileri": "Alıcı Bilgileri",
+      "AliciTuru": "Alıcı Türü",
+      "AlisIrsaliyeFaturaNo": "Alış İade Fatura No",
+      "AlisSiparisNo": "Alış Sipariş No",
+      "DigerAlici": "Diğer Alıcı",
+      "Dosyalar": "Dosyalar",
+      "EIrsaliyeDurumu": "E İrsaliye Durumu",
+      "EIrsaliyeNo": "E İrsaliye No",
+      "EIrsaliyeOnayDurumu": "E İrsaliye Onay Durumu",
+      "EIrsaliyeTarihi": "E İrsaliye Tarihi",
+      "EvrakTuru": "Evrak Türü",
+      "FaturaSecimi": {
+        "AktarimDurumu": "Aktarım Durumu",
+        "Donem": "Dönem",
+        "Listele": "Listele",
+        "Tarih1": "Tarih",
+        "Tarih2": "Tarih",
+        "Title": "Fatura Seçimi"
+      },
+      "FirmaAdi": "Firma Adı",
+      "FirmaKodu": "Firma Kodu",
+      "GonderiKaydi": "Gönderi Kaydı",
+      "GonderiKaydiBilgileri": "Gönderi Kaydı Bilgileri",
+      "GonderimSekli": "Gönderim Şekli",
+      "IrsaliyeSecimi": {
+        "EIrsaliyeSorgula": "E-İrsaliye Sorgula",
+        "Kurum": "Kurum",
+        "Listele": "Listele",
+        "Tarih1": "Tarih",
+        "Tarih2": "Tarih",
+        "Title": "E-İrsaliye Seçimi"
+      },
+      "KayitNo": "Kayıt No",
+      "KayitliAlici": "Kayıtlı Alıcı",
+      "MalzemeDetay": {
+        "ExceldenAktar": "Excelden Aktar",
+        "KullanimDisindaOlanlariGoster": "Kullanım Dışında Olanları da Göster",
+        "Listele": "Listele",
+        "MalzemeAdi": "Malzeme Adı",
+        "MalzemeGrubu": "Malzeme Grubu",
+        "MalzemeKodu": "Malzeme Kodu",
+        "MalzemeTuru": "Malzeme Türü",
+        "TalepEdilmeyenleriGoster": "Talep Edilmeyenleri de Göster",
+        "Title": "Malzeme Seçimi"
+      },
+      "Proje": "Proje",
+      "Tarih": "Tarih",
+      "Tasiyici": "Taşıyıcı",
+      "Title": "Gönderi Kaydı Oluştur",
+      "Turu": "Türü"
     },
     "Siparisler": {
-      "Title": "Siparişler"
+      "BaslangicTarihi": "Başlangıç Tarihi",
+      "BitisTarihi": "Bitiş Tarihi",
+      "GonderiKaydiOlustur": "Gönderi Kaydı Oluştur",
+      "HizmetUygunsuzlugu": "Hizmet Uygunsuzluğu",
+      "Incele": "İncele",
+      "Islemler": "İşlemler",
+      "KaliteUygunsuzlugu": "Kalite Uygunsuzluğu",
+      "Proje": "Proje",
+      "SiparisMalzemeleri": "Sipariş Malzemeleri",
+      "TeslimFisleri": "Teslim Fişleri",
+      "TeslimatUygunsuzlugu": "Teslimat Uygunsuzluğu",
+      "Title": "Siparişler",
+      "UygunsuzlukFormu": {
+        "Aciklama": "Açıklama",
+        "Dosyalar": "Dosyalar",
+        "Durumu": "Durumu",
+        "FormNo": "Form No",
+        "HizmetUygunsuzluguFormu": "Hizmet Uygunsuzluğu Formu",
+        "KaliteUygunsuzluguFormu": "Kalite Uygunsuzluğu Formu",
+        "ListedenKaldir": "Listeden Kaldır (Sil)",
+        "ProjeAdi": "Proje Adı",
+        "SiparisNo": "Sipariş No",
+        "Tarih": "Tarih",
+        "TedarikciAdi": "Tedarikçi Adı",
+        "TeslimatUygunsuzluguFormu": "Teslimat Uygunsuzluğu Formu",
+        "Title": "Uygunsuzluk Formu",
+        "UygunsuzlukMalzemeGirisleri": "Uygunsuzluk Malzeme Girişleri",
+        "UygunsuzlukTuru": "Uygunsuzluk Türü"
+      },
+      "Uygunsuzluklar": "Uygunsuzluklar",
+      "YeniGUHUygunsuzlukGirisi": "Yeni G.Ü.H Uygunsuzluk Girişi"
     },
     "Tedarik": {
       "Degistir": "Değiştir",

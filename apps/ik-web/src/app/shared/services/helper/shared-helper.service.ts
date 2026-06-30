@@ -23,6 +23,8 @@ import { BehaviorSubject } from 'rxjs';
 export class SharedHelperService {
   contentSpacing: string;
   contentSpacingFull: string;
+  contentSpacingFullCardReset: string;
+  contentSpacingFirstCardReset: string;
   headerHeight: string;
   toolbarHeight: string;
   headerAndToolbarHeight: string;
@@ -89,6 +91,18 @@ export class SharedHelperService {
         this.orientation === OrientationType.Portrait
         ? '14px'
         : '-2';
+
+    this.contentSpacingFullCardReset =
+      [DeviceType.Mobile, DeviceType.Tablet].includes(this.device as DeviceType) &&
+        this.orientation === OrientationType.Portrait
+        ? '-2'
+        : '-10';
+
+    this.contentSpacingFirstCardReset =
+      [DeviceType.Mobile, DeviceType.Tablet].includes(this.device as DeviceType) &&
+        this.orientation === OrientationType.Portrait
+        ? '-24'
+        : '-48';
 
     const headerHeightDesktop = this._layout.getProp('header.height.desktop') as string;
 

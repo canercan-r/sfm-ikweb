@@ -193,6 +193,17 @@ export enum LibGrids {
   IKWeb_Talepler_Malzemeler = 193,
   IKWeb_Talepler_Dosyalar = 194,
 
+  IKWeb_Puantaj_ParmakIzi_PiCihazlari = 200,
+  IKWeb_Puantaj_ParmakIzi_PiCihazlari_Projeler = 201,
+  IKWeb_Puantaj_ParmakIzi_ProjeSecimi = 202,
+  IKWeb_Puantaj_ParmakIzi_GunlukCalisma = 203,
+  IKWeb_Puantaj_ParmakIzi_IseBaslayanlar = 204,
+  IKWeb_Tedarik_Siparisler_UygunsuzlukMalzemeGirisleri = 205,
+  IKWeb_Tedarik_Siparisler_GonderiKaydi = 206,
+  IKWeb_Tedarik_Siparisler_GonderiKaydi_MalzemeDetay = 207,
+  IKWeb_Tedarik_Siparisler_GonderiKaydi_Fatura = 208,
+  IKWeb_Tedarik_Siparisler_GonderiKaydi_Irsaliye = 209,
+
   dosyalarList = 99999,
 }
 

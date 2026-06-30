@@ -1,6 +1,5 @@
-<ng-container *ngIf="title$ | async as title">
+﻿<ng-container *ngIf="title$ | async as title">
   <ng-container *ngIf="showTitle">
-    <!-- begin::Title -->
     <h1
       class="fw-bolder my-1 fs-3 lh-1"
       [ngClass]="
@@ -13,7 +12,6 @@
     >
       {{ title | translate }}
     </h1>
-    <!-- end::Title -->
   </ng-container>
 
   <ng-container *ngIf="showBC">

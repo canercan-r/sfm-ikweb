@@ -1,0 +1,46 @@
+<div class="card card-spacing-reset">
+  <div class="card-body" id="st_projeSecimi_cardBody">
+    <form [formGroup]="form" class="d-flex align-items-end gap-4 flex-wrap">
+      <div style="min-width: 220px;">
+        <ikweb-select
+          name="kurum"
+          label="Puantaj.ProjePuantajlari.ParmakIzi.PiCihazlari.ProjeSecimi.Kurum"
+          formControlName="kurum"
+          [data]="[]"
+          valueKey=""
+          displayKey=""
+        ></ikweb-select>
+      </div>
+
+      <div class="pb-2">
+        <ikweb-radio
+          valueKey="id"
+          displayKey="name"
+          [data]="aktifDurumArr"
+          formControlName="aktifMi"
+        ></ikweb-radio>
+      </div>
+
+      <div class="pb-2">
+        <button class="btn btn-sm btn-primary" (click)="listele()">
+          {{ "Global.Listele" | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div
+    data-st-scroll="true"
+    data-st-scroll-save-state="false"
+    data-st-scroll-height="auto"
+    data-st-scroll-wrappers="#st_projeSecimi_body"
+    data-st-scroll-dependencies="#st_header, #st_toolbar, #st_projeSecimi_cardBody"
+    [attr.data-st-scroll-offset]="_sharedHelper.contentSpacing"
+  >
+    <lib-mock-grid
+      id="st_projeSecimi_body"
+      #projeSecimiGrid
+      (didDoubleClick)="onRowDoubleClick($event)"
+    ></lib-mock-grid>
+  </div>
+</div>

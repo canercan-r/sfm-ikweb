@@ -1,8 +1,7 @@
-<div
+﻿<div
   [ngClass]="headerContainerCssClasses"
   class="d-flex align-items-stretch justify-content-between"
 >
-  <!-- begin::Aside mobile toggle -->
   <ng-container *ngIf="asideDisplay">
     <div
       class="d-flex align-items-center d-lg-none ms-n3 me-1"
@@ -19,9 +18,7 @@
       </div>
     </div>
   </ng-container>
-  <!-- end::Aside mobile toggle -->
 
-  <!-- begin::Logo *mobile -->
   <ng-container
     *ngIf="
       device === DeviceType.Mobile ||
@@ -29,13 +26,10 @@
     "
     [ngTemplateOutlet]="logo"
   ></ng-container>
-  <!-- end::Logo *mobile -->
 
-  <!-- begin::Wrapper -->
   <div
     class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
   >
-    <!-- begin::Navbar -->
     <div class="d-flex align-items-center">
       <div
         *ngIf="!isHome"
@@ -78,9 +72,7 @@
       >
       </lib-fullscreen>
     </div>
-    <!-- end::Navbar -->
 
-    <!-- begin::Logo *desktop -->
     <ng-container
       *ngIf="
         device === DeviceType.Desktop ||
@@ -88,7 +80,6 @@
       "
       [ngTemplateOutlet]="logo"
     ></ng-container>
-    <!-- end::Logo *desktop -->
 
     <div class="d-flex align-items-stretch flex-shrink-0">
       <ikweb-topbar
@@ -96,11 +87,9 @@
       ></ikweb-topbar>
     </div>
   </div>
-  <!-- end::Wrapper -->
 </div>
 
 <ng-template #logo>
-  <!-- begin::Logo -->
   <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
     <a routerLink="/">
       <ng-container *ngIf="device === DeviceType.Mobile; else elseTemplate">
@@ -119,5 +108,4 @@
       </ng-template>
     </a>
   </div>
-  <!-- end::Logo -->
 </ng-template>
